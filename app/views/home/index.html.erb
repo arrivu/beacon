@@ -1,0 +1,9 @@
+  <% if user_signed_in? %>
+<%= image_tag(current_user.image, alt: "") %>
+<%= current_user.name %>
+
+
+  <% else %>
+  
+  
+  <% end  %>

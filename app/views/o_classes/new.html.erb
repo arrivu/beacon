@@ -1,0 +1,38 @@
+<% provide(:title, 'Create Online Classe') %>
+<div class="row">
+<div class="span4 offset3">
+<%= form_for(@o_classe) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :name, "Classe Name" %>
+<%= f.text_field :name %>
+
+<%= f.label :desc, "Classe Description" %>
+<%= f.text_field :desc %>
+
+<%= f.label :no_of_days, "Classe tenure" %>
+<%= f.text_field :no_of_days %>
+
+<%= f.label :start_date, "Classe start date" %>
+<%= f.date_select :start_date %>
+
+<%= f.label :end_date, "Classe end date" %>
+<%= f.date_select :end_date %>
+
+<%= f.label :no_of_hours_per_day, "Classe duration per day" %>
+<%= f.text_field :no_of_hours_per_day %>
+
+<%= f.label :start_time_of_day, "Classe start time" %>
+<%= f.time_select :start_time_of_day %>
+
+<%= f.label :end_time_of_day, "Classe end time" %>
+<%= f.time_select :end_time_of_day %>
+
+<%= f.label :no_of_student_per_class, "No of students in Classe" %>
+<%= f.text_field :no_of_student_per_class %>
+
+<br/><br/>
+<%= f.submit "Create Online Classe Course", class: "btn btn-large btn-info" %>
+<% end %>
+</div>
+</div>

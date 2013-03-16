@@ -1,0 +1,43 @@
+<div class="row">
+<div class="span12">
+<ul class="nav nav-pills .pull-left">
+  <li >
+<%= link_to "Users", users_path %>
+</li><li class="active">
+<%= link_to "Add New Course", new_course_path %>
+</li><li>
+ <%= link_to "Manage Category", topics_path %>
+  </li><li >
+ <%= link_to "New Category",new_topic_path %>
+ </ul>
+<% provide(:title, 'Create Course') %>
+<div class="row">
+<div class="span4 offset3">
+<%= form_for(@course) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :title, "Course Title" %>
+<%= f.text_field :title %>
+
+<%= f.label :author, "Author Name" %>
+<%= f.text_field :author %>
+
+<%= f.label :desc, "Course Description" %>
+<%= f.text_area :desc %>
+
+<%= f.label :image, "Course Image" %>
+<%= f.text_field :image %>
+
+<%= f.label :topic_ids, "Topics" %>
+<%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %>
+
+<br/><br/>
+<p><%= f.submit %></p>
+<% end %>
+</div>
+</div>
+<center>
+<p><%= link_to "Back to Courses", courses_path %></p>
+</center>
+</div>
+</div>

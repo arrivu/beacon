@@ -1,0 +1,13 @@
+<div id="wite_review">
+<% if user_signed_in?%>
+<%= form_for(:comment, :url => comments_path(:commentable_type =>params[:commentable_type], :commentable_id => params[:commentable])) do |f| %>
+<%= f.label :title, 'Add Review' %>
+<%= f.text_field :title ,placeholder: "Review title"%><br />
+<br>
+<%= f.text_area :comment , :rows => 5, :cols => 40 ,placeholder: "comment" %><br />
+<br>
+<%= f.submit nil, :class => 'btn btn-primary' %>
+<br />
+<% end %>
+<% end %>
+</div>

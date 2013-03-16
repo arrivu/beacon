@@ -1,0 +1,16 @@
+ <!-- Modal -->
+        <div id="sign_in_Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></a></button>
+          <div class="modal-body">
+                <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
+                <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
+                <%= f.input :password %>
+                <p> <%= f.button :submit, "Sign in", :class => 'btn-primary' %></p>
+                <% end %>
+                <br>
+                &nbsp;&nbsp;<%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
+                &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
+                &nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
+                Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google     
+            </div>
+      </div>

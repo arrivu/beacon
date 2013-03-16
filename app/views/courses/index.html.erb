@@ -1,0 +1,96 @@
+
+<div class="container">
+  <div class="row">
+    <div class="span8">
+      <% if @courses.size >= 1 %>
+
+      <div class="well">
+        
+        <%= will_paginate %>
+       
+          <%= render @courses %>
+      
+        <%= will_paginate %>
+        <% @courses.each do |course| %>
+        <% if ((course.id % @countCoursesPerPage) == 0 ) %>
+        
+        <% end %>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+      <% else %>
+      <div class="alert alert-error">
+        No courses published yet. Check upcoming courses!!!!
+      </div>
+      <% end %>
+    </div><!-- <div class="span8"> -->
+
+    <div class="span4">
+      <div class="well">
+
+               <!--  <form class="navbar-search pull-left">
+                  <input type="text" class="search-query" placeholder="Search">
+                </form>
+                <div class="clearfix"></div> -->
+
+                <div class="tabbable"> <!-- Only required for left/right tabs -->
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#categories" data-toggle="tab">Categories</a></li>
+                    <li><a href="#upcomingcourses" data-toggle="tab">Upcoming Courses</a></li>
+                  </ul>
+                  <div class="tab-content">
+
+                    <div class="tab-pane active" id="categories">
+
+
+                      <div class="categories">
+                        <% if @topics.size > 1 %>
+                        <ul class="nav nav-list">
+                          <li class="nav-header"></li>
+                          <li class="active"><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></a></li>
+                          <% @topics.each do |topic| %>    
+                          <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
+                          <li><a href="#"><%= link_to @topicStructure, topic %></a></li>
+                          <% end %>
+                        </ul>
+                        <% else %>
+                        <div class="alert alert-error">
+                          No Categoried defined!!
+                        </div>
+                        <% end %>
+                        <br/>
+                          <!-- <button id="createTopicbottom" class="btn btn-info" type="button">Add new Topic
+                        </button> -->
+                       
+                      </div>
+
+                    </div><!-- <div class="tab-pane active" id="categories"> -->
+
+                    <div class="tab-pane" id="upcomingcourses">
+
+                      <div class="upcoming">
+                        <% Course.where(ispublished: 0).all.each do |t| %>
+                        <div class="upcoming-widget">
+                          <div class="widget-thumbnail">
+                            <!-- <img src="homeOnline.jpg" width="70px" height="100px"> -->
+                            <!--#link_to image_tag("homeOnline.jpg", border 0), {action: '#', controller: '#'},class: '#'-->
+                            <%= link_to image_tag("#{t.image}", border: 0, width: "50", height: "50")%>
+                          </div><!-- end .widget-thumbnail -->
+                          <div class="widget-body">
+                            <h4><%= t.title %></h4>
+                            <span class="label label-info"><%= t.releasemonth %></span>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <% end %>
+                      </div>
+                    </div><!-- <div class="tab-pane" id="categories"> -->
+
+                  </div><!--<div class="tab-content"> -->
+                </div><!-- Only required for left/right tabs -->
+
+                
+              </div>
+            </div><!-- <div class="span3"> -->
+          </div><!-- <div class="row"> -->
+        </div><!-- <div class="container"> -->

@@ -1,0 +1,56 @@
+	
+
+<div class="row">
+        <ul class="nav nav-pills .pull-right">
+          <li>
+            <%= link_to "Courses", courses_path %>
+          </li>
+          <li><%= link_to "Tutorials", tutorials_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Online Classes", o_classes_path %></li>
+          <% end %>
+          <li class="active"><%= link_to "Blog", blogs_path %></li>
+           <li ><%= link_to "Coaches", users_path %></li>
+        </ul>
+</div>
+<div id="blogstackinshow">
+    <div id="toppart"></div>
+    <h1><%= @blog.title %></h1>
+    <div class="entry-meta">
+	      <span class="meta-author">
+	        <a href="#" title="#" rel="author">
+	        	<%= link_to User.find_by_id(@blog.user_id).name,  User.find_by_id(@blog.user_id) %>
+	        </a>
+	      </span>
+	      <span class="meta-published"><%= @blog.created_at %></span>
+	      <span class="meta-categories">
+	        <% @blog.tags.each do |tag| %>
+	          <a href="#" title="#"><%= tag.name %></a>
+	            <% if @blog.tags.last.name == tag.name %>
+	            <% else %>
+	              <span class="cat-sep">\</span>
+	            <% end %>
+	        <% end %>
+	      </span>
+	      <p style="float:left;margin:10px;">
+		      <%= link_to 'Destroy', @blog, confirm: 'Are you sure?', method: :delete %> | 
+		      <%= link_to "Edit", edit_blog_path(@blog) %>
+	      </p>
+	    <div class="clearfix"></div>
+  	</div>
+  	<div class="clearfix"></div>
+  	<center>
+  		<p>
+  		<%= link_to image_tag("#{@blog.image}", border: 0, class: "blog-image")%>
+  		</p>
+	  	<div class="blog-content">
+
+	  		<%= @blog.content %>
+		</div>
+	</center>
+	
+</div>
+<div class="clearfix"></div>
+<center>
+	<h3 style="margin:10px;"><%= link_to 'Back to Blogs', blogs_path %></h3>
+</center>

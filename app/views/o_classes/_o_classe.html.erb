@@ -1,0 +1,22 @@
+<div class="well-course">
+  
+	<h4><%= link_to o_classe.name, o_classe %></h4>
+
+ 	<div class="clearfix">
+ 	</div>
+  	<div class="entry-meta">
+       
+        <span class="meta-published"><%= o_classe.created_at %></span>
+	<span class="meta-published">Start:<%= o_classe.start_date %></span>
+	<span class="meta-published">End:<%= o_classe.end_date %></span>
+                     
+  	</div>
+  	<div class="clearfix"></div>
+  	<div class="entry-wrap">
+    	<div class="entry-content">
+          <p class="muted"><%= o_classe.desc %></p>
+          <button class="btn btn-primary btn-success" type="button">Join to Access</button>
+        </div><!-- end .entry-content -->         
+  	</div>
+  	<div class="clearfix"></div>
+</div>

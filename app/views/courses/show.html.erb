@@ -1,0 +1,22 @@
+<% provide(:title, 'Show Course') %>
+<div class="container">
+	<div class="row">
+		<div class="span12">
+			<div>
+				<%= render @course %>
+				<div>
+					<div class="row">
+						<div class="span5 offset3">
+
+							<%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+							
+						</div>
+						
+					</div>
+					<%= render :partial => 'comments/review', :locals => {:commentable => @course} %>
+				</div>
+				<%= link_to "Back to Courses", courses_path %>
+			</div>
+		</div>
+	</div>
+</div>

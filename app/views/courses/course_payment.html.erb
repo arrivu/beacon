@@ -1,0 +1,10 @@
+<% payment_service_for 1, "dddd",
+    :amount => "300",
+    :currency => 'INR',
+    :service => :ccavenue do |service| %>    
+  <%  service.customer :name => "hitesh",
+             :email => "test@test.com",
+             :phone =>  "9893171496" %>    
+  <%  service.redirect :return_url => confirm_course_payment_course_url(Course.first) %>
+  <%= submit_tag 'Proceed to payment' %>
+<% end %>

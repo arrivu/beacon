@@ -1,0 +1,58 @@
+<%- model_class = Tag -%>
+<div class="well-course">  
+  <h4><%= link_to tutorial.title, tutorial %>
+        <!-- <img src="images/dmbtest.gif" width="45px" height="45px" /> -->
+        <%= link_to image_tag("#{tutorial.image}", width: "30", height: "30")%>
+    </h4>
+  <div class="clearfix">
+  </div>
+    <div class="entry-meta">
+        <span class="meta-author">
+          <a href="#" title="#" rel="author"><%= link_to User.find_by_id(tutorial.user_id).name,  User.find_by_id(tutorial.user_id) %></a>
+        </span>
+        
+        <span class="meta-categories">
+        <% tutorial.groups.each do |group| %>
+          <a href="#" title="#"><%= link_to group.name , group %></a>
+            <% if tutorial.groups.last.name == group.name %>
+            <% else %>
+              <span class="cat-sep">\</span>
+            <% end %>
+        <% end %>
+      </span>              
+    </div>
+    
+    <div class="clearfix"></div>
+    <div class="entry-wrap">
+      <div class="entry-thumbnail">
+          <a title="#" href="#">
+            <!-- <img src="math.jpg" width="100" height="100"> -->
+            <%= link_to image_tag("#{tutorial.image}", border: 0, width: "100", height: "100")%>
+          </a>
+      </div><!-- end .entry-thumbnail -->
+        <div class="entry-content has-post-image">
+          <p>Difficulty: <%= tutorial.difficulty %>
+            <br/>Estimated Time to complete: <%= "#{tutorial.estimated_time}" + " minutes" %></p>
+          <p class="muted" style="text-align: justify;"><%= tutorial.desc %></p>
+          <% if signed_in? %>
+            <%= link_to "Start Tutorial", '#', class: "btn btn-primary btn-success" %>
+          <% else %>
+            <%= link_to "Join to Access", new_user_registration_path , class: "btn btn-primary btn-info" %>
+            <%= link_to "SignIn to start", new_user_session_path, class: "btn btn-primary btn-success" %>
+          <% end %>
+          <% if signed_in? && current_user.id == User.find_by_id(tutorial.user_id).id %>
+              <p style="float:right;margin:0px;">
+                  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                    edit_tutorial_path(tutorial), :class => 'btn btn-mini' %>
+                  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                    tutorial_path(tutorial),
+                    :method => 'delete',
+                    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                    :class => 'btn btn-mini' %>
+              </p>
+          <% end %>
+          
+        </div><!-- end .entry-content -->         
+    </div>
+    <div class="clearfix"></div>
+</div>

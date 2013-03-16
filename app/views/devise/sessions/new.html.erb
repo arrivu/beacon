@@ -1,0 +1,21 @@
+   
+<div class="row">
+    <div class="span6 offset3">
+      <div class="hero-unit">
+        <h2>Sign in</h2>
+        <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+        <%= f.input :email, :autofocus => true %>
+        <%= f.input :password %>
+        <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
+        <p> <%= f.button :submit, "Sign in", :class => 'btn-primary' %></p>
+        <% end %>
+        <%= render "devise/shared/links" %> <br>
+        &nbsp;<%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
+        &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
+        &nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
+        Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google     
+
+      </div>
+    </div>
+  </div>
+

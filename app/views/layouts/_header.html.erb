@@ -1,0 +1,50 @@
+
+<div class="navbar navbar-fixed-top ds-dragover-1" >
+	<div class="navbar-inner">
+		<div class="container">
+			<!-- <a class="brand" href=""><strong class="curr">SmartCoach</strong></a> -->
+			<%= link_to "SmartCoach", root_path, class: "curr brand" %>
+			<div class="navbar-content-1">
+
+
+				<ul class="nav pull-right">
+					<!-- <li class="active"> -->
+					<li>
+						<%= link_to "Course", courses_path %>
+					</li>
+					<% if signed_in? %>
+					<li id="fat-menu" class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<% if current_user.image == nil %>
+							<%= gravatar_for_with_size current_user, "15x15" %>
+							<% else  %>
+							<%= image_tag(current_user.image,size: "23x26", alt: "")%> 
+							<% end  %> <%= current_user.name %> <b class="caret"></b>
+						</a>
+						<ul id="droplinks" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+							<% if current_user.has_role? :admin %>
+							<li>
+								<%= link_to 'Admin', users_path %>
+							</li>
+							<% end %>
+							<li><%= link_to "Profile", current_user %></li>
+							<li class="divider"></li>
+							<li>
+								<%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+							</li>
+						</ul>
+					</li>
+					<% else %>
+					<li><a href="#sign_in_Modal" role="button" class="link" data-toggle="modal">Login</a></li>
+					<li>
+						 <a href="#sign_up_Modal" role="button" class="link" data-toggle="modal">Create Account</a>
+					</li>
+					<% end %>
+
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
