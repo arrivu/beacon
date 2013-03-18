@@ -22,8 +22,6 @@ class RegistrationsController < Devise::RegistrationsController
     #  clean_up_passwords resource
     #  respond_with resource
     #end
-    log=Logger.new('./test2.log')
-    log.debug "test 1"
     super
 
     #call cas sign to create the cas ticket
@@ -39,11 +37,7 @@ class RegistrationsController < Devise::RegistrationsController
     #LMS User Creation
     lmsuser=CanvasREST::User.new
     u=lmsuser.create_user(Settings.lms.account_id,current_user.name,current_user.email,current_user.password)
-    current_user.update_attributes(:lms_id => "100")
-    
-    log.debug current_user.name
-    log.debug "test 2"
-
+    current_user.update_attributes(:lms_id => u["id"])
 
   end
 end

@@ -29,7 +29,7 @@ Myapp::Application.routes.draw do
 	match '/terms', :to => 'screens#terms'
   #match '/faq', :to => 'screens#faq'
   match '/construction', :to => 'screens#construction'  
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
   match '/auth/:provider/callback' => 'authentication#create'
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
