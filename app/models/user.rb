@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :image, :phone,:user_type,:sub_plan,:user_desc, :provider
+  attr_accessible :lms_id,:name, :email, :password, :password_confirmation, :remember_me, :image, :phone,:user_type,:sub_plan,:user_desc, :provider
   has_many :courses, dependent: :destroy
   has_many :o_classes, :class_name => "O_Classe"
   has_many :tutorials, dependent: :destroy
@@ -72,4 +72,12 @@ class User < ActiveRecord::Base
 	  # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
 	  authentication.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
 	end
+
+  before_create :create_user_in_lms
+  def create_user_in_lms
+    user=CanvasREST::User.new
+    u=user.create_user(Settings.lms.account_id,self.name,self.email,self.password)
+    self.lms_id=u["id"]
+  end
+
 end

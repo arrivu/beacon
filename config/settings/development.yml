@@ -4,3 +4,5 @@ cas:
   url: https://localhost:8888
   login_path: '/cas/api-login'
   logout_path: '/cas/api-logout'
+lms:
+  account_id: 1

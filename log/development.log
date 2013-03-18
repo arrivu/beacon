@@ -3604,3 +3604,534 @@ Processing by CoursesController#index as HTML
   Rendered layouts/_signup_popup.html.erb (19.3ms)
   Rendered layouts/_footer.html.erb (1.4ms)
 Completed 200 OK in 348ms (Views: 334.7ms | ActiveRecord: 9.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 13:57:32 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (71.0ms)
+Compiled bootstrap_and_overrides.css  (6522ms)  (pid 7130)
+Compiled custom.css  (3209ms)  (pid 7130)
+Compiled application.css  (14ms)  (pid 7130)
+Compiled jquery.js  (3ms)  (pid 7130)
+Compiled jquery_ujs.js  (0ms)  (pid 7130)
+Compiled bootstrap-transition.js  (90ms)  (pid 7130)
+Compiled bootstrap-affix.js  (0ms)  (pid 7130)
+Compiled bootstrap-alert.js  (0ms)  (pid 7130)
+Compiled bootstrap-button.js  (0ms)  (pid 7130)
+Compiled bootstrap-carousel.js  (0ms)  (pid 7130)
+Compiled bootstrap-collapse.js  (0ms)  (pid 7130)
+Compiled bootstrap-dropdown.js  (0ms)  (pid 7130)
+Compiled bootstrap-modal.js  (0ms)  (pid 7130)
+Compiled bootstrap-scrollspy.js  (0ms)  (pid 7130)
+Compiled bootstrap-tab.js  (0ms)  (pid 7130)
+Compiled bootstrap-tooltip.js  (0ms)  (pid 7130)
+Compiled bootstrap-popover.js  (0ms)  (pid 7130)
+Compiled bootstrap-typeahead.js  (0ms)  (pid 7130)
+Compiled bootstrap.js  (736ms)  (pid 7130)
+Compiled jquery.purr.js  (0ms)  (pid 7130)
+Compiled best_in_place.js  (2ms)  (pid 7130)
+Compiled application.js  (947ms)  (pid 7130)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_login_popup.html.erb (1134.5ms)
+  Rendered layouts/_signup_popup.html.erb (23.9ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 12649ms (Views: 12542.6ms | ActiveRecord: 104.4ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-18 13:58:24 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"112pDt096xdun7zF+LpCeCIGJRYc4/JQFcUjfObUKeI=", "user"=>{"name"=>"edrweqwerqwqw", "email"=>"wqewqweqw@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'wqewqweqw@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "name", "phone", "provider", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "sub_plan", "updated_at", "user_desc", "user_type", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 18 Mar 2013 08:28:25 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "wqewqweqw@gmail.com"], ["encrypted_password", "$2a$10$DGinUavkBBsg3DPeOnaTBOy3ODgra.L96CFCMWuT7qykwyAFCTNFu"], ["image", nil], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "edrweqwerqwqw"], ["phone", nil], ["provider", "signup"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["sub_plan", nil], ["updated_at", Mon, 18 Mar 2013 08:28:25 UTC +00:00], ["user_desc", nil], ["user_type", nil], ["username", nil]]
+  [1m[35m (0.4ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 344ms
+
+NameError - uninitialized constant User::CanvasREST:
+  (gem) activesupport-3.2.12/lib/active_support/dependencies.rb:520:in `load_missing_constant'
+  (gem) activesupport-3.2.12/lib/active_support/dependencies.rb:192:in `block in const_missing'
+  (gem) activesupport-3.2.12/lib/active_support/dependencies.rb:190:in `const_missing'
+  app/models/user.rb:78:in `create_user_in_lms'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:445:in `_run__1800034188591530972__create__1038945594349049952__callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:385:in `_run_create_callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) activerecord-3.2.12/lib/active_record/callbacks.rb:268:in `create'
+  (gem) activerecord-3.2.12/lib/active_record/persistence.rb:348:in `create_or_update'
+  (gem) activerecord-3.2.12/lib/active_record/callbacks.rb:264:in `block in create_or_update'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:414:in `_run__1800034188591530972__save__1038945594349049952__callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:385:in `_run_save_callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) activerecord-3.2.12/lib/active_record/callbacks.rb:264:in `create_or_update'
+  (gem) activerecord-3.2.12/lib/active_record/persistence.rb:84:in `save'
+  (gem) activerecord-3.2.12/lib/active_record/validations.rb:50:in `save'
+  (gem) activerecord-3.2.12/lib/active_record/attribute_methods/dirty.rb:22:in `save'
+  (gem) activerecord-3.2.12/lib/active_record/transactions.rb:259:in `block (2 levels) in save'
+  (gem) activerecord-3.2.12/lib/active_record/transactions.rb:313:in `block in with_transaction_returning_status'
+  (gem) activerecord-3.2.12/lib/active_record/connection_adapters/abstract/database_statements.rb:192:in `transaction'
+  (gem) activerecord-3.2.12/lib/active_record/transactions.rb:208:in `transaction'
+  (gem) activerecord-3.2.12/lib/active_record/transactions.rb:311:in `with_transaction_returning_status'
+  (gem) activerecord-3.2.12/lib/active_record/transactions.rb:259:in `block in save'
+  (gem) activerecord-3.2.12/lib/active_record/transactions.rb:270:in `rollback_active_record_state!'
+  (gem) activerecord-3.2.12/lib/active_record/transactions.rb:258:in `save'
+  (gem) devise-2.2.3/app/controllers/devise/registrations_controller.rb:15:in `create'
+  (gem) actionpack-3.2.12/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  (gem) actionpack-3.2.12/lib/abstract_controller/base.rb:167:in `process_action'
+  (gem) actionpack-3.2.12/lib/action_controller/metal/rendering.rb:10:in `process_action'
+  (gem) actionpack-3.2.12/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:447:in `_run__1296744533896839470__process_action__646255724266401272__callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:385:in `_run_process_action_callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.12/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  (gem) actionpack-3.2.12/lib/action_controller/metal/rescue.rb:29:in `process_action'
+  (gem) actionpack-3.2.12/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+  (gem) activesupport-3.2.12/lib/active_support/notifications.rb:123:in `block in instrument'
+  (gem) activesupport-3.2.12/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  (gem) activesupport-3.2.12/lib/active_support/notifications.rb:123:in `instrument'
+  (gem) actionpack-3.2.12/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+  (gem) actionpack-3.2.12/lib/action_controller/metal/params_wrapper.rb:207:in `process_action'
+  (gem) activerecord-3.2.12/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  (gem) actionpack-3.2.12/lib/abstract_controller/base.rb:121:in `process'
+  (gem) actionpack-3.2.12/lib/abstract_controller/rendering.rb:45:in `process'
+  (gem) actionpack-3.2.12/lib/action_controller/metal.rb:203:in `dispatch'
+  (gem) actionpack-3.2.12/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  (gem) actionpack-3.2.12/lib/action_controller/metal.rb:246:in `block in action'
+  (gem) actionpack-3.2.12/lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  (gem) actionpack-3.2.12/lib/action_dispatch/routing/route_set.rb:36:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/routing/mapper.rb:42:in `call'
+  (gem) journey-1.0.4/lib/journey/router.rb:68:in `block in call'
+  (gem) journey-1.0.4/lib/journey/router.rb:56:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/routing/route_set.rb:601:in `call'
+  (gem) omniauth-1.1.3/lib/omniauth/strategy.rb:177:in `call!'
+  (gem) omniauth-1.1.3/lib/omniauth/strategy.rb:157:in `call'
+  (gem) omniauth-1.1.3/lib/omniauth/strategy.rb:177:in `call!'
+  (gem) omniauth-1.1.3/lib/omniauth/strategy.rb:157:in `call'
+  (gem) omniauth-1.1.3/lib/omniauth/strategy.rb:177:in `call!'
+  (gem) omniauth-1.1.3/lib/omniauth/strategy.rb:157:in `call'
+  (gem) omniauth-1.1.3/lib/omniauth/builder.rb:48:in `call'
+  (gem) devise_cas_authenticatable-1.2.0/lib/devise_cas_authenticatable/single_sign_out/rack.rb:11:in `call'
+  (gem) warden-1.2.1/lib/warden/manager.rb:35:in `block in call'
+  (gem) warden-1.2.1/lib/warden/manager.rb:34:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  (gem) rack-1.4.5/lib/rack/etag.rb:23:in `call'
+  (gem) rack-1.4.5/lib/rack/conditionalget.rb:35:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/head.rb:14:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/flash.rb:242:in `call'
+  (gem) rack-1.4.5/lib/rack/session/abstract/id.rb:210:in `context'
+  (gem) rack-1.4.5/lib/rack/session/abstract/id.rb:205:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/cookies.rb:341:in `call'
+  (gem) activerecord-3.2.12/lib/active_record/query_cache.rb:64:in `call'
+  (gem) activerecord-3.2.12/lib/active_record/connection_adapters/abstract/connection_pool.rb:479:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:405:in `_run__1830236632658199213__call__1038945594349049952__callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:405:in `__run_callback'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  (gem) activesupport-3.2.12/lib/active_support/callbacks.rb:81:in `run_callbacks'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  (gem) better_errors-0.7.2/lib/better_errors/middleware.rb:84:in `protected_app_call'
+  (gem) better_errors-0.7.2/lib/better_errors/middleware.rb:79:in `better_errors_call'
+  (gem) better_errors-0.7.2/lib/better_errors/middleware.rb:56:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  (gem) railties-3.2.12/lib/rails/rack/logger.rb:32:in `call_app'
+  (gem) railties-3.2.12/lib/rails/rack/logger.rb:16:in `block in call'
+  (gem) activesupport-3.2.12/lib/active_support/tagged_logging.rb:22:in `tagged'
+  (gem) railties-3.2.12/lib/rails/rack/logger.rb:16:in `call'
+  (gem) quiet_assets-1.0.2/lib/quiet_assets.rb:18:in `call_with_quiet_assets'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  (gem) rack-1.4.5/lib/rack/methodoverride.rb:21:in `call'
+  (gem) rack-1.4.5/lib/rack/runtime.rb:17:in `call'
+  (gem) activesupport-3.2.12/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  (gem) rack-1.4.5/lib/rack/lock.rb:15:in `call'
+  (gem) actionpack-3.2.12/lib/action_dispatch/middleware/static.rb:62:in `call'
+  (gem) railties-3.2.12/lib/rails/engine.rb:479:in `call'
+  (gem) railties-3.2.12/lib/rails/application.rb:223:in `call'
+  (gem) rack-1.4.5/lib/rack/content_length.rb:14:in `call'
+  (gem) railties-3.2.12/lib/rails/rack/log_tailer.rb:17:in `call'
+  (gem) rack-1.4.5/lib/rack/handler/webrick.rb:59:in `service'
+  /home/sysadmin/.rvm/rubies/ruby-1.9.3-p385/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/sysadmin/.rvm/rubies/ruby-1.9.3-p385/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/sysadmin/.rvm/rubies/ruby-1.9.3-p385/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/32694760/variables" for 127.0.0.1 at 2013-03-18 13:58:25 +0530
+Connecting to database specified by database.yml
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-18 14:01:18 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"112pDt096xdun7zF+LpCeCIGJRYc4/JQFcUjfObUKeI=", "user"=>{"name"=>"sukumaranand", "email"=>"sukumaranand@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'sukumaranand@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (9.8ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "name", "phone", "provider", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "sub_plan", "updated_at", "user_desc", "user_type", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 18 Mar 2013 08:31:18 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "sukumaranand@gmail.com"], ["encrypted_password", "$2a$10$eVIBR3onOcbSP6rWJNnvneh6JOmfmhrqafCaFkP.ohfyHk0Vr5mEy"], ["image", nil], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "sukumaranand"], ["phone", nil], ["provider", "signup"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["sub_plan", nil], ["updated_at", Mon, 18 Mar 2013 08:31:18 UTC +00:00], ["user_desc", nil], ["user_type", nil], ["username", nil]]
+  [1m[35m (97.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-03-18 08:31:20.786462', "current_sign_in_at" = '2013-03-18 08:31:20.786462', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-03-18 08:31:20.788489' WHERE "users"."id" = 14
+  [1m[36m (68.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 2541ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:01:20 +0530
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 14 LIMIT 1
+Processing by ScreensController#home as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered screens/home.html.erb within layouts/application (264.3ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_login_popup.html.erb (733.9ms)
+  Rendered layouts/_signup_popup.html.erb (24.6ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 1469ms (Views: 1466.1ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-03-18 14:02:40 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"112pDt096xdun7zF+LpCeCIGJRYc4/JQFcUjfObUKeI="}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 14 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 209ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:02:41 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_login_popup.html.erb (14.9ms)
+  Rendered layouts/_signup_popup.html.erb (15.7ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 258ms (Views: 256.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-18 14:03:14 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ddpifS7Mf3FY58a0l0Ui8ALlHwtEhJgnTlPzI7TS1c8=", "user"=>{"name"=>"sukumarshilpa", "email"=>"sukumarshilpa@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'sukumarshilpa@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "name", "phone", "provider", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "sub_plan", "updated_at", "user_desc", "user_type", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 18 Mar 2013 08:33:14 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "sukumarshilpa@gmail.com"], ["encrypted_password", "$2a$10$QOJiZnJb2nmlv4tIvdmBUe/3naTIJf5g5Xf8K.n2Ep5FL8.8s4bF6"], ["image", nil], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["name", "sukumarshilpa"], ["phone", nil], ["provider", "signup"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["sub_plan", nil], ["updated_at", Mon, 18 Mar 2013 08:33:14 UTC +00:00], ["user_desc", nil], ["user_type", nil], ["username", nil]]
+  [1m[35m (96.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-03-18 08:33:15.523541', "current_sign_in_at" = '2013-03-18 08:33:15.523541', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-03-18 08:33:15.524855' WHERE "users"."id" = 15
+  [1m[36m (129.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1102ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:03:15 +0530
+  [1m[35mUser Load (5.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1
+Processing by ScreensController#home as HTML
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered screens/home.html.erb within layouts/application (38.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_login_popup.html.erb (11.0ms)
+  Rendered layouts/_signup_popup.html.erb (13.8ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 209ms (Views: 205.2ms | ActiveRecord: 1.9ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-03-18 14:08:52 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ddpifS7Mf3FY58a0l0Ui8ALlHwtEhJgnTlPzI7TS1c8="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:08:52 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_login_popup.html.erb (12.8ms)
+  Rendered layouts/_signup_popup.html.erb (13.6ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 250ms (Views: 248.0ms | ActiveRecord: 0.0ms)
+Connecting to database specified by database.yml
+  [1m[36m (4.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCourses (20121015130924)
+Migrating to AddIndexToCoursesTitleAuthor (20121015131824)
+Migrating to CreateCategories (20121015183001)
+Migrating to CreateTopics (20121017200627)
+Migrating to CreateRelationships (20121017200646)
+Migrating to RemoveCategoryFromCourse (20121017202019)
+Migrating to CreateTutorials (20121018175245)
+Migrating to CreateGroups (20121018181200)
+Migrating to CreateGroupings (20121018181224)
+Migrating to AddIndexToTutorialsTitleAuthor (20121018181802)
+Migrating to CreateBlogs (20121019121303)
+Migrating to CreateTags (20121019133242)
+Migrating to CreateTaggings (20121019133317)
+Migrating to AddIndexToUsersEmail (20121020052835)
+Migrating to AddUserIdToCourses (20121020121159)
+Migrating to ChangeColumnDescInCourse (20121025213103)
+Migrating to CreateOClasses (20121026170102)
+Migrating to AddUserIdToTutorials (20121026201801)
+Migrating to AddUserIdToOClasses (20121026201830)
+Migrating to AddIsPublishedToCourses (20121027203716)
+Migrating to AddReleasemonthToCourses (20121027210003)
+Migrating to AddIsPublishedToTutorials (20121029150621)
+Migrating to AddReleasemonthToTutorials (20121029150716)
+Migrating to ChangeColumnDescInTutorial (20121029153109)
+Migrating to DeleteDescInTutorial (20121029154118)
+Migrating to AddDescInTutorial (20121029154307)
+Migrating to AddDifficultyAndEstimatedTimeToTutorial (20121029165441)
+Migrating to DeleteContentFromBlog (20121029171635)
+Migrating to AddContentToBlog (20121029171655)
+Migrating to AddIspublishedToBlog (20121029172245)
+Migrating to AddReleasedmonthToBlog (20121029172313)
+Migrating to AddImageToBlog (20121029172739)
+Migrating to AdduserIdToBlog (20121029174237)
+Migrating to CreateFaqs (20121101091544)
+Migrating to AddOrderIdToFaq (20121101115258)
+Migrating to DeleteQuestionAndAnswerFromFaq (20121101163604)
+Migrating to AddQuestionAndAnswerToFaq (20121101163929)
+Migrating to DeviseCreateUsers (20130227045429)
+Migrating to RolifyCreateRoles (20130227045459)
+Migrating to CreateAuthentications (20130227081440)
+Migrating to AddImageToUsers (20130227105930)
+Migrating to AddProviderToUsers (20130227142932)
+Migrating to Users (20130227165557)
+Migrating to AddPhoneToUsers (20130227170215)
+Migrating to AddUserTypeToUsers (20130301085601)
+Migrating to AddSubPlanToUsers (20130301085752)
+Migrating to AddUserDescToUsers (20130301085836)
+Migrating to AddNameToUsers (20130301090210)
+Migrating to AddUsernameToUsers (20130302103411)
+Migrating to AddDescToTopics (20130307052254)
+Migrating to CreateComments (20130312061725)
+Migrating to CreateStudents (20130312071157)
+Migrating to CreateTeachingStaffs (20130312071223)
+Migrating to CreateStudentCourses (20130312075047)
+Migrating to CreateTeachingStaffCourses (20130312105102)
+Migrating to CreateCourseStatuses (20130313064822)
+Migrating to CreateCoursePayments (20130313070136)
+Migrating to CreateRatingCaches (20130314093035548)
+Migrating to CreateRates (20130314093035551)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (4.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCourses (20121015130924)
+Migrating to AddIndexToCoursesTitleAuthor (20121015131824)
+Migrating to CreateCategories (20121015183001)
+Migrating to CreateTopics (20121017200627)
+Migrating to CreateRelationships (20121017200646)
+Migrating to RemoveCategoryFromCourse (20121017202019)
+Migrating to CreateTutorials (20121018175245)
+Migrating to CreateGroups (20121018181200)
+Migrating to CreateGroupings (20121018181224)
+Migrating to AddIndexToTutorialsTitleAuthor (20121018181802)
+Migrating to CreateBlogs (20121019121303)
+Migrating to CreateTags (20121019133242)
+Migrating to CreateTaggings (20121019133317)
+Migrating to AddIndexToUsersEmail (20121020052835)
+Migrating to AddUserIdToCourses (20121020121159)
+Migrating to ChangeColumnDescInCourse (20121025213103)
+Migrating to CreateOClasses (20121026170102)
+Migrating to AddUserIdToTutorials (20121026201801)
+Migrating to AddUserIdToOClasses (20121026201830)
+Migrating to AddIsPublishedToCourses (20121027203716)
+Migrating to AddReleasemonthToCourses (20121027210003)
+Migrating to AddIsPublishedToTutorials (20121029150621)
+Migrating to AddReleasemonthToTutorials (20121029150716)
+Migrating to ChangeColumnDescInTutorial (20121029153109)
+Migrating to DeleteDescInTutorial (20121029154118)
+Migrating to AddDescInTutorial (20121029154307)
+Migrating to AddDifficultyAndEstimatedTimeToTutorial (20121029165441)
+Migrating to DeleteContentFromBlog (20121029171635)
+Migrating to AddContentToBlog (20121029171655)
+Migrating to AddIspublishedToBlog (20121029172245)
+Migrating to AddReleasedmonthToBlog (20121029172313)
+Migrating to AddImageToBlog (20121029172739)
+Migrating to AdduserIdToBlog (20121029174237)
+Migrating to CreateFaqs (20121101091544)
+Migrating to AddOrderIdToFaq (20121101115258)
+Migrating to DeleteQuestionAndAnswerFromFaq (20121101163604)
+Migrating to AddQuestionAndAnswerToFaq (20121101163929)
+Migrating to DeviseCreateUsers (20130227045429)
+Migrating to RolifyCreateRoles (20130227045459)
+Migrating to CreateAuthentications (20130227081440)
+Migrating to AddImageToUsers (20130227105930)
+Migrating to AddProviderToUsers (20130227142932)
+Migrating to Users (20130227165557)
+Migrating to AddPhoneToUsers (20130227170215)
+Migrating to AddUserTypeToUsers (20130301085601)
+Migrating to AddSubPlanToUsers (20130301085752)
+Migrating to AddUserDescToUsers (20130301085836)
+Migrating to AddNameToUsers (20130301090210)
+Migrating to AddUsernameToUsers (20130302103411)
+Migrating to AddDescToTopics (20130307052254)
+Migrating to CreateComments (20130312061725)
+Migrating to CreateStudents (20130312071157)
+Migrating to CreateTeachingStaffs (20130312071223)
+Migrating to CreateStudentCourses (20130312075047)
+Migrating to CreateTeachingStaffCourses (20130312105102)
+Migrating to CreateCourseStatuses (20130313064822)
+Migrating to CreateCoursePayments (20130313070136)
+Migrating to AddLmsIdToUsers (20130318084421)
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" ADD "lms_id" integer
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130318084421')[0m
+  [1m[35m (145.0ms)[0m  commit transaction
+Migrating to CreateRatingCaches (20130314093035548)
+Migrating to CreateRates (20130314093035551)
+  [1m[36m (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-18 14:30:23 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8VQF9Au7Y7KBNx9GykYtiu+8h0z8HqblE8KuHWW010I=", "user"=>{"name"=>"saukumarsunil", "email"=>"saukumarsunil@gfg.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'saukumarsunil@gfg.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (8.2ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "lms_id", "name", "phone", "provider", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "sub_plan", "updated_at", "user_desc", "user_type", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 18 Mar 2013 09:00:24 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "saukumarsunil@gfg.com"], ["encrypted_password", "$2a$10$xT.q4AW2wysoVwzsQ2md7uEIYkWSBXggQ/1VdF2SyARH3UUZd2/4m"], ["image", nil], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["lms_id", nil], ["name", "saukumarsunil"], ["phone", nil], ["provider", "signup"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["sub_plan", nil], ["updated_at", Mon, 18 Mar 2013 09:00:24 UTC +00:00], ["user_desc", nil], ["user_type", nil], ["username", nil]]
+  [1m[35m (76.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-03-18 09:01:07.317396', "current_sign_in_at" = '2013-03-18 09:01:07.317396', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-03-18 09:01:07.319681' WHERE "users"."id" = 16
+  [1m[36m (70.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 43846ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:31:07 +0530
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1
+Processing by ScreensController#home as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered screens/home.html.erb within layouts/application (202.7ms)
+  Rendered layouts/_shim.html.erb (0.5ms)
+  Rendered layouts/_login_popup.html.erb (747.0ms)
+  Rendered layouts/_signup_popup.html.erb (23.9ms)
+  Rendered layouts/_footer.html.erb (2.0ms)
+Completed 200 OK in 1488ms (Views: 1484.2ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-03-18 14:46:52 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8VQF9Au7Y7KBNx9GykYtiu+8h0z8HqblE8KuHWW010I="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 208ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:46:52 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_login_popup.html.erb (13.2ms)
+  Rendered layouts/_signup_popup.html.erb (19.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 212ms (Views: 208.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-18 14:47:31 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gzZN8QNLZT+DHU2QIxK8/QyNO+6R90FJrwqSyWXOTJg=", "user"=>{"name"=>"sukumarsree", "email"=>"sukumarsree@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'sukumarsree@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "lms_id", "name", "phone", "provider", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "sub_plan", "updated_at", "user_desc", "user_type", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 18 Mar 2013 09:17:31 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "sukumarsree@gmail.com"], ["encrypted_password", "$2a$10$231CYfojcR1s8TvczpjJWujCgnPjPM3Gxf5RBk2ABq6KVbsGpXNmC"], ["image", nil], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["lms_id", nil], ["name", "sukumarsree"], ["phone", nil], ["provider", "signup"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["sub_plan", nil], ["updated_at", Mon, 18 Mar 2013 09:17:31 UTC +00:00], ["user_desc", nil], ["user_type", nil], ["username", nil]]
+  [1m[35m (99.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-03-18 09:18:14.497002', "current_sign_in_at" = '2013-03-18 09:18:14.497002', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-03-18 09:18:14.498549' WHERE "users"."id" = 17
+  [1m[36m (137.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 43233ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:48:14 +0530
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 17 LIMIT 1
+Processing by ScreensController#home as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered screens/home.html.erb within layouts/application (127.8ms)
+  Rendered layouts/_shim.html.erb (0.2ms)
+  Rendered layouts/_login_popup.html.erb (12.7ms)
+  Rendered layouts/_signup_popup.html.erb (15.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 304ms (Views: 300.8ms | ActiveRecord: 1.2ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-03-18 14:56:28 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gzZN8QNLZT+DHU2QIxK8/QyNO+6R90FJrwqSyWXOTJg="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 17 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 136ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:56:29 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_login_popup.html.erb (13.2ms)
+  Rendered layouts/_signup_popup.html.erb (17.2ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 187ms (Views: 185.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-03-18 14:56:51 +0530
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nmbh4s0I9HAM8GiAo4vMnbhZuAKINbqo/CxXvGNGPOc=", "user"=>{"name"=>"nitasukumar", "email"=>"nitasukumar@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'nitasukumar@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "image", "last_sign_in_at", "last_sign_in_ip", "lms_id", "name", "phone", "provider", "remember_created_at", "reset_password_sent_at", "reset_password_token", "sign_in_count", "sub_plan", "updated_at", "user_desc", "user_type", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 18 Mar 2013 09:26:52 UTC +00:00], ["current_sign_in_at", nil], ["current_sign_in_ip", nil], ["email", "nitasukumar@gmail.com"], ["encrypted_password", "$2a$10$IrXGLq1/RQN2Hw3Sxy7uzOVM0Ol4CLO/RLMlO/if08DPhZO5DQBI."], ["image", nil], ["last_sign_in_at", nil], ["last_sign_in_ip", nil], ["lms_id", 21], ["name", "nitasukumar"], ["phone", nil], ["provider", "signup"], ["remember_created_at", nil], ["reset_password_sent_at", nil], ["reset_password_token", nil], ["sign_in_count", 0], ["sub_plan", nil], ["updated_at", Mon, 18 Mar 2013 09:26:52 UTC +00:00], ["user_desc", nil], ["user_type", nil], ["username", nil]]
+  [1m[35m (85.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2013-03-18 09:26:53.061623', "current_sign_in_at" = '2013-03-18 09:26:53.061623', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2013-03-18 09:26:53.062714' WHERE "users"."id" = 18
+  [1m[36m (121.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1164ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 14:56:53 +0530
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+Processing by ScreensController#home as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  Rendered screens/home.html.erb within layouts/application (34.1ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_login_popup.html.erb (13.9ms)
+  Rendered layouts/_signup_popup.html.erb (15.5ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 290ms (Views: 287.1ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2013-03-18 15:00:37 +0530
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nmbh4s0I9HAM8GiAo4vMnbhZuAKINbqo/CxXvGNGPOc="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 15:00:37 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  Rendered layouts/_login_popup.html.erb (10.5ms)
+  Rendered layouts/_signup_popup.html.erb (15.9ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 179ms (Views: 177.3ms | ActiveRecord: 0.0ms)
