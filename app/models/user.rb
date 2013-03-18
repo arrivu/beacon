@@ -73,11 +73,4 @@ class User < ActiveRecord::Base
 	  authentication.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
 	end
 
-  before_create :create_user_in_lms
-  def create_user_in_lms
-    user=CanvasREST::User.new
-    u=user.create_user(Settings.lms.account_id,self.name,self.email,self.password)
-    self.lms_id=u["id"]
-  end
-
 end
