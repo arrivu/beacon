@@ -1,162 +1,234 @@
 <% provide(:title, 'A Smarter Way to Learn') %>
 <% provide(:effectingHeader, 'Yes') %>
-<div class="navbar navbar-fixed-top ds-dragover-1" >
- <div class="navbar-inner">
-  <div class="container">
-    <!-- <a class="brand" href=""><strong class="curr">SmartCoach</strong></a> -->
-    <%= link_to "SmartCoach", root_path, class: "curr brand" %>
-    <div class="navbar-content-1">
-      <ul class="nav pull-right">
-      <!-- <li class="active"> -->
-      <li> <%= link_to "Courses", courses_path %></li>
+ <div class="homebanner">
+    <div class="container">
+      <div class="row">
+        <div class="span12" align="center">
+            <div class="bannertext">
+              <h3>Learning is fun</h3>
+            </div>
+            <div class="bannersubtitle">
+              No Set up , No hassle, Just learning and only learning with fun
+            </div>  
+        </div>
+        <div class="clearfix"></div>
+        <div class="span5" align="center">
+            <div class="bannervideo">
+              <img src="http://placehold.it/500x300/f1f1f1/000&text=Video">
+            </div>
+        </div>
+        <div class="span7" align="justify">
+            <div class="bannerinfo">
+              <p>Beacon Online teaches managemnet subjects in the comfort of your browser with video lessons, quizzes and screnshots.</p>
+              
+              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span></a> -->
+            </div>
+            <div class="bannerlearn">
+                <span class="learnheading">Learn: </span>
+                <span class="badge leartopic">Branding</span>
+                <span class="badge leartopic">Analytics</span>
+                <span class="badge leartopic">SCM</span>
+                <span class="badge leartopic">VALUATIOn</span>
+                <span class="badge leartopic">Enterpreneurship</span>
+              
 
-      <% if user_signed_in?%>
-
-      <li id="fat-menu" class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          <% if current_user.image == nil %>
-          <%= gravatar_for_with_size current_user, "15x15" %>
-          <% else  %>
-          <%= image_tag(current_user.image,size: "23x26", alt: "")%> 
-          <% end  %>
-          <%= current_user.name %>  <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu" id="droplinks">
-          <% if current_user.has_role? :admin %>
-          <li>
-            <%= link_to 'Admin', users_path %>
-          </li>
-          <% end %>
-          <li><%= link_to "Profile", edit_user_registration_path %></li>
-          <li class="divider"></li>
-          <li>
-            <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
-          </li>
-        </ul>
-      </li>
-      <% else %>
-      <li> <a href="#sign_in_Modal" role="button" class="link" data-toggle="modal">Login</a></li>
-      <li>
-        <a href="#sign_up_Modal" role="button" class="link" data-toggle="modal">Create Account</a>
-      </li>
-      <% end %>
-    </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-<div class="container">
-      <!-- <div class="page-header">
-        <h1>The Divshot Quickstart Guide</h1>
-      </div> -->
+<div class="homecourse">
+    <div class="secondary-content">
+    <div class="container" align="center">
+      <div class="row testimonial">
+        <!-- <h2 class="ribbon">
+          <span class="title">Our Courses</span>
+        </h2> -->
+        <h2>Popular Courses</h2>
 
-
-      <!-- <div class="alert alert-info hidden-phone">
-        <a class="close" data-dismiss="alert">×</a>
-        <span>
-          <b>Ready to dive in?</b>&nbsp;Click the page name dropdown in the top left
-          and create a new page using the embedded form.</span>
+      </div>
+    </div>
+  </div>
+    <div class="container">
+      <div class="row">
+        <!-- <div class="span12" align="center">
+          <div class="bannersubtitle">
+              Learn where to start and what to take next with our courses
+          </div> 
         </div> -->
 
-        <!-- <img src="arrow.png" width="100" height="100" style="position:absolute;top:50px;left:0px"/> -->
+              <div class="span6">
+                <div class="courses">
+                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                      <div class="card-a course-inner">
+                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+                      <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
+                      <div class="course-content">
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Analytics</em>
+                      <!-- <em class="label-b">Free Course</em> -->
+                      <a href="coursedetail.php"><h3 class="course-name">Data Analytics</h3>
+                      <p class="course-desc">Learn the basic building blocks of Data Analysis.</p>
+                      </a></div>
+                      </div>
+                  </article>
+                </div>
+              </div>
 
+              <div class="span6">
+                <div class="courses">
+                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                      <div class="card-a course-inner">
+                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+                      <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
+                      <div class="course-content">
+                      <em class="label-a label-offset green" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Finance</em>
+                      <!-- <em class="label-b">Free Course</em> -->
+                      <a href="coursedetail.php"><h3 class="course-name">Finance Management</h3>
+                      <p class="course-desc">Learn the basic building blocks of Finance.</p>
+                      </a></div>
+                      </div>
+                  </article>
+                </div>
+              </div>
 
+              <div class="span6">
+                <div class="courses">
+                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                      <div class="card-a course-inner">
+                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+                      <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
+                      <div class="course-content">
+                      <em class="label-a label-offset violate" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Operation</em>
+                      <!-- <em class="label-b">Free Course</em> -->
+                      <a href="coursedetail.php"><h3 class="course-name">Operation</h3>
+                      <p class="course-desc">Learn the basic building blocks of Operations.</p>
+                      </a></div>
+                      </div>
+                  </article>
+                </div>
+              </div>
 
-        <center><p class="lead text-info blue">"A smarter way to learn creative and technical skills."</p></center>
-        <div class="clearfix"></div>
+              <div class="span6">
+                <div class="courses">
+                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                      <div class="card-a course-inner">
+                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+                      <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
+                      <div class="course-content">
+                      <em class="label-a label-offset blue" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Marketing</em>
+                      <!-- <em class="label-b">Free Course</em> -->
+                      <a href="coursedetail.php"><h3 class="course-name">Marketing</h3>
+                      <p class="course-desc">Learn the basic building blocks of Marketing.</p>
+                      </a></div>
+                      </div>
+                  </article>
+                </div>
+              </div>
 
-
-
-        <div class="row"  align="center">
-
-         <div class="span6 home-heading" align="left">
-          <!-- <span>Experience the fun in learning</span> -->
-          <p>Our mission at SmartCoach is to empower and enable people everywhere to enhance their skills.
-           Because we believe education should be accessible to everyone so we have founded SmartCoach to help you learn the skills you need to create wonderful things. And we believe you can do it.
-
-            <!-- <div class="btn-group">
-          <a class="btn btn-success .btn-large dropdown-toggle" data-toggle="dropdown" href="#">
-          Browse
-          <span class="caret"></span>
-       </a>
-        <ul class="dropdown-menu">
-          <li><a tabindex="-1" href="#">Categories</a></li>
-          <li><a tabindex="-1" href="#">Tutorials</a></li>
-        </ul>
-      </div> -->
-
-
-    </p>
-
-
-  </div>
-  <div class="span6" aign="left">
-   <div class=" ourvideo thumbnail">
-     <!-- <img src="image.jpg" alt="Ankit Image"/> -->
-     <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-   </div>
- </div>
-</div>
-
-<p><br/></p>
-
-
-<div class="row">
-  <div class="span4">
-    <div class="well">
-      <h4>Courses: Best in industry</h4>
-      <p>
-        At SmartCoach courses are designed in a wat to help you grasp and practice complete skills.
-      </p>
-      <span align="center">
-        <%= link_to "Start with courses", "#", class: "btn btn-primary" %>
-      </span>
+              <div align="center">
+                <a href="courselibrary.php"><span class="browsemore" align="center">
+                  Browser More Courses
+                </span></a>
+              </div>
+      </div>
     </div>
-          <!-- <div class="well">
-            <h4>Exporting HTML</h4>
-            <p>Divshot is built to give you usable code. Just click the "Export Code"
-              button in the top toolbar.</p>
-            </div> -->
-          </div>
-          <div class="span4">
-            <div class="well">
-              <h4>Tutorials: Smart way to learn</h4>
-              <p>SmartCoach worked with legends across many industries to bring you quality tutorials.</p>
-              <span align="center">
-                <%= link_to "Dive into tutorials", "#", class: "btn btn-primary" %>
-              </span>
+  </div>
+
+
+  <div class="ourcustomers secondary-content">
+    <div class="container" align="center">
+      <div class="row testimonial">
+        <!-- <h2 class="ribbon">
+          <span class="title">Our Customers</span>
+        </h2> -->
+        <h2>Our Customers</h2>
+        <div class="span4">
+          <div class="verticalcustomerbox testimonial-one" align="center">
+            <div class="customerimage">
+              <img src="assets/manlogo.jpg" class="img-polaroid"/>
             </div>
-          <!-- <div class="well">
-            <h4>Responsive Design</h4>
-            <p>Divshot designs look great on any device. Click the laptop icon to preview
-              for phone, tablet, or desktop.</p>
-            </div> -->
-          </div>
-          <div class="span4">
-            <div class="well">
-              <h4>Blog: Keep Sharing</h4>
-              <p>SmartCoach has a moto of sharing knowledge across the globe.</p>
-              <span align="center">
-                <%= link_to "Share with Blog", "#", class: "btn btn-primary" %>
-              </span>
+            <div class="testimonialtext">
+              "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
             </div>
-          <!-- <div class="well">
-            <h4>Custom HTML</h4>
-            <p>Drop the "Custom HTML" component onto the page and double click it to
-              add arbitrary HTML.</p>
-            </div> -->
+            <div class="testimonialauthor">
+              - Ankit Gupta,<br/>Mangalayatan University
+            </div>
           </div>
         </div>
+        <div class="span4">
+          <div class="verticalcustomerbox testimonial-two">
+            <div class="customerimage">
+              <img src="assets/greatlakeslogo.jpg" class="img-polaroid"/>
+            </div>
+            <div class="testimonialtext">
+              “Beacon has a library of lessons that goes far beyond the surface, touching on nearly every aspect of Finance Marketing.”
+            </div>
+            <div class="testimonialauthor">
+              - Sumit Saxena,<br/>Great Lakes Institute of Management
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="verticalcustomerbox testimonial-three">
+            <div class="customerimage">
+              <img src="assets/greatlakeslogoimr.jpg" class="img-polaroid"/>
+            </div>
+            <div class="testimonialtext">
+              "Beacon offers tremendous coverage on a wide range of topics and they do a great job of providing education and support.”
+            </div>
+            <div class="testimonialauthor">
+              - Preeti Mishra,<br/>Great Lakes Institute of Energy Management and Research
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <!-- <div class="alert alert-info hidden-phone">
-        <a class="close" data-dismiss="alert">X</a>
-        <span>
-          <b>Ready to dive in?</b>&nbsp;Click the page name dropdown in the top left
-          and create a new page using the embedded form.</span>
+  <div class="ourknowledgepartners secondary-content">
+    <div class="container" align="center">
+      <div class="row testimonial">
+        <!-- <h2 class="ribbon">
+          <span class="title">Our Customers</span>
+        </h2> -->
+        <h2>Our Knowledge Partners</h2>
+
+        <div class="listofkp">
+          <div class="firstkp">
+            <img src="assets/yale.png" />
+          </div>
+          <div class="kp">
+            <img src="assets/cuoa.png" />
+          </div>
+          <div class="kp">
+            <img src="assets/bauer.png" />
+          </div>
+          <div class="kp">
+            <img src="assets/illinois.png" />
+          </div>
+          <div class="lastkp">
+            <img src="assets/nanyang.png" />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="bottomadsection">
+    <div class="container">
+      <div class="row">
+        <div class="span12" align="center">
+          <h3>Ready to start your learning adventure?</h2>
+          <a href="courselibrary.php"><span class="browseourcoursessmall">Browse Our Courses</span></a>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="account.php"><span class="createaccount">Create Account</span></a>
+        </div>
+        <!-- <div class="span4">
+          <img src="http://placehold.it/400x200/f1f1f1/000&text=Courses" class="img-polaroid"/>
         </div> -->
-
-        <center>
-
-          <h4 style="color: #3A87AD;">Subscribe today to drive your career to new heights</h4>
-          <%= link_to "Subscribe now", new_user_registration_path, class: "btn btn-primary" %>
-        </center>
+      </div>
+    </div>
+  </div>
