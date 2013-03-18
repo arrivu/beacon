@@ -34,8 +34,8 @@ group :production do
 end
 group :development do
 gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
-gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
-gem 'ruby-debug19'
+#gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
+#gem 'ruby-debug19'
 end
 gem 'sqlite3', :group => :development
 gem "quiet_assets", ">= 1.0.1", :group => :development
@@ -58,5 +58,6 @@ group :development do
 end
 gem 'acts_as_commentable', '3.0.1'
 gem 'letsrate'
-
+gem 'canvas',:git => 'git://github.com/m-narayan/canvas'
+gem 'annotate', '2.4.0'
 

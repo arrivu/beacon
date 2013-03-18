@@ -6,7 +6,8 @@ class SessionsController < Devise::SessionsController
     #self.resource = warden.authenticate!(auth_options)
     #set_flash_message(:notice, :signed_in) if is_navigational_format?
     #sign_in(resource_name, resource)
-
+    log=Logger.new('./test2.log')
+    log.debug "test sessions"  
     super
     #call cas sign to create the cas ticket
     begin
@@ -19,7 +20,7 @@ class SessionsController < Devise::SessionsController
       puts "There is some error to sing_in to cas using user : #{current_user.inspect}"
       raise
     end
-
+   
     #respond_with resource, :location => after_sign_in_path_for(resource)
     #self.class.superclass.instance_method(:foo).bind(self).call
   end
