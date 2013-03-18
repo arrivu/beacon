@@ -17269,3 +17269,402 @@ Processing by ScreensController#home as HTML
   Rendered layouts/_signup_popup.html.erb (18.6ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 92ms (Views: 89.5ms | ActiveRecord: 0.3ms)
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 17:27:43 +0530
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (78.1ms)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_header.html.erb (387.6ms)
+  Rendered layouts/_login_popup.html.erb (1028.0ms)
+  Rendered layouts/_signup_popup.html.erb (110.8ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 1854ms (Views: 1849.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 17:27:50 +0530
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_header.html.erb (6.9ms)
+  Rendered layouts/_login_popup.html.erb (13.2ms)
+  Rendered layouts/_signup_popup.html.erb (19.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 95ms (Views: 92.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/courses" for 127.0.0.1 at 2013-03-18 17:27:51 +0530
+Processing by CoursesController#index as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "courses" WHERE "courses"."ispublished" = 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "courses" WHERE "courses"."ispublished" = 1
+  [1m[36mCourse Load (0.6ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."ispublished" = 1 ORDER BY courses.created_at DESC LIMIT 5 OFFSET 0[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" INNER JOIN "relationships" ON "topics"."id" = "relationships"."topic_id" WHERE "relationships"."course_id" = 10
+  [1m[36mRatingCache Load (0.3ms)[0m  [1mSELECT "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = 10 AND "rating_caches"."cacheable_type" = 'Course' AND "rating_caches"."dimension" = 'rate' LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" INNER JOIN "relationships" ON "topics"."id" = "relationships"."topic_id" WHERE "relationships"."course_id" = 9
+  [1m[36mRatingCache Load (0.3ms)[0m  [1mSELECT "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = 9 AND "rating_caches"."cacheable_type" = 'Course' AND "rating_caches"."dimension" = 'rate' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mTopic Load (0.4ms)[0m  [1mSELECT "topics".* FROM "topics" INNER JOIN "relationships" ON "topics"."id" = "relationships"."topic_id" WHERE "relationships"."course_id" = 7[0m
+  [1m[35mRatingCache Load (0.3ms)[0m  SELECT "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = 7 AND "rating_caches"."cacheable_type" = 'Course' AND "rating_caches"."dimension" = 'rate' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mTopic Load (0.3ms)[0m  SELECT "topics".* FROM "topics" INNER JOIN "relationships" ON "topics"."id" = "relationships"."topic_id" WHERE "relationships"."course_id" = 6
+  [1m[36mRatingCache Load (0.3ms)[0m  [1mSELECT "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = 6 AND "rating_caches"."cacheable_type" = 'Course' AND "rating_caches"."dimension" = 'rate' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mTopic Load (0.3ms)[0m  [1mSELECT "topics".* FROM "topics" INNER JOIN "relationships" ON "topics"."id" = "relationships"."topic_id" WHERE "relationships"."course_id" = 3[0m
+  [1m[35mRatingCache Load (0.3ms)[0m  SELECT "rating_caches".* FROM "rating_caches" WHERE "rating_caches"."cacheable_id" = 3 AND "rating_caches"."cacheable_type" = 'Course' AND "rating_caches"."dimension" = 'rate' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  Rendered courses/_course.html.erb (460.5ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "topics" 
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."ispublished" = 1 ORDER BY courses.created_at DESC[0m
+  [1m[35mTopic Load (0.4ms)[0m  SELECT "topics".* FROM "topics" ORDER BY name
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "courses" INNER JOIN "relationships" ON "courses"."id" = "relationships"."course_id" WHERE "relationships"."topic_id" = 4 AND "courses"."ispublished" = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "courses" INNER JOIN "relationships" ON "courses"."id" = "relationships"."course_id" WHERE "relationships"."topic_id" = 6 AND "courses"."ispublished" = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "courses" INNER JOIN "relationships" ON "courses"."id" = "relationships"."course_id" WHERE "relationships"."topic_id" = 5 AND "courses"."ispublished" = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "courses" INNER JOIN "relationships" ON "courses"."id" = "relationships"."course_id" WHERE "relationships"."topic_id" = 3 AND "courses"."ispublished" = 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "courses" INNER JOIN "relationships" ON "courses"."id" = "relationships"."course_id" WHERE "relationships"."topic_id" = 2 AND "courses"."ispublished" = 1[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "courses" INNER JOIN "relationships" ON "courses"."id" = "relationships"."course_id" WHERE "relationships"."topic_id" = 1 AND "courses"."ispublished" = 1
+  [1m[36mCourse Load (0.4ms)[0m  [1mSELECT "courses".* FROM "courses" WHERE "courses"."ispublished" = 0 ORDER BY courses.created_at DESC[0m
+  Rendered courses/index.html.erb within layouts/application (547.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_header.html.erb (6.7ms)
+  Rendered layouts/_login_popup.html.erb (13.1ms)
+  Rendered layouts/_signup_popup.html.erb (17.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 671ms (Views: 628.4ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 17:27:55 +0530
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_header.html.erb (7.1ms)
+  Rendered layouts/_login_popup.html.erb (13.7ms)
+  Rendered layouts/_signup_popup.html.erb (20.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 95ms (Views: 92.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-03-18 17:27:58 +0530
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" [0m
+  [1m[35mRole Load (0.4ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" 
+  [1m[36m (0.2ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1[0m
+  Rendered users/_user.html.erb (14.2ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 2[0m
+  Rendered users/_user.html.erb (14.0ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 3[0m
+  Rendered users/_user.html.erb (98.9ms)
+  [1m[35mRole Load (0.4ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 4[0m
+  Rendered users/_user.html.erb (14.6ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 5
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 5[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 5
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 5[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 5
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 5[0m
+  Rendered users/_user.html.erb (13.7ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 6[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 6
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 6[0m
+  Rendered users/_user.html.erb (13.7ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 7
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 7[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 7
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 7[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 7
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 7[0m
+  Rendered users/_user.html.erb (13.2ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 8
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 8[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 8
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 8[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 8
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 8[0m
+  Rendered users/_user.html.erb (13.3ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 9[0m
+  Rendered users/_user.html.erb (13.2ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 10 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 10
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 10[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 10
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 10[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 10
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 10[0m
+  Rendered users/_user.html.erb (13.8ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 11 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 11
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 11[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 11
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 11[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 11
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 11[0m
+  Rendered users/_user.html.erb (13.0ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 12
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 12[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 12
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 12[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 12
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 12[0m
+  Rendered users/_user.html.erb (14.0ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 13 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 13
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 13[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 13
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 13[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 13
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 13[0m
+  Rendered users/_user.html.erb (13.4ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 14[0m
+  Rendered users/_user.html.erb (13.4ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 15[0m
+  Rendered users/_user.html.erb (13.1ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 16[0m
+  Rendered users/_user.html.erb (13.1ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 17[0m
+  Rendered users/_user.html.erb (13.5ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 18[0m
+  Rendered users/_user.html.erb (16.3ms)
+  [1m[35mRole Load (0.4ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 19 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 19
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 19[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 19
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 19[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 19
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 19[0m
+  Rendered users/_user.html.erb (13.6ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 20 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 20
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 20[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 20
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 20[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 20
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 20[0m
+  Rendered users/_user.html.erb (13.8ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 21 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 21
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 21[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 21
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 21[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 21
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 21[0m
+  Rendered users/_user.html.erb (13.6ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 22 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 22
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 22
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 22[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 22
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 22[0m
+  Rendered users/_user.html.erb (14.3ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 23 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 23[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 23[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 23
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 23[0m
+  Rendered users/_user.html.erb (14.9ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 24 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 24
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 24[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 24
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 24[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 24
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 24[0m
+  Rendered users/_user.html.erb (14.3ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 25 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 25
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 25[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 25
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 25[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 25
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 25[0m
+  Rendered users/_user.html.erb (13.8ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 26 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 26
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 26[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 26
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 26[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 26
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 26[0m
+  Rendered users/_user.html.erb (13.8ms)
+  [1m[35mRole Load (8.1ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 27 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 27
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 27[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 27
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 27[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 27
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 27[0m
+  Rendered users/_user.html.erb (14.0ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 28 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.2ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 28
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 28[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 28
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 28[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 28
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 28[0m
+  Rendered users/_user.html.erb (13.6ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 29 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 29
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 29[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 29
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 29[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 29
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 29[0m
+  Rendered users/_user.html.erb (14.7ms)
+  [1m[35mRole Load (0.3ms)[0m  SELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 30 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".* FROM "roles" [0m
+  [1m[35m (0.3ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 30
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 30[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 30
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 30[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 30
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "roles".id FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 30[0m
+  Rendered users/_user.html.erb (16.7ms)
+  Rendered users/index.html.erb within layouts/application (754.6ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_header.html.erb (5.6ms)
+  Rendered layouts/_login_popup.html.erb (13.0ms)
+  Rendered layouts/_signup_popup.html.erb (18.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 893ms (Views: 819.8ms | ActiveRecord: 27.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 17:28:01 +0530
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_header.html.erb (7.2ms)
+  Rendered layouts/_login_popup.html.erb (12.7ms)
+  Rendered layouts/_signup_popup.html.erb (17.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 179ms (Views: 175.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 17:28:05 +0530
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (0.2ms)
+  Rendered layouts/_shim.html.erb (0.1ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = 1 AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))
+  Rendered layouts/_header.html.erb (7.8ms)
+  Rendered layouts/_login_popup.html.erb (12.8ms)
+  Rendered layouts/_signup_popup.html.erb (19.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 181ms (Views: 177.7ms | ActiveRecord: 0.3ms)
