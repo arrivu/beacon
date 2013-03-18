@@ -5,8 +5,6 @@ class CoursesController < ApplicationController
 
 
 	def index
-		log=Logger.new('./test2.log')
-    log.debug "test cpurse"
 		@countCoursesPerPage = 5
        @courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 5)
 		@topics = Topic.order(:name)

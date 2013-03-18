@@ -1,0 +1,256 @@
+
+
+body {
+  padding-top: 5px;
+  color: #333333;
+}
+
+body, input, select, textarea, button {
+font: 13px Helvetica, arial, freesans, clean, sans-serif;
+line-height: 1.4;
+}
+
+a {
+color: #4183c4;
+text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+form {
+margin: 0 0 5px;
+}
+
+img {
+border: 0;
+}
+
+.rightgap{
+	margin-right: 10px;
+}
+
+.button.primary {
+color: #fff;
+text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+background-color: #60b044;
+background-image: -moz-linear-gradient(#8add6d, #60b044);
+background-image: -webkit-linear-gradient(#8add6d, #60b044);
+background-image: linear-gradient(#8add6d, #60b044);
+background-repeat: repeat-x;
+border-color: #5ca941;
+}
+
+.button {
+position: relative;
+display: inline-block;
+padding: 7px 15px;
+font-size: 13px;
+font-weight: bold;
+color: #333;
+text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+white-space: nowrap;
+background-color: #eaeaea;
+background-image: -moz-linear-gradient(#fafafa, #eaeaea);
+background-image: -webkit-linear-gradient(#fafafa, #eaeaea);
+background-image: linear-gradient(#fafafa, #eaeaea);
+background-repeat: repeat-x;
+border-radius: 3px;
+border: 1px solid #ddd;
+border-bottom-color: #c5c5c5;
+box-shadow: 0 1px 3px rgba(0,0,0,0.075);
+vertical-align: middle;
+cursor: pointer;
+-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+-webkit-appearance: none;
+}
+
+.categorygap{
+	
+}
+
+.caspage{
+	margin: 30px;
+	text-align: center;
+}
+
+.form-signin {
+    max-width: 300px;
+    padding: 19px 29px 29px;
+    margin: 20 auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin input[type="text"]{
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+.form-signin input[type="email"]{
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+.form-signin input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+.gap{
+  margin: 20px;
+}
+
+.logout{
+  background-color: red;
+}
+
+/*
+#f1684e; - orange
+#4090ba; - blue
+#50d07d; green
+#763A7A; - violate
+
+*/
+
+
+.btn-logout {
+background-color: #333;
+color: #fff;
+font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+border-radius: 3px;
+border: 0;
+cursor: pointer;
+text-align: center;
+text-transform: uppercase;
+padding: 5px 12px;
+}
+
+.btn-logout:hover {
+  color: #fff ;
+  background-color: #999;
+}
+
+.moveupabit{
+  position: relative;
+  top:-20px;
+}
+
+
+.btn-coursesbtnafterlogin{
+  position: relative;
+  top:-9px;
+  margin-right: 20px;
+background-color: #2980B9 ;
+color: #fff;
+font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+border-radius: 3px;
+border: 0;
+cursor: pointer;
+text-align: center;
+text-transform: uppercase;
+padding: 7.5px;
+padding-left: 10px;
+padding-right: 10px;
+
+color: #ffffff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+background-color: #006dcc;
+background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+background-repeat: repeat-x;
+border-color: #0044cc #0044cc #002a80;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-coursesbtnafterlogin:hover{
+  color: #fff ;
+  background-color: #3498DB ;
+}
+
+
+.btn-coursesbtn {
+  position: relative;
+  top: 0px;
+  margin-right: 20px;
+background-color: #2980B9 ;
+color: #fff;
+font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+border-radius: 3px;
+border: 0;
+cursor: pointer;
+text-align: center;
+text-transform: uppercase;
+padding: 7.5px;
+padding-left: 10px;
+padding-right: 10px;
+
+color: #ffffff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+background-color: #006dcc;
+background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+background-repeat: repeat-x;
+border-color: #0044cc #0044cc #002a80;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.btn-coursesbtn:hover{
+  color: #fff ;
+  background-color: #3498DB ;
+}
+
+.btn-profile {
+background-color: #2980B9 ;
+color: #fff;
+font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+border-radius: 3px;
+border: 0;
+cursor: pointer;
+text-align: center;
+text-transform: uppercase;
+padding: 5px 12px;
+}
+
+.btn-profile:hover{
+  color:#fff;
+  background-color: #3498DB ;
+}
+
+/* miscellaneous */
+.debug_dump {
+clear: both;
+float: left;
+width: 100%;
+margin-top: 45px;
+}
