@@ -12770,3 +12770,16 @@ Processing by ScreensController#home as HTML
   Rendered layouts/_footer.html.erb (1.1ms)
 Completed 200 OK in 209ms (Views: 206.5ms | ActiveRecord: 1.0ms)
 >>>>>>> a58c72d36381a4f9b42180394c0d13acffa8f884
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-18 16:48:49 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (74.8ms)
+Compiled application.js  (58ms)  (pid 15433)
+  Rendered layouts/_shim.html.erb (0.6ms)
+  Rendered layouts/_header.html.erb (5.9ms)
+  Rendered layouts/_login_popup.html.erb (1156.8ms)
+  Rendered layouts/_signup_popup.html.erb (112.8ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 1680ms (Views: 1666.9ms | ActiveRecord: 10.1ms)
