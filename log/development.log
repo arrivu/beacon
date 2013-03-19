@@ -23813,3 +23813,16 @@ Completed 200 OK in 240ms (Views: 235.9ms | ActiveRecord: 0.0ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 187ms (Views: 184.6ms | ActiveRecord: 0.0ms)
 >>>>>>> 5944cdd207aa384bae30d80963de2faea68beb55
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-19 10:06:07 +0530
+Processing by ScreensController#home as HTML
+  Rendered screens/home.html.erb within layouts/application (33.8ms)
+Compiled application.js  (503ms)  (pid 3915)
+  Rendered layouts/_shim.html.erb (0.7ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_login_popup.html.erb (1627.5ms)
+  Rendered layouts/_signup_popup.html.erb (45.4ms)
+  Rendered layouts/_footer.html.erb (2.0ms)
+Completed 200 OK in 4113ms (Views: 4072.2ms | ActiveRecord: 38.5ms)
