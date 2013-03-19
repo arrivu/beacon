@@ -27,6 +27,7 @@ Myapp::Application.routes.draw do
 	match '/about', :to => 'screens#about'
 	match '/privacy', :to => 'screens#privacy'
 	match '/terms', :to => 'screens#terms'
+  match '/contact', :to => 'screens#contact'
   #match '/faq', :to => 'screens#faq'
   match '/construction', :to => 'screens#construction'  
   devise_for :users, :controllers => {:registrations => "registrations"}
