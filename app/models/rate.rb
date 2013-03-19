@@ -4,7 +4,8 @@ class Rate < ActiveRecord::Base
   
   attr_accessible :rate, :dimension
   
-end\n# == Schema Information
+end
+# == Schema Information
 #
 # Table name: rates
 #

@@ -1,6 +1,7 @@
 class RatingCache < ActiveRecord::Base
   belongs_to :cacheable, :polymorphic => true 
-end\n# == Schema Information
+end
+# == Schema Information
 #
 # Table name: rating_caches
 #
