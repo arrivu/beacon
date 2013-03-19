@@ -15,8 +15,6 @@ Myapp::Application.routes.draw do
           end
       end
   resources :topics
-  resources :tutorials
-  resources :groups
   resources :under_constructions
   resources :o_classes
   resources :comments
