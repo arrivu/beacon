@@ -27,7 +27,7 @@
 
 class User < ActiveRecord::Base
   include CasHelper
-	rolify
+  rolify
   rolify
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   has_many :blogs, dependent: :destroy
   has_many :authentication, :dependent => :delete_all
 
- 
+  
   has_many :comments
 
   has_one :teaching_staffs, dependent: :destroy
@@ -72,5 +72,14 @@ class User < ActiveRecord::Base
 	  # Again, saving token is optional. If you haven't created the column in authentications table, this will fail
 	  authentication.build(:provider => auth['provider'], :uid => auth['uid'], :token => auth['credentials']['token'])
 	end
+
+  before_destroy:delete_in_lms
+  def delete_in_lms
+    lms_enable=parse_boolean "#{Settings.lms.enable}"
+    if lms_enable 
+      lmsuser=CanvasREST::User.new(Settings.lms.oauth_token,Settings.lms.api_root_url)
+      lmsuser.delete_user(Settings.lms.account_id,self.lms_id)
+    end
+  end
 
 end
