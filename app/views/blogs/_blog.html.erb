@@ -1,0 +1,27 @@
+<%- model_class = Tag -%>
+
+              
+              <div id="blogstack">
+                <h1><%= link_to blog.title, blog %></h1>
+                <p style="float:left;">by: <%= link_to User.find_by_id(blog.user_id).name,  User.find_by_id(blog.user_id) %>
+                </p>
+                <p style="float: left;margin-left:20px;">
+                  Category: 
+                  <% blog.tags.each do |tag| %>
+                      <a href="#" title="#"><%= link_to tag.name , tag %></a>
+                      <% if blog.tags.last.name == tag.name %>
+                      <% else %>
+                        <span class="cat-sep">\</span>
+                      <% end %>
+                  <% end %>
+                </p>
+
+                <p style="float: left;margin-left:20px;">
+                  Wrote On: 
+                  <%= link_to blog.created_at, '#' %>
+                </p>
+                <div class="clearfix"></div>
+
+              </div>
+              <div class="clearfix"></div>
+              

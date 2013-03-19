@@ -1,0 +1,36 @@
+<div class="row">
+        <ul class="nav nav-pills .pull-right">
+          <li >
+            <%= link_to "Courses", courses_path %>
+          </li>
+          <li><%= link_to "Tutorials", tutorials_path %></li>
+          <% if signed_in? %>
+            <li class="active"><%= link_to "Online Classes", o_classes_path %></li>
+          <% end %>
+          <li><%= link_to "Blog", blogs_path %></li>
+           <li ><%= link_to "Coaches", users_path %></li>
+        </ul>
+</div>
+<div id="blogstack">
+    <div id="toppart"></div>
+    <h1><%= @o_classe.name %></h1>
+    <div class="entry-meta">
+
+	     <span class="meta-published">Author <%= @o_classe.user_id %></span>
+	      <span class="meta-published"><%= @o_classe.created_at %></span>
+	      <span class="meta-published">Start:<%= @o_classe.start_date %></span>
+             <span class="meta-published">End:<%= @o_classe.end_date %></span>
+
+	      <p style="float:right;margin:0px;">
+		      <%= link_to "Destroy", @o_classe, confirm: 'Are you sure?', method: :delete %> | 
+
+	      </p>
+	    <div class="clearfix"></div>
+  	</div>
+  	<div class="clearfix"></div>
+
+  	<div class="alert alert-info">
+  		<%= @o_classe.desc %>
+	</div>
+	<p style="margin:10px;"><%= link_to "Back", o_classes_path %></p>
+</div>

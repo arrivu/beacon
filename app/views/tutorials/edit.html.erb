@@ -1,0 +1,27 @@
+<% provide(:title, 'Edit Tutorial') %>
+
+<div class="row">
+<div class="span4 offset3">
+<%= form_for(@tutorial) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :title, "Tutorial Title" %>
+<%= f.text_field :title %>
+
+<%= f.label :author, "Author Name" %>
+<%= f.text_field :author %>
+
+<%= f.label :desc, "Tutorial Description" %>
+<%= f.text_area :desc %>
+
+<%= f.label :image, "Tutorial Image" %>
+<%= f.text_field :image %>
+
+<%= f.label :group_ids, "Topics" %>
+<%= f.collection_select :group_ids, Group.order(:name), :id, :name, {}, {multiple: true} %>
+
+<br/><br/>
+<%= f.submit "Edit Tutorial", class: "btn btn-large btn-info" %>
+<% end %>
+</div>
+</div>

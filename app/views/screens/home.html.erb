@@ -1,0 +1,162 @@
+<% provide(:title, 'A Smarter Way to Learn') %>
+<% provide(:effectingHeader, 'Yes') %>
+<div class="navbar navbar-fixed-top ds-dragover-1" >
+ <div class="navbar-inner">
+  <div class="container">
+    <!-- <a class="brand" href=""><strong class="curr">SmartCoach</strong></a> -->
+    <%= link_to "SmartCoach", root_path, class: "curr brand" %>
+    <div class="navbar-content-1">
+      <ul class="nav pull-right">
+      <!-- <li class="active"> -->
+      <li> <%= link_to "Courses", courses_path %></li>
+
+      <% if user_signed_in?%>
+
+      <li id="fat-menu" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <% if current_user.image == nil %>
+          <%= gravatar_for_with_size current_user, "15x15" %>
+          <% else  %>
+          <%= image_tag(current_user.image,size: "23x26", alt: "")%> 
+          <% end  %>
+          <%= current_user.name %>  <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" id="droplinks">
+          <% if current_user.has_role? :admin %>
+          <li>
+            <%= link_to 'Admin', users_path %>
+          </li>
+          <% end %>
+          <li><%= link_to "Profile", edit_user_registration_path %></li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+          </li>
+        </ul>
+      </li>
+      <% else %>
+      <li> <a href="#sign_in_Modal" role="button" class="link" data-toggle="modal">Login</a></li>
+      <li>
+        <a href="#sign_up_Modal" role="button" class="link" data-toggle="modal">Create Account</a>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+<div class="container">
+      <!-- <div class="page-header">
+        <h1>The Divshot Quickstart Guide</h1>
+      </div> -->
+
+
+      <!-- <div class="alert alert-info hidden-phone">
+        <a class="close" data-dismiss="alert">×</a>
+        <span>
+          <b>Ready to dive in?</b>&nbsp;Click the page name dropdown in the top left
+          and create a new page using the embedded form.</span>
+        </div> -->
+
+        <!-- <img src="arrow.png" width="100" height="100" style="position:absolute;top:50px;left:0px"/> -->
+
+
+
+        <center><p class="lead text-info blue">"A smarter way to learn creative and technical skills."</p></center>
+        <div class="clearfix"></div>
+
+
+
+        <div class="row"  align="center">
+
+         <div class="span6 home-heading" align="left">
+          <!-- <span>Experience the fun in learning</span> -->
+          <p>Our mission at SmartCoach is to empower and enable people everywhere to enhance their skills.
+           Because we believe education should be accessible to everyone so we have founded SmartCoach to help you learn the skills you need to create wonderful things. And we believe you can do it.
+
+            <!-- <div class="btn-group">
+          <a class="btn btn-success .btn-large dropdown-toggle" data-toggle="dropdown" href="#">
+          Browse
+          <span class="caret"></span>
+       </a>
+        <ul class="dropdown-menu">
+          <li><a tabindex="-1" href="#">Categories</a></li>
+          <li><a tabindex="-1" href="#">Tutorials</a></li>
+        </ul>
+      </div> -->
+
+
+    </p>
+
+
+  </div>
+  <div class="span6" aign="left">
+   <div class=" ourvideo thumbnail">
+     <!-- <img src="image.jpg" alt="Ankit Image"/> -->
+     <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+   </div>
+ </div>
+</div>
+
+<p><br/></p>
+
+
+<div class="row">
+  <div class="span4">
+    <div class="well">
+      <h4>Courses: Best in industry</h4>
+      <p>
+        At SmartCoach courses are designed in a wat to help you grasp and practice complete skills.
+      </p>
+      <span align="center">
+        <%= link_to "Start with courses", "#", class: "btn btn-primary" %>
+      </span>
+    </div>
+          <!-- <div class="well">
+            <h4>Exporting HTML</h4>
+            <p>Divshot is built to give you usable code. Just click the "Export Code"
+              button in the top toolbar.</p>
+            </div> -->
+          </div>
+          <div class="span4">
+            <div class="well">
+              <h4>Tutorials: Smart way to learn</h4>
+              <p>SmartCoach worked with legends across many industries to bring you quality tutorials.</p>
+              <span align="center">
+                <%= link_to "Dive into tutorials", "#", class: "btn btn-primary" %>
+              </span>
+            </div>
+          <!-- <div class="well">
+            <h4>Responsive Design</h4>
+            <p>Divshot designs look great on any device. Click the laptop icon to preview
+              for phone, tablet, or desktop.</p>
+            </div> -->
+          </div>
+          <div class="span4">
+            <div class="well">
+              <h4>Blog: Keep Sharing</h4>
+              <p>SmartCoach has a moto of sharing knowledge across the globe.</p>
+              <span align="center">
+                <%= link_to "Share with Blog", "#", class: "btn btn-primary" %>
+              </span>
+            </div>
+          <!-- <div class="well">
+            <h4>Custom HTML</h4>
+            <p>Drop the "Custom HTML" component onto the page and double click it to
+              add arbitrary HTML.</p>
+            </div> -->
+          </div>
+        </div>
+
+      <!-- <div class="alert alert-info hidden-phone">
+        <a class="close" data-dismiss="alert">X</a>
+        <span>
+          <b>Ready to dive in?</b>&nbsp;Click the page name dropdown in the top left
+          and create a new page using the embedded form.</span>
+        </div> -->
+
+        <center>
+
+          <h4 style="color: #3A87AD;">Subscribe today to drive your career to new heights</h4>
+          <%= link_to "Subscribe now", new_user_registration_path, class: "btn btn-primary" %>
+        </center>

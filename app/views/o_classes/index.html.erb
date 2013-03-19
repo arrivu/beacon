@@ -1,0 +1,90 @@
+<% provide(:title, 'Online Classes') %>
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-pills .pull-right">
+      <li >
+        <%= link_to "Courses", courses_path %>
+      </li>
+      <li><%= link_to "Tutorials", tutorials_path %></li>
+      <% if signed_in? %>
+      <li class="active"><%= link_to "Online Classes", o_classes_path %></li>
+      <% end %>
+      <li><%= link_to "Blog", blogs_path %></li>
+      <li ><%= link_to "Coaches", users_path %></li>
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="span8">
+
+
+      <div class="well">
+        <%= link_to "Add new classroom", new_o_class_path , class: "move-to-right-top" %>
+
+        <%= will_paginate %>
+  
+          <%= render @o_classes %>
+   
+          <%= will_paginate %>
+        
+
+        <div class="clearfix"></div>
+      </div>
+    </div><!-- <div class="span8"> -->
+
+    <div class="span4">
+      <div class="well">
+
+        <form class="navbar-search pull-left">
+          <input type="text" class="search-query" placeholder="Search">
+        </form>
+        <div class="clearfix"></div>
+
+        <div class="categories">
+          <!-- <span class="badge badge-info">Categories</span> -->
+
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#">Categories:</a>
+            </li>
+
+          </ul>
+          <ul class="nav nav-list">
+            <li class="nav-header"></li>
+            <li class="active"><a href="#">All</a></li>
+            <% @topics.each do |topic| %>
+            <li><a href="#"><%= topic.name %></a></li>
+            <% end %>
+
+          </ul>
+          <br/>
+                    <!-- <button id="createTopicbottom" class="btn btn-info" type="button">Add new Topic
+                  </button> -->
+                  <button id="manageTopicbottom" class="btn btn-info" type="button">Manage Topics
+                  </button>
+                </div>
+                <div class="upcoming">
+                  <!-- <span class="badge badge-info">Categories</span> -->
+                  <ul class="nav nav-tabs">
+                    <li class="active">
+                      <a href="#">Upcoming Courses:</a>
+                    </li>
+
+                  </ul>
+                  <div class="upcoming-widget">
+                    <div class="widget-thumbnail">
+                      <!-- <img src="homeOnline.jpg" width="70px" height="100px"> -->
+                      <!--#link_to image_tag("homeOnline.jpg", border 0), {action: '#', controller: '#'},class: '#'-->
+                      <%= link_to image_tag("homeOnline.jpg", border: 0)%>
+                    </div><!-- end .widget-thumbnail -->
+                    <div class="widget-body">
+                      <h4>SQL Essentials</h4>
+                      <span class="label label-info">December</span>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- <div class="span3"> -->
+          </div><!-- <div class="row"> -->
+</div><!-- <div class="container"> -->

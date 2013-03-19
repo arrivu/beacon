@@ -1,0 +1,26 @@
+<% provide(:title, 'Create Course') %>
+<div class="row">
+<div class="span4 offset3">
+<%= form_for(@course) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :title, "Course Title" %>
+<%= f.text_field :title %>
+
+<%= f.label :author, "Author Name" %>
+<%= f.text_field :author %>
+
+<%= f.label :desc, "Course Description" %>
+<%= f.text_area :desc %>
+
+<%= f.label :image, "Course Image" %>
+<%= f.text_field :image %>
+
+<%= f.label :topic_ids, "Topics" %>
+<%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %>
+
+<br/><br/>
+<%= f.submit "Edit Course", class: "btn btn-large btn-info" %>
+<% end %>
+</div>
+</div>

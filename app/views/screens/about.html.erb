@@ -1,0 +1,115 @@
+<% provide(:title, 'About') %>
+<% provide(:effectingHeader, 'Yes') %>
+<div class="navbar navbar-fixed-top ds-dragover-1" >
+     <div class="navbar-inner">
+        <div class="container">
+          <!-- <a class="brand" href=""><strong class="curr">SmartCoach</strong></a> -->
+          <%= link_to "Beacon Online", root_path, class: "curr brand" %>
+            <div class="navbar-content-1">
+              
+
+              <ul class="nav pull-right">
+                <!-- <li class="active"> -->
+               <li>
+               
+                  <%= link_to "Home", root_path %>
+                </li>
+
+                <li class="active">
+                  <%= link_to "About", about_path %>
+                </li>
+                 <li> <%= link_to "Courses", courses_path %></li>
+               
+                <% if signed_in? %>
+                  
+                  <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= gravatar_for_with_size current_user, "15x15" %> <%= current_user.name %>  <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu" id="droplinks">
+                      <% if current_user.has_role? :admin %>
+            <li>
+              <%= link_to 'Admin', users_path %>
+            </li>
+            <% end %>
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li class="divider"></li>
+                  <li>
+                  <%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
+                  </li>
+                  </ul>
+                  </li>
+                <% else %>
+                  <li><%= link_to "Sign in", new_user_session_path%></li>
+                  <li>
+                          <%= link_to "Subscribe", new_user_registration_path %>
+                      </li>
+                <% end %>
+
+
+              </ul>
+          </div>
+        </div>
+    </div>
+</div>
+
+<br/><br/>
+<div class="container movedown">
+  <div class="row"  align="center">
+    <div class="span5" align="left">
+        <div class="mycarousel" align="center">
+            <div class="bs-docs-example">
+                <div id="myCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <%= image_tag "img01.jpg"%>
+                        <div class="carousel-caption">
+                          <h4>First Thumbnail label</h4>
+                          
+                        </div>
+                      </div>
+                      <div class="item">
+                        <%= image_tag "img02.jpg" %>
+                        <div class="carousel-caption">
+                          <h4>Second Thumbnail label</h4>
+                          
+                        </div>
+                      </div>
+                      <div class="item">
+                        <%= image_tag "img03.jpg"%>
+                        <div class="carousel-caption">
+                          <h4>Third Thumbnail label</h4>
+                          
+                        </div>
+                      </div>
+                      <div class="item">
+                        <%= image_tag "img04.jpg"%>
+                        <div class="carousel-caption">
+                          <h4>Fourth Thumbnail label</h4>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <%= image_tag "img04.jpg"%>
+                        <div class="carousel-caption">
+                          <h4>Fifth Thumbnail label</h4>
+                        </div>
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                  </div>
+              <div class="clearfix"></div>
+              </div>
+          </div>
+
+
+    </div><!-- Span5 -->
+    <div class="span7 aboutHead">
+        <p>
+          We specialize in teaching of latest technologies in the comfort of your browser with video lessons, coding challenges, online classes and screencasts.
+          <br/>
+          Learn advanced courses in many technologies that we offer like Ruby, JavaScript, Ruby on Rails, Node, Git, Design, and connect with developers you admire in our popular Play by Play series.
+        </p>
+    </div>
+  </div>
+</div>

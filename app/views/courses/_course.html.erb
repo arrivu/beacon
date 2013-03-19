@@ -1,0 +1,83 @@
+<div class="thumbnail"> 
+  <%- model_class = Tag -%>
+  <div class="well-course">  
+   <h4><%= link_to course.title, course %>
+     <!-- <img src="images/dmbtest.gif" width="45px" height="45px" /> -->
+     <%= link_to image_tag("#{course.image}", width: "30", height: "30")%>
+   </h4>
+   <div class="clearfix">
+   </div>
+   <div class="entry-meta">
+    <span class="meta-author">
+     <a href="#" title="#" rel="author"><%= link_to User.find_by_id(course.user_id).name,  User.find_by_id(course.user_id) %></a>
+   </span>
+   <span class="meta-categories">
+    <% course.topics.each do |topic| %>
+    <a href="#" title="#"><%= link_to topic.name , topic %></a>
+    <% if course.topics.last.name == topic.name %>
+    <% else %>
+    <span class="cat-sep">\</span>
+    <% end %>
+    <% end %>
+  </span>              
+</div>
+<div class="clearfix"></div>
+<table class="table table-hover"> 
+  <tr>
+    <td>  
+     <div class="entry-thumbnail">
+      <div align="center">
+       <a>
+        <%= link_to image_tag("#{course.image}", border: 0, width: "100", height: "100")%> 
+        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+        <br align = "center">Has <%= pluralize(@qty, "Ratings") %>
+        <% end %>
+        <%= rating_for course, "rate" %> 
+        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+        <% if @rated == nil  %>
+        Rate This Course
+        <% else  %>
+        Course Rated
+        <% end %>
+        <% end %>
+      </a>
+    </div>
+
+  </div>
+  
+</td>
+<td>
+  <!-- end .entry-thumbnail -->
+
+  <div class="entry-content has-post-image">
+    <p class="muted" style="text-align: justify;"><%= course.desc %></p>
+    <% if signed_in? %>
+    <%= link_to "Start Course", '#', class: "btn btn-primary btn-success" %>
+    <% else %>
+    <%= link_to "Join to Access", new_user_registration_path , class: "btn btn-primary btn-info" %>
+    <%= link_to "SignIn to start", new_user_session_path, class: "btn btn-primary btn-success" %>
+    <% end %>
+    <% if signed_in? && current_user.id == User.find_by_id(course.user_id).id %>
+    <p style="float:right;margin:0px;">
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+      edit_course_path(course), :class => 'btn btn-mini' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+      course_path(course),
+      :method => 'delete',
+      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+      :class => 'btn btn-mini' %>
+    </p>
+    <% end %>
+
+  </div><!-- end .entry-content -->         
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<br>
+
+
+
+

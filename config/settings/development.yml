@@ -1,0 +1,6 @@
+cas:
+  enable: false
+  expiry: 3600 #one hour
+  url: https://localhost:8888
+  login_path: '/cas/api-login'
+  logout_path: '/cas/api-logout'

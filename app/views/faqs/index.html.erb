@@ -1,0 +1,99 @@
+<% provide(:title, 'Frequently Asked Questions') %>
+<% provide(:effectingHeader, 'Yes') %>
+<div class="navbar navbar-fixed-top ds-dragover-1" >
+     <div class="navbar-inner">
+        <div class="container">
+          <!-- <a class="brand" href=""><strong class="curr">SmartCoach</strong></a> -->
+          <%= link_to "SmartCoach", root_path, class: "curr brand" %>
+            <div class="navbar-content-1">
+              
+
+              <ul class="nav pull-right">
+                <!-- <li class="active"> -->
+               <li>
+               
+                  <%= link_to "Home", root_path %>
+                </li>
+                <li>
+                  <%= link_to "About", about_path %>
+                </li>
+                
+                <li class="active">
+                  <%= link_to "Faq", faqs_path %>
+                </li>
+                <% if signed_in? %>
+                  
+                  <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= gravatar_for_with_size current_user, "15x15" %> <%= current_user.name %>  <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu" id="droplinks">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li class="divider"></li>
+                  <li>
+                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  </li>
+                  </ul>
+                  </li>
+                <% else %>
+                  <li><%= link_to "Sign in", signin_path %></li>
+                  <li>
+                          <%= link_to "Subscribe", signup_path %>
+                      </li>
+                <% end %>
+              </ul>
+          </div>
+        </div>
+    </div>
+</div>
+<center>
+  <div class="row">
+    <div class="container">
+
+      <div class="row">
+        <ul class="nav nav-pills .pull-right">
+          <li>
+            <%= link_to "Courses", courses_path %>
+          </li>
+          <li><%= link_to "Tutorials", tutorials_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Online Classes", o_classes_path %></li>
+          <% end %>
+          <li><%= link_to "Blog", blogs_path %></li>
+           <li ><%= link_to "Coaches", users_path %></li>
+        </ul>
+      </div>
+      
+      <div class="span12">
+        
+        <div id="faqs">
+          <h2>General FAQs</h2>
+          <% for faq in @faqs %>
+              <div id="question" align="left">
+                  <i class="icon-question-sign icon-white"></i>
+                  <span><%= faq.question %></span>
+              </div>
+              <div id="answer" align="left">
+                  <i class="icon-bullhorn icon-black"></i>
+                  <span><%= faq.answer %></span>
+                  <% if signed_in? && current_user.user_type == 3 #Admin %>
+                    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_faq_path(faq), :class => 'btn btn-mini' %>
+                     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      faq_path(faq),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+                  <% end %>
+              </div>
+
+              <div class="clearfix"></div>
+          <% end %>
+        </div><!-- <div id="faqs"> -->
+        <p class="text-info">Note: Click on the question to view its answer.</p>
+      </div><!-- <div id="span12"> -->
+    </div><!-- <div id="container"> -->
+  </div><!-- <div id="row"> -->
+  
+</center>
+

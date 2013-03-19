@@ -1,0 +1,77 @@
+<% provide(:title, 'Under Construction') %>
+<% provide(:effectingHeader, 'Yes') %>
+<div class="navbar navbar-fixed-top ds-dragover-1" >
+     <div class="navbar-inner">
+        <div class="container">
+          <!-- <a class="brand" href=""><strong class="curr">SmartCoach</strong></a> -->
+          <%= link_to "SmartCoach", root_path, class: "curr brand" %>
+            <div class="navbar-content-1">
+              
+
+              <ul class="nav pull-right">
+                <!-- <li class="active"> -->
+               <li>
+               
+                  <%= link_to "Home", root_path %>
+                </li>
+                <li>
+                  <%= link_to "About", about_path %>
+                </li>
+                
+                <li class="active">
+                  <%= link_to "Faq", faqs_path %>
+                </li>
+                <% if signed_in? %>
+                  
+                  <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <%= gravatar_for_with_size current_user, "15x15" %> <%= current_user.name %>  <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu" id="droplinks">
+                  <li><%= link_to "Profile", current_user %></li>
+                  <li class="divider"></li>
+                  <li>
+                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  </li>
+                  </ul>
+                  </li>
+                <% else %>
+                  <li><%= link_to "Sign in", signin_path %></li>
+                  <li>
+                          <%= link_to "Subscribe", signup_path %>
+                      </li>
+                <% end %>
+              </ul>
+          </div>
+        </div>
+    </div>
+</div>
+<center>
+  <div class="row">
+    <div class="container">
+      <h2>General FAQs</h2>
+      <div class="span12">
+        <div id="faqs">
+          <div id="question" align="left">
+              <i class="icon-question-sign icon-white"></i>
+              <span>Here the question will come</span>
+          </div>
+          <div id="answer" align="left">
+              <i class="icon-bullhorn icon-black"></i>
+              <span>Here the answer will come</span>
+          </div>
+
+          <div id="question" align="left">
+              <i class="icon-question-sign icon-white"></i>
+              <span>Here the question will come</span>
+          </div>
+          <div id="answer" align="left">
+              <i class="icon-bullhorn icon-black"></i>
+              <span>Here the answer will come</span>
+          </div>
+        </div><!-- <div id="faqs"> -->
+      </div><!-- <div id="span12"> -->
+    </div><!-- <div id="container"> -->
+  </div><!-- <div id="row"> -->
+  
+</center>

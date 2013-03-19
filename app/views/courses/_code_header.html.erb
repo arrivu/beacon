@@ -1,0 +1,57 @@
+<header class="header-a">
+  <div class="inner">
+    <div class="logo">
+      <a href="<%= root_path %>"></a>
+    </div>
+    <nav class="nav-a">
+      <ul>
+	      <li class="courseslink">
+          <a href="<%= courses_path %>" class="false">Courses</a>
+        </li>
+        <% if user_signed_in? %>
+        <li class="courseslink">
+          <%= link_to "My Courses" , courses_path(:mycourses=>"mycourses"),:class=>"false" %>
+        </li>
+        <script>
+          $('.courseslink').css('left',"-100px");
+        </script>
+          <!-- <a class="btn-a" href="login.html">Log Out</a> -->
+          <!-- <li class="createaccountlink"><a href="#" class="btn-a">Create Account <span class="caret"></span></a></li> -->
+          <!-- <div class="btn-group stayup">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-user"></i>&nbsp;&nbsp;Demo user&nbsp;&nbsp;<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          <li><a href="mycourses.php">My Courses</a></li>
+          <li><a href="myprofile.php">My Profile</a></li>
+          <li class="divider"></li>
+          <li><a href="logout.php">Logout</a></li>
+          </ul>
+          </div> -->
+         <ul id="dropdownlist">
+          <li>
+            <a href="#">
+              <i class="icon-user icon-white"></i>&nbsp;&nbsp;<%= current_user.name%>&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i>
+            </a>
+            <ul>
+              <li>
+                <a href="<%=user_path(current_user.id)%>">My Profile</a>
+              </li>
+              <li>
+                <%= link_to "Logout", destroy_user_session_path, :method=>:delete %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <% else %>  
+				<li class="createaccountlink">
+          <a href="<%= new_user_registration_path %>" role="button" data-toggle="modal" class="btn-a">Create Account</a>
+        </li>
+				<li class="loginlink">
+          <a href="<%= user_session_path %>" role="button" data-toggle="modal" class="btn-c">Log In</a>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

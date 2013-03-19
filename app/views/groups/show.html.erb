@@ -1,0 +1,136 @@
+<% provide(:title, 'Tutorials for ' + @group.name) %>
+<%- model_class = Group -%>
+<div class="container">
+
+  <div class="row">
+        <ul class="nav nav-pills .pull-right">
+          <li>
+            <%= link_to "Courses", courses_path %>
+          </li>
+          <li class="active"><%= link_to "Tutorials", tutorials_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Online Classes", o_classes_path %></li>
+          <% end %>
+          <li><%= link_to "Blog", blogs_path %></li>
+           <li ><%= link_to "Coaches", users_path %></li>
+        </ul>
+      </div>
+
+  <div class="page-header">
+    <% @groupStructure = @group.name + " ( #{@group.tutorials.where(ispublished: 1).size} )" %>
+    <h3>Tutorials related to category: <%= @groupStructure %></h3>
+  </div>
+  <% if signed_in? && current_user.user_type == 3 #Admin %>
+    <div class="form-actions">
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                  tutorials_path, :class => 'btn'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_group_path(@group), :class => 'btn' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  group_path(@group),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+    </div>
+  <% end %>
+  
+  
+  <div class="row">
+        <div class="span8">
+            
+            <% if @group.tutorials.where(ispublished: 1).size >= 1 %>
+                <div class="well">
+                    <% if signed_in? && current_user.user_type == 1 #Teacher %>
+                      <p><%= link_to "Add New Tutorial", new_tutorial_path , class: "move-to-right-top"%></p>
+                    <% end %>
+                    
+                    <%= render @group.tutorials.where(ispublished: 1) %>
+
+                    <% @group.tutorials.each do |tutorial| %>
+                      <% if ((tutorial.id % @countTutorialsPerPage) == 0 ) %>
+                        <% if signed_in? && current_user.user_type == 1 #Teacher %>
+                          <p><%= link_to "Add New Tutorial", new_tutorial_path , class: "move-to-right-bottom"%></p>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                    
+                    <div class="clearfix"></div>
+                </div>
+            <% else %>
+                <div class="alert alert-alert">
+                  No Tutorial in this category yet!!!!
+                </div>
+            <% end %>
+        </div><!-- <div class="span8"> -->
+
+        <div class="span3">
+            <div class="">
+
+               <!--  <form class="navbar-search pull-left">
+                  <input type="text" class="search-query" placeholder="Search">
+                </form>
+                <div class="clearfix"></div> -->
+
+                <div class="tabbable"> <!-- Only required for left/right tabs -->
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#categories" data-toggle="tab">Categories</a></li>
+                    <li><a href="#upcomingcourses" data-toggle="tab">Upcoming Tutorials</a></li>
+                  </ul>
+                  <div class="tab-content">
+
+                    <div class="tab-pane active" id="categories">
+                      
+                      <div class="categories">
+                          
+                          <ul class="nav nav-list">
+                              <li class="nav-header"></li>
+                              <li><%= link_to "All" + " ( #{Tutorial.where(ispublished: 1).all.size} )", tutorials_path %></a></li>
+                              <% @groups.each do |group| %>
+                                
+                                <% if group.id == @group.id %>
+                                  <% @groupStructure = group.name + " ( #{ group.tutorials.where(ispublished: 1).size } )" %>
+                                  <li class="active"><a href="#"><%= link_to @groupStructure, group %></a></li>
+                                <% else %>
+                                  <% @groupStructure = group.name + " ( #{ group.tutorials.where(ispublished: 1).size } )" %>
+                                  <li><a href="#"><%= link_to @groupStructure, group %></a></li>
+                                <% end %>
+                              <% end %>
+                          </ul>
+                          <br/>
+                        
+                          <% if signed_in? && current_user.user_type == 3 #Admin %>
+                            <%= link_to "Manage Category", groups_path, class: "btn btn-info" %>
+                          <% end %>
+                      </div>
+
+                    </div><!-- <div class="tab-pane active" id="categories"> -->
+
+                    <div class="tab-pane" id="upcomingcourses">
+                      
+                      <div class="upcoming">
+                          <% Tutorial.where(ispublished: 0).all.each do |t| %>
+                              <div class="upcoming-widget">
+                                <div class="widget-thumbnail">
+                                  <!-- <img src="homeOnline.jpg" width="70px" height="100px"> -->
+                                  <!--#link_to image_tag("homeOnline.jpg", border 0), {action: '#', controller: '#'},class: '#'-->
+                                  <%= link_to image_tag("#{t.image}", border: 0, width: "50", height: "50")%>
+                                </div><!-- end .widget-thumbnail -->
+                                <div class="widget-body">
+                                  <h4><%= t.title %></h4>
+                                  <span class="label label-info"><%= t.releasemonth %></span>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                          <% end %>
+                      </div>
+                    </div><!-- <div class="tab-pane" id="categories"> -->
+                  
+                  </div><!--<div class="tab-content"> -->
+                </div><!-- Only required for left/right tabs -->
+
+                
+          </div>
+        </div><!-- <div class="span3"> -->
+      </div><!-- <div class="row"> -->
+
+</div>

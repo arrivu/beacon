@@ -1,0 +1,29 @@
+<h3 align="center"><%= pluralize(@count, "Review") %></h3>
+<% @comments.each do |comment| %>
+<% @user = User.find_by_id(comment.user_id)%>
+<%= @user.name %>
+<div class="row">
+<div class="span12 offset10">
+<% @created_at = comment.created_at.to_s.split %>
+<%= @created_at[0]%>
+<%= @created_at[1]%>
+</div>
+</div>
+<% if @user.image == nil %>
+<%= gravatar_for_with_size @user, "50x50" %>
+<% else  %>
+<%= image_tag(@user.image,size: "50x50", alt: "")%> 
+<% end  %>
+<br>
+<br>
+<div class="row">
+	<div class="span8 offset2">
+		<b> <%= comment.title %></b> <br>
+		<br>
+		<%= comment.comment %>
+	</div>
+</div>
+<hr>
+<% end %>
+<div align="center"><%= will_paginate(@comments) %></div>
+

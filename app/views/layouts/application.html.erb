@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= full_title(yield(:title)) %></title>
+  <%= stylesheet_link_tag "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= favicon_link_tag 'favicon_normal.ico' %>
+</head>
+<body>
+  <% if check_null(yield(:effectingHeader)) %>
+  <%= render 'layouts/header' %>
+  <% else %>
+  <!-- Do Nothing -->
+  <% end %>
+  <!-- <div class="container"> -->
+
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <%= yield %>
+
+    <%= render 'layouts/login_popup' %>
+    <%= render 'layouts/signup_popup' %>
+  <!-- </div> -->
+  <%= render 'layouts/footer' %>
+</body>
+<%= debug(params) if Rails.env.development? %>
+</html>
