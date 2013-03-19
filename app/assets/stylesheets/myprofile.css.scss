@@ -1,0 +1,126 @@
+.profilebody{
+	position: relative;
+	padding: 20px;
+	min-height: 200px;
+}
+
+.profileimage{
+	float: right;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.profileinfo{
+	float: left;
+	margin-left: 100px;
+}
+
+.big{
+	padding: 0px;
+	margin-top: 0px;
+	font-size: 24.5px;
+	line-height: 40px;
+	margin: 10px 0;
+	font-family: inherit;
+	font-weight: bold;
+	line-height: 20px;
+	color: #2980B9;
+	text-rendering: optimizelegibility;
+}
+
+
+.extrainfo{
+	font-size: 15px;
+	margin-top: 20px;
+}
+
+.gotomycoursebtn {
+	margin-top: 40px;
+	position: relative;
+	top:-10px;
+	padding: 10px;
+	font-weight: bold;
+	background: #2C3E50 ;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.gotomycoursebtn:hover{
+	background: #34495E;
+}
+
+
+
+.feedbackbtn{
+	margin-top: 40px;
+	margin-left: 10px;
+	position: relative;
+	top:-10px;
+	padding: 10px;
+	font-weight: bold;
+	background: #2C3E50 ;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.feedbackbtn:hover{
+	background: #34495E;
+}
+
+.editprofilebtn{
+	margin-top: 40px;
+	margin-left: 10px;
+	position: relative;
+	top:-10px;
+	padding: 10px;
+	font-weight: bold;
+	background: #2C3E50 ;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.editprofilebtn:hover{
+	background: #34495E;
+}

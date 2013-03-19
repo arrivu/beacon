@@ -254,6 +254,9 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "user_desc"
     t.string   "name"
     t.string   "username"
+
+    t.integer  "lms_id"
+
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

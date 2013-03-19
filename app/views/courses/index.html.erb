@@ -159,7 +159,9 @@
                         <ul class="nav nav-list">
                           <li class="nav-header"></li>
                           <li class="active"><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></a></li>
+
                           <% @topics.each do |topic| %>   
+
                           <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
                           <li><a href="#"><%= link_to @topicStructure, topic %></a></li>
                           <% end %>
@@ -204,4 +206,6 @@
               </div>
             </div><!-- <div class="span3"> -->
           </div><!-- <div class="row"> -->
+
         </div><!-- <div class="container"> -->
+

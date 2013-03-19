@@ -4,3 +4,4 @@ class TeachingStaff < ActiveRecord::Base
   has_many :teaching_staff_courses
   has_many :courses, :through => :teaching_staff_courses 
 end
+

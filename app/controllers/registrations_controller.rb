@@ -23,7 +23,9 @@ class RegistrationsController < Devise::RegistrationsController
     #  respond_with resource
     #end
 
+
     super
+
     #call cas sign to create the cas ticket
     begin
       tgt = cas_sign_in(current_user) if  cas_enable?
@@ -33,5 +35,16 @@ class RegistrationsController < Devise::RegistrationsController
       puts "There is some error to sing_in to cas using user : #{current_user.inspect}"
       raise
     end
+
+
+    #LMS User Creation
+    lms_enable=parse_boolean "#{Settings.lms.enable}"
+    if lms_enable and current_user != nil
+      lmsuser=CanvasREST::User.new
+      lmsuser.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+      u=lmsuser.create_user(Settings.lms.account_id,current_user.name,current_user.email,current_user.password)
+      current_user.update_attributes(:lms_id => u["id"])
+    end
   end
+  
 end

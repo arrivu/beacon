@@ -13,6 +13,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
+gem 'activemerchant'
+gem 'active_merchant_ccavenue'
+
 gem 'omniauth-google-oauth2'
 
 gem 'oauth2'
@@ -35,6 +38,7 @@ group :development do
 gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
 gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
 gem 'ruby-debug19'
+
 end
 gem 'sqlite3', :group => :development
 gem "quiet_assets", ">= 1.0.1", :group => :development
@@ -54,9 +58,10 @@ gem 'json'
 gem "rails_config"
 group :development do
   gem 'pg', '0.12.2'
-  gem 'thin'
+
 end
 gem 'acts_as_commentable', '3.0.1'
 gem 'letsrate'
-
+gem 'canvas',:git => 'git://github.com/m-narayan/canvas'
+gem 'annotate', '2.4.1.beta1'
 

@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
+
   layout 'courses'
+
 	before_filter :current_user, only: [:create, :edit,:update,:delete]
    ActiveMerchant::Billing::Integrations
 
@@ -14,6 +16,7 @@ class CoursesController < ApplicationController
 		@topics = Topic.order(:name)
 
   	end
+
 	def new
 		@course = Course.new
 	end
@@ -45,13 +48,15 @@ class CoursesController < ApplicationController
   	end
 
 
-	# def show
-	# 	@course = Course.find(params[:id])
-	# 	@countCommentsPerPage = 5
-	# 	@comments = @course.comments.paginate(page: params[:page], per_page: 5)
-	# 	@count = @course.comments.count
-	# 	@course = Course.find(params[:id])
-	# end
+
+	def show
+		@course = Course.find(params[:id])
+		@countCommentsPerPage = 5
+		@comments = @course.comments.paginate(page: params[:page], per_page: 5)
+		@count = @course.comments.count
+		@course = Course.find(params[:id])
+	end
+
 
 	def update
 		@course = Course.find(params[:id])
@@ -88,8 +93,10 @@ class CoursesController < ApplicationController
 	    redirect_to courses_url
   	end
 
+
   	def course_payment 
   	end
+
 
   	def confirm_course_payment
   		@notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)

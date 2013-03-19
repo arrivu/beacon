@@ -3,3 +3,4 @@ class TeachingStaffCourse < ActiveRecord::Base
   belongs_to :teaching_staff
   belongs_to :course
 end
+

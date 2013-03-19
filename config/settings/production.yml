@@ -3,4 +3,10 @@ cas:
   expiry: 3600 #one hour
   url: https://localhost:8888
   login_path: '/cas/api-login'
+
   logout_path: '/cas/api-logout'
+lms:
+  enable: false
+  account_id: 2
+  oauth_token: tKmI8hGorLtmUk2xCNHilSipYPJ1oCJ367qHeEWA8PMjJtY6LZurLeNPCJKa65TS
+  api_root_url: https://192.168.1.40/api/v1
