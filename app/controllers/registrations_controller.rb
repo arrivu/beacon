@@ -37,7 +37,8 @@ class RegistrationsController < Devise::RegistrationsController
     #LMS User Creation
     lms_enable=parse_boolean "#{Settings.lms.enable}"
     if lms_enable and current_user != nil
-      lmsuser=CanvasREST::User.new(Settings.lms.oauth_token,Settings.lms.api_root_url)
+      lmsuser=CanvasREST::User.new
+      lmsuser.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
       u=lmsuser.create_user(Settings.lms.account_id,current_user.name,current_user.email,current_user.password)
       current_user.update_attributes(:lms_id => u["id"])
     end

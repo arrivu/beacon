@@ -78,7 +78,8 @@ class User < ActiveRecord::Base
   def delete_in_lms
     lms_enable=parse_boolean "#{Settings.lms.enable}"
     if lms_enable 
-      lmsuser=CanvasREST::User.new(Settings.lms.oauth_token,Settings.lms.api_root_url)
+      lmsuser=CanvasREST::User.new
+      lmsuser.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
       lmsuser.delete_user(Settings.lms.account_id,self.lms_id)
     end
   end
