@@ -1,0 +1,124 @@
+2013-03-19T12:04:06+00:00 heroku[api]: Enable Logplex by samuel@arrivusystems.com
+2013-03-19T12:04:06+00:00 heroku[api]: Release v2 created by samuel@arrivusystems.com
+2013-03-19T12:05:50+00:00 heroku[slugc]: Slug compilation started
+2013-03-19T12:08:26+00:00 heroku[api]: Scale to web=1 by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Attach HEROKU_POSTGRESQL_BLACK resource by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Release v3 created by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Add DATABASE_URL config by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Release v4 created by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Add  config by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Release v5 created by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Release v6 created by samuel@arrivusystems.com
+2013-03-19T12:08:27+00:00 heroku[api]: Deploy c35fcdd by samuel@arrivusystems.com
+2013-03-19T12:08:28+00:00 heroku[web.1]: Starting process with command `bundle exec rails server -p 26662`
+2013-03-19T12:08:28+00:00 app[web.1]: bash: bundle: command not found
+2013-03-19T12:08:29+00:00 heroku[slugc]: Slug compilation finished
+2013-03-19T12:08:29+00:00 heroku[web.1]: Starting process with command `bundle exec rails server -p 6913`
+2013-03-19T12:08:30+00:00 heroku[web.1]: Process exited with status 127
+2013-03-19T12:08:40+00:00 app[web.1]: DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /app/config/environment.rb:6)
+2013-03-19T12:08:40+00:00 app[web.1]: DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /app/config/environment.rb:6)
+2013-03-19T12:08:40+00:00 app[web.1]: DEPRECATION WARNING: You have Rails 2.3-style plugins in vendor/plugins! Support for these plugins will be removed in Rails 4.0. Move them out and bundle them in your Gemfile, or fold them in to your app as lib/myplugin/* and config/initializers/myplugin.rb. See the release notes for more on this: http://weblog.rubyonrails.org/2012/1/4/rails-3-2-0-rc2-has-been-released. (called from <top (required)> at /app/config/environment.rb:6)
+2013-03-19T12:08:45+00:00 app[web.1]: [2013-03-19 12:08:45] INFO  WEBrick::HTTPServer#start: pid=2 port=6913
+2013-03-19T12:08:45+00:00 app[web.1]: [2013-03-19 12:08:45] INFO  WEBrick 1.3.1
+2013-03-19T12:08:45+00:00 app[web.1]: [2013-03-19 12:08:45] INFO  ruby 1.9.2 (2011-07-09) [x86_64-linux]
+2013-03-19T12:08:47+00:00 heroku[web.1]: State changed from starting to up
+2013-03-19T12:10:38+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by samuel@arrivusystems.com
+2013-03-19T12:10:40+00:00 heroku[run.7283]: Awaiting client
+2013-03-19T12:10:40+00:00 heroku[run.7283]: Starting process with command `bundle exec rake db:migrate`
+2013-03-19T12:10:41+00:00 heroku[run.7283]: State changed from starting to up
+2013-03-19T12:10:56+00:00 heroku[run.7283]: Process exited with status 0
+2013-03-19T12:10:56+00:00 heroku[run.7283]: State changed from up to complete
+2013-03-19T12:11:05+00:00 heroku[api]: Starting process with command `bundle exec rake db:reset` by samuel@arrivusystems.com
+2013-03-19T12:11:08+00:00 heroku[run.1679]: Awaiting client
+2013-03-19T12:11:08+00:00 heroku[run.1679]: Starting process with command `bundle exec rake db:reset`
+2013-03-19T12:11:09+00:00 heroku[run.1679]: State changed from starting to up
+2013-03-19T12:11:29+00:00 heroku[run.1679]: Process exited with status 0
+2013-03-19T12:11:29+00:00 heroku[run.1679]: State changed from up to complete
+2013-03-19T12:11:37+00:00 heroku[api]: Starting process with command `bundle exec rake db:populate` by samuel@arrivusystems.com
+2013-03-19T12:11:39+00:00 heroku[run.7931]: Awaiting client
+2013-03-19T12:11:39+00:00 heroku[run.7931]: Starting process with command `bundle exec rake db:populate`
+2013-03-19T12:11:39+00:00 heroku[run.7931]: State changed from starting to up
+2013-03-19T12:11:56+00:00 heroku[run.7931]: Process exited with status 0
+2013-03-19T12:11:56+00:00 heroku[run.7931]: State changed from up to complete
+2013-03-19T12:12:07+00:00 app[web.1]: => Ctrl-C to shutdown server
+2013-03-19T12:12:07+00:00 app[web.1]: Started GET "/" for 117.213.38.180 at 2013-03-19 12:12:07 +0000
+2013-03-19T12:12:07+00:00 app[web.1]: => Booting WEBrick
+2013-03-19T12:12:07+00:00 app[web.1]: => Call with -d to detach
+2013-03-19T12:12:07+00:00 app[web.1]: => Rails 3.2.12 application starting in production on http://0.0.0.0:6913
+2013-03-19T12:12:08+00:00 heroku[router]: at=info method=GET path=/ host=sheltered-cove-9572.herokuapp.com fwd="117.213.38.180" dyno=web.1 queue=0 wait=0ms connect=1ms service=1402ms status=500 bytes=643
+2013-03-19T12:12:08+00:00 app[web.1]: 
+2013-03-19T12:12:08+00:00 app[web.1]: ActionView::Template::Error (Invalid CSS after "..., sans-serif; }": expected selector or at-rule, was "}"
+2013-03-19T12:12:08+00:00 app[web.1]:     3: <head>
+2013-03-19T12:12:08+00:00 app[web.1]:     4:   <title><%= full_title(yield(:title)) %></title>
+2013-03-19T12:12:08+00:00 app[web.1]:   (in /app/app/assets/stylesheets/application.css.scss)):
+2013-03-19T12:12:08+00:00 app[web.1]:     2: <html>
+2013-03-19T12:12:08+00:00 app[web.1]:     7:   <%= csrf_meta_tags %>
+2013-03-19T12:12:08+00:00 app[web.1]:     8:   <%= render 'layouts/shim' %>
+2013-03-19T12:12:08+00:00 app[web.1]: 
+2013-03-19T12:12:08+00:00 app[web.1]:   app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___3512304099249687715_46239720'
+2013-03-19T12:12:08+00:00 app[web.1]: 
+2013-03-19T12:12:08+00:00 app[web.1]: Processing by ScreensController#home as HTML
+2013-03-19T12:12:08+00:00 app[web.1]:     5:   <%= stylesheet_link_tag "application", media: "all" %>
+2013-03-19T12:12:08+00:00 app[web.1]:   Rendered screens/home.html.erb within layouts/application (54.6ms)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled bootstrap.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled codecoursebox.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]:     6:   <%= javascript_include_tag "application" %>
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled about.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled coursemetadata.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled coursebox.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled footer.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled myprofile.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Completed 500 Internal Server Error in 1237ms
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled mycourses.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled codeheader.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled common.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled coursedetail.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled home.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled contact.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled courselib.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled login.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled courselibcategories.css  (0ms)  (pid 2)
+2013-03-19T12:12:08+00:00 app[web.1]: Compiled application.css  (164ms)  (pid 2)
+2013-03-19T12:12:08+00:00 heroku[router]: at=info method=GET path=/favicon.ico host=sheltered-cove-9572.herokuapp.com fwd="117.213.38.180" dyno=web.1 queue=0 wait=0ms connect=1ms service=10ms status=200 bytes=17938
+2013-03-19T12:12:47+00:00 app[web.1]: Started GET "/" for 117.213.38.180 at 2013-03-19 12:12:47 +0000
+2013-03-19T12:12:49+00:00 app[web.1]:   (in /app/app/assets/stylesheets/application.css.scss)):
+2013-03-19T12:12:49+00:00 app[web.1]:     2: <html>
+2013-03-19T12:12:49+00:00 app[web.1]: 
+2013-03-19T12:12:49+00:00 app[web.1]: ActionView::Template::Error (Invalid CSS after "..., sans-serif; }": expected selector or at-rule, was "}"
+2013-03-19T12:12:49+00:00 app[web.1]:     8:   <%= render 'layouts/shim' %>
+2013-03-19T12:12:49+00:00 app[web.1]:   app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___3512304099249687715_46239720'
+2013-03-19T12:12:49+00:00 app[web.1]: 
+2013-03-19T12:12:49+00:00 app[web.1]: Processing by ScreensController#home as HTML
+2013-03-19T12:12:49+00:00 app[web.1]:     5:   <%= stylesheet_link_tag "application", media: "all" %>
+2013-03-19T12:12:49+00:00 app[web.1]:     3: <head>
+2013-03-19T12:12:49+00:00 app[web.1]:     4:   <title><%= full_title(yield(:title)) %></title>
+2013-03-19T12:12:49+00:00 app[web.1]:     6:   <%= javascript_include_tag "application" %>
+2013-03-19T12:12:49+00:00 app[web.1]:     7:   <%= csrf_meta_tags %>
+2013-03-19T12:12:49+00:00 app[web.1]: 
+2013-03-19T12:12:49+00:00 app[web.1]: Completed 500 Internal Server Error in 976ms
+2013-03-19T12:12:49+00:00 app[web.1]:   Rendered screens/home.html.erb within layouts/application (0.1ms)
+2013-03-19T12:12:49+00:00 heroku[router]: at=info method=GET path=/ host=sheltered-cove-9572.herokuapp.com fwd="117.213.38.180" dyno=web.1 queue=0 wait=0ms connect=15ms service=1983ms status=500 bytes=643
+2013-03-19T12:12:59+00:00 heroku[api]: Starting process with command `bundle exec rake db:seed` by samuel@arrivusystems.com
+2013-03-19T12:13:02+00:00 heroku[run.5247]: Awaiting client
+2013-03-19T12:13:02+00:00 heroku[run.5247]: Starting process with command `bundle exec rake db:seed`
+2013-03-19T12:13:02+00:00 heroku[run.5247]: State changed from starting to up
+2013-03-19T12:13:13+00:00 heroku[run.5247]: Process exited with status 1
+2013-03-19T12:13:13+00:00 heroku[run.5247]: State changed from up to complete
+2013-03-19T12:16:42+00:00 app[web.1]: Started GET "/" for 117.213.38.180 at 2013-03-19 12:16:42 +0000
+2013-03-19T12:16:44+00:00 heroku[router]: at=info method=GET path=/ host=sheltered-cove-9572.herokuapp.com fwd="117.213.38.180" dyno=web.1 queue=0 wait=0ms connect=1ms service=1207ms status=500 bytes=643
+2013-03-19T12:16:44+00:00 app[web.1]: 
+2013-03-19T12:16:44+00:00 app[web.1]:   (in /app/app/assets/stylesheets/application.css.scss)):
+2013-03-19T12:16:44+00:00 app[web.1]:     2: <html>
+2013-03-19T12:16:44+00:00 app[web.1]:     3: <head>
+2013-03-19T12:16:44+00:00 app[web.1]:     4:   <title><%= full_title(yield(:title)) %></title>
+2013-03-19T12:16:44+00:00 app[web.1]:     5:   <%= stylesheet_link_tag "application", media: "all" %>
+2013-03-19T12:16:44+00:00 app[web.1]:     6:   <%= javascript_include_tag "application" %>
+2013-03-19T12:16:44+00:00 app[web.1]: ActionView::Template::Error (Invalid CSS after "..., sans-serif; }": expected selector or at-rule, was "}"
+2013-03-19T12:16:44+00:00 app[web.1]:     7:   <%= csrf_meta_tags %>
+2013-03-19T12:16:44+00:00 app[web.1]:     8:   <%= render 'layouts/shim' %>
+2013-03-19T12:16:44+00:00 app[web.1]: Completed 500 Internal Server Error in 1196ms
+2013-03-19T12:16:44+00:00 app[web.1]:   app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___3512304099249687715_46239720'
+2013-03-19T12:16:44+00:00 app[web.1]: 
+2013-03-19T12:16:44+00:00 app[web.1]: 
+2013-03-19T12:16:44+00:00 app[web.1]:   Rendered screens/home.html.erb within layouts/application (0.1ms)
+2013-03-19T12:16:44+00:00 app[web.1]: Processing by ScreensController#home as HTML
