@@ -42,4 +42,5 @@ class RegistrationsController < Devise::RegistrationsController
       current_user.update_attributes(:lms_id => u["id"])
     end
   end
+  
 end
