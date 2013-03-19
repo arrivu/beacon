@@ -230,25 +230,25 @@ users_hash = {
 
 
 
-		# Group categories for tutorials
-		groups_arr = ["Web Development", 
-			"Web Design", 
-			"Software Development",
-			"Business",
-			"Photoshop",
-			"Mobile development"
-		]
+		# # Group categories for tutorials
+		# groups_arr = ["Web Development", 
+		# 	"Web Design", 
+		# 	"Software Development",
+		# 	"Business",
+		# 	"Photoshop",
+		# 	"Mobile development"
+		# ]
 		
-		groups_arr.each do |group|
-			Group.create!(name: group)
-		end
+		# groups_arr.each do |group|
+		# 	Group.create!(name: group)
+		# end
 
 		# Tag categories for Blogs
 		tags_arr = ["Web Development", 
 			"Web Design", 
 			"Software Development",
 			"Business",
-			"Photoshop",
+			"Photoshop",	
 			"Mobile development"
 		]
 		
