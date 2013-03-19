@@ -40,10 +40,10 @@
       <div class="two columns">
         <ul class="link-list site-nav right">
           <li class="heading">Our Company →</li>
-          <li><a href="about.php" rel="nofollow">About</a></li>
-          <li><a href="contact.php" rel="nofollow">Contact Us</a></li>
-          <li><a href="#" rel="nofollow">Privacy Policy</a></li>
-          <li><a href="#" rel="nofollow">Terms &amp; Conditions</a></li>
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "Contact Us", contact_path %></li>
+          <li><%= link_to "Privacy Policy", privacy_path %></li>
+          <li><%= link_to "Terms & Conditions ", terms_path %></li>
         </ul> 
       </div>
       <div class="two columns">
@@ -61,7 +61,7 @@
           <li class="heading">
             Get in touch →
           </li>
-          <li><a href="contact.php">Write Us</a></li>
+          <li><%= link_to "Write Us", contact_path %></li>
           <li><a href="mailto:info@beaconlearning.in">Email Us</a></li>
         </ul>
       </div>
