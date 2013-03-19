@@ -2,27 +2,28 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
-#  email                  :string(255)      default(""), not null
-#  encrypted_password     :string(255)      default(""), not null
+#  id                     :integer         not null, primary key
+#  email                  :string(255)     default(""), not null
+#  encrypted_password     :string(255)     default(""), not null
 #  reset_password_token   :string(255)
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default(0)
+#  sign_in_count          :integer         default(0)
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
+#  created_at             :datetime        not null
+#  updated_at             :datetime        not null
 #  image                  :binary
-#  provider               :string(255)      default("signup")
+#  provider               :string(255)     default("signup")
 #  phone                  :string(255)
 #  user_type              :string(255)
 #  sub_plan               :string(255)
 #  user_desc              :string(255)
 #  name                   :string(255)
 #  username               :string(255)
+#  lms_id                 :integer
 #
 
 require 'spec_helper'

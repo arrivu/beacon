@@ -59,5 +59,5 @@ end
 gem 'acts_as_commentable', '3.0.1'
 gem 'letsrate'
 gem 'canvas',:git => 'git://github.com/m-narayan/canvas'
-gem 'annotate', '2.4.0'
+gem 'annotate', '2.4.1.beta1'
 
