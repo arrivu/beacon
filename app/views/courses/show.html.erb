@@ -167,38 +167,21 @@
     <div class="container">
       <div class="row">
         <div align="center">
-          <h3>7 Reviews</h3>
+          <h3><%=@course.comments.size%> Reviews</h3>
           <br/>
         </div>
-        <div class="span6">
-          <div class="reviewer">
-            <img src="http://placehold.it/70x70/2C3E50/fff&text=Reviewer"/>
-          </div>
-          <div class="bubble-content">
-            <div class="point"></div>
-              I'm well on my way now. This tutorial have got me up and running on finance. thanks!
-          </div>
-          <div class="container clearfix"></div>
+        <div class="pagination1">
+          <%= render "comments" %>
         </div>
-
-        <div class="span6">
-          <div class="reviewer">
-            <img src="http://placehold.it/70x70/2C3E50/fff&text=Reviewer"/>
-          </div>
-          <div class="bubble-content">
-            <div class="point"></div>
-              This course is an amazing journey into the imagination and adventures of learning finance into _why's world. If you are a Newbie in Finance or just want to enjoy a great introduction you shouldn't miss this opportunity to take this course. Thank you Beacon Learning!
-          </div>
-          <div class="container clearfix"></div>
-        </div>
-      </div>
-      <div class="row">
+      <%#if @course.comments.size > 4 %>  
+      <!--<div class="row">
         <div align="center">
             <div class="readallreview">
                 Read All Reviews!!
             </div>
         </div>
-      </div>
+      </div>-->
+      <%#end%>
     </div>
   </div>
 

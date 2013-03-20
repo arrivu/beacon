@@ -1,121 +1,108 @@
-<% provide(:title, 'Courses for ' + @topic.name) %>
-<%- model_class = Topic -%>
-<div class="container">
-  <div class="page-header">
-    <% @topicStructure = @topic.name + " ( #{@topic.courses.where(ispublished: 1).size} )" %>
-    <h3>Courses related to category: <%= @topicStructure %></h3>
-  </div>
-  <% if signed_in? && current_user.user_type == 3 #Admin %>
-    <div class="form-actions">
-      <%= link_to t('.back', :default => t("helpers.links.back")),
-                  courses_path, :class => 'btn'  %>
-      <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                  edit_topic_path(@topic), :class => 'btn' %>
-      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                  topic_path(@topic),
-                  :method => 'delete',
-                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                  :class => 'btn btn-danger' %>
+<div class="pagehead separation">
+    <div class="container">
+      <form action="#" class="category-search" data-pjax="">
+        <span class="mini-icon mini-icon-search-input"><i class="icon-search"></i></span>
+        <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2">
+      </form>
+
+      <h1>Welcome to Course Library</h1>
     </div>
-  <% end %>
-  
-  
-  <div class="row">
-        <div class="span8">
-            
-            <% if @topic.courses.where(ispublished: 1).size >= 1 %>
-                <div class="well">
-                    <% if signed_in? && current_user.user_type == 1 #Teacher %>
-                      <p><%= link_to "Add New Course", new_course_path , class: "move-to-right-top"%></p>
-                    <% end %>
-                    
-                    <%= render @topic.courses.where(ispublished: 1) %>
+  </div>
+  <!-- Sub Head for Course Lib -->
 
-                    <% @topic.courses.each do |course| %>
-                      <% if ((course.id % @countCoursesPerPage) == 0 ) %>
-                        <% if signed_in? && current_user.user_type == 1 #Teacher %>
-                          <p><%= link_to "Add New Course", new_course_path , class: "move-to-right-bottom"%></p>
-                        <% end %>
-                      <% end %>
-                    <% end %>
-                    
-                    <div class="clearfix"></div>
-                </div>
-            <% else %>
-                <div class="alert alert-alert">
-                  No Course in this category yet!!!!
-                </div>
-            <% end %>
-        </div><!-- <div class="span8"> -->
+  <!-- Section Courses List -->
+  <div class="container categorygap">
+    <!-- List Right Categories -->
+    <div class="row">
+      <div class="span12 courselibsectioninfo">
+        <div class="courselibsectioninfo">
+        <div class="coursecount pull-left">
+          <span class="badge badge-info">Found 10 Courses</span>
+        </div>
+        <ul id="dropdownlistelse" class="pull-right moveup">
+            <li>
+                <a href="#">Sort By&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i></a>
+                <ul>
+                    <li><a href="#">Date</a></li>
+                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", courses_path %></li>
+                    <li><a href="#">Popularity</a></li>
+                    <li><a href="#">Sunbscribed</a></li>
+                    <li><a href="#">Default</a></li>
+                </ul>
+            </li>
+        </ul>
 
-        <div class="span3">
+        <ul id="dropdownlistelse" class="pull-right moveup">
+            <li>
+                <a href="#">Categories&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i></a>
+                <ul>
 
-            <div class="">
+                    <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></li>
 
-               <!--  <form class="navbar-search pull-left">
-                  <input type="text" class="search-query" placeholder="Search">
-                </form>
-                <div class="clearfix"></div> -->
+                   <% @topics.each do |topic| %>   
+                          <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
+                          <li><%= link_to @topicStructure, topic %></li>
+                    <%end%>      
+                </ul>
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+        <!-- <div class="btn-group pull-right moveup">
+                <button class="btn dropdown-toggle btn-info" data-toggle="dropdown">Sort By&nbsp;&nbsp;<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Date</a></li>
+                  <li><a href="#">Upcoming</a></li>
+                  <li><a href="#">Popularity</a></li>
+                  <li><a href="#">Sunbscribed</a></li>
+                  <li><a href="#">Default</a></li>
+                </ul>
+        </div> -->
+        <!-- <div class="btn-group pull-right rightgap moveup">
+                <button class="btn dropdown-toggle btn-info" data-toggle="dropdown">Categories&nbsp;&nbsp;<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">All</a></li>
+                  <li><a href="#">Accounting</a></li>
+                  <li><a href="#">Behavior</a></li>
+                  <li><a href="#">Strategy</a></li>
+                  <li><a href="#">Sunbscribed</a></li>
+                  <li><a href="#">Enterpreneurship</a></li>
+                  <li><a href="#">Team Building</a></li>
+                  <li><a href="#">Investment</a></li>
+                </ul>
+        </div> -->
+        
+        </div>
+        <div class="clearfix"></div>
 
-                <div class="tabbable"> <!-- Only required for left/right tabs -->
-                  <ul class="nav nav-tabs">
-                    <li class="active"><a href="#categories" data-toggle="tab">Categories</a></li>
-                    <li><a href="#upcomingcourses" data-toggle="tab">Upcoming Courses</a></li>
-                  </ul>
-                  <div class="tab-content">
 
-                    <div class="tab-pane active" id="categories">
+        <div class="clearfix"></div>
+        
+        <div class="container courseclub">
+            <div class="row">
+              <% @courses_for_topic.each do |course|%>
+              <div class="span6">
+                <div class="courses">
+                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                      <div class="card-a course-inner">
+                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+                      <%= image_tag("#{course.image}", width: "130", height: "130",:class=>"course-badge img-circle")%>
                       
-                      <div class="categories">
-                          
-                          <ul class="nav nav-list">
-                              <li class="nav-header"></li>
-                              <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></a></li>
-                              <% @topics.each do |topic| %>
-                                <% @topicStructure = topic.name + " ( #{topic.courses.where(ispublished: 1).size } )" %>
-                                <% if topic.id == @topic.id %>
-                                  <li class="active"><a href="#"><%= link_to @topicStructure, topic %></a></li>
-                                <% else %>
-                                  <li><a href="#"><%= link_to @topicStructure, topic %></a></li>
-                                <% end %>
-                              <% end %>
-                          </ul>
-                          <br/>
-                          <!-- <button id="createTopicbottom" class="btn btn-info" type="button">Add new Topic
-                          </button> -->
-                          <% if signed_in? && current_user.user_type == 3 #Admin %>
-                            <%= link_to "Manage Category", topics_path, class: "btn btn-info" %>
-                          <% end %>
+                      <div class="course-content">
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=@topic.name%></em>
+                      <!-- <em class="label-b">Free Course</em> -->
+                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 25)%></h3>
+                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p></div>
                       </div>
+                  </article>
+                </div>
+              </div>
+              <%end%>
+              <%end%>
+              
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-                    </div><!-- <div class="tab-pane active" id="categories"> -->
 
-                    <div class="tab-pane" id="upcomingcourses">
-                      
-                      <div class="upcoming">
-                          <% Course.where(ispublished: 0).all.each do |t| %>
-                              <div class="upcoming-widget">
-                                <div class="widget-thumbnail">
-                                  <!-- <img src="homeOnline.jpg" width="70px" height="100px"> -->
-                                  <!--#link_to image_tag("homeOnline.jpg", border 0), {action: '#', controller: '#'},class: '#'-->
-                                  <%= link_to image_tag("#{t.image}", border: 0, width: "50", height: "50")%>
-                                </div><!-- end .widget-thumbnail -->
-                                <div class="widget-body">
-                                  <h4><%= t.title %></h4>
-                                  <span class="label label-info"><%= t.releasemonth %></span>
-                                </div>
-                                <div class="clearfix"></div>
-                              </div>
-                          <% end %>
-                      </div>
-                    </div><!-- <div class="tab-pane" id="categories"> -->
-                  
-                  </div><!--<div class="tab-content"> -->
-                </div><!-- Only required for left/right tabs -->
-
-                
-          </div>
-        </div><!-- <div class="span3"> -->
-      </div><!-- <div class="row"> -->
-
-</div>

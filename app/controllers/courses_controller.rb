@@ -49,13 +49,13 @@ class CoursesController < ApplicationController
 
 
 
-	def show
-		@course = Course.find(params[:id])
-		@countCommentsPerPage = 5
-		@comments = @course.comments.paginate(page: params[:page], per_page: 5)
-		@count = @course.comments.count
-		@course = Course.find(params[:id])
-	end
+	# def show
+	# 	@course = Course.find(params[:id])
+	# 	@countCommentsPerPage = 5
+	# 	@comments = @course.comments.paginate(page: params[:page], per_page: 5)
+	# 	@count = @course.comments.count
+	# 	@course = Course.find(params[:id])
+	# end
 
 
 	def update
@@ -70,9 +70,9 @@ class CoursesController < ApplicationController
 	def show
 		@course = Course.find(params[:id])
 
-		@countCommentsPerPage = 5
-		@comments = @course.comments.paginate(page: params[:page], per_page: 5)
-		@count = @course.comments.count
+		#@countCommentsPerPage = 6
+		@comments = @course.comments.paginate(page: params[:page], per_page: 6)
+		#@count = @course.comments.count
 		if signed_in? 
 			unless RatingCache.find_by_cacheable_id(@course.id) == nil
 				@qty = RatingCache.find_by_cacheable_id(@course.id).qty

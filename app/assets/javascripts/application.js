@@ -16,3 +16,11 @@
 //= require_tree .
 //= require jquery.purr
 //= require best_in_place
+
+$(function() {
+  $(".pagination").on("click", function() {
+    $(".pagination").html("Page is loading...");
+    $.getScript(this.href);
+    return false;
+  });
+});

@@ -1,13 +1,13 @@
 class TopicsController < ApplicationController
+  layout 'courses'
   def index
     @topics = Topic.order(:name)
   end
 
   def show
     @topic = Topic.find(params[:id])
-    @countCoursesPerPage = 5
-    #@courses_for_topic = @topic.courses.paginate(page: params[:page], per_page: 5)
-    @courses_for_topic = @topic.courses.paginate(page: params[:page], per_page: 5)
+    @courses_for_topic = @topic.courses.where(ispublished: 1)
+    
     @topics = Topic.order(:name)
   end
 
