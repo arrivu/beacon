@@ -1,11 +1,18 @@
+
+
 body {
   padding-top: 5px;
   color: #333333;
 }
 
-body, input, select, textarea, button {
+body, button {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif;
+line-height: 1.4;
+}
+ input, select, textarea{
 font: 13px Helvetica, arial, freesans, clean, sans-serif;
 line-height: 1.4;
+width: 250px;
 }
 
 a {
@@ -245,4 +252,10 @@ padding: 5px 12px;
   background-color: #3498DB ;
 }
 
-
+/* miscellaneous */
+.debug_dump {
+clear: both;
+float: left;
+width: 100%;
+margin-top: 45px;
+}

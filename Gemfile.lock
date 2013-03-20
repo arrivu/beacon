@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/m-narayan/canvas
-  revision: edc2de39ce0926d220f6902907a66f5ccdab6be8
+  revision: 9e274908f10c768b5b7b7de281469440cd6934ff
   specs:
     canvas (0.0.0)
 
@@ -90,7 +90,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.1)
+    coffee-script-source (1.6.2)
     columnize (0.3.6)
     cucumber (1.2.3)
       builder (>= 2.1.2)
@@ -104,6 +104,7 @@ GEM
       rails (~> 3.0)
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
+    debugger-ruby_core_source (1.1.9)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -159,7 +160,7 @@ GEM
       i18n (~> 0.6.0)
     multi_json (1.7.1)
     multipart-post (1.2.0)
-    nokogiri (1.5.7)
+    nokogiri (1.5.8)
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -230,15 +231,13 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
-    ruby-debug-base19 (0.11.26)
+    ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby_core_source (>= 0.1.4)
-    ruby-debug-base19x (0.11.30.pre10)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
+    ruby-debug-base19x (0.11.30.pre11)
+      debugger-ruby_core_source (~> 1.1.4)
       rake (>= 0.8.1)
-      ruby_core_source (>= 0.1.4)
     ruby-debug19 (0.11.6)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)

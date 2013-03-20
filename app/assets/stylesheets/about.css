@@ -1,0 +1,88 @@
+
+.aboutcompany{
+	padding: 10px;
+	color:#333;
+	padding-bottom: 20px;
+}
+
+.aboutdirimage{
+	margin:10px;
+	position: relative;
+}
+
+.aboutcompany .head{
+	line-height: 34px;
+	font-size: 30px;
+	font-weight: 200;
+	color: #4090ba;
+	z-index: 0;
+	margin-left: 30px;
+	border-bottom: 1px solid #eee;
+}
+
+.aboutcompany .underlinetext{
+	text-align: justify;
+	margin-top: 10px;
+	font-size: 16px;
+	font-weight: 100;
+	color: #333;
+	z-index: 0;
+	margin-left: 30px;
+}
+
+.aboutcompany .underlinetext strong{
+	text-align: justify;
+	margin-top: 10px;
+	margin-bottom: 25px;
+	font-size: 20px;
+	font-weight: 300;
+	color: #000;
+	z-index: 0;
+	text-decoration: underline;
+}
+
+.aboutinstructor{
+	color:#333;
+	position: relative;
+	margin-top: 20px;
+	margin-left: 40px;
+}
+
+.aboutinstructor .instructorimage{
+	float: left;
+	margin-right: 20px;
+}
+
+.aboutinstructor .instructordetail{
+	float: left;
+}
+
+
+/*.browsemore{
+	width:100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.browsemore .browsermorebutton{
+	margin-top: 10px;
+	font-weight: bold;
+	padding: 12px 15px;
+	background: #4090ba;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}*/
