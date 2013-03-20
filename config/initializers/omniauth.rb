@@ -1,8 +1,8 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
  if Rails.env.production?
-   provider :facebook, '151537311672530', 'ed4a4725a9ff31f3ead5d201ddcb7476'
+   provider :facebook, '153576101469926', '302358063a941b9e0d9c8ec9cb77b6ad'
    provider :linkedin, 'gl1h6zyltlem', "wIfucZImlYGqFO3r"
-   provider :google_oauth2, '928801233183-dg701idms6tr6907bk6m2i8boishu4io.apps.googleusercontent.com', 'n61XG48z1DMc6kGiY6zCuiUM'
+   provider :google_oauth2, '928801233183-phpisd2fada5c2d5n5heosha9h8jisla.apps.googleusercontent.com', 'D6mLnz02jOX6kpT-cbo9p2MM'
    
  elsif Rails.env.development?
    provider :facebook, '586163688080266', '093ab151dc5385a434b0e03815ac851f'
