@@ -1,6 +1,5 @@
 <% provide(:title, 'A Smarter Way to Learn') %>
-<% provide(:effectingHeader, 'Yes') %>
-
+<% provide(:effectingHeader) %>
  <div class="homebanner">
     <div class="container">
       <div class="row">
@@ -22,7 +21,7 @@
             <div class="bannerinfo">
               <p>Beacon Online teaches managemnet subjects in the comfort of your browser with video lessons, quizzes and screnshots.</p>
               
-              <!-- <a href="/courses"><span class="browseourcourses">Browse Our Courses</span></a> -->
+              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span></a> -->
             </div>
             <div class="bannerlearn">
                 <span class="learnheading">Learn: </span>
@@ -69,7 +68,7 @@
                       <div class="course-content">
                       <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Analytics</em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <a href="coursedetail.php"><h3 class="course-name">Data Analytics</h3>
+                      <a href="#"><h3 class="course-name">Data Analytics</h3>
                       <p class="course-desc">Learn the basic building blocks of Data Analysis.</p>
                       </a></div>
                       </div>
@@ -86,7 +85,7 @@
                       <div class="course-content">
                       <em class="label-a label-offset green" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Finance</em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <a href="coursedetail.php"><h3 class="course-name">Finance Management</h3>
+                      <a href="#"><h3 class="course-name">Finance Management</h3>
                       <p class="course-desc">Learn the basic building blocks of Finance.</p>
                       </a></div>
                       </div>
@@ -103,7 +102,7 @@
                       <div class="course-content">
                       <em class="label-a label-offset violate" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Operation</em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <a href="coursedetail.php"><h3 class="course-name">Operation</h3>
+                      <a href="#"><h3 class="course-name">Operation</h3>
                       <p class="course-desc">Learn the basic building blocks of Operations.</p>
                       </a></div>
                       </div>
@@ -120,7 +119,7 @@
                       <div class="course-content">
                       <em class="label-a label-offset blue" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Marketing</em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <a href="coursedetail.php"><h3 class="course-name">Marketing</h3>
+                      <a href="#"><h3 class="course-name">Marketing</h3>
                       <p class="course-desc">Learn the basic building blocks of Marketing.</p>
                       </a></div>
                       </div>
@@ -129,9 +128,11 @@
               </div>
 
               <div align="center">
-                <a href="/courses"><span class="browsemore" align="center">
+                <!-- <a href="courselibrary.php"><span class="browsemore" align="center">
                   Browser More Courses
-                </span></a>
+                </span></a> -->
+                <%= link_to "Browse More Courses", courses_path, :class => "browsemore" %>
+
               </div>
       </div>
     </div>
@@ -223,7 +224,8 @@
       <div class="row">
         <div class="span12" align="center">
           <h3>Ready to start your learning adventure?</h2>
-          <a href="/courses"><span class="browseourcoursessmall">Browse Our Courses</span></a>
+          <!-- <a href="courselibrary.php"><span class="browseourcoursessmall">Browse Our Courses</span></a> -->
+          <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
           &nbsp;&nbsp;&nbsp;&nbsp;
           
           <span class="createaccount"><a href="#sign_up_Modal" role="button" data-toggle="modal" class="btn-a">Create Account</span></a>

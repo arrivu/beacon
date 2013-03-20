@@ -1,52 +1,57 @@
-
-
-<div class="navbar navbar-fixed-top ds-dragover-1" >
-	<div class="navbar-inner">
-		<div class="container">
-			<!-- <a class="brand" href=""><strong class="curr">SmartCoach</strong></a> -->
-			<%= link_to "SmartCoach", root_path, class: "curr brand" %>
-			<div class="navbar-content-1">
-
-
-				<ul class="nav pull-right">
-					<!-- <li class="active"> -->
-					<li>
-						<%= link_to "Course", courses_path %>
-					</li>
-					<% if signed_in? %>
-					<li id="fat-menu" class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<% if current_user.image == nil %>
-							<%= gravatar_for_with_size current_user, "15x15" %>
-							<% else  %>
-							<%= image_tag(current_user.image,size: "23x26", alt: "")%> 
-							<% end  %> <%= current_user.name %> <b class="caret"></b>
-						</a>
-						<ul id="droplinks" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-							<% if current_user.has_role? :admin %>
-							<li>
-								<%= link_to 'Admin', users_path %>
-							</li>
-							<% end %>
-							<li><%= link_to "Profile", current_user %></li>
-							<li class="divider"></li>
-							<li>
-								<%= link_to "Sign out", destroy_user_session_path, method: "delete" %>
-							</li>
-						</ul>
-					</li>
-					<% else %>
-					<li><a href="#sign_in_Modal" role="button" class="link" data-toggle="modal">Login</a></li>
-					<li>
-						 <a href="#sign_up_Modal" role="button" class="link" data-toggle="modal">Create Account</a>
-					</li>
-					<% end %>
-
-
-
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-
+<header class="header-a">
+  <div class="inner">
+    <div class="logo">
+      <a href="<%= root_path %>"></a>
+    </div>
+    <nav class="nav-a">
+      <ul>
+	      <li class="courseslink">
+          <a href="<%= courses_path %>" class="false">Courses</a>
+        </li>
+        <% if user_signed_in? %>
+        <li class="courseslink">
+          <%= link_to "My Courses" , courses_path(:mycourses=>"mycourses"),:class=>"false" %>
+        </li>
+        <script>
+          $('.courseslink').css('left',"-100px");
+        </script>
+          <!-- <a class="btn-a" href="login.html">Log Out</a> -->
+          <!-- <li class="createaccountlink"><a href="#" class="btn-a">Create Account <span class="caret"></span></a></li> -->
+          <!-- <div class="btn-group stayup">
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-user"></i>&nbsp;&nbsp;Demo user&nbsp;&nbsp;<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          <li><a href="mycourses.php">My Courses</a></li>
+          <li><a href="myprofile.php">My Profile</a></li>
+          <li class="divider"></li>
+          <li><a href="logout.php">Logout</a></li>
+          </ul>
+          </div> -->
+         <ul id="dropdownlist">
+          <li>
+            <a href="#">
+              <i class="icon-user icon-white"></i>&nbsp;&nbsp;<%= current_user.name%>&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i>
+            </a>
+            <ul>
+              <li>
+                <a href="<%=user_path(current_user.id)%>">My Profile</a>
+              </li>
+              <li>
+                <%= link_to "Logout", destroy_user_session_path, :method=>:delete %>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <% else %>  
+				<li class="createaccountlink">
+          <a href="<%= new_user_registration_path %>" role="button" data-toggle="modal" class="btn-a">Create Account</a>
+        </li>
+				<li class="loginlink">
+          <a href="<%= user_session_path %>" role="button" data-toggle="modal" class="btn-c">Log In</a>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
