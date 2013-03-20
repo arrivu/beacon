@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Student do
   pending "add some examples to (or delete) #{__FILE__}"
 end
+<<<<<<< HEAD
+=======
 # == Schema Information
 #
 # Table name: students
@@ -16,3 +18,4 @@ end
 #  updated_at  :datetime        not null
 #
 
+>>>>>>> f52cc3ae8a65bd9527fa03897b60a629a30f679c

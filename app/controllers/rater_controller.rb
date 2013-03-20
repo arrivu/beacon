@@ -14,7 +14,9 @@ class RaterController < ApplicationController
     else
        respond_to do |format|
        format.js # index.html.erb
-       # format.json { render json: false }
+
+       format.json { render json: false }
+
        end        
     end
   end                                        

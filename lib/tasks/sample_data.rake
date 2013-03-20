@@ -248,7 +248,8 @@ users_hash = {
 			"Web Design", 
 			"Software Development",
 			"Business",
-			"Photoshop",	
+
+			"Photoshop",
 			"Mobile development"
 		]
 		

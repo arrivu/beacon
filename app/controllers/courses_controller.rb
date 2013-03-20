@@ -1,14 +1,22 @@
 class CoursesController < ApplicationController
 
+  layout 'courses'
+
 	before_filter :current_user, only: [:create, :edit,:update,:delete]
    ActiveMerchant::Billing::Integrations
 
 
 	def index
-		@countCoursesPerPage = 5
-       @courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 5)
+		@countCoursesPerPage = 4
+		if params[:mycourses]=="mycourses"
+		  @courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 4)
+        else  
+          @courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 4)
+		end
 		@topics = Topic.order(:name)
-  end
+
+  	end
+
 	def new
 		@course = Course.new
 	end
@@ -40,6 +48,7 @@ class CoursesController < ApplicationController
   	end
 
 
+
 	def show
 		@course = Course.find(params[:id])
 		@countCommentsPerPage = 5
@@ -47,6 +56,7 @@ class CoursesController < ApplicationController
 		@count = @course.comments.count
 		@course = Course.find(params[:id])
 	end
+
 
 	def update
 		@course = Course.find(params[:id])
@@ -82,9 +92,12 @@ class CoursesController < ApplicationController
 	    flash[:success] = "Successfully destroyed course."
 	    redirect_to courses_url
   	end
-  	def course_payment
-	  
+
+
+  	def course_payment 
   	end
+
+
   	def confirm_course_payment
   		@notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)
      if @notification.payment_id.present?

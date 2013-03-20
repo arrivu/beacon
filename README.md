@@ -1,1 +1,3 @@
-The E-learning project is providing learning platform for students
+
+The Beacon project is providing learning platform for students
+

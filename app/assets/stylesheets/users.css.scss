@@ -1,0 +1,41 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(http://fonts.googleapis.com/css?family=Marcellus);
+
+.coachbox{
+	width:70%;
+	border-left-style: solid;
+	border-left-color: #08C;
+	border-left-width: 5px;
+	font-family: Marcellus ;
+	background-color: #fff;
+}
+
+.coachbox:hover{
+	border-left-color: black;
+	background-color: #eee;
+	background-color: #f2f2f2;
+}
+
+.coachbox span{
+	font-family: Marcellus, "Droid Serif";
+	font-size: 20px;
+	float:left;
+	margin-left:5px;
+	margin-top:0px;
+	margin-bottom:0px;
+	padding:0px;
+}
+
+.coachbox img{
+	float: left;
+}
+
+.coachbox span p{
+	font-family: "Droid Serif";
+	font-size: 10px;
+	color:black;
+}
+
