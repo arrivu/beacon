@@ -373,139 +373,139 @@ users_hash = {
 
 
 		#Tutorials test data
-		tutorials_hash = {
-			1 => ["Connected to the Backbone", #Title
-			 	Faker::Name.name, #Author
-			 	"Medium", #difficulty
-			 	60, #time in minutes
-			 	1, #user_id
-			 	1, #ispublished
-			 	"January", #ReleaseMonth
-			 	[1,3], #Category
-			 	"tutorials/backbone.png", #image
-			 	"Here's the thing: if you can't fathom why you'd need a framework like Backbone, then chances are, you don't! Perhaps you're exclusively working on simple websites or basic WordPress themes; in these cases, a structured JavaScript framework will likely be overkill.
-			 	However, there will surely come a day when you realize that all of that spaghetti code within script tags at the bottom of your page has suddenly become unmanageable. Not only that, but, due to the way you structured your code, it's also impossible to test. Gasp! What to do?"
-			 	],
-			2 => ["The Power of Laravel Generators", #Title
-			 	Faker::Name.name, #Author
-			 	"Easy", #difficulty
-			 	30, #time in minutes
-			 	2, #user_id
-			 	1, #ispublished
-			 	"January", #ReleaseMonth
-			 	[1], #Category
-			 	"tutorials/laravel-generators.jpg", #image
-			 	"Those of us who use Laravel on a daily basis will be quite familiar with migrations. The only problem is that, when we run php artisan migration:make, only a bit of boilerplate code is generated for us. Wouldn't it be amazing if we could also generate the schema for both the up and down functions? How much time would that save!?"
-			 	],
-			3 => ["Develop Your First Game in Canvas From Start to Finish", #Title
-			 	Faker::Name.name, #Author
-			 	"Hard", #difficulty
-			 	100, #time in minutes
-			 	1, #user_id
-			 	0, #ispublished
-			 	"May", #ReleaseMonth
-			 	[1,4], #Category
-			 	"tutorials/develop-game-in-canvas.jpg", #image
-			 	"Whether you're taking part in the discussion, or reading articles about it, you must be aware that, even though it's still a specification, HTML5 is ready to be used right now."
-			 	],
-			4 => ["A Visual Guide to Styling the Terminal in Minutes", #Title
-			 	Faker::Name.name, #Author
-			 	"Easy", #difficulty
-			 	30, #time in minutes
-			 	3, #user_id
-			 	1, #ispublished
-			 	"May", #ReleaseMonth
-			 	[1,2], #Category
-			 	"tutorials/styling-terminal.jpg", #image
-			 	"One of the questions that I am asked about most frequently relates to how I styled my Terminal. In this video, I encourage you to follow along with me, as we get everything setup from scratch."
-			 	],
-			5 => ["PHP Tips and Tricks", #Title
-			 	Faker::Name.name, #Author
-			 	"Medium", #difficulty
-			 	60, #time in minutes
-			 	5, #user_id
-			 	1, #ispublished
-			 	"January", #ReleaseMonth
-			 	[2], #Category
-			 	"tutorials/php.jpg", #image
-			 	"Let's target the elephant in the room: PHP has been on the receiving end of a considerable amount of flack in the last few years. Well, who are we kidding? It's always served as the punching bag for the cool kids! But there's just one thing; despite all of this ridicule, PHP continues, with ease, to remain infinitely more popular than its server-side competitors in terms of users."
-			 	],
-			6 => ["Realtime Backbone.js Apps with FuelPHP and Pusher", #Title
-			 	Faker::Name.name, #Author
-			 	"Hard", #difficulty
-			 	90, #time in minutes
-			 	1, #user_id
-			 	0, #ispublished
-			 	"December", #ReleaseMonth
-			 	[2,3], #Category
-			 	"tutorials/backbone-and-pusher.png", #image
-			 	"Today we're going to create a small realtime web application with FuelPHP on the server, Backbone.js on the client and using the Pusher API for the realtime aspects. The application we'll be building is a modern take on my classic Shoutbox PHP demo application I originally wrote six years ago here on SmartCoach, and covered again not long after in Ruby on Rails."
-			 	],
-			7 => ["Front-end Performance Optimization: What, Why and How?", #Title
-			 	Faker::Name.name, #Author
-			 	"Hard", #difficulty
-			 	90, #time in minutes
-			 	1, #user_id
-			 	0, #ispublished
-			 	"May", #ReleaseMonth
-			 	[1,2], #Category
-			 	"tutorials/front-end-performance.jpg", #image
-			 	"Believe it or not, the concept of optimizing front-end code for maximum performance is a relatively new thing. Sure, years and years ago, we knew that it was important, but we simply didn't have access to the tools that we do today. Even six years ago, we were far more concerned with wrangling our websites into functioning correctly in Internet Explorer 6 than with squeezing every ounce of performance out of our applications."
-			 	],
-			8 => ["The Essentials of AMD and RequireJS", #Title
-			 	Faker::Name.name, #Author
-			 	"Easy", #difficulty
-			 	30, #time in minutes
-			 	2, #user_id
-			 	1, #ispublished
-			 	"May", #ReleaseMonth
-			 	[1,7], #Category
-			 	"tutorials/preview.jpg", #image
-			 	"In this screencast, we'll review RequireJS, an asynchronous module loader and dependency manager, and AMD, which defines the mechanism and guidelines for declaring and importing modules."
-			 	],
-			9 => ["Techniques For Test-Driving jQuery Plugins", #Title
-			 	Faker::Name.name, #Author
-			 	"Hard", #difficulty
-			 	90, #time in minutes
-			 	9, #user_id
-			 	1, #ispublished
-			 	"May", #ReleaseMonth
-			 	[5,3], #Category
-			 	"tutorials/techniques-for-test-driving-plugins1.jpg", #image
-			 	"In this hands-on screencast, from scratch, we will use test-driven development to build a jQuery plugin. Along the way, we'll take advantage of Grunt, QUnit, and GitHub to build, test, and distribute our plugin, respectively. If the idea of testing in JavaScript is still foreign to you, you won't find a better introduction!"
-			 	],
-			10 => ["How To Customize Your Terminal", #Title
-			 	Faker::Name.name, #Author
-			 	"Medium", #difficulty
-			 	60, #time in minutes
-			 	3, #user_id
-			 	1, #ispublished
-			 	"May", #ReleaseMonth
-			 	[1,3], #Category
-			 	"tutorials/how-to-customize-your-command-prompt.png", #image
-			 	"Lately, I've been getting this question a lot: how did you get your terminal to look the way it does? If you've noticed my terminal and are curious about how I set it up, this is the tutorial for you! Of course, what you learn here will be enough to get you started on creating your own custom command prompt, as well!"
-			 ]
+		# tutorials_hash = {
+		# 	1 => ["Connected to the Backbone", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Medium", #difficulty
+		# 	 	60, #time in minutes
+		# 	 	1, #user_id
+		# 	 	1, #ispublished
+		# 	 	"January", #ReleaseMonth
+		# 	 	[1,3], #Category
+		# 	 	"tutorials/backbone.png", #image
+		# 	 	"Here's the thing: if you can't fathom why you'd need a framework like Backbone, then chances are, you don't! Perhaps you're exclusively working on simple websites or basic WordPress themes; in these cases, a structured JavaScript framework will likely be overkill.
+		# 	 	However, there will surely come a day when you realize that all of that spaghetti code within script tags at the bottom of your page has suddenly become unmanageable. Not only that, but, due to the way you structured your code, it's also impossible to test. Gasp! What to do?"
+		# 	 	],
+		# 	2 => ["The Power of Laravel Generators", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Easy", #difficulty
+		# 	 	30, #time in minutes
+		# 	 	2, #user_id
+		# 	 	1, #ispublished
+		# 	 	"January", #ReleaseMonth
+		# 	 	[1], #Category
+		# 	 	"tutorials/laravel-generators.jpg", #image
+		# 	 	"Those of us who use Laravel on a daily basis will be quite familiar with migrations. The only problem is that, when we run php artisan migration:make, only a bit of boilerplate code is generated for us. Wouldn't it be amazing if we could also generate the schema for both the up and down functions? How much time would that save!?"
+		# 	 	],
+		# 	3 => ["Develop Your First Game in Canvas From Start to Finish", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Hard", #difficulty
+		# 	 	100, #time in minutes
+		# 	 	1, #user_id
+		# 	 	0, #ispublished
+		# 	 	"May", #ReleaseMonth
+		# 	 	[1,4], #Category
+		# 	 	"tutorials/develop-game-in-canvas.jpg", #image
+		# 	 	"Whether you're taking part in the discussion, or reading articles about it, you must be aware that, even though it's still a specification, HTML5 is ready to be used right now."
+		# 	 	],
+		# 	4 => ["A Visual Guide to Styling the Terminal in Minutes", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Easy", #difficulty
+		# 	 	30, #time in minutes
+		# 	 	3, #user_id
+		# 	 	1, #ispublished
+		# 	 	"May", #ReleaseMonth
+		# 	 	[1,2], #Category
+		# 	 	"tutorials/styling-terminal.jpg", #image
+		# 	 	"One of the questions that I am asked about most frequently relates to how I styled my Terminal. In this video, I encourage you to follow along with me, as we get everything setup from scratch."
+		# 	 	],
+		# 	5 => ["PHP Tips and Tricks", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Medium", #difficulty
+		# 	 	60, #time in minutes
+		# 	 	5, #user_id
+		# 	 	1, #ispublished
+		# 	 	"January", #ReleaseMonth
+		# 	 	[2], #Category
+		# 	 	"tutorials/php.jpg", #image
+		# 	 	"Let's target the elephant in the room: PHP has been on the receiving end of a considerable amount of flack in the last few years. Well, who are we kidding? It's always served as the punching bag for the cool kids! But there's just one thing; despite all of this ridicule, PHP continues, with ease, to remain infinitely more popular than its server-side competitors in terms of users."
+		# 	 	],
+		# 	6 => ["Realtime Backbone.js Apps with FuelPHP and Pusher", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Hard", #difficulty
+		# 	 	90, #time in minutes
+		# 	 	1, #user_id
+		# 	 	0, #ispublished
+		# 	 	"December", #ReleaseMonth
+		# 	 	[2,3], #Category
+		# 	 	"tutorials/backbone-and-pusher.png", #image
+		# 	 	"Today we're going to create a small realtime web application with FuelPHP on the server, Backbone.js on the client and using the Pusher API for the realtime aspects. The application we'll be building is a modern take on my classic Shoutbox PHP demo application I originally wrote six years ago here on SmartCoach, and covered again not long after in Ruby on Rails."
+		# 	 	],
+		# 	7 => ["Front-end Performance Optimization: What, Why and How?", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Hard", #difficulty
+		# 	 	90, #time in minutes
+		# 	 	1, #user_id
+		# 	 	0, #ispublished
+		# 	 	"May", #ReleaseMonth
+		# 	 	[1,2], #Category
+		# 	 	"tutorials/front-end-performance.jpg", #image
+		# 	 	"Believe it or not, the concept of optimizing front-end code for maximum performance is a relatively new thing. Sure, years and years ago, we knew that it was important, but we simply didn't have access to the tools that we do today. Even six years ago, we were far more concerned with wrangling our websites into functioning correctly in Internet Explorer 6 than with squeezing every ounce of performance out of our applications."
+		# 	 	],
+		# 	8 => ["The Essentials of AMD and RequireJS", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Easy", #difficulty
+		# 	 	30, #time in minutes
+		# 	 	2, #user_id
+		# 	 	1, #ispublished
+		# 	 	"May", #ReleaseMonth
+		# 	 	[1,7], #Category
+		# 	 	"tutorials/preview.jpg", #image
+		# 	 	"In this screencast, we'll review RequireJS, an asynchronous module loader and dependency manager, and AMD, which defines the mechanism and guidelines for declaring and importing modules."
+		# 	 	],
+		# 	9 => ["Techniques For Test-Driving jQuery Plugins", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Hard", #difficulty
+		# 	 	90, #time in minutes
+		# 	 	9, #user_id
+		# 	 	1, #ispublished
+		# 	 	"May", #ReleaseMonth
+		# 	 	[5,3], #Category
+		# 	 	"tutorials/techniques-for-test-driving-plugins1.jpg", #image
+		# 	 	"In this hands-on screencast, from scratch, we will use test-driven development to build a jQuery plugin. Along the way, we'll take advantage of Grunt, QUnit, and GitHub to build, test, and distribute our plugin, respectively. If the idea of testing in JavaScript is still foreign to you, you won't find a better introduction!"
+		# 	 	],
+		# 	10 => ["How To Customize Your Terminal", #Title
+		# 	 	Faker::Name.name, #Author
+		# 	 	"Medium", #difficulty
+		# 	 	60, #time in minutes
+		# 	 	3, #user_id
+		# 	 	1, #ispublished
+		# 	 	"May", #ReleaseMonth
+		# 	 	[1,3], #Category
+		# 	 	"tutorials/how-to-customize-your-command-prompt.png", #image
+		# 	 	"Lately, I've been getting this question a lot: how did you get your terminal to look the way it does? If you've noticed my terminal and are curious about how I set it up, this is the tutorial for you! Of course, what you learn here will be enough to get you started on creating your own custom command prompt, as well!"
+		# 	 ]
 
 
-			}
+		# 	}
 
-			count=0
-			tutorials_hash.each do |key, array|
-				Tutorial.create!(title: array[0],
-					author: array[1],
-					difficulty: array[2],
-					estimated_time: array[3],
-					user_id: array[4],
-					ispublished: array[5],
-					releasemonth: array[6],
-			# 7 is category/topic
-			image: array[8],
-			desc: array[9])
-				count=count+1
-				array[7].each do |groupId|
-					Grouping.create!(tutorial_id: count,group_id: groupId)
-				end
-			end
+		# 	count=0
+		# 	tutorials_hash.each do |key, array|
+		# 		Tutorial.create!(title: array[0],
+		# 			author: array[1],
+		# 			difficulty: array[2],
+		# 			estimated_time: array[3],
+		# 			user_id: array[4],
+		# 			ispublished: array[5],
+		# 			releasemonth: array[6],
+		# 	# 7 is category/topic
+		# 	image: array[8],
+		# 	desc: array[9])
+		# 		count=count+1
+		# 		array[7].each do |groupId|
+		# 			Grouping.create!(tutorial_id: count,group_id: groupId)
+		# 		end
+		# 	end
 
 
 		#Blogs test Data

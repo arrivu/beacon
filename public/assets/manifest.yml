@@ -69,8 +69,8 @@ dmbtest.gif: dmbtest-73178868c3bdea64d387dea803cab240.gif
 dmbtest/index.gif: dmbtest-73178868c3bdea64d387dea803cab240.gif
 facebook.png: facebook-6915c3751b07c4c999351c595ab9dd9a.png
 facebook/index.png: facebook-6915c3751b07c4c999351c595ab9dd9a.png
-favicon.ico: favicon-2e2ca7112edc8b9b659cb5a811f139cb.ico
-favicon/index.ico: favicon-2e2ca7112edc8b9b659cb5a811f139cb.ico
+favicon.ico: favicon-a28f180428b51e3fe16c8d72c0b0ed1d.ico
+favicon/index.ico: favicon-a28f180428b51e3fe16c8d72c0b0ed1d.ico
 favicon_normal.ico: favicon_normal-950c89368126bd32b3ae81a43f565022.ico
 favicon_normal/index.ico: favicon_normal-950c89368126bd32b3ae81a43f565022.ico
 footer/logo.png: footer/logo-95dc36f10fa26041670a4d35e48df825.png
@@ -273,8 +273,8 @@ yale.png: yale-c5bafbceffe070fbe75c93669a74d016.png
 yale/index.png: yale-c5bafbceffe070fbe75c93669a74d016.png
 youtube.png: youtube-807134342126f060bf0c7a57b8f6888d.png
 youtube/index.png: youtube-807134342126f060bf0c7a57b8f6888d.png
-application.js: application-1794f0ac43e5649c4d252137e7a29987.js
-application/index.js: application-1794f0ac43e5649c4d252137e7a29987.js
+application.js: application-494bf440041584e830dc525192e09fbd.js
+application/index.js: application-494bf440041584e830dc525192e09fbd.js
 application.css: application-a030261495997f91514249cc6de3dba5.css
 application/index.css: application-a030261495997f91514249cc6de3dba5.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
