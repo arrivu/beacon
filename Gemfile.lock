@@ -161,6 +161,7 @@ GEM
     multi_json (1.7.1)
     multipart-post (1.2.0)
     nokogiri (1.5.8)
+
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -316,6 +317,7 @@ DEPENDENCIES
   launchy (>= 2.2.0)
   letsrate
   linecache19!
+  mysql2
   oauth2
   omniauth
   omniauth-facebook
