@@ -24,6 +24,13 @@ class CoursesController < ApplicationController
 
 	def create
 		@course = current_user.courses.build(params[:course])
+		# @course = Course.new
+		# @course.title=params[:course][:title]
+		# @course.author=params[:course][:author]
+		# @course.desc=params[:course][:desc]
+		# @course.ispopular=params[:course][:ispopular]
+		# @course.topic_ids=params[:course][:topic_ids]
+		# @course.uploaded_file = params[:course][:attachment]
 		@course.user_id = current_user.id
 		if @course.save
 			flash[:success] = "Course added successfully!!!!"

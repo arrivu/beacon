@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "ispublished",  :default => 0
     t.string   "releasemonth", :default => "December"
     t.boolean  "ispopular"
+    t.string   "content_type"
+    t.binary   "data"
   end
 
   add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author", :unique => true
