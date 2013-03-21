@@ -9,10 +9,18 @@
             <%= link_to "Courses", courses_path %>
           </li>
           <% if user_signed_in?%>
+          <% if current_user.has_role? :admin %>
+          <li class="courseslink"><%= link_to 'Admin', users_path %></li>
+              <script>
+          $('.courseslink').css('left',"-60px");
+          </script>
+           <% else  %>
           <li class="courseslink"><%= link_to "My Courses", courses_path %></li>
+     
           <script>
           $('.courseslink').css('left',"-100px");
           </script>
+               <% end  %>
           <ul id="dropdownlist">
             <li>
               <a href="#">
@@ -23,10 +31,7 @@
                 <% end  %>
               </i>&nbsp;&nbsp;<%= current_user.name %>&nbsp;&nbsp;
               <i class="icon-arrow-down icon-white"></i></a>
-              <ul>
-                <% if current_user.has_role? :admin %>
-                <li><%= link_to 'Admin', users_path %></li>
-                <% end  %>
+              <ul >
                 <li><%= link_to "My Profile", edit_user_registration_path %></li>
                 <li> <%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
               </ul>

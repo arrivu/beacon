@@ -1,0 +1,17 @@
+<% if !@comments.blank?%>
+        <% @comments.each do |comment| %>
+        <%# if ((@count % @countCommentsPerPage ) == 0 ) %>
+        <div class="span6" style="margin-bottom:10px;">
+          <div class="reviewer">
+            <img src="http://placehold.it/70x70/2C3E50/fff&text=Reviewer"/>
+          </div>
+          <div class="bubble-content">
+            <div class="point"></div>
+              <%= comment.comment  %>
+          </div>
+          <div class="container clearfix"></div>
+        </div>
+       <%end%>
+       <%#end%>
+     <%= will_paginate @comments %>  
+<%end%>

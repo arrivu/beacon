@@ -31,6 +31,7 @@ Myapp::Application.routes.draw do
   match '/contact', :to => 'screens#contact'
   #match '/faq', :to => 'screens#faq'
   match '/construction', :to => 'screens#construction'  
+  match '/manage_courses', :to => 'courses#manage_courses'  
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :users

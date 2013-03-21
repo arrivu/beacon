@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
 	protected
 
 	def load_commentable
-		debugger
 		@commentable = params[:commentable_type].camelize.constantize.find(params[:commentable_id])
 		@comments = @commentable.comments.recent.limit(10).all
 	end

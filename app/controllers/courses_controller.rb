@@ -49,19 +49,20 @@ class CoursesController < ApplicationController
 
 
 
-	def show
-		@course = Course.find(params[:id])
-		@countCommentsPerPage = 5
-		@comments = @course.comments.paginate(page: params[:page], per_page: 5)
-		@count = @course.comments.count
-		@course = Course.find(params[:id])
-	end
+	# def show
+	# 	@course = Course.find(params[:id])
+	# 	@countCommentsPerPage = 5
+	# 	@comments = @course.comments.paginate(page: params[:page], per_page: 5)
+	# 	@count = @course.comments.count
+	# 	@course = Course.find(params[:id])
+	# end
 
 
 	def update
 		@course = Course.find(params[:id])
 		if @course.update_attributes(params[:course])
-			redirect_to @course, notice: "Successfully updated topic."
+			redirect_to manage_courses_url, notice: "Successfully updated course."
+		
 		else
 			render :edit
 		end
@@ -70,9 +71,9 @@ class CoursesController < ApplicationController
 	def show
 		@course = Course.find(params[:id])
 
-		@countCommentsPerPage = 5
-		@comments = @course.comments.paginate(page: params[:page], per_page: 5)
-		@count = @course.comments.count
+		#@countCommentsPerPage = 6
+		@comments = @course.comments.paginate(page: params[:page], per_page: 6)
+		#@count = @course.comments.count
 		if signed_in? 
 			unless RatingCache.find_by_cacheable_id(@course.id) == nil
 				@qty = RatingCache.find_by_cacheable_id(@course.id).qty
@@ -90,7 +91,7 @@ class CoursesController < ApplicationController
 	    @course = Course.find(params[:id])
 	    @course.destroy
 	    flash[:success] = "Successfully destroyed course."
-	    redirect_to courses_url
+	    redirect_to manage_courses_url
   	end
 
 
@@ -109,5 +110,9 @@ class CoursesController < ApplicationController
       end
     end
 	  
+  	end
+
+  	def manage_courses
+  		@courses = Course.order(:id)
   	end
 end

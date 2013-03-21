@@ -4,8 +4,13 @@
   <li >
 <%= link_to "Users", users_path %>
 </li><li class="active">
-<%= link_to "Add New Course", new_course_path %>
-</li><li>
+<%= link_to "New Course", new_course_path %>
+</li>
+<li>
+<%= link_to "Manage Course", manage_courses_path %>
+</li>
+
+<li>
  <%= link_to "Manage Category", topics_path %>
   </li><li >
  <%= link_to "New Category",new_topic_path %>
@@ -25,8 +30,11 @@
 <%= f.label :desc, "Course Description" %>
 <%= f.text_area :desc %>
 
+<%= f.label :ispopular, "Popular" %>
+<%= f.check_box :ispopular %>
+
 <%= f.label :image, "Course Image" %>
-<%= f.text_field :image %>
+<%= f.file_field :image %>
 
 <%= f.label :topic_ids, "Topics" %>
 <%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %>
