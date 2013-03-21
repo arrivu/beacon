@@ -16,7 +16,7 @@
 
 class Course < ActiveRecord::Base
   acts_as_commentable
-  attr_accessible :author, :desc, :image, :title, :topic_ids, :user_id, :ispublished, :releasemonth
+  attr_accessible :attachment,:author, :desc, :image, :title, :topic_ids, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
   has_many :relationships
   has_many :topics, through: :relationships
   has_many :student_courses
@@ -39,4 +39,23 @@ class Course < ActiveRecord::Base
   validates :desc, presence: true, length: { maximum: 1000 }
 
   default_scope order: 'courses.created_at DESC'
+
+
+  def attachment=(incoming_file)
+    self.image = incoming_file.original_filename
+    self.content_type = incoming_file.content_type
+    self.data = incoming_file.read
+  end
+
+  def image=(new_filename)
+    write_attribute("image", sanitize_filename(new_filename))
+  end
+
+  private
+  def sanitize_filename(filename)
+    #get only the filename, not the whole path (from IE)
+    just_filename = File.basename(filename)
+    #replace all non-alphanumeric, underscore or periods with underscores
+    just_filename.gsub(/[^\w\.\-]/, '_')
+  end
 end

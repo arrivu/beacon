@@ -96,12 +96,14 @@ GEM
       rails (~> 3.0)
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
+
     debugger (1.5.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.2.0)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.0)
+
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -126,7 +128,7 @@ GEM
       i18n (~> 0.4)
     faraday (0.8.6)
       multipart-post (~> 1.1)
-    ffi (1.4.0)
+    ffi (1.5.0)
     figaro (0.6.3)
       bundler (~> 1.0)
       rails (>= 3, < 5)
@@ -214,7 +216,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12.2)
       json (~> 1.4)
-    ref (1.0.3)
+    ref (1.0.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rolify (3.2.0)
@@ -229,6 +231,24 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+<<<<<<< HEAD
+=======
+    ruby-debug-base19 (0.11.25)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug-base19x (0.11.30.pre10)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      rake (>= 0.8.1)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.5)
+      archive-tar-minitar (>= 0.5.2)
+>>>>>>> ea7326e44d4f65ac4254d56bf66bd2f59abae187
     rubycas-client (2.3.9)
       activesupport
     rubyzip (0.9.9)
@@ -301,7 +321,11 @@ DEPENDENCIES
   json
   launchy (>= 2.2.0)
   letsrate
+<<<<<<< HEAD
   mysql2
+=======
+  linecache19!
+>>>>>>> ea7326e44d4f65ac4254d56bf66bd2f59abae187
   oauth2
   omniauth
   omniauth-facebook

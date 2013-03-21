@@ -24,6 +24,13 @@ class CoursesController < ApplicationController
 
 	def create
 		@course = current_user.courses.build(params[:course])
+		# @course = Course.new
+		# @course.title=params[:course][:title]
+		# @course.author=params[:course][:author]
+		# @course.desc=params[:course][:desc]
+		# @course.ispopular=params[:course][:ispopular]
+		# @course.topic_ids=params[:course][:topic_ids]
+		# @course.uploaded_file = params[:course][:attachment]
 		@course.user_id = current_user.id
 		if @course.save
 			flash[:success] = "Course added successfully!!!!"
@@ -61,7 +68,8 @@ class CoursesController < ApplicationController
 	def update
 		@course = Course.find(params[:id])
 		if @course.update_attributes(params[:course])
-			redirect_to @course, notice: "Successfully updated topic."
+			redirect_to manage_courses_url, notice: "Successfully updated course."
+		
 		else
 			render :edit
 		end
@@ -90,7 +98,7 @@ class CoursesController < ApplicationController
 	    @course = Course.find(params[:id])
 	    @course.destroy
 	    flash[:success] = "Successfully destroyed course."
-	    redirect_to courses_url
+	    redirect_to manage_courses_url
   	end
 
 
@@ -109,5 +117,9 @@ class CoursesController < ApplicationController
       end
     end
 	  
+  	end
+
+  	def manage_courses
+  		@courses = Course.order(:id)
   	end
 end
