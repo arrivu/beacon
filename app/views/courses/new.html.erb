@@ -34,7 +34,7 @@
 <%= f.check_box :ispopular %>
 
 <%= f.label :image, "Course Image" %>
-<%= f.text_field :image %>
+<%= f.file_field :image %>
 
 <%= f.label :topic_ids, "Topics" %>
 <%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %>
