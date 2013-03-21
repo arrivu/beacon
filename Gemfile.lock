@@ -104,7 +104,6 @@ GEM
       rails (~> 3.0)
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
-    debugger-ruby_core_source (1.1.9)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -129,7 +128,7 @@ GEM
       i18n (~> 0.4)
     faraday (0.8.6)
       multipart-post (~> 1.1)
-    ffi (1.4.0)
+    ffi (1.5.0)
     figaro (0.6.3)
       bundler (~> 1.0)
       rails (>= 3, < 5)
@@ -161,7 +160,6 @@ GEM
     multi_json (1.7.1)
     multipart-post (1.2.0)
     nokogiri (1.5.8)
-
     oauth (0.4.7)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -217,7 +215,7 @@ GEM
     rake (10.0.3)
     rdoc (3.12.2)
       json (~> 1.4)
-    ref (1.0.3)
+    ref (1.0.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rolify (3.2.0)
@@ -236,9 +234,11 @@ GEM
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby_core_source (>= 0.1.4)
-    ruby-debug-base19x (0.11.30.pre11)
-      debugger-ruby_core_source (~> 1.1.4)
+    ruby-debug-base19x (0.11.30.pre10)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
       rake (>= 0.8.1)
+      ruby_core_source (>= 0.1.4)
     ruby-debug19 (0.11.6)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -317,7 +317,6 @@ DEPENDENCIES
   launchy (>= 2.2.0)
   letsrate
   linecache19!
-  mysql2
   oauth2
   omniauth
   omniauth-facebook
