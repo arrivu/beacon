@@ -179,6 +179,7 @@ background: #95A5A6 ;
 
 #dropdownlist li a{
 	padding: 5px;
+	margin: 0px;
 }
 
 #dropdownlist li ul a{
@@ -211,6 +212,8 @@ background: #95A5A6 ;
 }
 #dropdownlist ul li{
     float:none;
+    padding: 0px;
+    margin: 0px;
 }
 #dropdownlist ul a{
     white-space:nowrap;

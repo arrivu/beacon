@@ -4,7 +4,7 @@
       <a href="/">
       </div>
       <nav class="nav-a">
-        <ul>
+        <ul >
           <li class="courseslink">
             <%= link_to "Courses", courses_path %>
           </li>
@@ -31,7 +31,7 @@
                 <% end  %>
               </i>&nbsp;&nbsp;<%= current_user.name %>&nbsp;&nbsp;
               <i class="icon-arrow-down icon-white"></i></a>
-              <ul>
+              <ul >
                 <li><%= link_to "My Profile", edit_user_registration_path %></li>
                 <li> <%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
               </ul>
