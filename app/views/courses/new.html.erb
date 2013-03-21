@@ -18,7 +18,7 @@
 <% provide(:title, 'Create Course') %>
 <div class="row">
 <div class="span4 offset3">
-<%= form_for(@course) do |f| %>
+<%= form_for @course do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 
 <%= f.label :title, "Course Title" %>
@@ -30,11 +30,11 @@
 <%= f.label :desc, "Course Description" %>
 <%= f.text_area :desc %>
 
+<%= f.label 'attachment', "Image" %>
+<%= f.file_field 'attachment' %>
+
 <%= f.label :ispopular, "Popular" %>
 <%= f.check_box :ispopular %>
-
-<%= f.label :image, "Course Image" %>
-<%= f.file_field :image %>
 
 <%= f.label :topic_ids, "Topics" %>
 <%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %>
