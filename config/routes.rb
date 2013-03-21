@@ -5,6 +5,7 @@ Myapp::Application.routes.draw do
   resources :blogs
   resources :tags
   resources :courses do
+        resources :comments
         collection do
           get 'course_payment'
           get "confirm_course_payment"
@@ -19,7 +20,7 @@ Myapp::Application.routes.draw do
   resources :groups
   resources :under_constructions
   resources :o_classes
-  resources :comments
+ 
 	authenticated :user do
 		root :to => 'screens#home'
 	end
