@@ -102,22 +102,32 @@ class CoursesController < ApplicationController
   	end
 
 
-  	def course_payment 
+  	def course_payment
+  	@user = current_user
+  	@course = Course.find(params[:id]) 
   	end
 
 
   	def confirm_course_payment
-  		@notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)
-     if @notification.payment_id.present?
-      @order = Course.find_by_order_id(@notification.payment_id)
-      if @notification.complete? and @notification.valid?
-        @order.confirm!
-      else
-       @order.reject!
-      end
-    end
+  	   @course = Course.find(params[:id].to_i)
+       @user = current_user
+       UserMailer.course_payment(@user,@course.title).deliver
+  		# @notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)
+    #  if @notification.payment_id.present?
+    #   @order = Course.find_by_order_id(@notification.payment_id)
+    #   if @notification.complete? and @notification.valid?
+    #     @order.confirm!
+    #   else
+    #    @order.reject!
+    #   end
+    #end
 	  
   	end
+
+  	def index_pdf
+      render :pdf => "my_pdf",:layout => false,:template => '/courses/index_pdf',:footer => {:center =>"Center", :left => "Left", :right => "Right"}
+  
+    end
 
   	def manage_courses
   		@courses = Course.order(:id)

@@ -17,7 +17,7 @@
             </div>
             <div class="container clearfix"></div>
             <div class="subsection">
-              <a href="enroll.php"><div class="enroll">
+              <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
                 enroll
               </div></a>
               <a href="#previewcourse"><div class="shortlist">
@@ -169,9 +169,9 @@
           <h3><%=@course.comments.size%> Reviews</h3>
           <br/>
         </div>
-        <div class="pagination1">
           <%= render "comments" %>
-        </div>
+          <%= will_paginate @comments %> 
+     
       
       <div class="row">
         <div align="center">

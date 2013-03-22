@@ -5,16 +5,13 @@ Myapp::Application.routes.draw do
   resources :blogs
   resources :tags
   resources :courses do
-        resources :comments
-        collection do
-          get 'course_payment'
-          get "confirm_course_payment"
-         
-        end
+       
          member do
-           get "confirm_course_payment"
+           get 'course_payment'
           end
       end
+  match 'courses/confirm_course_payment',:to=>'courses#confirm_course_payment'
+  match "/download_pdf(.:format)" => "courses#index_pdf", :method => :get, :as=>:index_pdf
   resources :topics
   resources :tutorials
   resources :groups
