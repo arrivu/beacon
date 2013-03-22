@@ -46,7 +46,6 @@ class CoursesController < ApplicationController
 	end
 
 	def edit
-<<<<<<< HEAD
 		@course= Course.find(params[:id])
 	end
 
@@ -65,9 +64,6 @@ class CoursesController < ApplicationController
 			render :edit
 		end
 	end
-=======
-    	@course = Course.find(params[:id])
-  	end
 
   	def update
 	    @course = Course.find(params[:id])
@@ -87,8 +83,6 @@ class CoursesController < ApplicationController
 	# 	@count = @course.comments.count
 	# 	@course = Course.find(params[:id])
 	# end
->>>>>>> samuel
-
 	def show
 		@course = Course.find(params[:id])
 
