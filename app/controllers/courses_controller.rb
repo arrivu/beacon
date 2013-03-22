@@ -5,6 +5,10 @@ class CoursesController < ApplicationController
 	before_filter :current_user, only: [:create, :edit,:update,:delete]
    ActiveMerchant::Billing::Integrations
 
+	def show_image
+		@course = Course.find(params[:id])
+		send_data @course.data, :type => 'image/png', :disposition => 'inline'
+	end
 
 	def index
 		@countCoursesPerPage = 4
