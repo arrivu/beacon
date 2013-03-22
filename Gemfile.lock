@@ -4,13 +4,6 @@ GIT
   specs:
     canvas (0.0.0)
 
-GIT
-  remote: git://github.com/mark-moseley/linecache
-  revision: 869c6a65155068415925067e480741bd0a71527e
-  specs:
-    linecache19 (0.5.12)
-      ruby_core_source (>= 0.1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,7 +50,6 @@ GEM
     acts_as_commentable (3.0.1)
     addressable (2.3.3)
     annotate (2.4.1.beta1)
-    archive-tar-minitar (0.5.2)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     best_in_place (2.1.0)
@@ -104,6 +96,14 @@ GEM
       rails (~> 3.0)
     database_cleaner (0.9.1)
     debug_inspector (0.0.2)
+
+    debugger (1.5.0)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.0)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.0)
+
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -159,6 +159,7 @@ GEM
       i18n (~> 0.6.0)
     multi_json (1.7.1)
     multipart-post (1.2.0)
+    mysql2 (0.3.11)
     nokogiri (1.5.8)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -230,6 +231,8 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+<<<<<<< HEAD
+=======
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -245,6 +248,7 @@ GEM
       ruby-debug-base19 (>= 0.11.19)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
+>>>>>>> ea7326e44d4f65ac4254d56bf66bd2f59abae187
     rubycas-client (2.3.9)
       activesupport
     rubyzip (0.9.9)
@@ -305,6 +309,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   cucumber-rails (>= 1.3.0)
   database_cleaner (>= 0.9.1)
+  debugger
   devise (>= 2.2.3)
   devise_cas_authenticatable
   email_spec (>= 1.4.0)
@@ -316,7 +321,11 @@ DEPENDENCIES
   json
   launchy (>= 2.2.0)
   letsrate
+<<<<<<< HEAD
+  mysql2
+=======
   linecache19!
+>>>>>>> ea7326e44d4f65ac4254d56bf66bd2f59abae187
   oauth2
   omniauth
   omniauth-facebook
@@ -329,8 +338,6 @@ DEPENDENCIES
   rest-client (= 1.6.7)
   rolify (>= 3.2.0)
   rspec-rails (>= 2.12.2)
-  ruby-debug-base19x (~> 0.11.30.pre4)
-  ruby-debug19
   sass-rails (~> 3.2.3)
   simple_form (>= 2.0.4)
   sqlite3
