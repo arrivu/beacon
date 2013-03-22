@@ -55,10 +55,10 @@ gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 gem 'rest-client', '1.6.7'
 gem 'json'
 gem "rails_config"
-group :development do
-  gem 'pg', '0.12.2'
-  gem 'mysql2'
-end
+# group :development do
+#   gem 'pg', '0.12.2'
+#   gem 'mysql2'
+# end
 gem 'acts_as_commentable', '3.0.1'
 gem 'letsrate'
 gem 'canvas',:git => 'git://github.com/m-narayan/canvas'
