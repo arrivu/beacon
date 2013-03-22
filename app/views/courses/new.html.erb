@@ -1,51 +1,58 @@
+<br>
 <div class="row">
-<div class="span12">
-<ul class="nav nav-pills .pull-left">
-  <li >
-<%= link_to "Users", users_path %>
-</li><li class="active">
-<%= link_to "New Course", new_course_path %>
-</li>
-<li>
-<%= link_to "Manage Course", manage_courses_path %>
-</li>
+	<div class="span12 offset3">
+		<ul class="nav nav-pills .pull-left">
+			<li >
+				<%= link_to "Users", users_path %>
+			</li><li class="active">
+			<%= link_to "New Course", new_course_path %>
+		</li>
+		<li>
+			<%= link_to "Manage Course", manage_courses_path %>
+		</li>
 
-<li>
- <%= link_to "Manage Category", topics_path %>
-  </li><li >
- <%= link_to "New Category",new_topic_path %>
- </ul>
-<% provide(:title, 'Create Course') %>
-<div class="row">
-<div class="span4 offset3">
-<%= form_for @course do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
+		<li>
+			<%= link_to "Manage Category", topics_path %>
+		</li><li >
+		<%= link_to "New Category",new_topic_path %>
+	</ul>
+	<% provide(:title, 'Create Course') %>
+	<div class="row">
+		<div class="span10 ">
+			<div class = "hero-unit">
+				<table class="table table-hover ">
+					<tr>
+						<h3 align = "center">New Course</h3>
+					</tr>
+					<%= form_for @course do |f| %>
+					<%= render 'shared/error_messages', object: f.object %>
 
-<%= f.label :title, "Course Title" %>
-<%= f.text_field :title %>
+					<tr><td><%= f.label :title, "Course Title" %></td>
+						<td><%= f.text_field :title %></td></tr>
 
-<%= f.label :author, "Author Name" %>
-<%= f.text_field :author %>
+						<tr><td><%= f.label :author, "Author Name" %></td>
+							<td><%= f.text_field :author %></td></tr>
 
-<%= f.label :desc, "Course Description" %>
-<%= f.text_area :desc %>
+							<tr><td><%= f.label :desc, "Course Description" %></td>
+								<td><%= f.text_area :desc ,:cols => "30", :rows => "10" %></td></tr>
 
-<%= f.label 'attachment', "Image" %>
-<%= f.file_field 'attachment' %>
+								<tr><td><%= f.label 'attachment', "Image" %></td>
+									<td><%= f.file_field 'attachment' %></td></tr>
 
-<%= f.label :ispopular, "Popular" %>
-<%= f.check_box :ispopular %>
+									<tr><td><%= f.label :ispopular, "Popular" %></td>
+									<td><%= f.check_box :ispopular %></td></tr>
 
-<%= f.label :topic_ids, "Topics" %>
-<%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %>
+									<tr><td><%= f.label :topic_ids, "Topics" %></td>
+										<td><%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %></td></tr>
+										<tr><td></td><td><%= f.submit "Add Course", class: "btn btn-large btn-primary" %></td></tr>
+									</table>
+									<% end %>
 
-<br/><br/>
-<p><%= f.submit %></p>
-<% end %>
-</div>
-</div>
-<center>
-<p><%= link_to "Back to Courses", courses_path %></p>
-</center>
-</div>
-</div>
+								</div>
+							</div>
+						</div>
+						<center>
+							<p><%= link_to "Back to Courses", courses_path %></p>
+						</center>
+					</div>
+				</div>

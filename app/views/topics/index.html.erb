@@ -1,6 +1,7 @@
+<br>
 <div class="row">
-<div class="span12">
-<ul class="nav nav-pills .pull-left">
+  <div class="span12 offset3">
+    <ul class="nav nav-pills .pull-left">
   <li >
 <%= link_to "Users", users_path %>
 </li><li >
@@ -21,7 +22,6 @@
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -30,8 +30,7 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
-        <td><%= link_to topic.id, topic_path(topic) %></td>
-        <td><%= topic.name %></td>
+        <td><%= link_to topic.name, topic_path(topic) %></td>
         <td><%=l topic.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
