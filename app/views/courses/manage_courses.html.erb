@@ -21,6 +21,7 @@
 <table class="table table-condensed table-hover">
   <thead>
     <tr>
+      <th></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:author) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -30,6 +31,7 @@
   <tbody>
     <% @courses.each do |course| %>
       <tr>
+        <td><%= image_tag url_for(:action => 'show_image', :id => course.id), :size => "40x40" %></td>
         <td><%= link_to course.title, course_path(course) %></td>
         <td><%= course.author %></td>
         <td><%=l course.created_at %></td>
