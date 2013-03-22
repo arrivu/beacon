@@ -1,33 +1,36 @@
-<div class="container">   
-	<div class="row">
-		<div class="span6 offset3">
-			<div class="hero-unit">
-				<h2>Edit <%= resource_name.to_s.humanize %></h2>
-				<%= simple_form_for(resource, :as => resource_name, 
-					:url => registration_path(resource_name), 
-					:html => { :method => :put, 
-						:class => 'form-vertical' }) do |f| %>
-						<%= f.error_notification %>
-						<%= display_base_errors resource %>
-						<%= f.input :name, :autofocus => true %>
-						<% #if current_user.provider == 'signup' %>
-						<%= f.input :email, :required => true %>
-						<%= f.input :password, :autocomplete => "off", 
-						:hint => "leave it blank if you don't want to change it", 
-						:required => false %>
-						<%= f.input :password_confirmation, :required => false %>
-						<%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
-						<% #end %>
-						<%= f.button :submit, 'Update', :class => 'btn-primary' %>
-						<% end %>
-						<% #unless current_user.has_role? :admin  %>
-						<!-- <h3>Cancel my account</h3> -->
+<br>
+<div class="row">
+	<div class="span12 offset4">
+		<table>
+			<tr><td></td><td>
+		<h2>Edit Profile</h2></td></tr>
+		<%= simple_form_for(resource, :as => resource_name, 
+			:url => registration_path(resource_name), 
+			:html => { :method => :put, 
+				:class => 'form-vertical' }) do |f| %>
+				<%= f.error_notification %>
+				<%= display_base_errors resource %>
+				<tr><td><%= f.label :title, "Name" %></td>
+				<td><%= f.input :name,:label => false, :autofocus => true %></td></tr>
+				<tr><td><%= f.label :title, "Email" %></td>
+				<td><%= f.input :email,:label => false, :required => true %></td></tr>
+				<tr><td><%= f.label :title, "Password" %></td>
+				<td>leave it blank if you don't want to change it<%= f.input :password,:label => false, :autocomplete => "off", 
+				:required => false %></td></tr>
+				<tr><td><%= f.label :title, "Password Confirmation " %></td>
+				<td><%= f.input :password_confirmation, 
 
-						<!-- <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p> -->
-						<% #end %>
-						<%= link_to "Back", :back %>
+				:hint => "",:label => false, :required => false %></td></tr>
+				<tr><td><%= f.label :title, "Current Password" %></td>
+				<td>we need your current password incase of change password<%= f.input :current_password,:label => false, :hint => "", :required => true %></td></tr>
+				<% #end %>
+				<tr><td></td><td><%= f.button :submit, 'Update Profile', :class => 'btn-primary' %></td></tr>
+				<% end %>
+				</table>
+				<% #unless current_user.has_role? :admin  %>
+				<!-- <h3>Cancel my account</h3> -->
 
-					</div>
-				</div>
+				<!-- <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p> -->
+				<% #end %>
 			</div>
 		</div>
