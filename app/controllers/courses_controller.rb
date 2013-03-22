@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
 
 	def show_image
 		@course = Course.find(params[:id])
-		send_data @course.data, :type => 'image/png', :disposition => 'inline'
+		send_data @course.data, :type => @course.content_type, :disposition => 'inline'
 	end
 
 	def index
