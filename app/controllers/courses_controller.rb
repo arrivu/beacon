@@ -46,7 +46,6 @@ class CoursesController < ApplicationController
 	end
 
 	def edit
-<<<<<<< HEAD
 		@course= Course.find(params[:id])
 	end
 
@@ -65,29 +64,7 @@ class CoursesController < ApplicationController
 			render :edit
 		end
 	end
-=======
-    	@course = Course.find(params[:id])
-  	end
 
-  	def update
-	    @course = Course.find(params[:id])
-	    if @course.update_attributes(params[:course])
-	      redirect_to @course, notice: "Successfully updated topic."
-	    else
-	      render :edit
-	    end
-  	end
-
-
-
-	# def show
-	# 	@course = Course.find(params[:id])
-	# 	@countCommentsPerPage = 5
-	# 	@comments = @course.comments.paginate(page: params[:page], per_page: 5)
-	# 	@count = @course.comments.count
-	# 	@course = Course.find(params[:id])
-	# end
->>>>>>> samuel
 
 	def show
 		@course = Course.find(params[:id])
