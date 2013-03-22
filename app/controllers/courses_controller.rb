@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
 		if params[:mycourses]=="mycourses"
 		  @courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 4)
         else  
-          @courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 4)
+        @courses = Course.paginate(page: params[:page], per_page: 4)
 		end
 		@topics = Topic.order(:name)
 
@@ -67,17 +67,6 @@ class CoursesController < ApplicationController
 	# 	@count = @course.comments.count
 	# 	@course = Course.find(params[:id])
 	# end
-
-
-	def update
-		@course = Course.find(params[:id])
-		if @course.update_attributes(params[:course])
-			redirect_to manage_courses_url, notice: "Successfully updated course."
-		
-		else
-			render :edit
-		end
-	end
 
 	def show
 		@course = Course.find(params[:id])
