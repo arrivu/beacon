@@ -25,21 +25,22 @@
               </div></a>
             </div>
             <div class="container clearfix"></div>
-            <div class="socialcourse starrating">
-                <a>
+              <div style="margin-left: 80px;">
+               <a>
         <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
-        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-         <br align = "center">Has <%= pluralize(@qty, "Ratings") %>
-        <% end %>
-        <%= rating_for @course, "rate" %> 
-        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-        <% if @rated == nil  %>
-        Rate This Course
-        <% else  %>
-        Course Rated
-        <% end %>
-        <% end %>
-      </a>
+                 <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+                       <br align = "center">
+                      <% end %>
+                      <%= rating_for @course, "rate" %> 
+                      <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+                      <% if @rated == nil  %>
+                        Rate This Course
+                      <% else  %>
+                        Course Rated
+                      <% end %>
+                <% end %>
+                </a>
+             </div>
             </div>
             <div class="container clearfix"></div>
           </div>
@@ -176,7 +177,11 @@
       <div class="row">
         <div align="center">
             <div class="readallreview">
-                <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+                <%if current_user.present?%>
+                  <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+                <%else%>  
+                  <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
+                <% end %>  
             </div>
         </div>
       </div>

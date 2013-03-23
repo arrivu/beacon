@@ -5,9 +5,27 @@
 <%= f.text_field :title ,placeholder: "Review title"%><br />
 <br>
 <%= f.text_area :comment , :rows => 5, :cols => 40 ,placeholder: "comment" %><br />
-<br>
+<div class="container clearfix"></div>
+    <div >
+      <a>
+        <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
+        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+         <br align = "center">
+        <% end %>
+        <%= rating_for @course, "rate" %> 
+        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+        <% if @rated == nil  %>
+        Rate This Course
+        <% else  %>
+        Course Rated
+        <% end %>
+        <% end %>
+      </a>
+   </div>
+<div class="container clearfix"></div>
 <%= f.submit nil, :class => 'btn btn-primary' %>
 <br />
 <% end %>
+
 <% end %>
 </div>

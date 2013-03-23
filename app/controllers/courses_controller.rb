@@ -23,6 +23,7 @@ class CoursesController < ApplicationController
 
 	def new
 		@course = Course.new
+		@topic = Topic.all
 	end
 
 

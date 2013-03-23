@@ -42,8 +42,8 @@
 									<tr><td><%= f.label :ispopular, "Popular" %></td>
 									<td><%= f.check_box :ispopular %></td></tr>
 
-									<tr><td><%= f.label :topic_ids, "Topics" %></td>
-										<td><%= f.collection_select :topic_ids, Topic.order(:name), :id, :name, {}, {multiple: true} %></td></tr>
+									<tr><td><%= f.label :topic_id, "Topics" %></td>
+										<td><%= f.select(:topic_id, @topic.collect {|p| [ p.name,p.id ] })%></td></tr>
 										<tr><td></td><td><%= f.submit "Add Course", class: "btn btn-large btn-primary" %></td></tr>
 									</table>
 									<% end %>

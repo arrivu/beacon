@@ -16,9 +16,9 @@
 
 class Course < ActiveRecord::Base
   acts_as_commentable
-  attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_ids, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
-  has_many :relationships
-  has_many :topics, through: :relationships
+  attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
+  #has_many :relationships
+  has_one :topic
   has_many :student_courses
   has_many :students, :through => :student_courses
   has_many :teaching_staff_courses 
