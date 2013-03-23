@@ -29,8 +29,13 @@ Myapp::Application.routes.draw do
   match '/contact', :to => 'screens#contact'
   #match '/faq', :to => 'screens#faq'
   match '/construction', :to => 'screens#construction'  
-  match '/manage_courses', :to => 'courses#manage_courses'  
-  match '/show_image', :to => 'courses#show_image'  
+  match '/manage_courses', :to => 'courses#manage_courses'
+  match '/upcomming_courses', :to => 'courses#upcomming_courses' 
+  match '/popular_courses', :to => 'courses#popular_courses'  
+  match '/datewise_courses', :to => 'courses#datewise_courses'
+  match '/subscribed_courses', :to => 'courses#subscribed_courses'
+  match '/show_image', :to => 'courses#show_image' 
+  match '/show_image', :to => 'topics#show_image' 
   devise_for :users, :controllers => {:registrations => "registrations"}
 
   resources :users

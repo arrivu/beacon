@@ -1,183 +1,183 @@
 
 <div class="coursedetailtop">
-    <div class="container">
-      <div class="row">
-        <div class="span4">
-          <div class="coursevideo">
-            <img src="http://placehold.it/300x200/fff/144328&text=START"/>
-          </div>
-        </div>
-        <div class="span7">
-          <div class="coursedesc">
-            <div class="coursetitle">
-              <h3>Financial Accounting - Online Course</h3>
-            </div>
-            <div class="subtitle">
-              Become a expert in Financial Accounting like a Pro.
-            </div>
-            <div class="container clearfix"></div>
-            <div class="subsection">
-              <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-                enroll
-              </div></a>
-              <a href="#previewcourse"><div class="shortlist">
-                Preview
-              </div></a>
-            </div>
-            <div class="container clearfix"></div>
-            <div class="socialcourse starrating">
-                <a>
-        <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
-        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-         <br align = "center">Has <%= pluralize(@qty, "Ratings") %>
-        <% end %>
-        <%= rating_for @course, "rate" %> 
-        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-        <% if @rated == nil  %>
-        Rate This Course
-        <% else  %>
-        Course Rated
-        <% end %>
-        <% end %>
-      </a>
-            </div>
-            <div class="container clearfix"></div>
-          </div>
-        </div>
-        <div class="container clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <div class="coursevideo">
+          <img src="http://placehold.it/300x200/fff/144328&text=START"/>
         </div>
       </div>
-    </div>
-  </div>
-
-  <div class="coursesyllabus">
-    <div class="container">
-      <div class="row">
-        <div class="span8">
-          <div class="head">
-            <h3>Course Modules</h3>
+      <div class="span7">
+        <div class="coursedesc">
+          <div class="coursetitle">
+            <h3>Financial Accounting - Online Course</h3>
           </div>
-          <div class="underlinetext">
-            <ul>
-              <li>
-                <h4><i class="icon-book"></i> Module 1 - About Finance</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 2 - Why it is necessary</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 3 - How you can lear</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 4 - Real Practicals</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 5 - Conclusion</h4>
-              </li>
-            </ul>
+          <div class="subtitle">
+            Become a expert in Financial Accounting like a Pro.
           </div>
-          
-        </div>
-        <div class="span4">
-          <div class="head">
-            <h3>Course Description</h3>
+          <div class="container clearfix"></div>
+          <div class="subsection">
+            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
+              enroll
+            </div></a>
+            <a href="#previewcourse"><div class="shortlist">
+              Preview
+            </div></a>
           </div>
-          <div class="underlinetext">
-            <%= truncate(@course.desc, :length => 70)  %>
-          </div>
+          <div class="container clearfix"></div>
           <div class="socialcourse starrating">
-                 <div class='spread'>  <div class='twshare left'>   <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70) %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  </div>  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like> </div>
-              
+            <a>
+              <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
+              <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+              <br align = "center">Has <%= pluralize(@qty, "Ratings") %>
+              <% end %>
+              <%= rating_for @course, "rate" %> 
+              <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+              <% if @rated == nil  %>
+              Rate This Course
+              <% else  %>
+              Course Rated
+              <% end %>
+              <% end %>
+            </a>
           </div>
+          <div class="container clearfix"></div>
         </div>
+      </div>
+      <div class="container clearfix">
       </div>
     </div>
   </div>
+</div>
 
-  <div class="aboutauthor">
-    <div class="container">
-      <div class="row">
-        <h1>About the Author</h1>
-        <div class="authorimage">
-          <img src="http://placehold.it/200x200/16A085/000&text=Author" class="img-circle"/>
+<div class="coursesyllabus">
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <div class="head">
+          <h3>Course Modules</h3>
         </div>
-        <div class="authorinfo">
-          <h4><%=@course.user.name%></h4>
-          <p><%=@course.user.user_desc%></p>
+        <div class="underlinetext">
+          <ul>
+            <li>
+              <h4><i class="icon-book"></i> Module 1 - About Finance</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 2 - Why it is necessary</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 3 - How you can lear</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 4 - Real Practicals</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 5 - Conclusion</h4>
+            </li>
+          </ul>
         </div>
-        <div class="container clearfix"></div>
+        
       </div>
+      <div class="span4">
+        <div class="head">
+          <h3>Course Description</h3>
+        </div>
+        <div class="underlinetext">
+          <%= truncate(@course.desc, :length => 70)  %>
+        </div>
+        <div class="socialcourse starrating">
+         <div class='spread'>  <div class='twshare left'>   <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70) %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  </div>  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like> </div>
+         
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div class="aboutauthor">
+  <div class="container">
+    <div class="row">
+      <h1>About the Author</h1>
+      <div class="authorimage">
+        <img src="http://placehold.it/200x200/16A085/000&text=Author" class="img-circle"/>
+      </div>
+      <div class="authorinfo">
+        <h4><%=@course.user.name%></h4>
+        <p><%=@course.user.user_desc%></p>
+      </div>
+      <div class="container clearfix"></div>
     </div>
   </div>
+</div>
 
-  <div class="previewcourse" id="previewcourse">
-    <div class="container">
-      <div class="row">
-        <h2>Lecture Preview: A Sneak Peak into the course</h2>
-        <div class="span6 prevbox">
-          <div class="previmage">
-            <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-          </div>
-          <div class="previnfo">
-            <h3>Lecture 25:</h3>
-            <p class="prevtxt">Loops and Hoops</p>
-            <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-          </div>
+<div class="previewcourse" id="previewcourse">
+  <div class="container">
+    <div class="row">
+      <h2>Lecture Preview: A Sneak Peak into the course</h2>
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
         </div>
-        <div class="span6 prevbox">
-          <div class="previmage">
-            <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-          </div>
-          <div class="previnfo">
-            <h3>Lecture 8:</h3>
-            <p class="prevtxt">How to invest money to earn</p>
-            <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-          </div>
+        <div class="previnfo">
+          <h3>Lecture 25:</h3>
+          <p class="prevtxt">Loops and Hoops</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
         </div>
+      </div>
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
         </div>
-
-        <div class="row">
-          <div class="span6 prevbox">
-            <div class="previmage">
-              <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-            </div>
-            <div class="previnfo">
-              <h3>Lecture 12:</h3>
-              <p class="prevtxt">Learn art of finance</p>
-              <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-            </div>
-          </div>
-          <div class="span6 prevbox">
-            <div class="previmage">
-              <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-            </div>
-            <div class="previnfo">
-              <h3>Lecture 20:</h3>
-              <p class="prevtxt">Market Analysis</p>
-              <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-            </div>
-          </div>
+        <div class="previnfo">
+          <h3>Lecture 8:</h3>
+          <p class="prevtxt">How to invest money to earn</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
         </div>
-
       </div>
     </div>
 
-  <div class="coursereviews">
-    <div class="container">
-      <div class="row">
-        <div align="center">
-          <h3><%=@course.comments.size%> Reviews</h3>
-          <br/>
+    <div class="row">
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
         </div>
-          <%= render "comments" %>
-          <%= will_paginate @comments %> 
-     
+        <div class="previnfo">
+          <h3>Lecture 12:</h3>
+          <p class="prevtxt">Learn art of finance</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
+        </div>
+      </div>
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
+        </div>
+        <div class="previnfo">
+          <h3>Lecture 20:</h3>
+          <p class="prevtxt">Market Analysis</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="coursereviews">
+  <div class="container">
+    <div class="row">
+      <div align="center">
+        <h3><%=@course.comments.size%> Reviews</h3>
+        <br/>
+      </div>
+      <%= render "comments" %>
+      <%= will_paginate @comments %> 
+      
       
       <div class="row">
         <div align="center">
-            <div class="readallreview">
-                <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
-            </div>
+          <div class="readallreview">
+            <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+          </div>
         </div>
       </div>
     </div>
