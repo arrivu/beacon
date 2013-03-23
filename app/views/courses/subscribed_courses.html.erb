@@ -1,9 +1,12 @@
-<div class="pagehead separation">
+<% provide(:title, 'A Smarter Way to Learn') %>
+<% provide(:effectingHeader) %>
+ <div class="pagehead separation">
     <div class="container">
       <form action="#" class="category-search" data-pjax="">
         <span class="mini-icon mini-icon-search-input"><i class="icon-search"></i></span>
         <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2">
       </form>
+
       <h1>Welcome to Course Library</h1>
     </div>
   </div>
@@ -16,16 +19,16 @@
       <div class="span12 courselibsectioninfo">
         <div class="courselibsectioninfo">
         <div class="coursecount pull-left">
-           <span class="badge badge-info">Found&nbsp;&nbsp;<%= pluralize(@total_course_count, "Course") %></span>
+          <span class="badge badge-info">Found&nbsp;&nbsp;<%= pluralize(@total_course_count, "Course") %></span>
         </div>
         <ul id="dropdownlistelse" class="pull-right moveup">
             <li>
                 <a href="#">Sort By&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i></a>
                 <ul>
-                     <li><%= link_to "Date", datewise_courses_path %></li>
-                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", courses_path %></li>
+                    <li><%= link_to "Date", datewise_courses_path %></li>
+                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", upcomming_courses_path %></li>
                     <li><%= link_to "Popularity", popular_courses_path %></li>
-                    <li><a href="#">Subscribed</a></li>
+                    <li><%= link_to "Subscribed", subscribed_courses_path %></li> 
                    <li><%= link_to "Default", courses_path %></li>
                 </ul>
             </li>
@@ -78,7 +81,9 @@
         
         <div class="container courseclub">
             <div class="row">
-              <% @courses_for_topic.each do |course|%>
+              
+              <% @courses.each do |course|%>
+               <% course.topics.each do |topic| %>
               <div class="span6">
                 <div class="courses">
                   <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
@@ -87,10 +92,11 @@
                       <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
                       
                       <div class="course-content">
-                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=@topic.name%></em>
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=topic.name%></em>
                       <!-- <em class="label-b">Free Course</em> -->
                       <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 23)%></h3>
-                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p></div>
+                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p>
+                      <%end%></div>
                       </div>
                   </article>
                 </div>
@@ -100,8 +106,11 @@
               
             </div>
         </div>
+
       </div>
     </div>
   </div>
+   <div align="center"><%= will_paginate %></div>
+
 
 

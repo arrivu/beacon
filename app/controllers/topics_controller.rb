@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @total_course_count = @topic.courses.where(ispublished: 1).size
     @courses_for_topic = @topic.courses.where(ispublished: 1)
     
     @topics = Topic.order(:name)
@@ -18,7 +19,7 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(params[:topic])
     if @topic.save
-      redirect_to courses_path, notice: "Successfully created topic."
+      redirect_to topics_path, notice: "Successfully created topic."
     else
       render :new
     end

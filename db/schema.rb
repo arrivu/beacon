@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "user_id"
     t.integer  "ispublished",  :default => 0
     t.string   "releasemonth", :default => "December"
-    t.boolean  "ispopular"
+    t.integer  "ispopular"
     t.string   "content_type"
     t.binary   "data"
     t.integer  "lms_id"

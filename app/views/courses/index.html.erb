@@ -19,17 +19,19 @@
       <div class="span12 courselibsectioninfo">
         <div class="courselibsectioninfo">
         <div class="coursecount pull-left">
+
           <span class="badge badge-info">Found <%= Course.where(:ispublished=>true).size %> Courses</span>
+
         </div>
         <ul id="dropdownlistelse" class="pull-right moveup">
             <li>
                 <a href="#">Sort By&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i></a>
                 <ul>
-                    <li><a href="#">Date</a></li>
-                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", courses_path %></li>
-                    <li><a href="#">Popularity</a></li>
-                    <li><a href="#">Sunbscribed</a></li>
-                    <li><a href="#">Default</a></li>
+                    <li><%= link_to "Date", datewise_courses_path %></li>
+                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", upcomming_courses_path %></li>
+                    <li><%= link_to "Popularity", popular_courses_path %></li>
+                    <li><%= link_to "Subscribed", subscribed_courses_path %></li> 
+                   <li><%= link_to "Default", courses_path %></li>
                 </ul>
             </li>
         </ul>
@@ -91,10 +93,13 @@
                       <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
                       
                       <div class="course-content">
-                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%#=course.topic.name if !course.topic.nil? %></em>
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=course.topic.name if !course.topic.nil? %></em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 25)%></h3>
-                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p></div>
+
+                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 23)%></h3>
+                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p>
+                      <%end%></div>
+
                       </div>
                   </article>
                 </div>
