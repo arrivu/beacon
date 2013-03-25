@@ -39,7 +39,7 @@
                     <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></li>
 
                    <% @topics.each do |topic| %>   
-                          <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
+                          <% @topicStructure = topic.name + " ( #{ topic.course.where(ispublished: 1).size} )" %>
                           <li><%= link_to @topicStructure, topic %></li>
                     <%end%>      
                 </ul>

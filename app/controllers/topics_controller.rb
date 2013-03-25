@@ -6,8 +6,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @total_course_count = @topic.courses.where(ispublished: 1).size
-    @courses_for_topic = @topic.courses.where(ispublished: 1)
+    @total_course_count = @topic.course.where(ispublished: 1).size
+    @courses_for_topic = @topic.course.where(ispublished: 1)
     
     @topics = Topic.order(:name)
   end

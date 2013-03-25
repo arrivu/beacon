@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
 		else 
 			@courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 4)
 		end
-		@topics = Topic.order(:name)
+		@topics = Topic.all
 
 	end
 
