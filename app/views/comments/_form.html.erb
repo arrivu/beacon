@@ -14,11 +14,13 @@
         <% end %>
         <%= rating_for @course, "rate" %> 
         <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+         <div class = "rated" %>
         <% if @rated == nil  %>
         Rate This Course
         <% else  %>
         Course Rated
         <% end %>
+      </div>
         <% end %>
       </a>
    </div>
@@ -29,3 +31,11 @@
 
 <% end %>
 </div>
+
+<script>
+$(document).ready(function(){
+$(".star").click(function(){
+$(".rated").html("Course Rated")
+});
+});
+</script>
