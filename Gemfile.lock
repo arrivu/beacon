@@ -302,7 +302,6 @@ DEPENDENCIES
   json
   launchy (>= 2.2.0)
   letsrate
-  mysql2
   oauth2
   omniauth
   omniauth-facebook
