@@ -43,10 +43,10 @@
 
                     <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></li>
 
-                   <% @topics.each do |topic| %>   
-                          <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
+                    <% @topics.each do |topic| %>   
+                       <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
                           <li><%= link_to @topicStructure, topic %></li>
-                    <%end%>      
+                    <%end%>    
                 </ul>
             </li>
         </ul>
@@ -93,7 +93,7 @@
                       <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
                       
                       <div class="course-content">
-                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%#=course.topic.name if !course.topic.nil? %></em>
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=course.topic.name if !course.topic.nil? %></em>
                       <!-- <em class="label-b">Free Course</em> -->
 
                       <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 18)%></h3>

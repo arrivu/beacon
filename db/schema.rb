@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "content_type"
     t.binary   "data"
     t.integer  "lms_id"
+    t.integer  "topic_id"
   end
 
   add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"
