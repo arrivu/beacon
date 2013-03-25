@@ -12,11 +12,11 @@ class CoursesController < ApplicationController
 
 	def index
 		@total_course_count = Course.where(ispublished: 1).all.count
-		@countCoursesPerPage = 4
+		@countCoursesPerPage = 6
 		if params[:mycourses]=="mycourses"
-			@courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 4)
+			@courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 6)
 		else 
-			@courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 4)
+			@courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 6)
 		end
 		@topics = Topic.all
 
@@ -133,29 +133,29 @@ class CoursesController < ApplicationController
 
     def upcomming_courses
     	@total_course_count = Course.where(ispublished: 0).all.count
-    	@countCoursesPerPage = 4
-    	@courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 4)
+    	@countCoursesPerPage = 6
+    	@courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
     	@topics = Topic.order(:name)
     end
 
     def popular_courses
     	@total_course_count = Course.where(ispopular: 1).all.count
-    	@countCoursesPerPage = 4
-    	@courses = Course.where(ispopular: 1).paginate(page: params[:page], per_page: 4)
+    	@countCoursesPerPage = 6
+    	@courses = Course.where(ispopular: 1).paginate(page: params[:page], per_page: 6)
     	@topics = Topic.order(:name)
     end
 
     def datewise_courses
     	@total_course_count = Course.all.count
-    	@countCoursesPerPage = 4
-    	@courses = Course.order(:created_at).paginate(page: params[:page], per_page: 4)
+    	@countCoursesPerPage = 6
+    	@courses = Course.order(:created_at).paginate(page: params[:page], per_page: 6)
     	@topics = Topic.order(:name)
     end
 
     def subscribed_courses
     	@total_course_count = CourseStatus.where(current_user.id).count
-    	@countCoursesPerPage = 4
-    	@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 4)
+    	@countCoursesPerPage = 6
+    	@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
     	@topics = Topic.order(:name)
     end
   end
