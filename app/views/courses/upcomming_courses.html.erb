@@ -20,7 +20,7 @@
         <div class="courselibsectioninfo">
         <div class="coursecount pull-left">
 
-          <span class="badge badge-info">Found <%= Course.where(:ispublished=>true).size %> Courses</span>
+          <span class="badge badge-info">Found <%= @total_course_count %> Courses</span>
 
         </div>
         <ul id="dropdownlistelse" class="pull-right moveup">
@@ -43,10 +43,8 @@
 
                     <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></li>
 
-
                     <% @topics.each do |topic| %>   
                        <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
-
                           <li><%= link_to @topicStructure, topic %></li>
                     <%end%>    
                 </ul>

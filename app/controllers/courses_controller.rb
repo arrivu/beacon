@@ -1,9 +1,9 @@
 class CoursesController < ApplicationController
 
-  layout 'courses'
+	layout 'courses'
 
 	before_filter :current_user, only: [:create, :edit,:update,:delete]
-   ActiveMerchant::Billing::Integrations
+	ActiveMerchant::Billing::Integrations
 
 	def show_image
 		@course = Course.find(params[:id])
@@ -11,18 +11,20 @@ class CoursesController < ApplicationController
 	end
 
 	def index
-		@countCoursesPerPage = 4
+		@total_course_count = Course.where(ispublished: 1).all.count
+		@countCoursesPerPage = 6
 		if params[:mycourses]=="mycourses"
-		  @courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 4)
-        else  
-        @courses = Course.paginate(page: params[:page], per_page: 4)
+			@courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 6)
+		else 
+			@courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 6)
 		end
-		@topics = Topic.order(:name)
+		@topics = Topic.all
 
-  	end
+	end
 
 	def new
 		@course = Course.new
+		@topic = Topic.all
 	end
 
 
@@ -32,14 +34,14 @@ class CoursesController < ApplicationController
 		if @course.save
 			flash[:success] = "Course added successfully!!!!"
 			#LMS Course Creation
-	    lms_enable=Settings.lms.enable
-	    if lms_enable 
-	      lmscourse=CanvasREST::Course.new
-	      lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
-	      c=lmscourse.create_course(Settings.lms.account_id,@course.id,@course.title,@course.desc)
-	      @course.update_attributes(:lms_id => c["id"])
-	    end
-			redirect_to @course
+			lms_enable=Settings.lms.enable
+			if lms_enable 
+				lmscourse=CanvasREST::Course.new
+				lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+				c=lmscourse.create_course(Settings.lms.account_id,@course.id,@course.title,@course.desc)
+				@course.update_attributes(:lms_id => c["id"])
+			end
+			redirect_to courses_path
 		else
 			render 'new'
 		end
@@ -53,12 +55,12 @@ class CoursesController < ApplicationController
 		@course = Course.find(params[:id])
 		if @course.update_attributes(params[:course])
 			#LMS Course Updation
-	    lms_enable=Settings.lms.enable
-	    if lms_enable 
-	      lmscourse=CanvasREST::Course.new
-	      lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
-	      lmscourse.update_course(@course.lms_id,@course.title,@course.desc)
-	    end
+			lms_enable=Settings.lms.enable
+			if lms_enable 
+				lmscourse=CanvasREST::Course.new
+				lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+				lmscourse.update_course(@course.lms_id,@course.title,@course.desc)
+			end
 			redirect_to manage_courses_url, notice: "Successfully updated course."		
 		else
 			render :edit
@@ -85,39 +87,75 @@ class CoursesController < ApplicationController
 	end
 
 	def destroy
-	    @course = Course.find(params[:id])
-	    lms_id=@course.lms_id
-	    @course.destroy
+		@course = Course.find(params[:id])
+		lms_id=@course.lms_id
+		@course.destroy
  			#LMS Course delete
-	    lms_enable=Settings.lms.enable
-	    if lms_enable 
-	      lmscourse=CanvasREST::Course.new
-	      lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
-	      lmscourse.delete_course(lms_id)
-	    end
-	    flash[:success] = "Successfully destroyed course."
-	    redirect_to manage_courses_url
-  	end
+ 			lms_enable=Settings.lms.enable
+ 			if lms_enable 
+ 				lmscourse=CanvasREST::Course.new
+ 				lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+ 				lmscourse.delete_course(lms_id)
+ 			end
+ 			flash[:success] = "Successfully destroyed course."
+ 			redirect_to manage_courses_url
+ 		end
 
 
-  	def course_payment 
-  	end
+ 		def course_payment
+ 			@user = current_user
+ 			@course = Course.find(params[:id]) 
+ 		end
 
 
-  	def confirm_course_payment
-  		@notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)
-     if @notification.payment_id.present?
-      @order = Course.find_by_order_id(@notification.payment_id)
-      if @notification.complete? and @notification.valid?
-        @order.confirm!
-      else
-       @order.reject!
-      end
+ 		def confirm_course_payment
+ 			@course = Course.find(params[:id].to_i)
+ 			@user = current_user
+ 			UserMailer.course_payment(@user,@course.title).deliver
+  		# @notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)
+    #  if @notification.payment_id.present?
+    #   @order = Course.find_by_order_id(@notification.payment_id)
+    #   if @notification.complete? and @notification.valid?
+    #     @order.confirm!
+    #   else
+    #    @order.reject!
+    #   end
     end
-	  
-  	end
 
-  	def manage_courses
-  		@courses = Course.order(:id)
-  	end
-end
+    def index_pdf
+    	render :pdf => "my_pdf",:layout => false,:template => '/courses/index_pdf',:footer => {:center =>"Center", :left => "Left", :right => "Right"}
+
+    end
+
+    def manage_courses
+    	@courses = Course.order(:id)
+    end
+
+    def upcomming_courses
+    	@total_course_count = Course.where(ispublished: 0).all.count
+    	@countCoursesPerPage = 6
+    	@courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
+    	@topics = Topic.order(:name)
+    end
+
+    def popular_courses
+    	@total_course_count = Course.where(ispopular: 1).all.count
+    	@countCoursesPerPage = 6
+    	@courses = Course.where(ispopular: 1).paginate(page: params[:page], per_page: 6)
+    	@topics = Topic.order(:name)
+    end
+
+    def datewise_courses
+    	@total_course_count = Course.all.count
+    	@countCoursesPerPage = 6
+    	@courses = Course.order(:created_at).paginate(page: params[:page], per_page: 6)
+    	@topics = Topic.order(:name)
+    end
+
+    def subscribed_courses
+    	@total_course_count = CourseStatus.where(current_user.id).count
+    	@countCoursesPerPage = 6
+    	@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
+    	@topics = Topic.order(:name)
+    end
+  end

@@ -1,5 +1,6 @@
 
 <div class="coursedetailtop">
+
     <div class="container">
       <div class="row">
         <div class="span4">
@@ -17,7 +18,7 @@
             </div>
             <div class="container clearfix"></div>
             <div class="subsection">
-              <a href="enroll.php"><div class="enroll">
+              <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
                 enroll
               </div></a>
               <a href="#previewcourse"><div class="shortlist">
@@ -25,159 +26,177 @@
               </div></a>
             </div>
             <div class="container clearfix"></div>
-            <div class="socialcourse starrating">
-                <a>
+              <div style="margin-left: 80px;">
+               <a>
         <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
-        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-         <br align = "center">Has <%= pluralize(@qty, "Ratings") %>
-        <% end %>
-        <%= rating_for @course, "rate" %> 
-        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-        <% if @rated == nil  %>
-        Rate This Course
-        <% else  %>
-        Course Rated
-        <% end %>
-        <% end %>
-      </a>
+                 <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+                       <br align = "center">
+                      <% end %>
+                      <%= rating_for @course, "rate" %><div id="rating" ><%= @qty%> Ratings</div>
+                      <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+                       <div class = "rated" %>
+                      <% if @rated == nil  %>
+                        Rate This Course
+                      <% else  %>
+                        Course Rated
+                      <% end %>
+                    </div>
+                <% end %>
+                </a>
+             </div>
             </div>
             <div class="container clearfix"></div>
           </div>
         </div>
         <div class="container clearfix">
+
         </div>
       </div>
+      
+      <div class="container clearfix">
+      </div>
+</div>
+ 
+
+<div class="coursesyllabus">
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <div class="head">
+          <h3>Course Modules</h3>
+        </div>
+        <div class="underlinetext">
+          <ul>
+            <li>
+              <h4><i class="icon-book"></i> Module 1 - About Finance</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 2 - Why it is necessary</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 3 - How you can lear</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 4 - Real Practicals</h4>
+            </li>
+            <li>
+              <h4><i class="icon-book"></i> Module 5 - Conclusion</h4>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+      <div class="span4">
+        <div class="head">
+          <h3>Course Description</h3>
+        </div>
+        <div class="underlinetext">
+          <%= truncate(@course.desc, :length => 70)  %>
+        </div>
+        <div class="starrating">
+         <div class='spread'>  <div class='twshare left'>   <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70) %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  </div>
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like> 
+         </div>
+         <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-url="<%=request.url%>" data-counter="right"></script><br/>
+         <script src="https://apis.google.com/js/plusone.js"></script>
+         <g:plus action="share" annotation="bubble" ></g:plus>
+         
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+<div class="aboutauthor">
+  <div class="container">
+    <div class="row">
+      <h1>About the Author</h1>
+      <div class="authorimage">
+        <img src="http://placehold.it/200x200/16A085/000&text=Author" class="img-circle"/>
+      </div>
+      <div class="authorinfo">
+        <h4><%=@course.user.name%></h4>
+        <p><%=@course.user.user_desc%></p>
+      </div>
+      <div class="container clearfix"></div>
     </div>
   </div>
+</div>
 
-  <div class="coursesyllabus">
-    <div class="container">
-      <div class="row">
-        <div class="span8">
-          <div class="head">
-            <h3>Course Modules</h3>
-          </div>
-          <div class="underlinetext">
-            <ul>
-              <li>
-                <h4><i class="icon-book"></i> Module 1 - About Finance</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 2 - Why it is necessary</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 3 - How you can lear</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 4 - Real Practicals</h4>
-              </li>
-              <li>
-                <h4><i class="icon-book"></i> Module 5 - Conclusion</h4>
-              </li>
-            </ul>
-          </div>
-          
+<div class="previewcourse" id="previewcourse">
+  <div class="container">
+    <div class="row">
+      <h2>Lecture Preview: A Sneak Peak into the course</h2>
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
         </div>
-        <div class="span4">
-          <div class="head">
-            <h3>Course Description</h3>
-          </div>
-          <div class="underlinetext">
-            <%= truncate(@course.desc, :length => 70)  %>
-          </div>
-          <div class="socialcourse starrating">
-                 <div class='spread'>  <div class='twshare left'>   <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70) %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  </div>  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like> </div>
-              
-          </div>
+        <div class="previnfo">
+          <h3>Lecture 25:</h3>
+          <p class="prevtxt">Loops and Hoops</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
+        </div>
+      </div>
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
+        </div>
+        <div class="previnfo">
+          <h3>Lecture 8:</h3>
+          <p class="prevtxt">How to invest money to earn</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
+        </div>
+        <div class="previnfo">
+          <h3>Lecture 12:</h3>
+          <p class="prevtxt">Learn art of finance</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
+        </div>
+      </div>
+      <div class="span6 prevbox">
+        <div class="previmage">
+          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
+        </div>
+        <div class="previnfo">
+          <h3>Lecture 20:</h3>
+          <p class="prevtxt">Market Analysis</p>
+          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 
-  <div class="aboutauthor">
-    <div class="container">
-      <div class="row">
-        <h1>About the Author</h1>
-        <div class="authorimage">
-          <img src="http://placehold.it/200x200/16A085/000&text=Author" class="img-circle"/>
-        </div>
-        <div class="authorinfo">
-          <h4><%=@course.user.name%></h4>
-          <p><%=@course.user.user_desc%></p>
-        </div>
-        <div class="container clearfix"></div>
+<div class="coursereviews">
+  <div class="container">
+    <div class="row">
+      <div align="center">
+        <h3><%=@course.comments.size%> Reviews</h3>
+        <br/>
       </div>
-    </div>
-  </div>
-
-  <div class="previewcourse" id="previewcourse">
-    <div class="container">
-      <div class="row">
-        <h2>Lecture Preview: A Sneak Peak into the course</h2>
-        <div class="span6 prevbox">
-          <div class="previmage">
-            <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-          </div>
-          <div class="previnfo">
-            <h3>Lecture 25:</h3>
-            <p class="prevtxt">Loops and Hoops</p>
-            <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-          </div>
-        </div>
-        <div class="span6 prevbox">
-          <div class="previmage">
-            <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-          </div>
-          <div class="previnfo">
-            <h3>Lecture 8:</h3>
-            <p class="prevtxt">How to invest money to earn</p>
-            <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-          </div>
-        </div>
-        </div>
-
-        <div class="row">
-          <div class="span6 prevbox">
-            <div class="previmage">
-              <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-            </div>
-            <div class="previnfo">
-              <h3>Lecture 12:</h3>
-              <p class="prevtxt">Learn art of finance</p>
-              <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-            </div>
-          </div>
-          <div class="span6 prevbox">
-            <div class="previmage">
-              <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-            </div>
-            <div class="previnfo">
-              <h3>Lecture 20:</h3>
-              <p class="prevtxt">Market Analysis</p>
-              <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  <div class="coursereviews">
-    <div class="container">
-      <div class="row">
-        <div align="center">
-          <h3><%=@course.comments.size%> Reviews</h3>
-          <br/>
-        </div>
-        <div class="pagination1">
-          <%= render "comments" %>
-        </div>
+      <%= render "comments" %>
+      <%= will_paginate @comments %> 
+      
       
       <div class="row">
         <div align="center">
+
             <div class="readallreview">
-                <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+                <%if current_user.present?%>
+                  <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+                <%else%>  
+                  <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
+                <% end %>  
             </div>
+
         </div>
       </div>
     </div>
@@ -190,3 +209,12 @@
       Browser More Courses
     </span></a>
   </div>
+
+
+<script>
+$(document).ready(function(){
+$(".star").click(function(){
+   $(".rated").html("Course Rated")
+});
+});
+</script>

@@ -18,7 +18,7 @@
 
 class User < ActiveRecord::Base
   include CasHelper
-
+  include LmsHelper
 
 
   rolify
@@ -70,8 +70,7 @@ class User < ActiveRecord::Base
 
   before_destroy:delete_in_lms
   def delete_in_lms
-    lms_enable=parse_boolean "#{Settings.lms.enable}"
-    if lms_enable 
+    if lms_enable? 
       lmsuser=CanvasREST::User.new
       lmsuser.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
       lmsuser.delete_user(Settings.lms.account_id,self.lms_id)

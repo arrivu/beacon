@@ -5,9 +5,16 @@ class CommentsController < ApplicationController
 	# def index
 	# 	@comments =comments.recent.limit(10).all
 	# end
- def new
- 	@comment = Comment.new
- end
+	def new
+	 	@comment = Comment.new
+	 	@course = Course.find(params[:commentable])
+	 	if signed_in? 
+			unless RatingCache.find_by_cacheable_id(@course.id) == nil
+				@qty = RatingCache.find_by_cacheable_id(@course.id).qty
+			end
+			@rated = Rate.find_by_rater_id(current_user.id)
+	    end
+	end
 	def create
 		@comment = @commentable.comments.build(params[:comment])
 		@comment.user_id = current_user.id

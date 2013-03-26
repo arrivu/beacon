@@ -29,7 +29,7 @@
                 <% else  %>
                 <%= image_tag(current_user.image,size: "23x26", alt: "")%> 
                 <% end  %>
-              </i>&nbsp;&nbsp;<%= current_user.name %>&nbsp;&nbsp;
+              </i>&nbsp;&nbsp;<%= current_user.name %>
               <i class="icon-arrow-down icon-white"></i></a>
               <ul >
                 <li><%= link_to "My Profile", edit_user_registration_path %></li>

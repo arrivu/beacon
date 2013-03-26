@@ -9,8 +9,8 @@
 #  updated_at :datetime         not null
 #
 
-class Relationship < ActiveRecord::Base
-  attr_accessible :course_id, :topic_id
-  belongs_to :course
-  belongs_to :topic
-end
+# class Relationship < ActiveRecord::Base
+#   attr_accessible :course_id, :topic_id
+#   belongs_to :course
+#   belongs_to :topic
+# end

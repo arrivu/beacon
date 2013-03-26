@@ -7,11 +7,11 @@
 #   username: root
 #   password:
 #   socket: /opt/lampp/var/mysql/mysql.sock
-# SQLite version 3.x
-#   gem install sqlite3
-#
-#   Ensure the SQLite 3 gem is defined in your Gemfile
-#   gem 'sqlite3'
+# # SQLite version 3.x
+# #   gem install sqlite3
+# #
+# #   Ensure the SQLite 3 gem is defined in your Gemfile
+# #   gem 'sqlite3'
 development:
   adapter: sqlite3
   database: db/development.sqlite3

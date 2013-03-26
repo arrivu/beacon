@@ -11,6 +11,8 @@
 
 class Topic < ActiveRecord::Base
   attr_accessible :name, :desc
-  has_many :relationships
-  has_many :courses, through: :relationships
+  #has_many :relationships
+  #has_one :courses, through: :relationships
+  has_many :courses
+
 end

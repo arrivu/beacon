@@ -2,9 +2,8 @@
     <div class="container">
       <form action="#" class="category-search" data-pjax="">
         <span class="mini-icon mini-icon-search-input"><i class="icon-search"></i></span>
-        <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2">
+        <!-- <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2"> -->
       </form>
-
       <h1>Welcome to Course Library</h1>
     </div>
   </div>
@@ -17,17 +16,17 @@
       <div class="span12 courselibsectioninfo">
         <div class="courselibsectioninfo">
         <div class="coursecount pull-left">
-          <span class="badge badge-info">Found 10 Courses</span>
+           <span class="badge badge-info">Found&nbsp;&nbsp;<%= pluralize(@total_course_count, "Course") %></span>
         </div>
         <ul id="dropdownlistelse" class="pull-right moveup">
             <li>
                 <a href="#">Sort By&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i></a>
                 <ul>
-                    <li><a href="#">Date</a></li>
+                     <li><%= link_to "Date", datewise_courses_path %></li>
                     <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", courses_path %></li>
-                    <li><a href="#">Popularity</a></li>
-                    <li><a href="#">Sunbscribed</a></li>
-                    <li><a href="#">Default</a></li>
+                    <li><%= link_to "Popularity", popular_courses_path %></li>
+                    <li><a href="#">Subscribed</a></li>
+                   <li><%= link_to "Default", courses_path %></li>
                 </ul>
             </li>
         </ul>
@@ -80,17 +79,17 @@
         <div class="container courseclub">
             <div class="row">
               <% @courses_for_topic.each do |course|%>
-              <div class="span6">
+              <div class="span7">
                 <div class="courses">
                   <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
                       <div class="card-a course-inner">
                       <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                      <%= image_tag("#{course.image}", width: "130", height: "130",:class=>"course-badge img-circle")%>
+                      <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
                       
                       <div class="course-content">
                       <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=@topic.name%></em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 25)%></h3>
+                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 18)%></h3>
                       <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p></div>
                       </div>
                   </article>
