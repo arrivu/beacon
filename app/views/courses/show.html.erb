@@ -121,7 +121,8 @@
       <% @course.previews.each do |p| %>
       <div class="span6 prevbox">
         <div class="previmage">
-          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
+          <a target="_blank" href="<%= p.video_url %>" role="button" data-toggle="modal">Preview</a> 
+          
         </div>
         <div class="previnfo">
           <h3><%= p.name %></h3>
