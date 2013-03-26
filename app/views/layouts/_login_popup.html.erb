@@ -5,15 +5,17 @@
     <h3 id="myModalLabel">Sign In</h3>
 </div>
 <div class="modal-body">
+    <h3>Login using Social Networks</h3> <br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
+    &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
+    &nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google <br>  <br>  <hr>
     <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
     <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
     <%= f.input :password %>
     <p> <%= f.button :submit, "Sign in", :class => 'btn-primary' %></p>
     <% end %>
-    <br>
-    <%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
-    &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
-    &nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
-    Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google     
+       
 </div>
 </div>

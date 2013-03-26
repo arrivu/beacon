@@ -2,9 +2,13 @@
  <div id="sign_up_Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <button  type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></button>
     <div class="modal-header">
-        <h3 id="myModalLabel">New user registration</h3>
+        <h3 id="myModalLabel">Register / Login using Social Networks</h3>
     </div>
     <div class="modal-body">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
+        &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
+        &nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google
         <%= simple_form_for(User.new, :as => :user, :url => registration_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
         <%= f.error_notification %>
         <%= display_base_errors User.new %>
@@ -12,12 +16,9 @@
         <%= f.input :email, :required => true %>
         <%= f.input :password, :required => true %>
         <%= f.input :password_confirmation, :required => true %>
-        <%= f.button :submit, 'Create my account', :class => 'btn-primary' %>
+        <%= f.button :submit, 'Create my account', :class => 'btn-primary'%>
         <% end %>
         <br>
-       <%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
-        &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
-        &nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
-        Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google       
+              
     </div>
 </div>
