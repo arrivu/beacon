@@ -69,7 +69,14 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
-
+		#get modules from LMS
+		lms_enable=Settings.lms.enable
+		if lms_enable 
+			lmscourse=CanvasREST::Course.new
+			lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+			course=lmscourse.get_course(@course.lms_id)
+			@modules=course.modules
+		end
 		#@countCommentsPerPage = 6
 		@comments = @course.comments.paginate(page: params[:page], per_page: 6)
 		#@count = @course.comments.count
