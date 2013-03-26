@@ -10,6 +10,7 @@
 			<li><%= link_to "Manage Category", topics_path %></li>
 			<li><%= link_to "New Category",new_topic_path %></li>
 			<li class="active"><%= link_to "New preview",new_preview_path %></li>
+			<li><%= link_to "Manage preview",previews_path %></li>
 		</ul>
 		<% provide(:title, 'Create Course Preview') %>
 		<div class="row">
@@ -30,18 +31,15 @@
 									<tr><td><%= f.label :video_url, "Video URL" %></td>
 										<td><%= f.text_area :video_url ,:cols => "30", :rows => "3" %></td></tr>										
 										<tr><td><%= f.label :sequence, "Display Order" %></td>
-										<td><%= f.text_field :sequence ,:size => '2' %></td></tr>
-										<tr><td><%= f.label :enable, "Show This Preview" %></td>
-											<td><%= f.check_box :enable ,:checked => true%></td></tr>
-											<tr><td></td><td><%= f.submit "Add Preview", class: "btn btn-large btn-primary" %></td></tr>
-										</table>
-										<% end %>
+											<td><%= f.text_field :sequence ,:size => '2' %></td></tr>
+											<tr><td><%= f.label :enable, "Show This Preview" %></td>
+												<td><%= f.check_box :enable ,:checked => true%></td></tr>
+												<tr><td></td><td><%= f.submit "Add Preview", class: "btn btn-large btn-primary" %></td></tr>
+											</table>
+											<% end %>
 
+										</div>
 									</div>
 								</div>
 							</div>
-							<center>
-								<p><%= link_to "Back to Courses", courses_path %></p>
-							</center>
 						</div>
-					</div>
