@@ -9,8 +9,6 @@ arrow.png: arrow-2070436634b925c6f8a6f38093a72f39.png
 arrow/index.png: arrow-2070436634b925c6f8a6f38093a72f39.png
 bauer.png: bauer-a962fd2ebcf372a91b27b96fe5dff06c.png
 bauer/index.png: bauer-a962fd2ebcf372a91b27b96fe5dff06c.png
-beaconlogo.png: beaconlogo-908e79c7b2bd08af19983711f7e5c8c2.png
-beaconlogo/index.png: beaconlogo-908e79c7b2bd08af19983711f7e5c8c2.png
 blogs/2549674296_25f954288f_z.jpeg: blogs/2549674296_25f954288f_z-95bec8fc4b734973446d6d7537c96d27.jpeg
 blogs/2549674296_25f954288f_z/index.jpeg: blogs/2549674296_25f954288f_z-95bec8fc4b734973446d6d7537c96d27.jpeg
 blogs/2757851927_838e959e76_z.jpg: blogs/2757851927_838e959e76_z-cd40dc335f7fa11c5ef5e031336323d5.jpg
@@ -75,8 +73,6 @@ favicon.ico: favicon-a28f180428b51e3fe16c8d72c0b0ed1d.ico
 favicon/index.ico: favicon-a28f180428b51e3fe16c8d72c0b0ed1d.ico
 favicon_normal.ico: favicon_normal-950c89368126bd32b3ae81a43f565022.ico
 favicon_normal/index.ico: favicon_normal-950c89368126bd32b3ae81a43f565022.ico
-footer/logo.png: footer/logo-95dc36f10fa26041670a4d35e48df825.png
-footer/logo/index.png: footer/logo-95dc36f10fa26041670a4d35e48df825.png
 googleplus.png: googleplus-dc385954ced3248417d05dbe6f65698a.png
 googleplus/index.png: googleplus-dc385954ced3248417d05dbe6f65698a.png
 greatlakeslogo.jpg: greatlakeslogo-4ce051619f9f387bbf6e8afa7b1a5777.jpg
@@ -151,8 +147,8 @@ loginfacebook.jpg: loginfacebook-f4a75851aba911d58dd9c13950158635.jpg
 loginfacebook/index.jpg: loginfacebook-f4a75851aba911d58dd9c13950158635.jpg
 loginfacebook.png: loginfacebook-4abc097c359a77d311316cd828546f10.png
 loginfacebook/index.png: loginfacebook-4abc097c359a77d311316cd828546f10.png
-logo.png: logo-8acee4a4123a6fbfb7f5d1c902159c98.png
-logo/index.png: logo-8acee4a4123a6fbfb7f5d1c902159c98.png
+logo.png: logo-06e951c5f399fa84c83fe3204057b45a.png
+logo/index.png: logo-06e951c5f399fa84c83fe3204057b45a.png
 man-point.jpg: man-point-adac645c162f4d5c00890638df532c68.jpg
 man-point/index.jpg: man-point-adac645c162f4d5c00890638df532c68.jpg
 manlogo.jpg: manlogo-17b543ce0eec9e3162418bf77afdfd79.jpg
@@ -277,10 +273,10 @@ yale.png: yale-c5bafbceffe070fbe75c93669a74d016.png
 yale/index.png: yale-c5bafbceffe070fbe75c93669a74d016.png
 youtube.png: youtube-807134342126f060bf0c7a57b8f6888d.png
 youtube/index.png: youtube-807134342126f060bf0c7a57b8f6888d.png
-application.js: application-e41dbcdd5d73702a7ea66ba3c3be0423.js
-application/index.js: application-e41dbcdd5d73702a7ea66ba3c3be0423.js
-application.css: application-8d2579c978f9d0ac523a683aa87e160b.css
-application/index.css: application-8d2579c978f9d0ac523a683aa87e160b.css
+application.js: application-b95522b41e0f6e4a5e0ed8f9fb2e8c27.js
+application/index.js: application-b95522b41e0f6e4a5e0ed8f9fb2e8c27.js
+application.css: application-4706bc00b34b224ff03db181d48c6f17.css
+application/index.css: application-4706bc00b34b224ff03db181d48c6f17.css
 glyphicons-halflings-white.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings-white/index.png: glyphicons-halflings-white-6cccd17a7aed91dbc0157d343c68c0d9.png
 glyphicons-halflings.png: glyphicons-halflings-2851b489e8c39f8fad44fc10efb99c3e.png

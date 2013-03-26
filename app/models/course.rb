@@ -32,6 +32,7 @@ class Course < ActiveRecord::Base
 
   has_one :course_status
   has_many :course_payments
+  has_many :previews
 
   #before_save { |course| course.category = category.downcase }
 

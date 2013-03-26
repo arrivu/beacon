@@ -126,6 +126,17 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "user_id"
   end
 
+  create_table "previews", :force => true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.string   "video_url"
+    t.integer  "sequence"
+    t.integer  "enable"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "course_id"
+  end
+
   create_table "rates", :force => true do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"

@@ -50,11 +50,11 @@
       <div class="two columns">
         <ul class="link-list library-nav right">
           <li class="heading">Browse full library →</li>
-            <li><a href="#">Data Analytics</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Finance</a></li>
-            <li><a href="#">Operations</a></li>
-
+          <% @topics = Topic.all  %>
+           <% @topics.each do |topic|%>  
+                       <% @topicStructure = topic.name %>
+                     <li><%= link_to @topicStructure, topic %></li>
+                    <%end%>    
         </ul>
       </div>
       <div class="two columns end">
