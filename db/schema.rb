@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "topic_id"
   end
 
-  add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"
+  add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author", :unique => true
 
   create_table "faqs", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -174,6 +174,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "course_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "status"
   end
 
   create_table "students", :force => true do |t|
@@ -221,6 +222,22 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
     t.string   "desc"
   end
+
+  create_table "tutorials", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "image"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "user_id"
+    t.integer  "ispublished",    :default => 0
+    t.string   "releasemonth",   :default => "December"
+    t.text     "desc"
+    t.string   "difficulty"
+    t.integer  "estimated_time"
+  end
+
+  add_index "tutorials", ["title", "author"], :name => "index_tutorials_on_title_and_author", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",       :null => false
