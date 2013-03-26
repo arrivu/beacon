@@ -92,10 +92,15 @@
 .header-a .logo a {
 	position: relative;
 	background: url(beaconslogo.png)  no-repeat;
+  
 	float: left;
-	height: 47px;
-	width: 288px;
-	top:5px;
+	height: 71px;
+	width: 222px;
+	top:-15px;
+}
+
+.header-a .logo a:hover {
+background: url(beaconslogop.png)  no-repeat;
 }
 
 .header-a .nav-a {
