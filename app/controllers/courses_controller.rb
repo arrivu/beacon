@@ -70,6 +70,7 @@ class CoursesController < ApplicationController
 	def show
 		@course = Course.find(params[:id])
 		#get modules from LMS
+		@modules=[]
 		lms_enable=Settings.lms.enable
 		if lms_enable 
 			lmscourse=CanvasREST::Course.new

@@ -5,7 +5,7 @@ cas:
   login_path: '/cas/api-login'
   logout_path: '/cas/api-logout'
 lms:
-  enable: false
+  enable: true
   account_id: 1
   oauth_token: BWByYxU7pnqLi6lWICmGcYGn66xuaZEAsImJgLgUsmj3hSkoTK5UzCFesmZUdQDx
   api_root_url: https://192.168.1.40/api/v1

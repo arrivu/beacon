@@ -89,15 +89,15 @@ users_hash = {
 			]
 		}
 
-		users_hash.each do |key, array|
-			User.create!(name: array[0],
-				email: array[1],
-				password: array[2],
-				password_confirmation: array[2],
-				user_type: array[3],
-				sub_plan: array[4],
-				user_desc: array[5])
-		end
+		# users_hash.each do |key, array|
+		# 	User.create!(name: array[0],
+		# 		email: array[1],
+		# 		password: array[2],
+		# 		password_confirmation: array[2],
+		# 		user_type: array[3],
+		# 		sub_plan: array[4],
+		# 		user_desc: array[5])
+		# end
 
 
 		#FAQ block for test data
@@ -363,22 +363,22 @@ users_hash = {
 
 			}
 
-			count=0
-			courses_hash.each do |key, array|
-				Course.create!(title: array[0],
-					author: array[1],
-					user_id: array[2],
-					ispublished: array[3],
-					releasemonth: array[4],
-			# 5 is category/topic
-			image: array[6],
-			desc: array[7],
-			topic_id: array[8])
-				count=count+1
-				array[5].each do |topicId| 
-					# Relationship.create!(course_id: count,topic_id: topicId)
-				end
-			end
+			# count=0
+			# courses_hash.each do |key, array|
+			# 	Course.create!(title: array[0],
+			# 		author: array[1],
+			# 		user_id: array[2],
+			# 		ispublished: array[3],
+			# 		releasemonth: array[4],
+			# # 5 is category/topic
+			# image: array[6],
+			# desc: array[7],
+			# topic_id: array[8])
+			# 	count=count+1
+			# 	array[5].each do |topicId| 
+			# 		# Relationship.create!(course_id: count,topic_id: topicId)
+			# 	end
+			# end
 
 
 
