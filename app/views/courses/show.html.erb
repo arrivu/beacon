@@ -5,16 +5,16 @@
       <div class="row">
         <div class="span4">
           <div class="coursevideo">
-            <img src="http://placehold.it/300x200/fff/144328&text=START"/>
+            <%= image_tag url_for(:action => 'show_image', :id => @course.id), width: "200", height: "200" %>
           </div>
         </div>
         <div class="span7">
           <div class="coursedesc">
             <div class="coursetitle">
-              <h3>Financial Accounting - Online Course</h3>
+              <h3><%= @course.title %></h3>
             </div>
             <div class="subtitle">
-              Become a expert in Financial Accounting like a Pro.
+              
             </div>
             <div class="container clearfix"></div>
             <div class="subsection">
@@ -67,21 +67,11 @@
         </div>
         <div class="underlinetext">
           <ul>
+            <% @modules.each do |m| %>
             <li>
-              <h4><i class="icon-book"></i> Module 1 - About Finance</h4>
+              <h4><i class="icon-book"></i><%= m.name %></h4>
             </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 2 - Why it is necessary</h4>
-            </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 3 - How you can lear</h4>
-            </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 4 - Real Practicals</h4>
-            </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 5 - Conclusion</h4>
-            </li>
+            <% end %>
           </ul>
         </div>
         
@@ -91,7 +81,7 @@
           <h3>Course Description</h3>
         </div>
         <div class="underlinetext">
-          <%= truncate(@course.desc, :length => 70)  %>
+          <%= truncate(@course.desc, :length => 300)  %>
         </div>
         <div class="starrating">
          <div class='spread'>  <div class='twshare left'>   <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70) %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  </div>
