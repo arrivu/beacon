@@ -69,6 +69,7 @@ class CoursesController < ApplicationController
 
 	def show
 		@course = Course.find(params[:id])
+
 		#get modules from LMS
 		@modules=[]
 		lms_enable=Settings.lms.enable
