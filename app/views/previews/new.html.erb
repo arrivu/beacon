@@ -12,7 +12,7 @@
 			<li class="active"><%= link_to "New preview",new_preview_path %></li>
 			<li><%= link_to "Manage preview",previews_path %></li>
 		</ul>
-		<% provide(:title, 'Create Course Preview') %>
+
 		<div class="row">
 			<div class="span10 ">
 				<div class = "hero-unit">
@@ -21,13 +21,15 @@
 							<h3 align = "center">New Course Preview</h3>
 						</tr>
 						<%= form_for @preview do |f| %>
-						<%= render 'shared/error_messages', object: f.object %>
+						<% @preview.errors.full_messages.each do |msg| %>
+						<p><%= msg %></p>
+						<% end %>
 						<tr><td><%= f.label :course_id, "Courses" %></td>
 							<td><%= f.select(:course_id, @course.collect {|p| [ p.title,p.id ] })%></td></tr>
 							<tr><td><%= f.label :name, "Title" %></td>
-								<td><%= f.text_field :name %></td></tr>
+								<td><%= f.text_field :name,:maxlength => 15 %></td></tr>
 								<tr><td><%= f.label :desc, "Description" %></td>
-									<td><%= f.text_area :desc ,:cols => "30", :rows => "5" %></td></tr>
+									<td><%= f.text_area :desc ,:cols => "30", :rows => "5",:maxlength => 50 %></td></tr>
 									<tr><td><%= f.label :video_url, "Video URL" %></td>
 										<td><%= f.text_area :video_url ,:cols => "30", :rows => "3" %></td></tr>										
 										<tr><td><%= f.label :sequence, "Display Order" %></td>

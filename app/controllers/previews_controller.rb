@@ -11,14 +11,15 @@ class PreviewsController < ApplicationController
 			flash[:success] = "preview added successfully!!!!"
 			redirect_to new_preview_path
 		else
-			flash[:error] = "Error while adding Preview "
-			redirect_to new_preview_path
-
+		flash[:error] = "Error while adding preview"
+			
+		redirect_to new_preview_path
 		end
 	end
 
 	def index
-		@previews = Preview.order(:course_id)
+		@previews = Preview.order(:sequence)
+		@course = Course.all
 	end
 
 	def edit
@@ -44,6 +45,7 @@ class PreviewsController < ApplicationController
 		flash[:success] = "Successfully destroyed preview."
 		redirect_to previews_path
 	end
+
 
 
 end

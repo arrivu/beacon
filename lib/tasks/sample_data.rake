@@ -363,22 +363,22 @@ users_hash = {
 
 			}
 
-			# count=0
-			# courses_hash.each do |key, array|
-			# 	Course.create!(title: array[0],
-			# 		author: array[1],
-			# 		user_id: array[2],
-			# 		ispublished: array[3],
-			# 		releasemonth: array[4],
-			# # 5 is category/topic
-			# image: array[6],
-			# desc: array[7],
-			# topic_id: array[8])
-			# 	count=count+1
-			# 	array[5].each do |topicId| 
-			# 		# Relationship.create!(course_id: count,topic_id: topicId)
-			# 	end
-			# end
+			count=0
+			courses_hash.each do |key, array|
+				Course.create!(title: array[0],
+					author: array[1],
+					user_id: array[2],
+					ispublished: array[3],
+					releasemonth: array[4],
+			# 5 is category/topic
+			image: array[6],
+			desc: array[7],
+			topic_id: array[8])
+				count=count+1
+				array[5].each do |topicId| 
+					# Relationship.create!(course_id: count,topic_id: topicId)
+				end
+			end
 
 
 

@@ -3,7 +3,11 @@
         <%# if ((@count % @countCommentsPerPage ) == 0 ) %>
         <div class="span6" style="margin-bottom:10px;">
           <div class="reviewer">
-            <img src="http://placehold.it/70x70/2C3E50/fff&text=Reviewer"/>
+          <% if comment.user.image == nil %>
+                <%= gravatar_for_with_size comment.user, "50x50" %>
+                <% else  %>
+                <%= image_tag(comment.user.image,size: "50x50", alt: "")%> 
+                <% end  %>
           </div>
           <div class="bubble-content">
             <div class="point"></div>
