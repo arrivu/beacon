@@ -1,5 +1,27 @@
+<div class="row">
+	<div class="span12 offset3">
+		<ul class="nav nav-pills .pull-left">
+			<li >
+				<%= link_to "Users", users_path %>
+			</li><li class="active">
+			<%= link_to "New Course Library", new_course_path %>
+		</li>
+		<li>
+			<%= link_to "Manage Course Library", manage_courses_path %>
+		</li>
+<li >
+		<%= link_to "New Category",new_topic_path %></li>
+		
+		<li>
+			<%= link_to "Manage Category", topics_path %>
+		</li>
+		<li><%= link_to "New Preview",new_preview_path %></li>
+		<li><%= link_to "Manage Preview",previews_path %></li>
+	</ul>
 <%- model_class = Preview -%>
-<div class="page-header">
+
   <h3 align = "center">Edit Preview</h3>
-</div>
+
 <%= render :partial => 'form' %>
+</div>
+</div>
