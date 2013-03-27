@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
 			lms_create_course(@course)
 			redirect_to courses_path
 		else
-			render 'new'
+			redirect_to new_course_path
 		end
 	end
 
