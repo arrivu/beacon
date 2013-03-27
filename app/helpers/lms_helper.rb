@@ -40,13 +40,14 @@ module LmsHelper
 
 	def lms_get_modules(course)
 		modules=[]
-		if lms_enable 
+		if lms_enable? 
 			lmscourse=CanvasREST::Course.new
 			lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
 			course=lmscourse.get_course(course.lms_id)
 			modules=course.modules
+		else
+			modules
 		end
-
 	end
 
 
