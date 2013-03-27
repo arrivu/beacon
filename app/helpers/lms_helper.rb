@@ -6,11 +6,11 @@ module LmsHelper
 
 	def lms_create_user(current_user)
 		if lms_enable? and current_user != nil
-      lmsuser=CanvasREST::User.new
-      lmsuser.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
-      u=lmsuser.create_user(Settings.lms.account_id,current_user.name,current_user.email,current_user.password)
-      current_user.update_attributes(:lms_id => u["id"])
-    end
+			lmsuser=CanvasREST::User.new
+			lmsuser.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+			u=lmsuser.create_user(Settings.lms.account_id,current_user.name,current_user.email,current_user.password)
+			current_user.update_attributes(:lms_id => u["id"])
+		end
 	end
 
 	def lms_create_course(course)
@@ -31,7 +31,7 @@ module LmsHelper
 	end
 
 	def lms_delete_course(lms_id)
- 		if lms_enable? 
+		if lms_enable? 
 			lmscourse=CanvasREST::Course.new
 			lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
 			lmscourse.delete_course(lms_id)
