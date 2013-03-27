@@ -16,7 +16,7 @@
 
 class Course < ActiveRecord::Base
   acts_as_commentable
-  attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
+  attr_accessible :lms_id,:attachment,:author, :desc,:short_desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
   
   #has_many :relationships
   belongs_to :topic
@@ -36,8 +36,9 @@ class Course < ActiveRecord::Base
 
   #before_save { |course| course.category = category.downcase }
 
-  validates :title, presence: true, length: { maximum: 100 }
+  validates :title, presence: true, length: { maximum: 25 }
   validates :author, presence: true, length: { maximum: 100 }
+  validates :short_desc, presence: true, length: { maximum: 100 }
   validates :desc, presence: true, length: { maximum: 1000 }
 
   default_scope order: 'courses.created_at DESC'

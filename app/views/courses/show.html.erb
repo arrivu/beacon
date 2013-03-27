@@ -14,7 +14,7 @@
             <h3><%= @course.title %></h3>
           </div>
           <div class="subtitle">
-
+            <h4><%= @course.short_desc %></h4>
           </div>
           <div class="container clearfix"></div>
           <div class="subsection">
@@ -118,7 +118,8 @@
     <div class="row">
       <h2>Lecture Preview: A Sneak Peak into the course</h2>
 
-      <% @course.previews.each do |p| %>
+      <% @course.previews.each do |p|
+      %>
       <div class="span6 prevbox">
         <div class="previmage">
           <a target="_blank" href="<%= p.video_url %>" role="button" data-toggle="modal">Preview</a> 
