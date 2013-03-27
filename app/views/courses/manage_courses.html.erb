@@ -5,17 +5,18 @@
       <li >
         <%= link_to "Users", users_path %>
       </li><li >
-      <%= link_to "New Course", new_course_path %>
+      <%= link_to "New Course Library", new_course_path %>
     </li>
     <li class="active">
-      <%= link_to "Manage Course", manage_courses_path %>
+      <%= link_to "Manage Course Library", manage_courses_path %>
     </li>
+    <li >   <%= link_to "New Category",new_topic_path %></li>
     <li >
      <%= link_to "Manage Category", topics_path %>
-   </li><li >
-   <%= link_to "New Category",new_topic_path %></li>
-  <li><%= link_to "New preview",new_preview_path %></li>
-  <li><%= link_to "Manage preview",previews_path %></li>
+   </li>
+
+  <li><%= link_to "New Preview",new_preview_path %></li>
+  <li><%= link_to "Manage Preview",previews_path %></li>
  </li>
 </ul>
 <%- model_class = Course -%>
@@ -23,6 +24,7 @@
 </div>
 <table class="table table-condensed table-hover">
   <thead>
+    <tr><td colspan="5"><h3 align = "center">Manage Course Library</h3></td></tr>
     <tr>
       <th></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
@@ -32,8 +34,10 @@
     </tr>
   </thead>
   <tbody>
+
     <% @courses.each do |course| %>
     <tr>
+
       <td><%= image_tag url_for(:action => 'show_image', :id => course.id), :size => "40x40" %></td>
       <td><%= link_to course.title, course_path(course) %></td>
       <td><%= course.author %></td>

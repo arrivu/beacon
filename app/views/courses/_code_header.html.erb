@@ -6,13 +6,13 @@
       <nav class="nav-a">
         <ul>
           <li class="courseslink">
-            <%= link_to "Courses", courses_path %>
+            <%= link_to "Course Library", courses_path %>
           </li>
           <% if user_signed_in?%>
           <% if current_user.has_role? :admin %>
           <li class="courseslink"><%= link_to 'Admin', users_path %></li>
               <script>
-          $('.courseslink').css('left',"-60px");
+          $('.courseslink').css('left',"-100px");
           </script>
            <% else  %>
           <li class="courseslink"><%= link_to "My Courses", courses_path %></li>

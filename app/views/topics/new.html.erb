@@ -5,19 +5,22 @@
   <li >
 <%= link_to "Users", users_path %>
 </li><li >
-<%= link_to "New Course", new_course_path %>
+<%= link_to "New Course Library", new_course_path %>
 </li>
 <li>
-<%= link_to "Manage course", manage_courses_path %>
+<%= link_to "Manage Course Library", manage_courses_path %>
 </li>
+<li class="active"	> <%= link_to "New Category",new_topic_path %> </li>
 <li >
  <%= link_to "Manage Category", topics_path %>
- </li><li class="active"	>
- <%= link_to "New Category",new_topic_path %>
  </li>
- <li><%= link_to "New preview",new_preview_path %></li>
-<li><%= link_to "Manage preview",previews_path %></li>
+
+ <li><%= link_to "New Preview",new_preview_path %></li>
+<li><%= link_to "Manage Preview",previews_path %></li>
  </ul>
+ 
+						<h3 align = "center">New Category</h3>
+					
 <%- model_class = Topic -%>
 
 <%= render :partial => 'form' %>
