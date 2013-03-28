@@ -19,9 +19,9 @@ class Course < ActiveRecord::Base
   attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
   
   #has_many :relationships
-  scope :enrolled_courses, joins(:student_courses).where('student_courses.status = ?', "enroll") 
-  scope :completed_courses, joins(:student_courses).where('student_courses.status = ?', "completed") 
-  scope :shortlisted_courses, joins(:student_courses).where('student_courses.status = ?', "shortlisted") 
+  scope :enrolled_students, joins(:student_courses).where('student_courses.status = ?', "enroll") 
+  scope :completed_students, joins(:student_courses).where('student_courses.status = ?', "completed") 
+  scope :shortlisted_students, joins(:student_courses).where('student_courses.status = ?', "shortlisted") 
   belongs_to :topic
   has_many :student_courses
   has_many :students, :through => :student_courses
