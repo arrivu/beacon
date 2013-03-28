@@ -72,39 +72,8 @@
         
         </div>
         <div class="clearfix"></div>
-
-
         <div class="clearfix"></div>
-        
-<<<<<<< HEAD
         <%= render 'shared/courselist' %>
-        
-=======
-        <div class="container courseclub">
-            <div class="row">
-              <% @courses_for_topic.each do |course|%>
-              <div class="span7">
-                <div class="courses">
-                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                      <div class="card-a course-inner">
-                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                      <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
-                      
-                      <div class="course-content">
-                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=@topic.name%></em>
-                      <!-- <em class="label-b">Free Course</em> -->
-                      <%=link_to(course) do %><h3 class="course-name"><%=course.title%></h3>
-                      <p class="course-desc"><%=course.short_desc %></p></div>
-                      </div>
-                  </article>
-                </div>
-              </div>
-              <%end%>
-              <%end%>
-              
-            </div>
-        </div>
->>>>>>> login_page_change
       </div>
     </div>
   </div>
