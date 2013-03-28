@@ -5,17 +5,51 @@
     <h3 id="myModalLabel">Sign In</h3>
 </div>
 <div class="modal-body">
-    <h3>Login using Social Networks</h3> <br>
+ <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
+ <table>
+    <tr>
+        <td>
+           
+                <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
+                <%= f.input :password %>
+                <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
+      
+    </td>
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
-    &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
-    &nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google <br>  <br>  <hr>
-    <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
-    <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
-    <%= f.input :password %>
-    <p> <%= f.button :submit, "Sign in", :class => 'btn-primary' %></p>
-    <% end %>
+    <td>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </td>
+    <td>
+
+               <%= image_tag("or.png", :size => "30x10", :alt => "") %>
+
        
+        
+    </td>
+    
+    <td>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+    </td>
+    <td>
+        
+         <%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %>
+         <br>
+         Facebook
+         <br><br>
+         <%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %>
+         <br>
+         Google
+         <br><br>
+         <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
+         <br>
+         LinkedIn
+</td>
+</tr>
+</table>
+
+<% end %>
+
+<!--     Facebook   Linkedin Google <br>  <br> --> 
+
 </div>
 </div>

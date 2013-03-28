@@ -11,11 +11,11 @@
           <td><%= f.select(:course_id, @course.collect {|p| [ p.title,p.id ] })%></td></tr>
 
           <tr> <td><%= f.label :name %></td>
-            <td><%= f.text_field :name %></td></tr>
+            <td><%= f.text_field :name ,:maxlength => 15%></td></tr>
 
 
             <tr> <td><%= f.label :desc %></td>
-              <td><%= f.text_area :desc ,:cols => "30", :rows => "5" %></td></tr>  
+              <td><%= f.text_area :desc ,:cols => "30", :rows => "5" ,:maxlength => 50 %></td></tr>  
 
 
               <tr> <td><%= f.label :video_url, "Video URL" %> </td>
