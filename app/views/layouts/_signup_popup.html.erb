@@ -1,24 +1,53 @@
  <!-- Modal -->
  <div id="sign_up_Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <button  type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></button>
-    <div class="modal-header">
-        <h3 id="myModalLabel">Register / Login using Social Networks</h3>
-    </div>
+  <div class="modal-header" style = "border-bottom: 0px">
+    <h3 id="myModalLabel" align="center"> </h3>
+</div>
+    
     <div class="modal-body">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %> 
-        &nbsp;&nbsp;&nbsp; <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
-        &nbsp;&nbsp; &nbsp;<%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %> <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Facebook  &nbsp; Linkedin&nbsp;&nbsp; &nbsp;Google
-        <%= simple_form_for(User.new, :as => :user, :url => registration_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
-        <%= f.error_notification %>
+                <%= simple_form_for(User.new, :as => :user, :url => registration_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
+
+     
+                  <table style="margin-left:-27px;">
+    <tr>
+        <td> <h3 align="center" style="margin:0px;font-size:19px;">Register</h3>
+           <div style="margin-top:20px;">
+                        <%= f.error_notification %>
         <%= display_base_errors User.new %>
         <%= f.input :name, :autofocus => true %>
         <%= f.input :email, :required => true %>
         <%= f.input :password, :required => true %>
         <%= f.input :password_confirmation, :required => true %>
         <%= f.button :submit, 'Create my account', :class => 'btn-primary'%>
-        <% end %>
-        <br>
-              
+      </div>
+    </td>
+
+  
+    <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('assets/verticle_line.jpg');background-position: center;background-size: 2px 100%;">
+       <div style="margin: 160px 35px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
+    </td>
+    
+   
+    <td valign="top">
+        <h3 align="left" style="margin: 0px 0px 0px -26px;font-size:19px;">   Login using</h3>
+        <div style="margin-left:10px;margin-top:55px;">
+
+         <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), '/auth/facebook/' %>
+         <br>
+       Facebook
+         <br><br>
+         <%= link_to image_tag("Google_Logo.jpg", :class => "login_img", alt: ""), '/auth/google_oauth2/' %>
+         <br>
+        Google
+         <br><br>
+         <%= link_to image_tag("login-linkedin.png", :class => "login_img", alt: ""), '/auth/linkedin/' %>
+         <br>
+         LinkedIn
+         </div>
+</td>
+</tr>
+</table>  
+   <% end %> 
     </div>
 </div>

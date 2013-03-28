@@ -96,7 +96,12 @@
 
            <script src="https://apis.google.com/js/plusone.js"></script>
            <td><g:plus action="share" annotation="bubble" ></g:plus></td> <td></td>
-           <td><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70) %>">Tweet</a></td>
+           <td>
+            <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70)  %>">Tweet</a>
+
+          
+           </td>
 
          </tr>
        </table>
