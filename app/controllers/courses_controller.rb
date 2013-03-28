@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
 		if params[:mycourses]=="mycourses"
 			@courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 6)
 		else 
-			@courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 6)
+			@courses = Course.where(ispublished: 1).paginate(page: params[:page], :per_page => 6)
 		end
 		@topics = Topic.all
 
