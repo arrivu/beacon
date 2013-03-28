@@ -27,7 +27,7 @@
                 <% if current_user.image == nil %>
                 <%= gravatar_for_with_size current_user, "15x15" %>
                 <% else  %>
-                <%= image_tag(current_user.image,size: "23x26", alt: "")%> 
+                <%= image_tag(current_user.image,size: "15x15", alt: "")%> 
                 <% end  %>
               </i>&nbsp;&nbsp;<%= current_user.name %>
               <i class="icon-arrow-down icon-white"></i></a>
