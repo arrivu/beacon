@@ -9,7 +9,7 @@
                 <%= simple_form_for(User.new, :as => :user, :url => registration_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
 
      
-                  <table style="margin-left:-45px;">
+                  <table style="margin-left:-27px;">
     <tr>
         <td> <h3 align="center" style="margin:0px;font-size:19px;">Register</h3>
            <div style="margin-top:20px;">
@@ -25,24 +25,25 @@
 
   
     <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('assets/verticle_line.jpg');background-position: center;background-size: 2px 100%;">
-       <div style="margin: 180px 15px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
+       <div style="margin: 160px 35px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
     </td>
     
    
     <td valign="top">
-        <h3 align="center" style="margin: 0px 20px 0px 0px;font-size:19px;">   Login using</h3>
-        <div style="margin-left:0px;margin-top:55px;">
+        <h3 align="left" style="margin: 0px 0px 0px -26px;font-size:19px;">   Login using</h3>
+        <div style="margin-left:10px;margin-top:55px;">
 
          <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), '/auth/facebook/' %>
          <br>
-       
+       Facebook
          <br><br>
-         <%= link_to image_tag("Google_Logo.png", :class => "login_img", alt: ""), '/auth/google_oauth2/' %>
+         <%= link_to image_tag("Google_Logo.jpg", :class => "login_img", alt: ""), '/auth/google_oauth2/' %>
          <br>
-        
+        Google
          <br><br>
          <%= link_to image_tag("login-linkedin.png", :class => "login_img", alt: ""), '/auth/linkedin/' %>
          <br>
+         LinkedIn
          </div>
 </td>
 </tr>
