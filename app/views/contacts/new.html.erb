@@ -1,0 +1,29 @@
+<br>
+<div class='container'>
+	<div class="span7">
+		<div class="contactform"> 
+			<br/>
+			<%= form_for @contact do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<table>
+				<tr>
+					<td><%= f.label :name, "Name" %></td>
+					<td><%= f.text_field :name %></td>
+				</tr>	
+				<tr>
+					<td><%= f.label :email, "Email" %></td>
+					<td><%= f.text_field :email %></td>
+				</tr>	
+				<tr>
+					<td><%= f.label :message, "Message" %></td>
+					<td><%= f.text_area :message ,:cols => "30", :rows => "5" %></td>
+				</tr>	
+				<tr >
+					<td></td><td align = "center"><%= f.submit "Send", class: "btn btn-large btn-primary" %></td>
+				</tr>
+				</table>	
+				<% end %>
+
+			</div>
+		</div>
+	</div>
