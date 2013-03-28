@@ -6,48 +6,40 @@
 </div>
 <div class="modal-body">
  <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
- <table>
+  <table style="margin-left:-45px;">
     <tr>
         <td>
            <div style="margin-top:20px;">
-                <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
+                     <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
                 <%= f.input :password %>
                 <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
       </div>
     </td>
 
-    <td>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    </td>
-    <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('assets/verticle_line.jpg');background-position: center;">
-       <div style="margin: 105px 0px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
-            
-              
-       
-       
-        
+  
+    <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('assets/verticle_line.jpg');background-position: center;background-size: 2px 100%;">
+       <div style="margin: 90px 15px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
     </td>
     
+   
     <td>
-       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-    </td>
-    <td>
-        <div style="margin-left:10px;">
-         <%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %>
+       
+        <div style="margin-left:0px;margin-top:5px;">
+
+         <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), '/auth/facebook/' %>
          <br>
-         Facebook
+       
          <br><br>
-         <%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %>
+         <%= link_to image_tag("Google_Logo.png", :class => "login_img", alt: ""), '/auth/google_oauth2/' %>
          <br>
-         Google
+        
          <br><br>
-         <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
+         <%= link_to image_tag("login-linkedin.png", :class => "login_img", alt: ""), '/auth/linkedin/' %>
          <br>
-         LinkedIn</div>
+         </div>
 </td>
 </tr>
 </table>
-
 <% end %>
 
 <!--     Facebook   Linkedin Google <br>  <br> --> 
