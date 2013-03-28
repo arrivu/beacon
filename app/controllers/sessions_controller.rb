@@ -9,8 +9,9 @@ class SessionsController < Devise::SessionsController
 
     log=Logger.new('./test2.log')
     log.debug "test sessions"  
-
+    
     super
+
     #call cas sign to create the cas ticket
     begin
       tgt = nil

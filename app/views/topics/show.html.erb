@@ -89,8 +89,8 @@
                       <div class="course-content">
                       <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=@topic.name%></em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 18)%></h3>
-                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p></div>
+                      <%=link_to(course) do %><h3 class="course-name"><%=course.title%></h3>
+                      <p class="course-desc"><%=course.short_desc %></p></div>
                       </div>
                   </article>
                 </div>

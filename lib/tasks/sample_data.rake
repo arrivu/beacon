@@ -89,15 +89,15 @@ users_hash = {
 			]
 		}
 
-		# users_hash.each do |key, array|
-		# 	User.create!(name: array[0],
-		# 		email: array[1],
-		# 		password: array[2],
-		# 		password_confirmation: array[2],
-		# 		user_type: array[3],
-		# 		sub_plan: array[4],
-		# 		user_desc: array[5])
-		# end
+		users_hash.each do |key, array|
+			User.create!(name: array[0],
+				email: array[1],
+				password: array[2],
+				password_confirmation: array[2],
+				user_type: array[3],
+				sub_plan: array[4],
+				user_desc: array[5])
+		end
 
 
 		#FAQ block for test data

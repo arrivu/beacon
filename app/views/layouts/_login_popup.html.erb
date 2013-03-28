@@ -1,28 +1,29 @@
  <!-- Modal  -->
  <div id="loginmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></a></button>
-  <div class="modal-header">
-    <h3 id="myModalLabel">Sign In</h3>
+  <div class="modal-header" >
+    <h3 id="myModalLabel" align="center">Login </h3>
 </div>
 <div class="modal-body">
  <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
  <table>
     <tr>
         <td>
-           
+           <div style="margin-top:20px;">
                 <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
                 <%= f.input :password %>
                 <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
-      
+      </div>
     </td>
 
     <td>
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
     </td>
-    <td>
-
-               <%= image_tag("or.png", :size => "30x10", :alt => "") %>
-
+    <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('assets/verticle_line.jpg');background-position: center;">
+       <div style="margin: 105px 0px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
+            
+              
+       
        
         
     </td>
@@ -31,7 +32,7 @@
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
     </td>
     <td>
-        
+        <div style="margin-left:10px;">
          <%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %>
          <br>
          Facebook
@@ -42,7 +43,7 @@
          <br><br>
          <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
          <br>
-         LinkedIn
+         LinkedIn</div>
 </td>
 </tr>
 </table>
