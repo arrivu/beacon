@@ -2,7 +2,7 @@ class ScreensController < ApplicationController
   include ScreensHelper
   def home
     @courses = Course.all(:conditions => {:ispopular => 1},:limit => 6)
-    
+    @topics=Topic.all
   end
 
   def about
@@ -24,4 +24,5 @@ class ScreensController < ApplicationController
     @course = Course.find(params[:id])
     send_data @course.data, :type => @course.content_type, :disposition => 'inline'
   end
+
 end
