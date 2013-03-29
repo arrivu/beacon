@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
 
-	layout 'courses'
 
 	before_filter :current_user, only: [:create, :edit,:update,:delete]
 	ActiveMerchant::Billing::Integrations
@@ -19,7 +18,7 @@ class CoursesController < ApplicationController
 			@courses = Course.where(ispublished: 1).paginate(page: params[:page], per_page: 6)
 		end
 		@topics = Topic.all
-
+     
 	end
 
 	def new
@@ -158,4 +157,4 @@ class CoursesController < ApplicationController
     	@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
     	@topics = Topic.order(:name)
     end
-  end
+end

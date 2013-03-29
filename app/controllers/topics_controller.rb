@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  layout 'courses'
+ 
   def index
     @topics = Topic.order(:name)
   end

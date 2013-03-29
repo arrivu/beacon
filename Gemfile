@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'jquery-rails'
-gem "figaro", ">= 0.5.3" 
+gem "figaro", ">= 0.5.3"
 gem "bootstrap-sass", ">= 2.3.0.0"
 gem "devise", ">= 2.2.3"
 gem "cancan", ">= 1.6.8"
@@ -19,20 +19,20 @@ gem 'omniauth-google-oauth2'
 
 gem 'oauth2'
 gem 'best_in_place'
-gem 'will_paginate', '3.0.3'
+gem 'will_paginate', '~> 3.0.0'
 gem 'bootstrap-will_paginate', '0.0.6'
 gem 'faker', '1.0.1'
 gem 'activemerchant'
 gem 'active_merchant_ccavenue'
 gem 'wicked_pdf'
 group :assets do
-	gem 'sass-rails',   '~> 3.2.3'
-	gem 'coffee-rails', '~> 3.2.1'
-	gem 'uglifier', '>= 1.0.3'
-	gem 'therubyracer', :platforms => :ruby
+gem 'sass-rails', '~> 3.2.3'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'uglifier', '>= 1.0.3'
+gem 'therubyracer', :platforms => :ruby
 end
 group :production do
-	gem 'pg', '0.12.2'
+gem 'pg', '0.12.2'
 end
 group :development do
 # gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
@@ -41,8 +41,8 @@ group :development do
  gem "debugger"
 
 end
-gem 'mysql2', :group => :development
-# gem "mysql2"
+gem 'sqlite3', :group => :development
+gem "mysql2", :group => :development
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
@@ -59,11 +59,12 @@ gem 'rest-client', '1.6.7'
 gem 'json'
 gem "rails_config"
 # group :development do
-#   gem 'pg', '0.12.2'
-#   gem 'mysql2'
+# gem 'pg', '0.12.2'
+# gem 'mysql2'
 # end
 gem 'acts_as_commentable', '3.0.1'
 gem 'letsrate'
 gem 'canvas',:git => 'git://github.com/m-narayan/canvas'
 gem 'annotate', '2.4.1.beta1'
-
+gem 'couponsgem',:git => 'git://github.com/m-narayan/couponsgem'
+gem 'invoicing',:git => 'git://github.com/m-narayan/invoicing'

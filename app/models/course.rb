@@ -15,9 +15,12 @@
 #
 
 class Course < ActiveRecord::Base
+
+  self.per_page = 6
   acts_as_commentable
   attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
-  
+  scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
+  scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
   #has_many :relationships
   scope :enrolled_students, joins(:student_courses).where('student_courses.status = ?', "enroll") 
   scope :completed_students, joins(:student_courses).where('student_courses.status = ?', "completed") 
@@ -27,19 +30,18 @@ class Course < ActiveRecord::Base
   has_many :students, :through => :student_courses
   has_many :teaching_staff_courses 
   has_many :teaching_staffs, :through => :teaching_staff_courses 
-  
-  belongs_to :user
+  has_many :course_coupons
+  has_many :coupons, :through => :course_coupons 
   has_one  :rating_cache
   belongs_to :user
   letsrate_rateable "rate"
 
   
-  has_many :course_payments
+  has_many :course_pricings
 
   #before_save { |course| course.category = category.downcase }
 
   validates :title, presence: true, length: { maximum: 100 }
-  validates :author, presence: true, length: { maximum: 100 }
   validates :desc, presence: true, length: { maximum: 1000 }
 
   default_scope order: 'courses.created_at DESC'
