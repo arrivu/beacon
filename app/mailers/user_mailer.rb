@@ -10,9 +10,8 @@ class UserMailer < ActionMailer::Base
   end
 
   def mail_contact(name,email,message)
-  	to="sukumar.inapp@gmail.com"
   	message=message+"\n"+name+"\n"+email
-  	mail(:to => to, :subject => "Contact Us",:body => message)
+  	mail(:to => Settings.contact.to, :subject => "Contact Us",:body => message)
   end
 
 end

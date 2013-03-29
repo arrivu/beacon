@@ -27,8 +27,8 @@ Myapp::Application.configure do
     domain: "example.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "sukumar.inapp@gmail.com",#ENV["GMAIL_USERNAME"]
-    password: "java2013" #ENV["GMAIL_PASSWORD"]
+    user_name: Settings.contact.username
+    password: Settings.contact.password 
   }
   
 
