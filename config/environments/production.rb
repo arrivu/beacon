@@ -70,13 +70,13 @@ Myapp::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "example.com",
+    address: "#{Settings.mailserver.address}",
+    port: "#{Settings.mailserver.port}",
+    domain: "#{Settings.mailserver.domain}",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: "#{Settings.mailserver.user_name}",
+    password: "#{Settings.mailserver.password}"
   }
 
 

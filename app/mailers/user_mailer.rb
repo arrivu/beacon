@@ -10,8 +10,8 @@ class UserMailer < ActionMailer::Base
   end
 
   def mail_contact(name,email,message)
-  	message=message+"\n"+name+"\n"+email
-  	mail(:to => Settings.contact.to, :subject => "Contact Us",:body => message)
+  	message="Name: #{name}\nEmail: #{email}\nMessage:\n#{message}" 
+  	mail(:to => Settings.admin_mail.to, :subject => "Contact Us",:body => message)
   end
 
 end

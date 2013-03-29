@@ -9,7 +9,11 @@ lms:
   account_id: 1
   oauth_token: BWByYxU7pnqLi6lWICmGcYGn66xuaZEAsImJgLgUsmj3hSkoTK5UzCFesmZUdQDx
   api_root_url: https://192.168.1.40/api/v1
-contact:
-  to: beaconlms@gmail.com
-  username: beaconlms@gmail.com
+mailserver:
+  address: smtp.gmail.com
+  port: 587
+  domain: example.com
+  user_name: beaconlms@gmail.com
   password: beaconlms123$
+admin_mail:
+  to: beaconlms@gmail.com
