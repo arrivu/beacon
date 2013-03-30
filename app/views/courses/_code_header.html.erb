@@ -24,10 +24,14 @@
           <ul id="dropdownlist">
             <li>
               <a href="#" class="courseslink">
-                <% if current_user.image == nil %>
+                <% if current_user.image_blob == nil %>
+                <% if current_user.omni_image_url == nil %>
                 <%= gravatar_for_with_size current_user, "15x15" %>
                 <% else  %>
-                <%= image_tag(current_user.image,size: "15x15", alt: "")%> 
+                <%= image_tag(current_user.omni_image_url,size: "15x15", alt: "")%> 
+                <% end  %>
+                <% else  %>
+                  <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => current_user.id), :size => "15x15" %>
                 <% end  %>
               </i>&nbsp;&nbsp;<%= current_user.name %>&nbsp;&nbsp;
               <i class="icon-arrow-down icon-white"></i></a>

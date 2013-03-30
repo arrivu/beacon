@@ -2,6 +2,11 @@ class RegistrationsController < Devise::RegistrationsController
   include CasHelper
   include LmsHelper
 
+  def user_image
+    @user = User.find(params[:id])
+    send_data @user.image_blob, :type => @user.content_type, :disposition => 'inline'
+  end
+
   # POST /resource
   def create
     #build_resource
@@ -39,7 +44,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     lms_create_user(current_user)
   end
- 
+
   def update
     @user = User.find(current_user.id)
 
@@ -69,7 +74,7 @@ class RegistrationsController < Devise::RegistrationsController
   # extend this as needed
   def needs_password?(user, params)
     user.email != params[:user][:email] ||
-      !params[:user][:password].blank?
+    !params[:user][:password].blank?
   end
 
 end
