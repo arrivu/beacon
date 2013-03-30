@@ -144,4 +144,8 @@ class CoursesController < ApplicationController
     	@countCoursesPerPage = 6
     	@topics = Topic.order(:name)
     end
+
+    def my_courses
+    	
+    end
 end
