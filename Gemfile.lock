@@ -170,7 +170,6 @@ GEM
       i18n (~> 0.6.0)
     multi_json (1.7.2)
     multipart-post (1.2.0)
-    mysql2 (0.3.11)
     nokogiri (1.5.9)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -318,7 +317,6 @@ DEPENDENCIES
   json
   launchy (>= 2.2.0)
   letsrate
-  mysql2
   oauth2
   omniauth
   omniauth-facebook
