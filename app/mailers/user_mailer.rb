@@ -9,4 +9,9 @@ class UserMailer < ActionMailer::Base
     mail(:to => "#{@email}", :subject => "Payment succesfully transfer")
   end
 
+  def mail_contact(name,email,message)
+  	message="Name: #{name}\nEmail: #{email}\nMessage:\n#{message}" 
+  	mail(:to => Settings.admin_mail.to, :subject => "Contact Us",:body => message)
+  end
+
 end

@@ -18,11 +18,13 @@ class CommentsController < ApplicationController
 	def create
 		@comment = @commentable.comments.build(params[:comment])
 		@comment.user_id = current_user.id
+		#@course = Course.find(params[:commentable_id])
 		respond_to do |format|
 			if @comment.save
 				format.html { redirect_to @commentable }
 				flash[:info] = "Your review is added "
 			else
+
 				format.html { render :action => 'new' }
 			end
 		end

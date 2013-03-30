@@ -1,62 +1,62 @@
 
 <div class="coursedetailtop">
 
-    <div class="container">
-      <div class="row">
-        <div class="span4">
-          <div class="coursevideo">
-            <img src="http://placehold.it/300x200/fff/144328&text=START"/>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <div class="coursevideo">
+          <%= image_tag url_for(:action => 'show_image', :id => @course.id), width: "200", height: "200" %>
         </div>
-        <div class="span7">
-          <div class="coursedesc">
-            <div class="coursetitle">
-              <h3>Financial Accounting - Online Course</h3>
-            </div>
-            <div class="subtitle">
-              Become a expert in Financial Accounting like a Pro.
-            </div>
-            <div class="container clearfix"></div>
-            <div class="subsection">
-              <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-                enroll
-              </div></a>
-              <a href="#previewcourse"><div class="shortlist">
-                Preview
-              </div></a>
-            </div>
-            <div class="container clearfix"></div>
-              <div style="margin-left: 80px;">
-               <a>
-        <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
-                 <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-                       <br align = "center">
-                      <% end %>
-                      <%= rating_for @course, "rate" %><div id="rating" ><%= @qty%> Ratings</div>
-                      <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-                       <div class = "rated" %>
-                      <% if @rated == nil  %>
-                        Rate This Course
-                      <% else  %>
-                        Course Rated
-                      <% end %>
-                    </div>
-                <% end %>
-                </a>
-             </div>
-            </div>
-            <div class="container clearfix"></div>
+      </div>
+      <div class="span7">
+        <div class="coursedesc">
+          <div class="coursetitle">
+            <h3><%= @course.title %></h3>
           </div>
+          <div class="subtitle">
+            <h4><%= @course.short_desc %></h4>
+          </div>
+          <div class="container clearfix"></div>
+          <div class="subsection">
+            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
+              enroll
+            </div></a>
+            <a href="#previewcourse"><div class="shortlist">
+              Preview
+            </div></a>
+          </div>
+          <div class="container clearfix"></div>
+          <div style="margin-left: 80px;">
+           <a>
+            <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
+            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+            <br align = "center">
+            <% end %>
+            <%= rating_for @course, "rate" %><div id="rating" ><%= @qty%> Ratings</div>
+            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+            <div class = "rated" %>
+              <% if @rated == nil  %>
+              Rate This Course
+              <% else  %>
+              Course Rated
+              <% end %>
+            </div>
+            <% end %>
+          </a>
         </div>
-        <div class="container clearfix">
+      </div>
+      <div class="container clearfix"></div>
+    </div>
+  </div>
+  <div class="container clearfix">
 
-        </div>
-      </div>
-      
-      <div class="container clearfix">
-      </div>
+  </div>
 </div>
- 
+
+<div class="container clearfix">
+</div>
+</div>
+
 
 <div class="coursesyllabus">
   <div class="container">
@@ -67,44 +67,49 @@
         </div>
         <div class="underlinetext">
           <ul>
+            <% @modules.each do |m| %>
             <li>
-              <h4><i class="icon-book"></i> Module 1 - About Finance</h4>
+              <h4><i class="icon-book"></i><%= m.name %></h4>
             </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 2 - Why it is necessary</h4>
-            </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 3 - How you can lear</h4>
-            </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 4 - Real Practicals</h4>
-            </li>
-            <li>
-              <h4><i class="icon-book"></i> Module 5 - Conclusion</h4>
-            </li>
+            <% end %>
           </ul>
         </div>
         
       </div>
-      <div class="span4">
+      <div class="span6">
         <div class="head">
           <h3>Course Description</h3>
         </div>
         <div class="underlinetext">
-          <%= truncate(@course.desc, :length => 70)  %>
-        </div>
-        <div class="starrating">
-         <div class='spread'>  <div class='twshare left'>   <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70) %>">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  </div>
-        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like> 
-         </div>
-         <script type="text/javascript" src="http://platform.linkedin.com/in.js"></script><script type="in/share" data-url="<%=request.url%>" data-counter="right"></script><br/>
-         <script src="https://apis.google.com/js/plusone.js"></script>
-         <g:plus action="share" annotation="bubble" ></g:plus>
-         
+         <%= truncate(@course.desc, :length => 300)  %> </br> </br>
        </div>
+       <div class="starrating">
+         <div class='spread'>  <div class='twshare left'>   </div>
+         <table> <tr>
+          <td>
+           <td><script type="text/javascript" src="http://platform.linkedin.com/in.js"></script></td> <td></td>
+           <script type="in/share" data-url="<%=request.url%>" data-counter="right"></script>
+
+           <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  
+           <td><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like></td> <td></td>
+
+
+           <script src="https://apis.google.com/js/plusone.js"></script>
+           <td><g:plus action="share" annotation="bubble" ></g:plus></td> <td></td>
+           <td>
+            <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70)  %>">Tweet</a>
+
+          
+           </td>
+
+         </tr>
+       </table>
      </div>
    </div>
  </div>
+</div>
+</div>
 </div>
 
 <div class="aboutauthor">
@@ -115,7 +120,7 @@
         <img src="http://placehold.it/200x200/16A085/000&text=Author" class="img-circle"/>
       </div>
       <div class="authorinfo">
-        <h4><%=@course.user.name%></h4>
+        <h4><%=@course.author%></h4>
         <p><%=@course.user.user_desc%></p>
       </div>
       <div class="container clearfix"></div>
@@ -127,62 +132,66 @@
   <div class="container">
     <div class="row">
       <h2>Lecture Preview: A Sneak Peak into the course</h2>
+      <% a=0 %>
+      <% @course.previews.where(enable: 1).order(:sequence).each do |p| %>
+      <% a +=1  %>
       <div class="span6 prevbox">
-        <div class="previmage">
-          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-        </div>
-        <div class="previnfo">
-          <h3>Lecture 25:</h3>
-          <p class="prevtxt">Loops and Hoops</p>
-          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-        </div>
-      </div>
-      <div class="span6 prevbox">
-        <div class="previmage">
-          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-        </div>
-        <div class="previnfo">
-          <h3>Lecture 8:</h3>
-          <p class="prevtxt">How to invest money to earn</p>
-          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-        </div>
-      </div>
-    </div>
+       <table> <tr>
+         <td>
+           <div class="bannervideo">
+            <% url = p.video_url.split('/')  %>
+            <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
+            <div id="preview_model<%= a %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></a></button>
+              <div class="modal-header">
+                <h3 id="myModalLabel">Preview Video</h3>
+              </div>
+              <div class="modal-body">
+               <iframe width="400" height="350" src=<%= p.video_url %> frameborder="0" allowfullscreen class="iframe"></iframe> 
+             </div>
+           </div>
+         </div>
+       </td>
+       <td>
+         <div class="previnfo">
+           <h3><%= p.name %></h3>
+           <p class="prevtxt"><%= p.desc %></p>
+         </div>
+       </td>
+     </tr>
+   </table>
+ </div>
+ <% end %>      
 
-    <div class="row">
-      <div class="span6 prevbox">
-        <div class="previmage">
-          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-        </div>
-        <div class="previnfo">
-          <h3>Lecture 12:</h3>
-          <p class="prevtxt">Learn art of finance</p>
-          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-        </div>
-      </div>
-      <div class="span6 prevbox">
-        <div class="previmage">
-          <a href="#prevideo" role="button" data-toggle="modal"><img src="previmg.png" /></a>
-        </div>
-        <div class="previnfo">
-          <h3>Lecture 20:</h3>
-          <p class="prevtxt">Market Analysis</p>
-          <!-- <p>Step Seven: Part One - Loops and Hoops</p> -->
-        </div>
-      </div>
-    </div>
+</div>
 
-  </div>
+
+</div>
 </div>
 
 <div class="coursereviews">
   <div class="container">
+
+    <div class="row">
+        <div align="center">
+
+          <div class="readallreview">
+            <%if current_user.present?%>
+            <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+            <%else%>  
+            <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
+            <% end %>  
+          </div>
+
+        </div>
+      </div>
     <div class="row">
       <div align="center">
         <h3><%=@course.comments.size%> Reviews</h3>
         <br/>
       </div>
       <%= render "comments" %>
+
       <div class="container clearfix"></div>
        </div>
       <div class='apple_pagination' >
@@ -203,6 +212,7 @@
         </div>
       </div>
    
+
   </div>
 
 
@@ -212,12 +222,12 @@
       Browser More Courses
     </span></a>
   </div>
+</div>
 
-
-<script>
-$(document).ready(function(){
-$(".star").click(function(){
-   $(".rated").html("Course Rated")
-});
-});
-</script>
+  <script>
+  $(document).ready(function(){
+    $(".star").click(function(){
+     $(".rated").html("Course Rated")
+   });
+  });
+  </script>

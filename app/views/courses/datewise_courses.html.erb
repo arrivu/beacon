@@ -4,7 +4,7 @@
     <div class="container">
       <form action="#" class="category-search" data-pjax="">
         <span class="mini-icon mini-icon-search-input"><i class="icon-search"></i></span>
-        <!-- <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2"> -->
+         <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2"> 
       </form>
 
       <h1>Welcome to Course Library</h1>
@@ -81,41 +81,17 @@
 
         <div class="clearfix"></div>
         
-        <div class="container courseclub">
-            <div class="row">
-              
-              <% @courses.each do |course|%>
-              <div class="span7">
-                <div class="courses">
-                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                      <div class="card-a course-inner">
-                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                      <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
-                      
-                      <div class="course-content">
-                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=course.topic.name if !course.topic.nil? %></em>
-                      <!-- <em class="label-b">Free Course</em> -->
-
-                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 18)%></h3>
-                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p>
-                      <%end%></div>
-
-                      </div>
-                  </article>
-                </div>
-              </div>
-              <%end%>
-              
-            </div>
-        </div>
+        <%= render 'shared/courselist' %>
 
       </div>
     </div>
   </div>
+
     <div class='apple_pagination' align="center">
     
      <%= will_paginate @courses, :container => false %>
    </div>
+
 
 
 

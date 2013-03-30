@@ -39,4 +39,7 @@ include ActsAsCommentable::Comment
   # NOTE: Comments belong to a user
   belongs_to :course
   belongs_to :user
+
+  validates :title, presence: true, length: { maximum: 25 }
+  validates :comment, presence: true, length: { maximum: 500 }
 end

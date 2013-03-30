@@ -21,6 +21,7 @@ class Course < ActiveRecord::Base
   attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
+
   #has_many :relationships
   scope :enrolled_students, joins(:student_courses).where('student_courses.status = ?', "enroll") 
   scope :completed_students, joins(:student_courses).where('student_courses.status = ?', "completed") 
@@ -42,6 +43,7 @@ class Course < ActiveRecord::Base
   #before_save { |course| course.category = category.downcase }
 
   validates :title, presence: true, length: { maximum: 100 }
+
   validates :desc, presence: true, length: { maximum: 1000 }
 
   default_scope order: 'courses.created_at DESC'

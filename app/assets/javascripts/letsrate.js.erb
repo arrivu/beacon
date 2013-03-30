@@ -11,7 +11,7 @@ $(function(){
 			return $(this).attr('data-star-count')
 		},
 		click: function(score, evt) {
-			alert(3);
+		
 		   	$.post('<%= Rails.application.class.routes.url_helpers.rate_path %>', 
 				{
 					score: score, 

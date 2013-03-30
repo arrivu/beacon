@@ -84,7 +84,8 @@ margin-left: 10px;
 }
 
 .course > a, .course .course-inner {
-min-height: 85px;
+min-height: 95px;
+width: 500px;
 }
 
 .card-a, .prereqs, .tabs-container, .team .member .team-controls ul, .team .manager .team-controls ul, .team .seats-edit .team-controls ul, .management .member .team-controls ul, .management .manager .team-controls ul, .management .seats-edit .team-controls ul, ul.prizes .prize {
@@ -101,7 +102,12 @@ padding: 10px;
 .code-path .courses .course .course-progress {
 z-index: 0;
 }
+img .login_img 
+{
+  width:162px;
+  height:29px;
 
+}
 .path-ruby .course-progress {
 background: rgba(181,67,34,0.075);
 }
@@ -130,10 +136,10 @@ box-shadow: 0 1px 2px rgba(0,0,0,0.25);
 padding: 2px;
 }
 
-img {
+/*img {
 height: auto;
 max-width: 100%;
-}
+}*/
 
 .course .course-content {
 padding-left: 110px;
@@ -197,7 +203,7 @@ color: #636365;
 }
 
 p {
-font-size: 1.6em;
+font-size: 16px;
 }
 
 .orange{

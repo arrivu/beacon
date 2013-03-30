@@ -1,6 +1,9 @@
 Myapp::Application.routes.draw do
   match '/rate' => 'rater#create', :as => 'rate'
- 
+
+
+  resources :contacts
+
  	resources :faqs
   resources :blogs
   resources :tags
@@ -17,7 +20,7 @@ Myapp::Application.routes.draw do
   resources :groups
   resources :under_constructions
   resources :o_classes
- 
+  resources :previews
 	authenticated :user do
 		root :to => 'screens#home'
 	end
@@ -26,7 +29,7 @@ Myapp::Application.routes.draw do
 	match '/privacy', :to => 'screens#privacy'
 	match '/terms', :to => 'screens#terms'
 
-  match '/contact', :to => 'screens#contact'
+  #match '/contact', :to => 'screens#contact'
   #match '/faq', :to => 'screens#faq'
   match '/construction', :to => 'screens#construction'  
   match '/manage_courses', :to => 'courses#manage_courses'

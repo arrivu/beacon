@@ -18,6 +18,11 @@
 	   -moz-box-shadow: 0 8px 6px -6px #333;
 	        box-shadow: 0 8px 6px -6px #333;
   	margin-bottom: 20px;
+
+}
+.label-offset.label-a
+{
+	border-radius: 5px;
 }
 
 .coursebox .coureseimg{

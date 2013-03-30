@@ -267,9 +267,10 @@ users_hash = {
 			 	[1,3], #Category
 			 	"sqlessentials.png", #image
 			 	"Have you been wanting to learn SQL, but have not start yet? Or, maybe you know some SQL, but you need a better understanding of it. Either way, this course is just right for you. Andrew Burgess is teaching on the basic use of SQL with MySQL server and using it from PHP. So, let's get started!",
-			 	2
+			 	2,
+			 	"The basic use of SQL with MySQL server and using it from PHP"
 			 	],
-			 2 => ["Organizing Testable Backbone and Require.js Applications", #Title
+			 2 => ["Testable Require.js ", #Title
 			 	Faker::Name.name, #Author
 			 	2, #user_id
 			 	1, #ispublished
@@ -277,9 +278,10 @@ users_hash = {
 			 	[1,3], #Category
 			 	"organizing.jpg", #image
 			 	"So you have learned a bit about JavaScript testing, and are now ready to begin testing your Backbone apps. The only problem is that your team uses Require.js to organize and load your scripts. This can make your modules considerably more difficult to test. In this screencast, I will break everything down. In addition to Backbone and Require.js, we will be using Jam to load our dependencies, and Testem, which provides an easy interface to perform automated tests (using Jasmine). Finally, we will create a minimal build script.",
-			 	2
+			 	2,
+			 	"Organizing your application using Modules (require.js)"
 			 	],
-			 3 => ["Programming Windows in .NET", #Title
+			 3 => ["Programming in .NET", #Title
 			 	Faker::Name.name, #Author
 			 	3, #user_id
 			 	1, #ispublished
@@ -287,7 +289,8 @@ users_hash = {
 			 	[3], #Category
 			 	"progWNet.png", #image
 			 	"Have you ever wanted to learn to make Windows programs using the .NET Library? Well, Jeremy is here to teach us how to do it. Come and join the fun!",
-			 	2
+			 	2,#topic id
+			 	"Windows programs using the .NET Library"#short description
 			 	],
 			 4 => ["Less is More", #Title
 			 	Faker::Name.name, #Author
@@ -297,7 +300,8 @@ users_hash = {
 			 	[1,3], #Category
 			 	"less-is-more.jpg", #image
 			 	"In this course, I will show you all of the cool features that the LESS CSS preprocessor provides, in order to make writing CSS more awesome! You will learn all the ins and outs, including variables, nesting, Math and color functions, namespacing, and the various forms of mixins. In no time, you will master the syntax!",
-			 	2
+			 	2,
+			 	"That which is less complicated is often better understood and more appreciated"
 			 	],
 			 5 => ["Riding Ruby on Rails", #Title
 			 	Faker::Name.name, #Author
@@ -307,9 +311,10 @@ users_hash = {
 			 	[1,3], #Category
 			 	"RidingRuby100x100.png", #image
 			 	"Been meaning to learn Ruby on Rails, but felt that it was too hard? Well, not anymore. In this course, Jose Mota will take you through the process of creating dynamic and creative web applications, using Ruby on Rails. Come join us for the ride!",
-			 	3
+			 	3,
+			 	"Rails is an web application framework "
 			 	],
-			 6 => ["Build Web Apps in Node and Express", #Title
+			 6 => ["Build Web Apps in Node", #Title
 			 	Faker::Name.name, #Author
 			 	1, #user_id
 			 	1, #ispublished
@@ -317,9 +322,10 @@ users_hash = {
 			 	[2], #Category
 			 	"nodejs.jpg", #image
 			 	"Node.js is the JavaScript engine for Chrome, moved to the command line for use as a general programming language. In this course, you will learn how to make use this engine to build web applications with ease.",
-			 	3
+			 	3,
+			 	"JavaScript engine for Chrome"
 			 	],
-			 7 => ["jQuery Plugin Development: Best Practices", #Title
+			 7 => ["jQuery  Development", #Title
 			 	Faker::Name.name, #Author
 			 	1, #user_id
 			 	1, #ispublished
@@ -327,9 +333,10 @@ users_hash = {
 			 	[1,2,3], #Category
 			 	"jquery.jpg", #image
 			 	"This course will explain the fundamental aspects of writing great jQuery plugins. Some of the topics we will cover include how plugins extend jQuery is prototype to add new methods to the library, understanding the this object inside a plugin, keeping plugins configurable, theming them, handling events and exposing AJAX options for easier implementation by others. Sound fun?",
-			 	3
+			 	3,
+			 	"Extending jQuery with plugins and methods is very powerful "
 			 	],
-			 8 => ["Perfect Workflow in Sublime Text 2", #Title
+			 8 => ["Workflow in Sublime", #Title
 			 	Faker::Name.name, #Author
 			 	2, #user_id
 			 	0, #ispublished
@@ -337,9 +344,10 @@ users_hash = {
 			 	[1], #Category
 			 	"sublime.jpg", #image
 			 	"Welcome! In this course, we are going to take the knowledge that you have gained from coding for the browser, and apply it to the server environment. Over the next fifteen lessons, we will start from the beginning, get Node installed and running, and then move on to more complex projects that will explore the basics tools and functionality that the Node.js platform has to offer.",
-			 	4
+			 	4,
+			 	"Sublime is an tremendiasly powerful text editor"
 			 	],
-			 9 => ["An Introduction to Node.js", #Title
+			 9 => ["Introduction to Node.js", #Title
 			 	Faker::Name.name, #Author
 			 	3, #user_id
 			 	1, #ispublished
@@ -347,7 +355,8 @@ users_hash = {
 			 	[1,2], #Category
 			 	"nodejs.jpg", #image
 			 	"I am a confessed code editor addict, and have tried them all! I was an early adopter of Coda, a TextMate advocate, even a Vim convert. But all of that changed when I discovered Sublime Text 2, the best code editor available today. Do not believe me? Let me convince you in this course.",
-			 	1
+			 	1,
+			 	"This course will explain the fundamental about node.js"
 			 	],
 			 10 => ["Programming .NET", #Title
 			 	Faker::Name.name, #Author
@@ -357,7 +366,8 @@ users_hash = {
 			 	[3], #Category #Category
 			 	"100-netprogramming.png", #image
 			 	"For over ten years, Microsoft's .NET Framework has been the platform to develop for if you want to target Windows or Windows-based technologies. Getting started with the .NET Framework can be a daunting task, as the .NET Framework class library is pretty darn big. But, thankfully, there are a core set of classes that you can use in any Windows or Web app. In this course, we will take a look at these classes and how we can use them in our code.",
-			 	2
+			 	2,
+			 	"High level overview of dot NET"
 			 ]
 
 
@@ -373,10 +383,11 @@ users_hash = {
 			# 5 is category/topic
 			image: array[6],
 			desc: array[7],
-			topic_id: array[8])
+			topic_id: array[8],
+			short_desc: array[9])
 				count=count+1
 				array[5].each do |topicId| 
-					Relationship.create!(course_id: count,topic_id: topicId)
+					# Relationship.create!(course_id: count,topic_id: topicId)
 				end
 			end
 
