@@ -42,7 +42,7 @@ group :development do
 
 end
 gem 'sqlite3', :group => :development
-gem "mysql2", :group => :development
+# gem "mysql2", :group => :development
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]

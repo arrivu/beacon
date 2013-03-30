@@ -22,8 +22,9 @@
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
+    <div style="margin-top:70px;">
     <%= yield %>
-
+</div>
     <%= render 'layouts/login_popup' %>
     <%= render 'layouts/signup_popup' %>
 
