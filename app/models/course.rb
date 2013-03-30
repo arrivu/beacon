@@ -44,6 +44,12 @@ class Course < ActiveRecord::Base
 
   validates :title, presence: true, length: { maximum: 100 }
 
+  has_one :course_status
+  has_many :course_payments
+  has_many :previews
+
+  #before_save { |course| course.category = category.downcase }
+
   validates :desc, presence: true, length: { maximum: 1000 }
 
   default_scope order: 'courses.created_at DESC'

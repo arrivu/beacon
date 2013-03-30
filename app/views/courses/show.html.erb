@@ -172,19 +172,7 @@
 <div class="coursereviews">
   <div class="container">
 
-    <div class="row">
-        <div align="center">
-
-          <div class="readallreview">
-            <%if current_user.present?%>
-            <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
-            <%else%>  
-            <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
-            <% end %>  
-          </div>
-
-        </div>
-      </div>
+    
     <div class="row">
       <div align="center">
         <h3><%=@course.comments.size%> Reviews</h3>
