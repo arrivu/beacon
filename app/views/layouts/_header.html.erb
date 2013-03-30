@@ -1,16 +1,18 @@
-<header class="header-a">
-  <div class="inner">
-    <div class="logo">
+
+
+  <header class="navbar navbar-fixed-top" >
+  <div >
+    <div class="logo" >
       <a href="/">
       </div>
-      <nav class="nav-a">
-        <ul >
-          <li class="courseslink">
-            <%= link_to "Course Library", courses_path %>
-          </li>
+    <div class="container" style= " padding-top:20px;  padding-bottom:20px;height:350px; ">
+      <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>
+      <nav>
+        <ul class="nav pull-right">
+          <li> <%= link_to "Course Library", courses_path %></li>
           <% if user_signed_in?%>
           <% if current_user.has_role? :admin %>
-          <li class="courseslink"><%= link_to 'Admin', users_path %></li>
+            <li ><%= link_to 'Admin', users_path %></li>
               <script>
           $('.courseslink').css('left',"-100px");
           </script>
@@ -20,32 +22,33 @@
           <script>
           $('.courseslink').css('left',"-140px");
           </script>
-               <% end  %>
-          <ul id="dropdownlist">
-            <li>
-              <a href="#">
-                <% if current_user.image_blob == nil %>
+               <% end  %>       
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               <% if current_user.image_blob == nil %>
                 <% if current_user.omni_image_url == nil %>
-                <%= gravatar_for_with_size current_user, "15x15" %>
-                <% else  %>
+                <div style="top:-20px; float:left; margin-left:3px; margin-top:3px; margin-right: 3px;">
+                <%= gravatar_for_with_size current_user, "15x15"%>
+                </div><% else  %>
                 <%= image_tag(current_user.omni_image_url,size: "15x15", alt: "")%> 
                 <% end  %>
                 <% else  %>
                   <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => current_user.id), :size => "15x15" %>
-                <% end  %>
-              </i>&nbsp;&nbsp;<%= current_user.name %>
-              <i class="icon-arrow-down icon-white"></i></a>
-              <ul >
-                <li><%= link_to "My Profile", edit_user_registration_path %></li>
-                <li> <%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
-              </ul>
-            </li>
-          </ul>
-          <% else  %>
-          <li class="loginlink"><a href="#loginmodal" role="button" data-toggle="modal" class="btn-c" >Log In</a></li>
-          <li class="createaccountlink"><a href="#sign_up_Modal" role="button" data-toggle="modal" class="btn-a">Create Account</a></li>
+                <% end  %><%= current_user.name %> <b class="caret" style="top:0px;" ></b>
+            </a>
+            <ul class="dropdown-menu">
+              
+              <li><%= link_to "My Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+             
+            </ul>
+          </li>
+          <% else %>
+          <li ><a href="#loginmodal" role="button" data-toggle="modal" class="btn-c" >Log In</a></li>
+          <li ><a href="#sign_up_Modal" role="button" data-toggle="modal" class="btn-a">Create Account</a></li>
           <% end %>
         </ul>
       </nav>
     </div>
-  </header>
+  </div>
+</header>
