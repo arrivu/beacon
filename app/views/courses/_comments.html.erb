@@ -1,9 +1,10 @@
 <% if !@comments.blank?%>
         <% @comments.each do |comment| %>
-        <%# if ((@count % @countCommentsPerPage ) == 0 ) %>
+    
         <div class="span6" style="margin-bottom:10px;">
           <div class="reviewer">
-            <% if comment.user.image_blob == nil %>
+
+        <% if comment.user.image_blob == nil %>
                 <% if comment.user.omni_image_url == nil %>
                 <%= gravatar_for_with_size comment.user, "15x15" %>
                 <% else  %>
@@ -21,6 +22,6 @@
           <div class="container clearfix"></div>
         </div>
        <%end%>
-       <%#end%>
+     
       
 <%end%>

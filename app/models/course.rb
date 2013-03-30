@@ -27,7 +27,6 @@ class Course < ActiveRecord::Base
   scope :completed_students, joins(:student_courses).where('student_courses.status = ?', "completed") 
   scope :shortlisted_students, joins(:student_courses).where('student_courses.status = ?', "shortlisted") 
   belongs_to :topic
-  has_many :previews
   has_many :student_courses
   has_many :students, :through => :student_courses
   has_many :teaching_staff_courses 
@@ -44,6 +43,12 @@ class Course < ActiveRecord::Base
   #before_save { |course| course.category = category.downcase }
 
   validates :title, presence: true, length: { maximum: 100 }
+
+  has_one :course_status
+  has_many :course_payments
+  has_many :previews
+
+  #before_save { |course| course.category = category.downcase }
 
   validates :desc, presence: true, length: { maximum: 1000 }
 
