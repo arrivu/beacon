@@ -2867,7 +2867,7 @@ table th[class*="span"],
 }
 
 .dropdown .caret {
-  margin-top: 8px;
+  margin-top: 3px;
   margin-left: 2px;
 }
 
@@ -2897,6 +2897,7 @@ table th[class*="span"],
      -moz-background-clip: padding;
           background-clip: padding-box;
 }
+
 
 .dropdown-menu.pull-right {
   right: 0;
@@ -2936,6 +2937,14 @@ table th[class*="span"],
   background-image: linear-gradient(to bottom, #0088cc, #0077b3);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;                
+  -moz-border-radius-topleft: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 .dropdown-menu .active > a,
@@ -4466,11 +4475,12 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: fixed;
+  
   right: 0;
   left: 0;
   z-index: 1030;
   margin-bottom: 0;
+  height:15px;
 }
 
 .navbar-fixed-top .navbar-inner,
@@ -4633,7 +4643,22 @@ input[type="submit"].btn.btn-mini {
   border-bottom-color: rgba(0, 0, 0, 0.2);
   content: '';
 }
+.navbar .logo a {
+  position: relative;
+  background: url(beaconslogo.png)  no-repeat;
+  float: left;
+  height: 71px;
+  width: 222px;
+  top:-8px;
+  padding-top:10px;
+  margin-top: 15px;
+  margin-left: 100px;
+  
+}
 
+.navbar .logo a:hover {
+background: url(beaconslogop.png)  no-repeat;
+}
 .navbar .nav > li > .dropdown-menu:after {
   position: absolute;
   top: -6px;
@@ -4669,7 +4694,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav li.dropdown.active > .dropdown-toggle,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
   color: #555555;
-  background-color: #e5e5e5;
+  /*background-color: #e5e5e5;*/
 }
 
 .navbar .nav li.dropdown > .dropdown-toggle .caret {
