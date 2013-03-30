@@ -24,7 +24,6 @@ class CommentsController < ApplicationController
 				format.html { redirect_to @commentable }
 				flash[:info] = "Your review is added "
 			else
-
 				format.html { render :action => 'new' }
 			end
 		end

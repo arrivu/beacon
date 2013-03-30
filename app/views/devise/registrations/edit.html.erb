@@ -14,6 +14,14 @@
 				<td><%= f.input :name,:label => false, :autofocus => true %></td></tr>
 				<tr><td><%= f.label :title, "Email" %></td>
 				<td><%= f.input :email,:label => false, :required => true %></td></tr>
+				
+<tr><td>  </td><td><%= image_tag url_for(:action => 'user_image', :id => @user.id), :size => "100x100" %></td></tr>
+
+
+				<tr><td><%= f.label :title, "Image" %></td>
+				<td><%= f.file_field :attachment,:label => false %></td></tr>
+
+
 				<tr><td><%= f.label :title, "Password" %></td>
 				<td>leave it blank if you don't want to change it<%= f.input :password,:label => false, :autocomplete => "off", 
 				:required => false %></td></tr>

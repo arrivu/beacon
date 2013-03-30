@@ -288,7 +288,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                   :null => false
     t.datetime "updated_at",                                   :null => false
-    t.binary   "image"
+    t.binary   "omni_image_url"
     t.string   "provider",               :default => "signup"
     t.string   "phone"
     t.string   "user_type"
@@ -297,6 +297,9 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "name"
     t.string   "username"
     t.integer  "lms_id"
+    t.string   "attachment"
+    t.string   "content_type"
+    t.binary   "image_blob"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
