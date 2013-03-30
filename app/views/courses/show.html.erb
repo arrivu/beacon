@@ -183,9 +183,12 @@
         <br/>
       </div>
       <%= render "comments" %>
-      <%= will_paginate @comments %> 
-      
-      
+      <div class="container clearfix"></div>
+       </div>
+      <div class='apple_pagination' >
+       <%= will_paginate @comments, :container => false %>
+     </div>
+      <div class="container clearfix"></div>
       <div class="row">
         <div align="center">
 
@@ -199,7 +202,7 @@
 
         </div>
       </div>
-    </div>
+   
   </div>
 
 
