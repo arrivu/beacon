@@ -5,9 +5,9 @@
     <div class="logo" >
       <a href="/">
       </div>
-    <div class="container" style= " padding-top:20px;  padding-bottom:20px;height:350px; ">
+    <div class="container" style= " padding-top:20px;  padding-bottom:20px;height:350px; margin-left:373px; ">
       <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>
-      <nav>
+      <nav style="margin-left:30px;">
         <ul class="nav pull-right">
           <li> <%= link_to "Course Library", courses_path %></li>
           <% if user_signed_in?%>
@@ -44,11 +44,12 @@
             </ul>
           </li>
           <% else %>
-          <li ><a href="#loginmodal" role="button" data-toggle="modal" class="btn-c" >Log In</a></li>
-          <li ><a href="#sign_up_Modal" role="button" data-toggle="modal" class="btn-a">Create Account</a></li>
+          <li ><a href="#loginmodal" role="button" data-toggle="modal"  >Log In</a></li>
+          <li ><a href="#sign_up_Modal" role="button" data-toggle="modal" >Create Account</a></li>
           <% end %>
         </ul>
       </nav>
     </div>
   </div>
+  
 </header>

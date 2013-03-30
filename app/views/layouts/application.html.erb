@@ -12,7 +12,11 @@
 <body>
 
   <% if check_null(yield(:effectingHeader)) %>
+  <div style="margin-bottom:70px;">
   <%= render 'layouts/header' %>
+
+  </div>
+
   <% else %>
   <!-- Do Nothing -->
   <% end %>
@@ -22,9 +26,10 @@
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-    <div style="margin-top:70px;">
+  </br>
+    <hr style="margin: -1px 0;">
     <%= yield %>
-</div>
+
     <%= render 'layouts/login_popup' %>
     <%= render 'layouts/signup_popup' %>
 

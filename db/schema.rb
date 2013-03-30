@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "name"
     t.string   "email"
     t.string   "message"
-<<<<<<< HEAD
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -71,20 +70,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-=======
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "course_payments", :force => true do |t|
-    t.integer  "course_id"
-    t.float    "price"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
->>>>>>> 366c04316cff8ca15fea48f88f99d41f5f4b39cf
 
   create_table "course_pricings", :force => true do |t|
     t.integer  "course_id"
