@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
 
+
   def after_sign_in_path_for(resource_or_scope)
   	if  params[:course_id] == "0"
   		root_path
@@ -14,4 +15,5 @@ class ApplicationController < ActionController::Base
       new_comment_path(:commentable=>params[:course_id],:commentable_type=>"course")
     end    
   end
+
 end
