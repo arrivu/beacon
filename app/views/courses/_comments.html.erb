@@ -3,12 +3,15 @@
         <%# if ((@count % @countCommentsPerPage ) == 0 ) %>
         <div class="span6" style="margin-bottom:10px;">
           <div class="reviewer">
-          <% if comment.user.image == nil %>
-                <%= gravatar_for_with_size comment.user, "50x50" %>
+            <% if comment.user.image_blob == nil %>
+                <% if comment.user.omni_image_url == nil %>
+                <%= gravatar_for_with_size current_user, "15x15" %>
                 <% else  %>
-                <%= image_tag(comment.user.image,size: "50x50", alt: "")%> 
+                <%= image_tag(comment.user.omni_image_url,size: "15x15", alt: "")%> 
                 <% end  %>
-          </div>
+                <% else  %>
+                  <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => comment.user.id), :size => "50x50" %>
+                <% end  %>
           <div class="bubble-content">
             <div class="point"></div>
               <h4><%= comment.user.name  %> </h4>             
