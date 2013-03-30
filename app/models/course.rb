@@ -18,7 +18,7 @@ class Course < ActiveRecord::Base
 
   self.per_page = 6
   acts_as_commentable
-  attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
+  attr_accessible :lms_id,:short_desc,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, :releasemonth, :ispopular,:filename,:content_type,:data
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
 
@@ -27,6 +27,7 @@ class Course < ActiveRecord::Base
   scope :completed_students, joins(:student_courses).where('student_courses.status = ?', "completed") 
   scope :shortlisted_students, joins(:student_courses).where('student_courses.status = ?', "shortlisted") 
   belongs_to :topic
+  has_many :previews
   has_many :student_courses
   has_many :students, :through => :student_courses
   has_many :teaching_staff_courses 

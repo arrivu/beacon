@@ -5,13 +5,14 @@
           <div class="reviewer">
             <% if comment.user.image_blob == nil %>
                 <% if comment.user.omni_image_url == nil %>
-                <%= gravatar_for_with_size current_user, "15x15" %>
+                <%= gravatar_for_with_size comment.user, "15x15" %>
                 <% else  %>
                 <%= image_tag(comment.user.omni_image_url,size: "15x15", alt: "")%> 
                 <% end  %>
                 <% else  %>
                   <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => comment.user.id), :size => "50x50" %>
                 <% end  %>
+          </div>
           <div class="bubble-content">
             <div class="point"></div>
               <h4><%= comment.user.name  %> </h4>             
