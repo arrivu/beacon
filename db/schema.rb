@@ -54,15 +54,31 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+
+  create_table "coupons", :force => true do |t|
+    t.float    "discount_rate"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+
+
+  create_table "course_coupons", :force => true do |t|
+    t.integer  "coupon_id"
+    t.integer  "course_id"
+
   create_table "contacts", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "message"
+
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
 
-  create_table "course_payments", :force => true do |t|
+
+
+  create_table "course_pricings", :force => true do |t|
+
     t.integer  "course_id"
     t.float    "price"
     t.date     "start_date"
@@ -97,7 +113,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "short_desc"
   end
 
-  add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"
+  add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author", :unique => true
 
   create_table "faqs", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -194,6 +210,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "course_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "status"
   end
 
   create_table "students", :force => true do |t|
@@ -241,6 +258,22 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
     t.string   "desc"
   end
+
+  create_table "tutorials", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "image"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.integer  "user_id"
+    t.integer  "ispublished",    :default => 0
+    t.string   "releasemonth",   :default => "December"
+    t.text     "desc"
+    t.string   "difficulty"
+    t.integer  "estimated_time"
+  end
+
+  add_index "tutorials", ["title", "author"], :name => "index_tutorials_on_title_and_author", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",       :null => false

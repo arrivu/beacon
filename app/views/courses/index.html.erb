@@ -4,7 +4,7 @@
     <div class="container">
       <form action="#" class="category-search" data-pjax="">
         <span class="mini-icon mini-icon-search-input"><i class="icon-search"></i></span>
-        <!-- <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2"> -->
+        <input class="category-search-input" type="text" name="q" id="category-search" value="" tabindex="2" /> 
       </form>
 
       <h1>Welcome to Course Library</h1>
@@ -88,7 +88,13 @@
       </div>
     </div>
   </div>
-   
+
+    <div class='apple_pagination' align="center">
+    
+     <%= will_paginate @courses, :container => false %>
+   </div>
+
+
 
 
 

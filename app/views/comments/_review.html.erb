@@ -25,7 +25,11 @@
 </div>
 <hr>
 <% end %>
-<div align="center"><%= will_paginate(@comments) %></div>
+ <div class='apple_pagination' align="center">
+    
+     <%= will_paginate @comments, :container => false %>
+   </div>
+
 
 <script>
 $(document).ready(function(){

@@ -1,7 +1,9 @@
 Myapp::Application.routes.draw do
   match '/rate' => 'rater#create', :as => 'rate'
 
+
   resources :contacts
+
  	resources :faqs
   resources :blogs
   resources :tags
