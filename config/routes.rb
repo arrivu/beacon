@@ -39,7 +39,7 @@ Myapp::Application.routes.draw do
   match '/subscribed_courses', :to => 'courses#subscribed_courses'
   match '/show_image', :to => 'courses#show_image' 
   match '/show_image', :to => 'topics#show_image' 
-
+  match '/show_image', :to => 'screens#show_image' 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
     match '/user_image', :to => 'registrations#user_image' 

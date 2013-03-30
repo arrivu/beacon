@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 	# end
 	def new
 	 	@comment = Comment.new
-	 	@course = Course.find(params[:commentable])
+	 	@course = Course.find(params[:commentable]) if params[:commentable]
 	 	if signed_in? 
 			unless RatingCache.find_by_cacheable_id(@course.id) == nil
 				@qty = RatingCache.find_by_cacheable_id(@course.id).qty

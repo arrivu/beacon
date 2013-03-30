@@ -171,24 +171,20 @@
 
 <div class="coursereviews">
   <div class="container">
-
-    
     <div class="row">
       <div align="center">
         <h3><%=@course.comments.size%> Reviews</h3>
         <br/>
       </div>
       <%= render "comments" %>
-
       <div class="container clearfix"></div>
-       </div>
+    </div>
       <div class='apple_pagination' >
        <%= will_paginate @comments, :container => false %>
      </div>
       <div class="container clearfix"></div>
       <div class="row">
         <div align="center">
-
             <div class="readallreview">
                 <%if current_user.present?%>
                   <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
