@@ -80,6 +80,4 @@ class User < ActiveRecord::Base
       lmsuser.delete_user(Settings.lms.account_id,self.lms_id)
     end
   end
-
-
 end
