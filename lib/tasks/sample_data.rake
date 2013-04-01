@@ -81,8 +81,8 @@ users_hash = {
 				"This is a dummy message about user. This will tell soemthing about this user."
 				],
 			11 => ["Ankit Gupta", #Name
-				"ankithbti007@gmail.com", #email
-				"password123", #password
+				"beacon@gmail.com", #email
+				"beacon123", #password
 				3, #user_type
 				2, #sub_plan
 				"This is a dummy message about user. This will tell soemthing about this user."
@@ -99,7 +99,7 @@ users_hash = {
 				user_desc: array[5])
 		end
 
-
+		
 		#FAQ block for test data
 		faqs_hash= {
 			1 => ["What are your payment plans and options?", #question
