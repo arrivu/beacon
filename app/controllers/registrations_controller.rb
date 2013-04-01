@@ -43,6 +43,8 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     lms_create_user(current_user)
+
+    
   end
 
   def update
