@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource_or_scope)
-  	if  params[:course_id] == "0"
+  	if  params[:course_id] == "0" ||  params[:course_id] == nil
   		root_path
     else
       @course = Course.find(params[:course_id])
