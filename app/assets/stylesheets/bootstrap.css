@@ -5575,6 +5575,10 @@ a.thumbnail:hover {
   vertical-align: baseline;
   background-color: #999999;
 }
+.badge1
+{
+  color:#ffffff;
+}
 
 .label {
   -webkit-border-radius: 3px;
@@ -5597,7 +5601,7 @@ a.thumbnail:hover {
 
 a.label:hover,
 a.badge:hover {
-  color: #ffffff;
+  color:red;
   text-decoration: none;
   cursor: pointer;
 }
