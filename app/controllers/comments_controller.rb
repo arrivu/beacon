@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
 	# 	@comments =comments.recent.limit(10).all
 	# end
 	def new
+
 		@comment = Comment.new
 		@course = Course.find(params[:commentable])
 		if signed_in? 

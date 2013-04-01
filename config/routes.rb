@@ -38,6 +38,7 @@ Myapp::Application.routes.draw do
   match '/subscribed_courses', :to => 'courses#subscribed_courses'
   match '/show_image', :to => 'courses#show_image' 
   match '/show_image', :to => 'topics#show_image' 
+  match '/show_image', :to => 'screens#show_image' 
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   devise_scope :user do
@@ -47,5 +48,7 @@ Myapp::Application.routes.draw do
   resources :users
   match '/auth/:provider/callback' => 'authentication#create'
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
+
   match '/my_courses', :to => 'courses#my_courses'  
 end
+

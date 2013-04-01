@@ -1,6 +1,8 @@
 class SessionsController < Devise::SessionsController
   include CasHelper
 
+
+  
   # POST /resource/sign_in
   def create
     #self.resource = warden.authenticate!(auth_options)

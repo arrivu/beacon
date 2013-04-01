@@ -1,7 +1,7 @@
 <div id="wite_review">
 <% if user_signed_in?%>
-<%= form_for(:comment, :url => comments_path(:commentable_type =>params[:commentable_type], :commentable_id => params[:commentable])) do |f| %>
-
+<%= form_for(@comment , :url => comments_path(:commentable_type =>params[:commentable_type], :commentable_id => params[:commentable])) do |f| %>
+<%= render 'shared/error_messages', object: @comment %>
 <%= f.label :title, 'Add Review' %>
 <%= f.text_field :title ,placeholder: "Review title"%><br />
 <br>
@@ -13,7 +13,7 @@
         <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
          <br align = "center">
         <% end %>
-        <%= rating_for @course, "rate" %> 
+        <%= rating_for @course, "rate" if !@course.blank?%> 
         <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
          <div class = "rated" %>
         <% if @rated == nil  %>
@@ -35,8 +35,14 @@
 
 <script>
 $(document).ready(function(){
+
 $(".star").click(function(){
 $(".rated").html("Course Rated")
 });
 });
+var f = new LiveValidation('comment_title');
+f.add( Validate.Length, { maximum: 25 } );
+var f = new LiveValidation('comment_comment');
+f.add( Validate.Length, { minimum: 15 ,maximum: 500 } );
+
 </script>
