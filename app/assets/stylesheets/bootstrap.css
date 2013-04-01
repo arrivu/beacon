@@ -5579,7 +5579,10 @@ a.thumbnail:hover {
 {
   color:#ffffff;
 }
-
+.badge1:hover
+{
+  color:#2980B9;
+}
 .label {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
