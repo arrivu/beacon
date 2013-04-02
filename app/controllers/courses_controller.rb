@@ -146,6 +146,5 @@ class CoursesController < ApplicationController
     end
 
     def my_courses
-    	
     end
 end
