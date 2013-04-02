@@ -113,10 +113,6 @@ users_hash = {
 				user_desc: array[5])
 		end
 
-<<<<<<< HEAD
-=======
-		
->>>>>>> 0a7e865623bd55b3b6379f9174c6400b3412f9c9
 		#FAQ block for test data
 		faqs_hash= {
 			1 => ["What are your payment plans and options?", #question
