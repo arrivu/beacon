@@ -1,8 +1,6 @@
 class AuthenticationController < ApplicationController
 
   include CasHelper
-
-
   def create
     auth = request.env["omniauth.auth"]
 
@@ -11,7 +9,7 @@ class AuthenticationController < ApplicationController
 
     if authentication
       # Authentication found, sign the user in.
-      flash[:info] = "Welcome. #{authentication.user.name}}"
+      flash[:info] = "Welcome. #{authentication.user.name}"
       sign_in_and_redirect(:user, authentication.user)
 
       #login_and_redirect_user(authentication.user)

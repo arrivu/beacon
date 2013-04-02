@@ -8,7 +8,11 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
-
+body:after
+{
+  content: url(beaconslogop.png);
+  display:none;
+}
 article,
 aside,
 details,
@@ -4653,10 +4657,12 @@ input[type="submit"].btn.btn-mini {
   padding-top:10px;
   margin-top: 15px;
   margin-left: 100px;
+
   
 }
 
 .navbar .logo a:hover {
+
 background: url(beaconslogop.png)  no-repeat;
 }
 .navbar .nav > li > .dropdown-menu:after {
@@ -5575,7 +5581,14 @@ a.thumbnail:hover {
   vertical-align: baseline;
   background-color: #999999;
 }
-
+.badge1
+{
+  color:#ffffff;
+}
+.badge1:hover
+{
+  color:#2980B9;
+}
 .label {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -5597,7 +5610,7 @@ a.thumbnail:hover {
 
 a.label:hover,
 a.badge:hover {
-  color: #ffffff;
+  color:red;
   text-decoration: none;
   cursor: pointer;
 }

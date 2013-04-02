@@ -8,8 +8,14 @@ class ApplicationController < ActionController::Base
 
 
   def after_sign_in_path_for(resource_or_scope)
-  	if  params[:course_id] == nil || params[:course_id] =="0"
-  		root_path
+
+  	if  params[:course_id] == "0" ||  params[:course_id] == nil
+      if current_user.has_role? :admin 
+        root_path
+      else
+        my_courses_path
+      end
+
     else
       @course = Course.find(params[:course_id])
       new_comment_path(:commentable=>params[:course_id],:commentable_type=>"course")

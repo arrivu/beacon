@@ -28,10 +28,10 @@ class RegistrationsController < Devise::RegistrationsController
     #  clean_up_passwords resource
     #  respond_with resource
     #end
-    
-    super
-    
 
+    super
+     
+    User.insert_user_role(current_user.id,"2")  
 
     #call cas sign to create the cas ticket
     begin
@@ -44,6 +44,8 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     lms_create_user(current_user)
+
+    
   end
 
   def update
