@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
 
 		@comment = Comment.new
 		@course = Course.find(params[:commentable])
+		@commentable_type = params[:commentable_type]
+		@commentable_id = params[:commentable]
 		if signed_in? 
 			unless RatingCache.find_by_cacheable_id(@course.id) == nil
 				@qty = RatingCache.find_by_cacheable_id(@course.id).qty
@@ -16,10 +18,14 @@ class CommentsController < ApplicationController
 			@rated = Rate.find_by_rater_id(current_user.id)
 		end
 	end
+
 	def create
 		@comment = @commentable.comments.build(params[:comment])
 		@comment.user_id = current_user.id
-		#@course = Course.find(params[:commentable_id])
+		@course = Course.find(params[:commentable_id])
+		@commentable_type = params[:commentable_type]
+		@commentable_id = params[:commentable_id]
+		#@course = Course.find(params[:commentable])
 		respond_to do |format|
 			if @comment.save
 				format.html { redirect_to @commentable }
