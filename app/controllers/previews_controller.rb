@@ -2,7 +2,7 @@ class PreviewsController < ApplicationController
 
 	def new
 		@preview = Preview.new	
-		@course = Course.all
+		#@course = Course.all
 	end
 
 	def create
@@ -11,14 +11,14 @@ class PreviewsController < ApplicationController
 			flash[:success] = "preview added successfully!!!!"
 			redirect_to new_preview_path
 		else
-		flash[:error] = "Error while adding preview"
-			
-		redirect_to new_preview_path
+		
+		render 'new'
+
 		end
 	end
 
 	def index
-		@previews = Preview.order(:sequence)
+		@previews = Preview.paginate(page: params[:page], :per_page => 10).order(:sequence)
 		@course = Course.all
 	end
 

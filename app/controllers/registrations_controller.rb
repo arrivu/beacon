@@ -28,9 +28,10 @@ class RegistrationsController < Devise::RegistrationsController
     #  clean_up_passwords resource
     #  respond_with resource
     #end
-
-
+    
     super
+    
+
 
     #call cas sign to create the cas ticket
     begin

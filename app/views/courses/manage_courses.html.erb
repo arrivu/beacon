@@ -27,6 +27,7 @@
     <tr><td colspan="5"><h3 align = "center">Manage Course Library</h3></td></tr>
     <tr>
       <th></th>
+      <th>Topics</th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:author) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -39,9 +40,10 @@
     <tr>
 
       <td><%= image_tag url_for(:action => 'show_image', :id => course.id), :size => "40x40" %></td>
+      <td><%= course.topic.name %></td>
       <td><%= link_to course.title, course_path(course) %></td>
       <td><%= course.author %></td>
-      <td><%=l course.created_at %></td>
+      <td><%=l course.created_at, :format=>'%d %b. %Y %I:%M' %></td>
       <td>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
         edit_course_path(course), :class => 'btn btn-mini' %>
@@ -53,7 +55,14 @@
       </td>
     </tr>
     <% end %>
+   </div>
+
+
   </tbody>
+
 </table>
+
 </div>
+
 </div>
+<div class='apple_pagination' align="center"><%= will_paginate @courses, :container => false  %> </div>

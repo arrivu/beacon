@@ -86,8 +86,22 @@ users_hash = {
 				3, #user_type
 				2, #sub_plan
 				"This is a dummy message about user. This will tell soemthing about this user."
-			]
+			],
+			12 =>["beacon",#Name
+				"beacon@gmail.com",#email
+				"beacon123",#password
+				3,#user_type
+			  2, #sub_plan
+			"This is a dummy message about user. This will tell soemthing about this user."],
+			13 =>["beacon123",#Name
+				"beacon123@gmail.com",#email
+				"beacon123",#password
+				3,#user_type
+				2,#sub_plan
+			"This is a dummy message about user. This will tell soemthing about this user."]
+
 		}
+
 
 		users_hash.each do |key, array|
 			User.create!(name: array[0],
@@ -98,7 +112,76 @@ users_hash = {
 				sub_plan: array[4],
 				user_desc: array[5])
 		end
+students_hash = {
+	1=>[
+	     "Student Record", #description
+	    "9994842123", #contact_no
+	   "12" #user_id
 
+	 ],
+	 2=>[
+	 "Student Record details", #description
+	 	"8689421234",#contact_no
+	 	"13" #user_id
+	 ]
+}
+students_hash.each do |key,array|
+	Student.create!(description: array[0],
+		contact_no: array[1],
+		user_id: array[2]
+		)
+end
+student_courses_hash = {
+	1=>[ "12",#student_id
+		"1",#course_id
+		"enroll" #status
+	],
+	2=>["12",#student_id
+		"2",#course_id
+	   "enroll" #status
+	   ],
+	   3=>["12", #student_id
+	   	"3",#course_id
+	   	"completed"#status
+	   ],
+	   4=>["12",#student_id
+	   	"4",#course_id
+	   	"shortlisted",#status
+	   ]
+}
+student_courses_hash.each do |key,array|
+	StudentCourse.create!(student_id: array[0],
+		course_id: array[1],
+		status: array[2])
+end
+teaching_staffs_hash = {
+	1=>["Teaching Staff Records",#description
+	 "MSC., PHD", #Qualification
+	 "10" #user_id
+	 ],
+	 2=>["Teaching Staff Records", #description
+	 	"M.E", #Qualification
+	 	"11", #user_id
+	 ]
+}
+teaching_staffs_hash.each do|key,array|
+	TeachingStaff.create!(description: array[0],
+		qualification: array[1],
+		user_id: array[2])
+end
+teaching_staff_courses_hash = {
+	1=>["1", #course_id
+	 "10" #teaching_staff_id 
+	 ],
+	 2=>["2",#course_id
+	 	"11", #teaching_staff_id
+	 ]
+
+}
+teaching_staff_courses_hash.each do |key,array|
+	TeachingStaffCourse.create!(course_id: array[0],
+		teaching_staff_id: array[1])
+end
 
 		#FAQ block for test data
 		faqs_hash= {

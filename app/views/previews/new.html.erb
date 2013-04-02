@@ -21,13 +21,14 @@
 							<h3 align = "center">New Preview</h3>
 						</tr>
 						<%= form_for @preview do |f| %>
-						<% @preview.errors.full_messages.each do |msg| %>
-						<p><%= msg %></p>
-						<% end %>
+						<%= render 'shared/error_messages', object: f.object %>
 						<tr><td><%= f.label :course_id, "Courses" %></td>
-							<td><%= f.select(:course_id, @course.collect {|p| [ p.title,p.id ] })%></td></tr>
+							<td>
+									<% courses_array = Course.all.map { |course| [course.title, course.id] } %>
+							<%= f.select(:course_id,options_for_select(courses_array))%>
+							</td></tr>
 							<tr><td><%= f.label :name, "Title" %></td>
-								<td><%= f.text_field :name,:maxlength => 15 %></td></tr>
+								<td><%= f.text_field :name,:maxlength => 25 %></td></tr>
 								<tr><td><%= f.label :desc, "Description" %></td>
 									<td><%= f.text_area :desc ,:cols => "30", :rows => "5",:maxlength => 50 %></td></tr>
 									<tr><td><%= f.label :video_url, "Video URL" %></td>
