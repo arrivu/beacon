@@ -92,14 +92,7 @@ users_hash = {
 				"beacon123",#password
 				3,#user_type
 			  2, #sub_plan
-			"This is a dummy message about user. This will tell soemthing about this user."],
-			13 =>["beacon123",#Name
-				"beacon123@gmail.com",#email
-				"beacon123",#password
-				3,#user_type
-				2,#sub_plan
 			"This is a dummy message about user. This will tell soemthing about this user."]
-
 		}
 
 
