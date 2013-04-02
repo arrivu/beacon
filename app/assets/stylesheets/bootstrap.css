@@ -3914,6 +3914,7 @@ input[type="submit"].btn.btn-mini {
 
 .nav > li > a {
   display: block;
+  font-size: 14px;
 }
 
 .nav > li > a:hover {
