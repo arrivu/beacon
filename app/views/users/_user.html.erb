@@ -1,5 +1,5 @@
 <div id="role-options-<%= user.id %>" class="modal" style="display: none;">
-  <%= simple_form_for user, :url => user_path(user), :html => {:method => :put, :class => 'form-horizontal' } do |f| %>
+  <%= simple_form_for user, :url => user_path(user), :html => {:method => :post, :class => 'form-horizontal' } do |f| %>
     <div class="modal-header">
       <a class="close" data-dismiss="modal">&#215;</a>
       <h3>Change Role</h3>

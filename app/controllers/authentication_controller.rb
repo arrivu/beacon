@@ -1,8 +1,6 @@
 class AuthenticationController < ApplicationController
 
   include CasHelper
-
-
   def create
     auth = request.env["omniauth.auth"]
 
