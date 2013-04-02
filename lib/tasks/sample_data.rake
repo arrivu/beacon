@@ -86,8 +86,22 @@ users_hash = {
 				3, #user_type
 				2, #sub_plan
 				"This is a dummy message about user. This will tell soemthing about this user."
-			]
+			],
+			12 =>["beacon",#Name
+				"beacon@gmail.com",#email
+				"beacon123",#password
+				3,#user_type
+			  2, #sub_plan
+			"This is a dummy message about user. This will tell soemthing about this user."],
+			13 =>["beacon123",#Name
+				"beacon123@gmail.com",#email
+				"beacon123",#password
+				3,#user_type
+				2,#sub_plan
+			"This is a dummy message about user. This will tell soemthing about this user."]
+
 		}
+
 
 		users_hash.each do |key, array|
 			User.create!(name: array[0],
@@ -99,7 +113,10 @@ users_hash = {
 				user_desc: array[5])
 		end
 
+<<<<<<< HEAD
+=======
 		
+>>>>>>> 0a7e865623bd55b3b6379f9174c6400b3412f9c9
 		#FAQ block for test data
 		faqs_hash= {
 			1 => ["What are your payment plans and options?", #question

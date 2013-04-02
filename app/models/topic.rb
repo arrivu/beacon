@@ -14,5 +14,6 @@ class Topic < ActiveRecord::Base
   #has_many :relationships
   #has_one :courses, through: :relationships
   has_many :courses
+   validates :name, presence: true, length: { maximum: 100 }
 
 end

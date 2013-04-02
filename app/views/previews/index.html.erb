@@ -26,10 +26,11 @@
   <thead>
     <tr><td colspan="4"><h3 align = "center">Manage Preview</h3></td></tr>
     <tr>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:desc) %></th>
-        <th><%= model_class.human_attribute_name(:sequence) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Course </th>
+      <th>Title</th>
+      <th>Description</th>
+        <th>Display Order</th>
+      <th>Created At</th>
     
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -37,14 +38,15 @@
   <tbody>
     <% @previews.each do |preview| %>
     <tr>
+      <td><%= preview.course.title %></td>
       <td><%= preview.name %></td>
       <td><%= preview.desc %></td>
       <td><%= preview.sequence %></td>
-      <td><%= preview.created_at %></td>
+      <td><%=l preview.created_at, :format=>'%d %b. %Y %I:%M' %></td>
       <td>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
         edit_preview_path(preview), :class => 'btn btn-mini' %>
-        </td><td>
+        
         <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
         preview_path(preview),
         :method => :delete,
@@ -57,3 +59,4 @@
 </table>
 </div>
 </div>
+<div class='apple_pagination' align="center"><%= will_paginate  @previews, :container => false %></div>
