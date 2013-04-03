@@ -1,6 +1,13 @@
+<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+<div>
 <br>
 <div class="row">
   <div class="span12 offset3">
+<<<<<<< HEAD
+    
+=======
     <ul class="nav nav-pills .pull-left">
       <li >
         <%= link_to "Users", users_path %>
@@ -19,6 +26,7 @@
    <li><%= link_to "Manage Preview",previews_path %></li>
  </li>
 </ul>
+>>>>>>> 3ab2041c238fc736a84f2fccbf7f36ff6a95a151
 <%- model_class = Course -%>
 <div class="page-header">
 </div>
@@ -69,4 +77,5 @@
 </div>
 
 </div>
+
 <div class='apple_pagination' align="center"><%= will_paginate @courses, :container => false  %> </div>
