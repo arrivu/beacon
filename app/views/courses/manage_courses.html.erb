@@ -15,8 +15,8 @@
      <%= link_to "Manage Category", topics_path %>
    </li>
 
-  <li><%= link_to "New Preview",new_preview_path %></li>
-  <li><%= link_to "Manage Preview",previews_path %></li>
+   <li><%= link_to "New Preview",new_preview_path %></li>
+   <li><%= link_to "Manage Preview",previews_path %></li>
  </li>
 </ul>
 <%- model_class = Course -%>
@@ -39,23 +39,27 @@
     <% @courses.each do |course| %>
     <tr>
 
-      <td><%= image_tag url_for(:action => 'show_image', :id => course.id), :size => "40x40" %></td>
-      <td><%= course.topic.name %></td>
-      <td><%= link_to course.title, course_path(course) %></td>
-      <td><%= course.author %></td>
-      <td><%=l course.created_at, :format=>'%d %b. %Y %I:%M' %></td>
       <td>
-        <%= link_to t('.edit', :default => t("helpers.links.edit")),
-        edit_course_path(course), :class => 'btn btn-mini' %>
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-        course_path(course),
-        :method => :delete,
-        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-        :class => 'btn btn-mini btn-danger' %>
-      </td>
-    </tr>
-    <% end %>
-   </div>
+        <%= if course.data !=nil 
+          image_tag url_for(:action => 'show_image', :id => course.id), :size => "40x40" 
+        end 
+        %></td>
+        <td><%= course.topic.name %></td>
+        <td><%= link_to course.title, course_path(course) %></td>
+        <td><%= course.author %></td>
+        <td><%=l course.created_at, :format=>'%d %b. %Y %I:%M' %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          edit_course_path(course), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          course_path(course),
+          :method => :delete,
+          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+          :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+      <% end %>
+    </div>
 
 
   </tbody>
