@@ -6,7 +6,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 	end
 
 	def create
-		@preview =Preview.new(params[:preview])
+		@course=Course.find(params[:id])
+		@preview =@course.previews.build(params[:preview])
 		if @preview.save
 			flash[:success] = "Preview Added Successfully."
 			redirect_to new_preview_path

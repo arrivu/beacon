@@ -43,7 +43,11 @@
 									<tr><td><%= f.label :topic_id, "Category" %></td>
 										<td>
 											<% topics_array = Topic.all.map { |topic| [topic.name, topic.id] } %>
+<<<<<<< HEAD
 										<%= select_tag(:id,options_for_select(topics_array))%>
+=======
+							<%= f.select(:topic_id,options_for_select(topics_array))%>
+>>>>>>> e7c197abd274cf7a0cbafb55a716805b108d3873
 								</td></tr>
 
 										<tr><td></td><td><%= f.submit "Add Course", class: "btn btn-large btn-primary" %>

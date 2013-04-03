@@ -19,7 +19,7 @@
 						<tr><td><%= f.label :course_id, "Courses" %></td>
 							<td>
 									<% courses_array = Course.all.map { |course| [course.title, course.id] } %>
-							<%= f.select(:course_id,options_for_select(courses_array))%>
+							<%= select_tag(:id,options_for_select(courses_array))%>
 							</td></tr>
 							<tr><td><%= f.label :name, "Title" %></td>
 								<td><%= f.text_field :name,:maxlength => 25 %></td></tr>

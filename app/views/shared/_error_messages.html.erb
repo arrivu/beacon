@@ -4,8 +4,12 @@
 The form contains <%= pluralize(object.errors.count, "error") %>.
 </div>
 <ul>
+	<% if object.errors.full_messages == "Sequence can't be blank" %>
+	<%= "Display order cannot be blank" %>
+	<% else %>
 <% object.errors.full_messages.each do |msg| %>
 <li>* <%= msg %></li>
+<% end %>
 <% end %>
 </ul>
 </div>
