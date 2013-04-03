@@ -23,7 +23,7 @@
         </div>
         <ul id="dropdownlistelse" class="pull-right moveup">
             <li>
-                <a href="#">Sort By&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i></a>
+                <a href="#">Sort By&nbsp;&nbsp;<i style="width:12px;margin-top:4px;float:right;height:15px;background-image:url('assets/arrow_white.png');background-position:-312px -96px;"></i></a>
                 <ul>
                     <li><%= link_to "Date", datewise_courses_path %></li>
                     <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", upcomming_courses_path %></li>
@@ -36,7 +36,7 @@
 
         <ul id="dropdownlistelse" class="pull-right moveup">
             <li>
-                <a href="#">Categories&nbsp;&nbsp;<i class="icon-arrow-down icon-white"></i></a>
+                <a href="#">Categories&nbsp;&nbsp;<i style="width:12px;margin-top:4px;float:right;height:15px;background-image:url('assets/arrow_white.png');background-position:-312px -96px;"></i></a>
                 <ul>
 
                     <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></li>
