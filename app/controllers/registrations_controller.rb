@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     super
      
-    User.insert_user_role(current_user.id,"2")  
+    User.insert_user_role(current_user.id,"2")   if current_user != nil
 
     #call cas sign to create the cas ticket
     begin
