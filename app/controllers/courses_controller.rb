@@ -50,7 +50,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 		@course = Course.find(params[:id])
 		if @course.update_attributes(params[:course])
 			lms_update_course(@course)
-			redirect_to manage_courses_url, notice: "Successfully updated course."		
+			flash[:success] ="Successfully Updated Course."	
+			redirect_to manage_courses_url
 		else
 			render :edit
 		end

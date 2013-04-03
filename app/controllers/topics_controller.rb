@@ -19,7 +19,8 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(params[:topic])
     if @topic.save
-      redirect_to topics_path, notice: "Successfully created topic."
+      flash[:success] = "Successfully Created Category."
+      redirect_to topics_path
     else
       render :new
     end
@@ -32,7 +33,8 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     if @topic.update_attributes(params[:topic])
-      redirect_to @topic, notice: "Successfully updated topic."
+      flash[:success] ="Successfully Updated Category."
+      redirect_to topics_path
     else
       render :edit
     end
@@ -41,6 +43,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy
-    redirect_to topics_url, notice: "Successfully destroyed topic."
+    flash[:success] = "Successfully Destroyed Category."
+    redirect_to topics_url
   end
 end
