@@ -40,7 +40,7 @@
 									<td><%= f.check_box :ispublished ,:checked => true%></td></tr>
 
 
-									<tr><td><%= f.label :topic_id, "Topics" %></td>
+									<tr><td><%= f.label :topic_id, "Category" %></td>
 										<td>
 											<% topics_array = Topic.all.map { |topic| [topic.name, topic.id] } %>
 							<%= f.select(:id,options_for_select(topics_array))%>

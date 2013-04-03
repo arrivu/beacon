@@ -8,7 +8,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 	def create
 		@preview =Preview.new(params[:preview])
 		if @preview.save
-			flash[:success] = "preview added successfully!!!!"
+			flash[:success] = "Preview Added Successfully."
 			redirect_to new_preview_path
 		else
 		
@@ -30,8 +30,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 	def update
 		@preview = Preview.find(params[:id])
 		if @preview.update_attributes(params[:preview])
-
-			redirect_to previews_path, notice: "Successfully updated preview."		
+			flash[:success] = "Successfully Updated Preview."
+			redirect_to previews_path
 		else
 			render :edit
 		end
@@ -42,7 +42,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 
 		@preview.destroy
 
-		flash[:success] = "Successfully destroyed preview."
+		flash[:success] = "Successfully Destroyed Preview."
 		redirect_to previews_path
 	end
 
