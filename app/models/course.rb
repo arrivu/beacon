@@ -73,4 +73,13 @@ class Course < ActiveRecord::Base
     #replace all non-alphanumeric, underscore or periods with underscores
     just_filename.gsub(/[^\w\.\-]/, '_')
   end
+
+    HUMANIZED_ATTRIBUTES = {
+    :short_desc => "Short Description",
+    :desc => "Description"
+  }
+
+  def self.human_attribute_name(attr, options={})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
 end
