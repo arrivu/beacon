@@ -6037,7 +6037,7 @@ a.badge:hover {
 }
 
 .hero-unit {
-  padding: 60px;
+  padding-left: 60px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;

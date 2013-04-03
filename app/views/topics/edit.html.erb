@@ -1,26 +1,25 @@
+<div style="float:left">
+	<%= render 'shared/side_menu' %>
+</div>
+<br>
 <div class="row">
-  <div class="span12 offset3">
-    <ul class="nav nav-pills .pull-left">
-  <li >
-<%= link_to "Users", users_path %>
-</li><li >
-<%= link_to "New Course Library", new_course_path %>
-</li>
-<li>
-<%= link_to "Manage Course Library", manage_courses_path %>
-</li>
-<li class="active"	> <%= link_to "New Category",new_topic_path %> </li>
-<li >
- <%= link_to "Manage Category", topics_path %>
- </li>
-
- <li><%= link_to "New Preview",new_preview_path %></li>
-<li><%= link_to "Manage Preview",previews_path %></li>
- </ul>
+  <div class="span8 offset3">
+    	<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
 <%- model_class = Topic -%>
 
   <h3 align = "center">Edit Category</h3>
 
-<%= render :partial => 'form' %>
+ <%= form_for @topic, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <table class="table table-hover ">
+        <tr>
+          <td><%= f.label :name, :class => 'control-label' %></td>
+
+          <td><%= f.text_field :name, :class => 'text_field',:maxlength => 30 %></td></tr>
+          <tr><td colspan="2" style="text-align:center;" ><%= f.submit "Update Category", :class => 'btn btn-primary'  %></td></tr>
+
+          <% end %>
+        </table>
+</div>
 </div>
 </div>
