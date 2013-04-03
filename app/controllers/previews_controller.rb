@@ -10,7 +10,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 		@preview =@course.previews.build(params[:preview])
 		if @preview.save
 			flash[:success] = "Preview Added Successfully."
-			redirect_to new_preview_path
+			redirect_to previews_path
 		else
 		
 		render 'new'
