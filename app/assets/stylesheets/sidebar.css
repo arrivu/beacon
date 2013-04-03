@@ -1,7 +1,7 @@
 #side_menu
 {
 
-	width:230px;
+	width:180px;
 	border: 1px solid silver;
 	display:block;
 	position: absolute;
@@ -48,7 +48,7 @@
 
 #side_menu  li a.active, #side_menu  li a:hover, #side_menu li a:focus
 {
-	font-size: 16px;
+	/*font-size: 16px;*/
 	background-color:#0088cc ;
 	color:#FFF;
 }

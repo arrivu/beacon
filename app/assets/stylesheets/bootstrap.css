@@ -1996,7 +1996,7 @@ table {
   line-height: 20px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
+  /*border-top: 1px solid #dddddd;*/
 }
 
 .table th {
@@ -2123,7 +2123,7 @@ table {
 
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  background-color: #f5f5f5;
+  /*background-color: #f5f5f5;*/
 }
 
 table td[class*="span"],
@@ -6043,7 +6043,7 @@ a.badge:hover {
   font-weight: 200;
   line-height: 30px;
   color: inherit;
-  background-color: #eeeeee;
+  
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
