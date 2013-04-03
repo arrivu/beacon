@@ -30,7 +30,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 
 
 	def create
-		@course = current_user.courses.build(params[:course])
+		@topic=Topic.find(params[:id])
+		@course = @topic.courses.build(params[:course])
 		@course.user_id = current_user.id
 		if @course.save
 			flash[:success] = "Course added successfully!!!!"
@@ -58,7 +59,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 	def show
 		@course = Course.find(params[:id])
 
-		
+		@courseimg= Course.authorimage(@course.id)
 		@modules=lms_get_modules(@course)
 		#@countCommentsPerPage = 6
 		@comments = @course.comments.paginate(page: params[:page], per_page: 6)
