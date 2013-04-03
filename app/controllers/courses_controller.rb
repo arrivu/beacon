@@ -35,7 +35,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 		if @course.save
 			flash[:success] = "Course added successfully!!!!"
 			lms_create_course(@course)
-			redirect_to courses_path
+			redirect_to manage_courses_path
 		else
 			render 'new'
 		end
