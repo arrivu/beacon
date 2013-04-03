@@ -1,5 +1,5 @@
 class PreviewsController < ApplicationController
-
+before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 	def new
 		@preview = Preview.new	
 		#@course = Course.all

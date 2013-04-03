@@ -27,11 +27,11 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                <% if current_user.image_blob == nil %>
                 <% if current_user.omni_image_url == nil %>
-                <div style="top:-20px; float:left; margin-left:3px; margin-top:3px; margin-right: 3px;">
-                <%= gravatar_for_with_size current_user, "15x15"%>
+                <div style="top:-20px; float:left; margin-left:3px; margin-top:0px; margin-right: 3px;">
+                <%= gravatar_for_with_size current_user, "20x20"%>
                 </div><% else  %>
-                 <div style="top:-20px; float:left; margin-left:3px; margin-top:3px; margin-right: 3px;">
-                <%= image_tag(current_user.omni_image_url,size: "15x15", alt: "")%> 
+                 <div style="top:-20px; float:left; margin-left:3px; margin-top:0px; margin-right: 3px;">
+                <%= image_tag(current_user.omni_image_url,size: "20x20", alt: "")%> 
                 </div>
                 <% end  %>
                 <% else  %>
