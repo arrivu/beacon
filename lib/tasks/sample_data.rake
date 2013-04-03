@@ -89,6 +89,7 @@ users_hash = {
 			]
 		}
 
+
 		users_hash.each do |key, array|
 			User.create!(name: array[0],
 				email: array[1],
@@ -99,7 +100,6 @@ users_hash = {
 				user_desc: array[5])
 		end
 
-		
 		#FAQ block for test data
 		faqs_hash= {
 			1 => ["What are your payment plans and options?", #question

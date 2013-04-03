@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
 			lms_create_course(@course)
 			redirect_to courses_path
 		else
-			redirect_to new_course_path
+			render 'new'
 		end
 	end
 
@@ -112,7 +112,8 @@ class CoursesController < ApplicationController
     end
 
     def manage_courses
-    	@courses = Course.order(:id)
+    	@courses = Course.paginate(page: params[:page], :per_page => 10).order(:id)
+    	@topic = Topic.all
     end
 
     def upcomming_courses

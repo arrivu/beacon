@@ -84,4 +84,5 @@ class User < ActiveRecord::Base
   def self.insert_user_role(user_id,role_id)
   find_by_sql("insert into users_roles(user_id,role_id) values(#{user_id},#{role_id})")  
   end
+
 end

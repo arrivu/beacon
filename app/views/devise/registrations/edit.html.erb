@@ -14,8 +14,15 @@
 				<td><%= f.input :name,:label => false, :autofocus => true %></td></tr>
 				<tr><td><%= f.label :title, "Email" %></td>
 				<td><%= f.input :email,:label => false, :required => true %></td></tr>
-				
+				<% if current_user.image_blob != nil %> 
 <tr><td>  </td><td><%= image_tag url_for(:action => 'user_image', :id => @user.id), :size => "100x100" %></td></tr>
+<% else %>
+ <% if current_user.omni_image_url == nil %>
+<tr><td>  </td><td><%= gravatar_for @user %></td></tr>
+<% else %>
+<tr><td>  </td><td><%= image_tag(current_user.omni_image_url,size: "100x100", alt: "")%></td></tr>
+<% end %>
+<% end %>
 
 
 				<tr><td><%= f.label :title, "Image" %></td>

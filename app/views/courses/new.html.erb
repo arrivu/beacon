@@ -12,24 +12,25 @@
 	<div class="row">
 		<div class="span10 ">
 			<div class = "hero-unit">
+				
+						<h3 align = "center">New Course Library</h3>
+					
+					<%= form_for @course do |f| %>
 				<table class="table table-hover ">
 					<tr>
-						<h3 align = "center">New Course Library</h3>
-					</tr>
-					<%= form_for @course do |f| %>
 					<%= render 'shared/error_messages', object: f.object %>
-
+				</tr>
 					<tr><td><%= f.label :title, "Course Title" %></td>
-						<td><%= f.text_field :title %></td></tr>
+						<td><%= f.text_field :title,:maxlength => 30%></td></tr>
 
 						<tr><td><%= f.label :author, "Author Name" %></td>
-							<td><%= f.text_field :author %></td></tr>
+							<td><%= f.text_field :author,:maxlength => 30 %></td></tr>
 
 						<tr><td><%= f.label :short_desc, "Short Description" %></td>
-							<td><%= f.text_field :short_desc %></td></tr>
+							<td><%= f.text_field :short_desc,:maxlength => 50 %></td></tr>
 
 							<tr><td><%= f.label :desc, "Course Description" %></td>
-								<td><%= f.text_area :desc ,:cols => "30", :rows => "10" %></td></tr>
+								<td><%= f.text_area :desc ,:cols => "30", :rows => "10",:maxlength => 1000 %></td></tr>
 
 								<tr><td><%= f.label 'attachment', "Image" %></td>
 									<td><%= f.file_field 'attachment' %></td></tr>
@@ -42,10 +43,13 @@
 
 
 									<tr><td><%= f.label :topic_id, "Topics" %></td>
-										<td><%= f.select(:topic_id, @topic.collect {|p| [ p.name,p.id ] })%></td></tr>
+										<td>
+											<% topics_array = Topic.all.map { |topic| [topic.name, topic.id] } %>
+							<%= f.select(:id,options_for_select(topics_array))%>
+								</td></tr>
 
-										<tr><td></td><td><%= f.submit "Add Course", class: "btn btn-large btn-primary" %></td></tr>
-									</table>
+										<tr><td></td><td><%= f.submit "Add Course", class: "btn btn-large btn-primary" %>
+									</td></tr></table>
 									<% end %>
 
 								</div>

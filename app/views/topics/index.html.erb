@@ -22,7 +22,7 @@
     <% @topics.each do |topic| %>
       <tr>
         <td><%= link_to topic.name, topic_path(topic) %></td>
-        <td><%=l topic.created_at %></td>
+        <td><%=l topic.created_at, :format=>'%d %b. %Y %I:%M'  %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_topic_path(topic), :class => 'btn btn-mini' %>
@@ -38,3 +38,4 @@
 </table>
 </div>
 </div>
+<div class='apple_pagination' align="center"><%= will_paginate  @topics, :container => false %></div>

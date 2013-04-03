@@ -28,9 +28,11 @@ class RegistrationsController < Devise::RegistrationsController
     #  clean_up_passwords resource
     #  respond_with resource
     #end
+
     super
      
     User.insert_user_role(current_user.id,"2")  
+
     #call cas sign to create the cas ticket
     begin
       tgt = cas_sign_in(current_user) if  cas_enable?
