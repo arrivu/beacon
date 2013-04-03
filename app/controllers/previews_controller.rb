@@ -10,7 +10,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 		@preview =@course.previews.build(params[:preview])
 		if @preview.save
 			flash[:success] = "Preview Added Successfully."
-			redirect_to new_preview_path
+			redirect_to previews_path
 		else
 		
 		render 'new'
@@ -19,7 +19,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 	end
 
 	def index
-		@previews = Preview.paginate(page: params[:page], :per_page => 10).order(:sequence)
+		@previews = Preview.paginate(page: params[:page], :per_page => 10)
 		@course = Course.all
 	end
 
