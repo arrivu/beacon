@@ -5,7 +5,6 @@ class CreateTeachingStaffs < ActiveRecord::Migration
       t.string :description
       t.string :qualification
       t.integer :user_id
-      
       t.timestamps
     end
   end
