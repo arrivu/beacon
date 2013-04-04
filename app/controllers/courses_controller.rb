@@ -58,7 +58,6 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 
 	def show
 		@course = Course.find(params[:id])
-
 		
 		@modules=lms_get_modules(@course)
 		#@countCommentsPerPage = 6
@@ -157,14 +156,24 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
     def subscribed_courses
     	if !current_user.nil?
     		@total_course_count = CourseStatus.where(current_user.id).count 
-    	    @courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
+    	  @courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
     	end
     	@countCoursesPerPage = 6
     	@topics = Topic.order(:name)
     end
 
     def my_courses
-    	student=Student.where(user_id: current_user.id)
+    	student=Student.where(user_id: current_user.id).first
+    	@enrolled_courses=[]
+    	student.course_enroll.each do |course|
+    		@enrolled_courses << Course.where(id: course.id).first
+    	end
+    	@completed_courses=[]
+    	student.course_complete.each do |course|
+    		@completed_courses << Course.where(id: course.id).first
+    	end
+
+    	#Student.wh
     end
   
   

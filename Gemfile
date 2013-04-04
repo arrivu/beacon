@@ -40,7 +40,7 @@ group :development do
 # gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
 # gem 'ruby-debug19'
  gem "debugger"
- gem "mysql2"
+ #gem "mysql2"
 end
 gem 'sqlite3', :group => :development
 gem "quiet_assets", ">= 1.0.1", :group => :development
