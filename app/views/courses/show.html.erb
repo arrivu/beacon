@@ -113,10 +113,11 @@
 </div>
 </div>
 <div class="aboutauthor">
-  <div class="container">
+  <div class="container ">
   <h1>About the Author</h1>
 <% @authors.each do |author|%>
-    <div class="row">
+    <div class="row" style="width:30%; display:inline-block; clear:left; margin:15px">
+
       <div class="authorimage">
         <% if author.image_blob == nil %>
             <% if author.omni_image_url == nil %>
