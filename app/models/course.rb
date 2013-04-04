@@ -70,6 +70,10 @@ class Course < ActiveRecord::Base
     self.student_courses.where(:status => "shortlisted")
   end 
 
+  def staff_image
+    #named_scope :omni_image_url, lambda {|c| {:joins=>([:courses,:teaching_staffs,:users]):conditions=>['baz_cat=',c]}}
+  end
+
   def teacher_course
      self.teaching_staff_courses.where(:teaching_staff_type => "teacher")
   end
