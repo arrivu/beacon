@@ -1,6 +1,9 @@
-class Student  < ActiveRecord::Base
- #acts_as_heir_of :user
+
+
+class Student < ActiveRecord::Base
   attr_accessible :contact_no, :description, :name,:user_id
+
+
   scope :enroll_courses, joins(:student_courses).where('student_courses.status = ?', "enroll") 
   scope :completed_courses, joins(:student_courses).where('student_courses.status = ?', "completed") 
   scope :shortlisted_courses, joins(:student_courses).where('student_courses.status = ?', "shortlisted") 
@@ -8,6 +11,7 @@ class Student  < ActiveRecord::Base
   scope :course_complete
   scope :course_shortlist
   has_many :student_courses
+
   has_many :courses, :through => :student_courses
   belongs_to :user
 
@@ -20,5 +24,7 @@ class Student  < ActiveRecord::Base
    def course_shortlist
   	self.student_courses.where(:status => "shortlisted")
   end 
+
+  has_many :courses, :through => :student_courses 
 end
 

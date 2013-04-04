@@ -1,29 +1,16 @@
+<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+
+<br>
 
 <div class="row">
 	<div class="span12 offset3">
-		<ul class="nav nav-pills .pull-left">
-			<li >
-				<%= link_to "Users", users_path %>
-			</li><li class="active">
-			<%= link_to "New Course Library", new_course_path %>
-		</li>
-		<li>
-			<%= link_to "Manage Course Library", manage_courses_path %>
-		</li>
-<li >
-		<%= link_to "New Category",new_topic_path %></li>
-		
-		<li>
-			<%= link_to "Manage Category", topics_path %>
-		</li>
-		<li><%= link_to "New preview",new_preview_path %></li>
-		<li><%= link_to "Manage preview",previews_path %></li>
-	</ul>
 <% provide(:title, 'Create Course') %>
 <br>
 <div class="row">
 	<div class="span10">
-		<div class = "hero-unit">
+		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
 			<table class="table table-hover ">
 				<tr>
 					<h3 align = "center">Edit Course Library</h3>
@@ -31,7 +18,7 @@
 
 				<%= form_for(@course) do |f| %>
 				<%= render 'shared/error_messages', object: f.object %>
-				<tr><td><%= f.label :title, "Course Title" %></td>
+				<tr><td><%= f.label :title, "Title" %></td>
 					<td><%= f.text_field :title %></td></tr>
 
 					<tr><td><%= f.label :author, "Author Name" %></td>

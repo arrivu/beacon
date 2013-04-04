@@ -8,7 +8,11 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
-
+body:after
+{
+  content: url(beaconslogop.png);
+  display:none;
+}
 article,
 aside,
 details,
@@ -1992,7 +1996,7 @@ table {
   line-height: 20px;
   text-align: left;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
+  /*border-top: 1px solid #dddddd;*/
 }
 
 .table th {
@@ -2119,7 +2123,7 @@ table {
 
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  background-color: #f5f5f5;
+  /*background-color: #f5f5f5;*/
 }
 
 table td[class*="span"],
@@ -3910,6 +3914,7 @@ input[type="submit"].btn.btn-mini {
 
 .nav > li > a {
   display: block;
+  font-size: 14px;
 }
 
 .nav > li > a:hover {
@@ -4653,10 +4658,12 @@ input[type="submit"].btn.btn-mini {
   padding-top:10px;
   margin-top: 15px;
   margin-left: 100px;
+
   
 }
 
 .navbar .logo a:hover {
+
 background: url(beaconslogop.png)  no-repeat;
 }
 .navbar .nav > li > .dropdown-menu:after {
@@ -5188,7 +5195,7 @@ background: url(beaconslogop.png)  no-repeat;
   position: relative;
   max-height: 400px;
   padding: 20px;
-  
+  margin-top:10px;
   margin-left: 60px;
   margin-bottom: 35px;
 
@@ -5575,7 +5582,14 @@ a.thumbnail:hover {
   vertical-align: baseline;
   background-color: #999999;
 }
-
+.badge1
+{
+  color:#ffffff;
+}
+.badge1:hover
+{
+  color:#2980B9;
+}
 .label {
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -5597,7 +5611,7 @@ a.thumbnail:hover {
 
 a.label:hover,
 a.badge:hover {
-  color: #ffffff;
+  color:red;
   text-decoration: none;
   cursor: pointer;
 }
@@ -6023,13 +6037,13 @@ a.badge:hover {
 }
 
 .hero-unit {
-  padding: 60px;
+  padding-left: 60px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
   color: inherit;
-  background-color: #eeeeee;
+  
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;

@@ -69,3 +69,4 @@ gem 'annotate', '2.4.1.beta1'
 gem 'couponsgem',:git => 'git://github.com/m-narayan/couponsgem'
 gem 'invoicing',:git => 'git://github.com/m-narayan/invoicing'
 
+gem 'client_side_validations',:git => 'https://github.com/bcardarella/client_side_validations.git'

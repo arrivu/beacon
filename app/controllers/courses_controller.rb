@@ -2,10 +2,10 @@ class CoursesController < ApplicationController
 
 	include LmsHelper
 	
-	before_filter :current_user, only: [:create, :edit,:update,:delete]
+	#before_filter :current_user, only: [:create, :edit,:update,:delete]
 	ActiveMerchant::Billing::Integrations
-
-
+#before_filter :initialize, :only => [:create, :edit,:update,:delete]
+before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_courses]
 	def show_image
 		@course = Course.find(params[:id])
 		send_data @course.data, :type => @course.content_type, :disposition => 'inline'
@@ -35,9 +35,9 @@ class CoursesController < ApplicationController
 		if @course.save
 			flash[:success] = "Course added successfully!!!!"
 			lms_create_course(@course)
-			redirect_to courses_path
+			redirect_to manage_courses_path
 		else
-			redirect_to new_course_path
+			render 'new'
 		end
 	end
 
@@ -49,7 +49,8 @@ class CoursesController < ApplicationController
 		@course = Course.find(params[:id])
 		if @course.update_attributes(params[:course])
 			lms_update_course(@course)
-			redirect_to manage_courses_url, notice: "Successfully updated course."		
+			flash[:success] ="Successfully Updated Course."	
+			redirect_to manage_courses_url
 		else
 			render :edit
 		end
@@ -128,7 +129,8 @@ class CoursesController < ApplicationController
     end
 
     def manage_courses
-    	@courses = Course.order(:id)
+    	@courses = Course.paginate(page: params[:page], :per_page => 10).order(:id)
+    	@topic = Topic.all
     end
 
     def upcomming_courses
@@ -162,6 +164,7 @@ class CoursesController < ApplicationController
     end
 
     def my_courses
-    	
     end
+  
+  
 end

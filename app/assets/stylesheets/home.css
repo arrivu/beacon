@@ -23,7 +23,7 @@
 	/*color: #ECF0F1 ;*/
 	color: #333;
 	z-index: 0;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 .bannersubtitle{
@@ -82,7 +82,7 @@
 }
 
 .btn{
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 
@@ -321,13 +321,19 @@ width: 520px;
 }
 
 .customerimage{
-	padding: 10px;
-	margin: 0px;
+margin: 0px;
+width: 95px;
+height: 105px;
+border-radius: 55px;
+border: none;
+box-shadow: 5px 5px 5px;
 }
 
 .customerimage img{
-	width:150px;
-	height: 75px;
+	width: 95px;
+height: 105px;
+border-radius: 55px;
+border: none;
 }
 
 .testimonialtext{

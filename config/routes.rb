@@ -43,7 +43,9 @@ Myapp::Application.routes.draw do
   match '/show_image', :to => 'topics#show_image' 
   match '/show_image', :to => 'screens#show_image' 
 
+
   devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
+
   devise_scope :user do
     match '/user_image', :to => 'registrations#user_image' 
   end

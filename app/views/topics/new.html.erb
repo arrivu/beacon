@@ -1,28 +1,26 @@
+<div style="float:left">
+	<%= render 'shared/side_menu' %>
+</div>
 <br>
 <div class="row">
-  <div class="span12 offset3">
-    <ul class="nav nav-pills .pull-left">
-  <li >
-<%= link_to "Users", users_path %>
-</li><li >
-<%= link_to "New Course Library", new_course_path %>
-</li>
-<li>
-<%= link_to "Manage Course Library", manage_courses_path %>
-</li>
-<li class="active"	> <%= link_to "New Category",new_topic_path %> </li>
-<li >
- <%= link_to "Manage Category", topics_path %>
- </li>
+	<div class="span8 offset3" style="min-height:250px;">
+		
+				<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+			<h3 align = "center">New Category</h3>
 
- <li><%= link_to "New Preview",new_preview_path %></li>
-<li><%= link_to "Manage Preview",previews_path %></li>
- </ul>
- 
-						<h3 align = "center">New Category</h3>
-					
-<%- model_class = Topic -%>
+			<%- model_class = Topic -%>
 
-<%= render :partial => 'form' %>
-</div>
-</div>
+			 <%= form_for @topic, :html => { :class => 'form-horizontal' } do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <table class="table table-hover ">
+        <tr>
+          <td><%= f.label :name, :class => 'control-label' %></td>
+
+          <td><%= f.text_field :name, :class => 'text_field',:maxlength => 30 %></td></tr>
+          <tr><td colspan="2" style="text-align:center;" ><%= f.submit "Create Category", :class => 'btn btn-primary'  %></td></tr>
+
+          <% end %>
+        </table>
+	
+		</div>
+	</div></div>

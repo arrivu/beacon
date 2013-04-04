@@ -56,6 +56,7 @@ class Course < ActiveRecord::Base
   #before_save { |course| course.category = category.downcase }
 
   validates :desc, presence: true, length: { maximum: 1000 }
+  validates  :short_desc, presence: true, length:{maximum: 100}
 
   default_scope order: 'courses.created_at DESC'
 
@@ -97,5 +98,14 @@ class Course < ActiveRecord::Base
     just_filename = File.basename(filename)
     #replace all non-alphanumeric, underscore or periods with underscores
     just_filename.gsub(/[^\w\.\-]/, '_')
+  end
+
+    HUMANIZED_ATTRIBUTES = {
+    :short_desc => "Short Description",
+    :desc => "Description"
+  }
+
+  def self.human_attribute_name(attr, options={})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
   end
 end

@@ -7,10 +7,10 @@
             <div class="bannertext">
               <h3>Learning is fun</h3>
             </div>
-            <div class="bannersubtitle">
+<!--             <div class="bannersubtitle">
               No Set up , No hassle, Just learning and only learning with fun
             </div>  
-        </div>
+ -->        </div>
         <div class="clearfix"></div>
         <div class="span5" align="center">
             <div class="bannervideo">
@@ -19,7 +19,7 @@
         </div>
         <div class="span7" align="justify">
             <div class="bannerinfo">
-              <p>Beacon Online teaches managemnet subjects in the comfort of your browser with video lessons, quizzes and screnshots.</p>
+              <p>Beacon Online teaches management subjects in the comfort of your browser with video lessons, quizzes and screnshots.</p>
               
               <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span></a> -->
             </div>
@@ -59,10 +59,10 @@
                       <div class="course-progress" data-width="0%" style="width: 0%;"></div>
                        <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
                       <div class="course-content">
-                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%= course.topic.name if !course.topic.nil?%></em>
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b> <%= course.topic.name if !course.topic.nil?%> </b> </em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 18)%></h3>
-                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p>
+                      <%=link_to(course) do %><h3 class="course-name"><%=course.title%></h3>
+                      <p class="course-desc"><%=course.short_desc  %></p>
                        <%end%>
                     </div>
                       </div>
@@ -89,11 +89,12 @@
         <!-- <h2 class="ribbon">
           <span class="title">Our Customers</span>
         </h2> -->
-        <h2>Our Customers</h2>
+        <h2>Learners Speak</h2>
+        <hr style="margin:5px 0px;">
         <div class="span4">
           <div class="verticalcustomerbox testimonial-one" align="center">
             <div class="customerimage">
-              <img src="assets/manlogo.jpg" class="img-polaroid"/>
+              <img src="assets/learner.jpg" />
             </div>
             <div class="testimonialtext">
               "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
@@ -106,7 +107,7 @@
         <div class="span4">
           <div class="verticalcustomerbox testimonial-two">
             <div class="customerimage">
-              <img src="assets/greatlakeslogo.jpg" class="img-polaroid"/>
+              <img src="assets/learner.jpg" />
             </div>
             <div class="testimonialtext">
               “Beacon has a library of lessons that goes far beyond the surface, touching on nearly every aspect of Finance Marketing.”
@@ -119,7 +120,7 @@
         <div class="span4">
           <div class="verticalcustomerbox testimonial-three">
             <div class="customerimage">
-              <img src="assets/greatlakeslogoimr.jpg" class="img-polaroid"/>
+              <img src="assets/learner.jpg" />
             </div>
             <div class="testimonialtext">
               "Beacon offers tremendous coverage on a wide range of topics and they do a great job of providing education and support.”

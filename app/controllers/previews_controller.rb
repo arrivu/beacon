@@ -1,24 +1,25 @@
 class PreviewsController < ApplicationController
-
+before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 	def new
 		@preview = Preview.new	
-		@course = Course.all
+		#@course = Course.all
 	end
 
 	def create
-		@preview =Preview.new(params[:preview])
+		@course=Course.find(params[:id])
+		@preview =@course.previews.build(params[:preview])
 		if @preview.save
-			flash[:success] = "preview added successfully!!!!"
-			redirect_to new_preview_path
+			flash[:success] = "Preview Added Successfully."
+			redirect_to previews_path
 		else
-		flash[:error] = "Error while adding preview"
-			
-		redirect_to new_preview_path
+		
+		render 'new'
+
 		end
 	end
 
 	def index
-		@previews = Preview.order(:sequence)
+		@previews = Preview.paginate(page: params[:page], :per_page => 10)
 		@course = Course.all
 	end
 
@@ -30,8 +31,8 @@ class PreviewsController < ApplicationController
 	def update
 		@preview = Preview.find(params[:id])
 		if @preview.update_attributes(params[:preview])
-
-			redirect_to previews_path, notice: "Successfully updated preview."		
+			flash[:success] = "Successfully Updated Preview."
+			redirect_to previews_path
 		else
 			render :edit
 		end
@@ -42,7 +43,7 @@ class PreviewsController < ApplicationController
 
 		@preview.destroy
 
-		flash[:success] = "Successfully destroyed preview."
+		flash[:success] = "Successfully Destroyed Preview."
 		redirect_to previews_path
 	end
 
