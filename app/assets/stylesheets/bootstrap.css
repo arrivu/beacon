@@ -1953,7 +1953,7 @@ legend + .control-group {
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  margin-left: 180px;
+  
   *margin-left: 0;
 }
 
@@ -5195,7 +5195,7 @@ background: url(beaconslogop.png)  no-repeat;
   position: relative;
   max-height: 400px;
   padding: 20px;
-  
+  margin-top:10px;
   margin-left: 60px;
   margin-bottom: 35px;
 

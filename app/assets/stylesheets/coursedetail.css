@@ -87,6 +87,8 @@
 	background: #3498DB ;
 }
 
+
+
 .shortlist{
 	float: left;
 	margin-top: 10px;
@@ -110,9 +112,32 @@
 	-o-border-radius: 4px;
 	border-radius: 4px;*/
 }
-
-.shortlist:hover{
-	background: #1ABC9C ;
+.placeholder{
+	float: right;
+	margin-top: 10px;
+	font-weight: bold;
+	background: -moz-linear-gradient(center top , #FAA51A, #F47A20) repeat scroll 0 0 transparent;
+    border: 1px solid #DA7C0C;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border-radius: 4px 4px 4px 4px;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	padding: 2px 15px 3px;
+	/*-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;*/
+}
+.placeholder:hover{
+	background: #F58112 ;
 }
 
 .coursesession{

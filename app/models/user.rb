@@ -17,9 +17,10 @@
 #
 
 class User < ActiveRecord::Base
+  
   include CasHelper
   include LmsHelper
-
+  
 
   rolify
   # Include default devise modules. Others available are:
@@ -29,9 +30,9 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :role_ids
+  attr_accessible :role_ids, :as => :admin
 
-  attr_accessible :attachment,:content_type,:image_blob,:lms_id,:name, :email, :password, :password_confirmation, :remember_me, :omni_image_url, :phone,:user_type,:sub_plan,:user_desc, :provider
+  attr_accessible :attachment,:content_type,:image_blob,:lms_id,:name, :email, :password, :password_confirmation, :remember_me, :omni_image_url, :phone,:user_type,:sub_plan,:user_desc, :provider,:subtype
 
   has_many :courses, dependent: :destroy
   has_many :o_classes, :class_name => "O_Classe"
@@ -40,7 +41,8 @@ class User < ActiveRecord::Base
   has_many :authentication, :dependent => :delete_all
 
   has_many :comments
-
+  has_one :student
+  has_one :teaching_staff
   # has_one :teaching_staffs, dependent: :destroy
   # has_one :students, dependent: :destroy
 

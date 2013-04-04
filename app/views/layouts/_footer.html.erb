@@ -6,7 +6,7 @@
 
 
 <div class="footer">
-<div class="container">
+  <div class="container">
 
     <div class="row">
       <div class="four columns mission">
@@ -14,16 +14,35 @@
         <p>Our mission is to provide the high quality professional tertiary education including undergraduate, post graduate, executive and continuing education.
         </p>
         <ul class="social">
-            <li>
-<span class='st_twitter_large' displayText='Tweet'></span>            </li>
-           
-            <li>
-              <span class='st_facebook_large' displayText='Facebook'></span><li>
-            <li>
-<span class='st_googleplus_large' displayText='Google +'></span>            </li>
-            <li>
-<span class='st_linkedin_large' displayText='LinkedIn'></span>            </li>
+          <li>
+            <a href="https://twitter.com/BeaconeLearning" target="_blank" title="Twitter">
+              <%= image_tag "/assets/twitter.png" %>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://www.youtube.com/beaconelearning" target="_blank"  title="Youtube">
+              <%= image_tag "/assets/youtube.png" %>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/beaconlearningindia" target="_blank"  title="Facebook">
+              <%= image_tag "/assets/facebook.png" %>
+            </a>
+          </li>
+          <li>
+            <a href="https://plus.google.com/107673193130571288433/about?partnerid=gplp0"  target="_blank" title="Google Plus">
+              <%= image_tag "/assets/googleplus.png" %>
+            </a>
+          </li>
+          <li>
+            <a href="http://www.linkedin.com/groups/Beacon-Learning-4939238"  target="_blank" title="LinkedIn">
+              <%= image_tag "/assets/linkedin.png" %>
+            </a>
+          </li>
+
         </ul>
+
         <p class="copyright">
           © 2013 Beacon Learning.
         </p>
@@ -41,10 +60,10 @@
         <ul class="link-list library-nav right">
           <li class="heading">Browse full library →</li>
           <% @topics = Topic.all  %>
-           <% @topics.each do |topic|%>  
-                       <% @topicStructure = topic.name %>
-                     <li><%= link_to @topicStructure, topic %></li>
-                    <%end%>    
+          <% @topics.each do |topic|%>  
+          <% @topicStructure = topic.name %>
+          <li><%= link_to @topicStructure, topic %></li>
+          <%end%>    
         </ul>
       </div>
       <div class="two columns end">
@@ -57,5 +76,5 @@
         </ul>
       </div>
     </div>
-</div>
+  </div>
 </div>

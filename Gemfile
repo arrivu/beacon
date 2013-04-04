@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'jquery-rails'
@@ -14,7 +14,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 gem 'activemerchant'
 gem 'active_merchant_ccavenue'
-
+#gem 'multiple_table_inheritance', '~> 0.2.1'
+#gem 'heritage'
 gem 'omniauth-google-oauth2'
 
 gem 'oauth2'
@@ -39,10 +40,9 @@ group :development do
 # gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
 # gem 'ruby-debug19'
  gem "debugger"
-
+ gem "mysql2"
 end
 gem 'sqlite3', :group => :development
-# gem "mysql2", :group => :development
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]

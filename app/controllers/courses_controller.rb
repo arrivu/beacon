@@ -92,11 +92,25 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
  			@course = Course.find(params[:id]) 
  		end
 
+ 	  def course_payment_gateway
+ 		
+ 			@course = Course.find(params[:id]) 
+ 		end
+
 
  		def confirm_course_payment
- 			@course = Course.find(params[:id].to_i)
- 			@user = current_user
- 			UserMailer.course_payment(@user,@course.title).deliver
+ 			@course = Course.find(7)
+ 			@user =User.first
+ 			#UserMailer.course_payment(@user,@course,params[:price]).deliver
+ 			# @course = Course.find(params[:id].to_i)
+ 			# if current_user.present?
+				
+				# @user = current_user
+				# UserMailer.course_payment(@user,@course.title,params[:price]).deliver
+ 		 #    else
+ 		 #    	flash[:notice] = "You need to sign in or sign up before continuing."
+ 		 #    	redirect_to @course
+    #         end
   		# @notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)
     #  if @notification.payment_id.present?
     #   @order = Course.find_by_order_id(@notification.payment_id)
@@ -108,6 +122,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
     end
 
     def index_pdf
+    	@course = Course.find(params[:id].to_i)
+ 	    @user = User.first
     	render :pdf => "my_pdf",:layout => false,:template => '/courses/index_pdf',:footer => {:center =>"Center", :left => "Left", :right => "Right"}
 
     end
@@ -148,6 +164,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
     end
 
     def my_courses
+    	student=Student.where(user_id: current_user.id)
     end
   
   
