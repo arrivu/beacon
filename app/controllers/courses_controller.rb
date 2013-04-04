@@ -58,7 +58,11 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 
 	def show
 		@course = Course.find(params[:id])
-		
+		@authors=[]
+  	@course.teaching_staffs.each do |teaching_staff|
+  		@authors << User.where(id: teaching_staff.user_id).first
+  	end
+
 		@modules=lms_get_modules(@course)
 		#@countCommentsPerPage = 6
 		@comments = @course.comments.paginate(page: params[:page], per_page: 6)
@@ -172,8 +176,6 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
     	student.course_complete.each do |course|
     		@completed_courses << Course.where(id: course.id).first
     	end
-
-    	#Student.wh
     end
   
   
