@@ -148,6 +148,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
     end
 
     def my_courses
+    	student=Student.where(user_id: current_user.id)
     end
   
   
