@@ -53,7 +53,7 @@ class Course < ActiveRecord::Base
   validates :desc, presence: true, length: { maximum: 1000 }
   validates  :short_desc, presence: true, length:{maximum: 100}
 
-  default_scope order: 'courses.created_at DESC'
+  default_scope order: 'courses.created_at ASC'
 
 
   def attachment=(incoming_file)
