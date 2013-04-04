@@ -141,8 +141,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 
     def subscribed_courses
     	if !current_user.nil?
-    		@total_course_count = CourseStatus.where(current_user.id).count 
-    	    @courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
+    		#@total_course_count = CourseStatus.where(current_user.id).count 
+    	    #@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
     	end
     	@countCoursesPerPage = 6
     	@topics = Topic.order(:name)
