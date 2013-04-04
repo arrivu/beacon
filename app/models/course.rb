@@ -26,12 +26,17 @@ class Course < ActiveRecord::Base
   scope :enrolled_students, joins(:student_courses).where('student_courses.status = ?', "enroll") 
   scope :completed_students, joins(:student_courses).where('student_courses.status = ?', "completed") 
   scope :shortlisted_students, joins(:student_courses).where('student_courses.status = ?', "shortlisted") 
+  scope :student_enroll
+  scope :student_complete
+  scope :student_shortlist
+  scope :teacher_course
+  scope :teacher_assistant_course
   belongs_to :topic
-  has_many :student_courses
+  has_many :student_courses, :dependent =>:destroy
   has_many :students, :through => :student_courses
-  has_many :teaching_staff_courses 
+  has_many :teaching_staff_courses, :dependent =>:destroy
   has_many :teaching_staffs, :through => :teaching_staff_courses 
-  has_many :course_coupons
+  has_many :course_coupons, :dependent =>:destroy
   has_many :coupons, :through => :course_coupons 
   has_one  :rating_cache
   belongs_to :user
@@ -45,7 +50,7 @@ class Course < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 100 }
 
   has_one :course_status
-  has_many :course_payments
+  #has_many :course_payments
   has_many :previews
 
   #before_save { |course| course.category = category.downcase }
@@ -54,6 +59,23 @@ class Course < ActiveRecord::Base
 
   default_scope order: 'courses.created_at DESC'
 
+  def student_enroll
+    self.student_courses.where(:status => "enroll")
+  end
+  def student_complete
+    self.student_courses.where(:status => "completed")
+  end 
+   def student_shortlist
+    self.student_courses.where(:status => "shortlisted")
+  end 
+
+  def teacher_course
+     self.teaching_staff_courses.where(:teaching_staff_type => "teacher")
+  end
+
+  def teacher_assistant_course
+     self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
+  end
 
   def attachment=(incoming_file)
     self.image = incoming_file.original_filename
@@ -63,6 +85,10 @@ class Course < ActiveRecord::Base
 
   def image=(new_filename)
     write_attribute("image", sanitize_filename(new_filename))
+  end
+
+  def course_price_inbetween_date
+     self.course_pricings.find(:all, :conditions => "#{Date.today} >= start_date or #{Date.today} <= end_date")
   end
 
   private

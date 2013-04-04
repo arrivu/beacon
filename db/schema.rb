@@ -62,30 +62,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "coupons", :force => true do |t|
-    t.float    "discount_rate"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "course_coupons", :force => true do |t|
-    t.integer  "coupon_id"
-    t.integer  "course_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "course_payments", :force => true do |t|
-    t.integer  "course_id"
-    t.float    "price"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "course_pricings", :force => true do |t|
     t.integer  "course_id"
     t.float    "price"
@@ -292,6 +268,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "attachment"
     t.string   "content_type"
     t.binary   "image_blob"
+    t.string   "subtype"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

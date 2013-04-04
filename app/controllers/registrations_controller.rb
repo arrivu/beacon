@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
 
 
     super
-
+    Student.create(:user_id=>current_user.id)
     #call cas sign to create the cas ticket
     begin
       tgt = cas_sign_in(current_user) if  cas_enable?

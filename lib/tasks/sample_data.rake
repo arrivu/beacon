@@ -1,4 +1,4 @@
-namespace :db do
+ namespace :db do
 # 	desc "Fill database with sample data"
 task populate: :environment do
 # # t.string :title
@@ -7,8 +7,6 @@ task populate: :environment do
 # #       t.string :category
 # #       t.string :image
 # #       t.string :desc
-
-
 users_hash = {
 			1 => [Faker::Name.name, #Name
 				Faker::Internet.free_email, #email
@@ -98,6 +96,27 @@ users_hash = {
 				sub_plan: array[4],
 				user_desc: array[5])
 		end
+
+(1..10).each do |i|
+	student = Student.new(
+		:name => Faker::Name.name,
+		:description => "fake description#{i}",
+		:contact_no => "123456789#{i}",
+		:user_id => "#{i}" 
+	)
+	student.save!
+end
+
+(1..10).each do |i|
+	teaching_staff = TeachingStaff.new(
+		:name => Faker::Name.name,
+		:description => "fake description#{i}",
+		:qualification => "MCA#{i}",
+		:user_id => "#{i}" 
+	)
+	teaching_staff.save!
+end
+
 
 
 		#FAQ block for test data
@@ -294,7 +313,7 @@ users_hash = {
 			 	],
 			 4 => ["Less is More", #Title
 			 	Faker::Name.name, #Author
-			 	1, #user_id
+			 	4, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[1,3], #Category
@@ -306,7 +325,7 @@ users_hash = {
 			 5 => ["Riding Ruby on Rails", #Title
 			 	Faker::Name.name, #Author
 			 	5, #user_id
-			 	0, #ispublished
+			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[1,3], #Category
 			 	"RidingRuby100x100.png", #image
@@ -316,7 +335,7 @@ users_hash = {
 			 	],
 			 6 => ["Build Web Apps in Node", #Title
 			 	Faker::Name.name, #Author
-			 	1, #user_id
+			 	6, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[2], #Category
@@ -391,9 +410,48 @@ users_hash = {
 				end
 			end
 
+@student_user =Student.all
+@courses = Course.all
+student_courses_hash = {
+	1=>[@student_user[0].id, @courses[0].id,"enroll"],
+    2=>[@student_user[1].id,@courses[1].id, "enroll"],
+    3=>[@student_user[2].id, @courses[2].id,"enroll"],
+    4=>[ @student_user[3].id, @courses[3].id, "completed"],
+    5=>[@student_user[4].id, @courses[4].id, "completed"],
+    6=>[ @student_user[5].id, @courses[5].id,"completed"],
+    7=>[ @student_user[6].id, @courses[6].id, "shortlisted"],
+    8=>[ @student_user[7].id, @courses[7].id, "shortlisted"],
+    9=>[ @student_user[8].id, @courses[8].id, "shortlisted"],
+  }
+count=0
+student_courses_hash.each do |key, array|
+	StudentCourse.create!(student_id: array[0],
+				course_id: array[1],
+				status: array[2])
+				count=count+1	
+			end
+  
 
-
-
+@teacher_user = TeachingStaff.all
+teaching_staff_courses_hash = {
+	1=>[ @teacher_user[0].id, @courses[0].id, "teacher"],
+	2=>[ @teacher_user[1].id, @courses[1].id, "teacher"],
+	3=>[ @teacher_user[2].id, @courses[2].id, "teacher"],
+	4=>[ @teacher_user[3].id, @courses[3].id, "teacher"],
+	5=>[ @teacher_user[4].id, @courses[4].id, "teacher"],
+	6=>[ @teacher_user[5].id, @courses[5].id, "teacher"],
+    7=>[ @teacher_user[6].id, @courses[6].id, "teacher_assitant"],
+    8=>[ @teacher_user[7].id, @courses[7].id, "teacher_assitant"],
+    9=>[ @teacher_user[8].id, @courses[8].id, "teacher_assitant"],
+    10=>[ @teacher_user[9].id, @courses[9].id, "teacher_assitant"]
+   }
+count=0
+teaching_staff_courses_hash.each do |key, array|
+	TeachingStaffCourse.create!(teaching_staff_id: array[0],
+				course_id: array[1],
+				teaching_staff_type: array[2])	
+	           count=count+1
+			end
 		#Tutorials test data
 		# tutorials_hash = {
 		# 	1 => ["Connected to the Backbone", #Title
