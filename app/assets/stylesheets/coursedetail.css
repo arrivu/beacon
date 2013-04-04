@@ -249,9 +249,10 @@
 
 .aboutauthor{
 	min-height: 100px;
-	background-color: #2C3E50 ;
+	/*background-color: #2C3E50 ;*/
+	background-color: #f2e1ac;
 	margin-top: 20px;
-	color: #fff;
+	color: #2a488e;
 	padding:20px;
 }
 
