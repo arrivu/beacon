@@ -62,6 +62,35 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "coupons", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.text     "metadata"
+    t.string   "alpha_code"
+    t.string   "alpha_mask"
+    t.string   "digit_code"
+    t.string   "digit_mask"
+    t.string   "category_one"
+    t.float    "amount_one",        :default => 0.0
+    t.float    "percentage_one",    :default => 0.0
+    t.string   "category_two"
+    t.float    "amount_two",        :default => 0.0
+    t.float    "percentage_two",    :default => 0.0
+    t.date     "expiration"
+    t.integer  "how_many",          :default => 1
+    t.integer  "redemptions_count", :default => 0
+    t.integer  "integer",           :default => 0
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "course_check_box",  :default => true
+    t.string   "coupon_obj"
+    t.integer  "coupon_obj_id"
+    t.string   "coupon_obj_email"
+  end
+
+  add_index "coupons", ["alpha_code"], :name => "index_coupons_on_alpha_code"
+  add_index "coupons", ["digit_code"], :name => "index_coupons_on_digit_code"
+
   create_table "course_pricings", :force => true do |t|
     t.integer  "course_id"
     t.float    "price"
@@ -170,6 +199,15 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], :name => "index_rating_caches_on_cacheable_id_and_cacheable_type"
+
+  create_table "redemptions", :force => true do |t|
+    t.integer  "coupon_id"
+    t.string   "user_id"
+    t.string   "transaction_id"
+    t.text     "metadata"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "relationships", :force => true do |t|
     t.integer  "course_id"
