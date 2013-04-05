@@ -112,21 +112,32 @@
 </div>
 </div>
 </div>
-
 <div class="aboutauthor">
-  <div class="container">
-    <div class="row">
-      <h1>About the Author</h1>
+  <div class="container ">
+  <h1>About the Author</h1>
+<% @authors.each do |author|%>
+    <div class="row" style="width:30%; display:inline-block; clear:left; margin:15px">
+
       <div class="authorimage">
-        <img src="http://placehold.it/200x200/16A085/000&text=Author" class="img-circle"/>
+        <% if author.image_blob == nil %>
+            <% if author.omni_image_url == nil %>
+            <%= gravatar_for_with_size author, "100x100" %>
+            <% else  %>
+            <%= image_tag(author.omni_image_url,size: "100x100", alt: "")%> 
+            <% end  %>
+          <% else  %>
+            <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100" %>
+          <% end  %>
       </div>
       <div class="authorinfo">
-        <h4><%=@course.author%></h4>
-        <p><%=@course.user.user_desc%></p>
-       
+
+        <h4><%= author.name %></h4>
+        <p><%= author.user_desc %></p>
+
       </div>
       <div class="container clearfix"></div>
     </div>
+ <% end %>
   </div>
 </div>
 

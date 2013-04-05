@@ -1,5 +1,3 @@
-
-
 class Student < ActiveRecord::Base
   attr_accessible :contact_no, :description, :name,:user_id
 
