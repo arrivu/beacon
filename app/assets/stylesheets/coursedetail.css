@@ -275,21 +275,20 @@
 .aboutauthor{
 	min-height: 100px;
 	background-color: #2C3E50 ;
-	margin-top: 20px;
+	margin-top: 10px;
 	color: #fff;
 	padding:20px;
 }
 
 .aboutauthor .authorimage{
-	position: relative;
-	float: left;
+
 }
 
 .aboutauthor .authorinfo{
 	position: relative;
 	float: left;
-	top:50px;
-	margin-left: 20px;
+	top:2px;
+	margin-left:0px;
 }
 
 .coursereviews{

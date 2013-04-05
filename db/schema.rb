@@ -306,7 +306,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "attachment"
     t.string   "content_type"
     t.binary   "image_blob"
-    t.string   "subtype"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
