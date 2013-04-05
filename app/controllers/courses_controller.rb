@@ -93,7 +93,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
  		end
 
  	  def course_payment_gateway
- 		
+ 		debugger
  			@course = Course.find(params[:id]) 
  		end
 

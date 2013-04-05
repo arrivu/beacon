@@ -60,13 +60,13 @@ class Course < ActiveRecord::Base
 
   default_scope order: 'courses.created_at DESC'
 
-  def student_enroll
+  def student_enrolled
     self.student_courses.where(:status => "enroll")
   end
-  def student_complete
+  def student_completed
     self.student_courses.where(:status => "completed")
   end 
-   def student_shortlist
+   def student_shortlisted
     self.student_courses.where(:status => "shortlisted")
   end 
 

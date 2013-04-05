@@ -1,7 +1,13 @@
 Myapp::Application.routes.draw do
   match '/rate' => 'rater#create', :as => 'rate'
 
-
+  resources :coupons do
+    collection do
+      get 'test'
+      get 'apply'
+      get 'redeem'
+    end
+  end
   resources :contacts
 
   resources :faqs
@@ -55,5 +61,7 @@ Myapp::Application.routes.draw do
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
 
   match '/my_courses', :to => 'courses#my_courses'  
+
+
 end
 
