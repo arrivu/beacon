@@ -16,12 +16,7 @@ class ApplicationController < ActionController::Base
    #    new_comment_path(:commentable=>params[:course_id],:commentable_type=>"course")
    #  end    
   #end
-<<<<<<< HEAD
 
-def after_sign_in_path_for(resource_or_scope)
-    my_courses_path
-  end
-=======
 def after_sign_in_path_for(resource_or_scope)
   if current_user.has_role? :admin
     users_path
@@ -31,5 +26,5 @@ def after_sign_in_path_for(resource_or_scope)
     
   end
 
->>>>>>> f921fb89e118b0e2b9c6e4dd840757c547f782d2
+
 end
