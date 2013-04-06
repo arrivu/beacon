@@ -1,9 +1,6 @@
+<%= render :partial => "form" %>
 
-<div style="float:left">
-<%= render 'shared/side_menu' %>
-</div>
-
-<div>
+<p><%= link_to "CSV", coupons_path(:format => "csv") %></p>
 
 <table border="0" cellspacing="5" cellpadding="5">
   <tr>
@@ -40,4 +37,3 @@
   </tr>
   <% end %>
 </table>
-</div>

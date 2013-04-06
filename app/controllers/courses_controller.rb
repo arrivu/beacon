@@ -63,6 +63,14 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
   		@authors << User.where(id: teaching_staff.user_id).first
   	end
 
+		student=Student.where(user_id: current_user.id).first
+
+  	@status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
+  	if @status_check!=nil
+  		@status=@status_check.status
+  	end
+
+
 		@modules=lms_get_modules(@course)
 		#@countCommentsPerPage = 6
 		@comments = @course.comments.paginate(page: params[:page], per_page: 6)
