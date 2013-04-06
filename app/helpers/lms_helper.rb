@@ -4,6 +4,10 @@ module LmsHelper
 		Settings.lms.enable
 	end
 
+	def lms_course_url(lms_id)
+		"#{Settings.lms.root_url}#{Settings.lms.course_url_path}#{lms_id}"
+	end
+
 	def lms_create_user(current_user)
 		if lms_enable? and current_user != nil
 			lmsuser=CanvasREST::User.new

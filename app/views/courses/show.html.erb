@@ -18,12 +18,35 @@
           </div>
           <div class="container clearfix"></div>
           <div class="subsection">
+
+   
+
+            <% if @status=="enroll" %>
+            <a href="<%= lms_course_url(@course.lms_id)%>" target="_blank"><div class="enroll">
+              Take this Course Now!
+            </div></a>
+
+            <% elsif @status=="completed" %>
+         
+            <% elsif @status=="shortlisted" %>
+         
             <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
               enroll
             </div></a>
+            <% else %>
+            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
+              enroll
+            </div></a>
+            <% end %>
+
+
             <a href="#previewcourse"><div class="shortlist">
               Preview
             </div></a>
+
+
+
+
           </div>
           <div class="container clearfix"></div>
           <div style="margin-left: 80px;">
@@ -81,7 +104,7 @@
           <h3>Course Description</h3>
         </div>
         <div class="underlinetext" >
-          
+
          <%= truncate(@course.desc, :length => 300)  %></br> </br>
        </div>
        <div class="starrating">
@@ -101,33 +124,33 @@
             <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
             <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70)  %>">Tweet</a>
 
-          
-           </td>
 
-         </tr>
-       </table>
-     </div>
-   </div>
- </div>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 </div>
 </div>
 </div>
 <div class="aboutauthor">
   <div class="container ">
-  <h1>About the Author</h1>
-<% @authors.each do |author|%>
+    <h1>About the Author</h1>
+    <% @authors.each do |author|%>
     <div class="row" style="width:30%; display:inline-block; clear:left; margin:15px">
 
       <div class="authorimage">
         <% if author.image_blob == nil %>
-            <% if author.omni_image_url == nil %>
-            <%= gravatar_for_with_size author, "100x100" %>
-            <% else  %>
-            <%= image_tag(author.omni_image_url,size: "100x100", alt: "")%> 
-            <% end  %>
-          <% else  %>
-            <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100" %>
-          <% end  %>
+        <% if author.omni_image_url == nil %>
+        <%= gravatar_for_with_size author, "100x100" %>
+        <% else  %>
+        <%= image_tag(author.omni_image_url,size: "100x100", alt: "")%> 
+        <% end  %>
+        <% else  %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100" %>
+        <% end  %>
       </div>
       <div class="authorinfo">
 
@@ -137,7 +160,7 @@
       </div>
       <div class="container clearfix"></div>
     </div>
- <% end %>
+    <% end %>
   </div>
 </div>
 
@@ -190,42 +213,42 @@
         <br/>
       </div>
     </div>
-      <%= render "comments" %>
-      <div class="container clearfix"></div>
-    </div>
-      <div class='apple_pagination' >
-       <%= will_paginate @comments, :container => false %>
-     </div>
-      <div class="container clearfix"></div>
-      <div class="row">
-        <div align="center">
-            <div class="readallreview">
-                <%if current_user.present?%>
-                  <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
-                <%else%>  
-                  <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
-                <% end %>  
-            </div>
-
-        </div>
-      </div>
-   
-
+    <%= render "comments" %>
+    <div class="container clearfix"></div>
   </div>
-
-
-
+  <div class='apple_pagination' >
+   <%= will_paginate @comments, :container => false %>
+ </div>
+ <div class="container clearfix"></div>
+ <div class="row">
   <div align="center">
-    <a href="<%= courses_path %>"><span class="browsemore" align="center">
-      Browser More Courses
-    </span></a>
+    <div class="readallreview">
+      <%if current_user.present?%>
+      <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+      <%else%>  
+      <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
+      <% end %>  
+    </div>
+
   </div>
 </div>
 
-  <script>
-  $(document).ready(function(){
-    $(".star").click(function(){
-     $(".rated").html("Course Rated")
-   });
-  });
-  </script>
+
+</div>
+
+
+
+<div align="center">
+  <a href="<%= courses_path %>"><span class="browsemore" align="center">
+    Browser More Courses
+  </span></a>
+</div>
+</div>
+
+<script>
+$(document).ready(function(){
+  $(".star").click(function(){
+   $(".rated").html("Course Rated")
+ });
+});
+</script>
