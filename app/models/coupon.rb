@@ -124,6 +124,14 @@ class Coupon < ActiveRecord::Base
     coupon = find_coupon(coupon_code)
     coupon.redemptions.create!(:transaction_id => tx_id, :user_id => user_id, :metadata => metadata)
   end
+    HUMANIZED_ATTRIBUTES = {
+   
+    :category_one => "Course"
+  }
+
+  def self.human_attribute_name(attr, options={})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
    
   private
   

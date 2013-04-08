@@ -11,6 +11,7 @@ class SessionsController < Devise::SessionsController
 
 
     super
+    
 
     #call cas sign to create the cas ticket
     begin

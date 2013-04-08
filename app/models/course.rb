@@ -91,6 +91,11 @@ class Course < ActiveRecord::Base
   def image=(new_filename)
     write_attribute("image", sanitize_filename(new_filename))
   end
+   #def self.authorimage(courseid)
+  #find_by_sql("select u.image_blob,u.name from teaching_staff_courses t left join user u on t.teaching_staff_id=u.id left join course c on c.id=t.course_id
+   #where c.id=#{courseid}")
+  #end
+  
 
   def course_price_inbetween_date
      self.course_pricings.find(:all, :conditions => "#{Date.today} >= start_date or #{Date.today} <= end_date")

@@ -31,7 +31,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 
 
 	def create
-		@course = current_user.courses.build(params[:course])
+		
+		@course = Course.new(params[:course])
 		@course.user_id = current_user.id
 		if @course.save
 			flash[:success] = "Course added successfully!!!!"
@@ -63,13 +64,14 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
   	@course.teaching_staffs.each do |teaching_staff|
   		@authors << User.where(id: teaching_staff.user_id).first
   	end
-     if current_user!=nil
+
 		student=Student.where(user_id: current_user.id).first
 
   	@status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
   	if @status_check!=nil
   		@status=@status_check.status
   	end
+
 
 
 		@modules=lms_get_modules(@course)
@@ -172,8 +174,10 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 
     def subscribed_courses
     	if !current_user.nil?
+
     		@total_course_count = CourseStatus.where(current_user.id).count 
     	  @courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
+
     	end
     	@countCoursesPerPage = 6
     	@topics = Topic.order(:name)
