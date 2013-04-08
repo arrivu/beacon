@@ -63,7 +63,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
   	@course.teaching_staffs.each do |teaching_staff|
   		@authors << User.where(id: teaching_staff.user_id).first
   	end
-
+if current_user!=nil
 
 		student=Student.where(user_id: current_user.id).first
 
@@ -85,6 +85,10 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 			
 			@rated = Rate.find_by_rater_id(current_user.id)
 		end
+	else
+		flash[:notice]="You need to sign in or sign up before continuing."
+		redirect_to root_url
+	end
 		# Just to redirect, needed due to button click event
 		# @courses = Course.paginate(page: params[:page], per_page: 3)
 		# @topics = Topic.all
