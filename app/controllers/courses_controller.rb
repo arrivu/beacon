@@ -65,6 +65,8 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
   		@authors << User.where(id: teaching_staff.user_id).first
   	end
 
+if current_user!=nil
+
 		student=Student.where(user_id: current_user.id).first
 
   	@status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
@@ -86,8 +88,13 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 			@rated = Rate.find_by_rater_id(current_user.id)
 		end
 	else
+<<<<<<< HEAD
 		flash[:notice]="Signin after continue"
 		redirect_to courses_path
+=======
+		flash[:notice]="You need to sign in or sign up before continuing."
+		redirect_to root_url
+>>>>>>> 1cd0667bc93cdf783ed732f16371ee5a19d37023
 	end
 		# Just to redirect, needed due to button click event
 		# @courses = Course.paginate(page: params[:page], per_page: 3)
