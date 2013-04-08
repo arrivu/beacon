@@ -6,6 +6,7 @@ class CoursesController < ApplicationController
 	ActiveMerchant::Billing::Integrations
 #before_filter :initialize, :only => [:create, :edit,:update,:delete]
 before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_courses]
+
 	def show_image
 		@course = Course.find(params[:id])
 		send_data @course.data, :type => @course.content_type, :disposition => 'inline'
@@ -62,7 +63,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
   	@course.teaching_staffs.each do |teaching_staff|
   		@authors << User.where(id: teaching_staff.user_id).first
   	end
-
+     if current_user!=nil
 		student=Student.where(user_id: current_user.id).first
 
   	@status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
@@ -82,6 +83,10 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 			
 			@rated = Rate.find_by_rater_id(current_user.id)
 		end
+	else
+		flash[:notice]="Signin after continue"
+		redirect_to courses_path
+	end
 		# Just to redirect, needed due to button click event
 		# @courses = Course.paginate(page: params[:page], per_page: 3)
 		# @topics = Topic.all
