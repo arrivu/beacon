@@ -1,6 +1,6 @@
 class CouponsController < ApplicationController
 	require 'csv'
-  
+  before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:apply,:redeem]
   def apply
     no_coupon = Coupon.no_coupon(params[:product_bag])
     respond_to do |wants|
@@ -79,10 +79,12 @@ class CouponsController < ApplicationController
               create_count += 1
             end
           end
-          flash[:coupon_notice] = "Created #{create_count} coupons"
+          flash[:notice] = "Created #{create_count} coupons"
+          #flash[:coupon_notice] = "Created #{create_count} coupons"
           redirect_to coupons_path(:after => @first_coupon)
         else
-          flash[:coupon_error] ||= 'Please fix the errors below'
+
+          #flash[:coupon_error] ||= 'Please fix the errors below'
           render :action => "new"
         end
       end
