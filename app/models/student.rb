@@ -22,6 +22,6 @@ class Student < ActiveRecord::Base
   	self.student_courses.where(:status => "shortlisted")
   end 
 
-  has_many :courses, :through => :student_courses 
+  # has_many :courses, :through => :student_courses 
 end
 

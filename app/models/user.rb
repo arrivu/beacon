@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
     self.omni_image_url = auth['info']['image']
     self.phone    = auth['info']['phone']
     self.provider = auth['provider']
-
+    
     require 'bcrypt'
 
     pepper = nil

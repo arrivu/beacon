@@ -19,7 +19,7 @@
           <div class="container clearfix"></div>
           <div class="subsection">
 
-   
+            <% if current_user.present? %>
 
             <% if @status=="enroll" %>
             <a href="<%= lms_course_url(@course.lms_id)%>" target="_blank"><div class="enroll">
@@ -29,7 +29,7 @@
             <% elsif @status=="completed" %>
          
             <% elsif @status=="shortlisted" %>
-         
+            
             <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
               enroll
             </div></a>
@@ -38,8 +38,12 @@
               enroll
             </div></a>
             <% end %>
-
-
+            
+            <%else%>  
+            <a href="#loginmodal" role="button" data-toggle="modal"><div class="enroll">
+              enroll
+            </div></a>
+          <% end %>  
             <a href="#previewcourse"><div class="shortlist">
               Preview
             </div></a>
