@@ -91,6 +91,17 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   add_index "coupons", ["alpha_code"], :name => "index_coupons_on_alpha_code"
   add_index "coupons", ["digit_code"], :name => "index_coupons_on_digit_code"
 
+  create_table "course_previews", :force => true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.string   "video_url"
+    t.integer  "sequence"
+    t.integer  "enable"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "course_id"
+  end
+
   create_table "course_pricings", :force => true do |t|
     t.integer  "course_id"
     t.float    "price"
@@ -162,17 +173,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.integer  "user_id"
-  end
-
-  create_table "previews", :force => true do |t|
-    t.string   "name"
-    t.text     "desc"
-    t.string   "video_url"
-    t.integer  "sequence"
-    t.integer  "enable"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "course_id"
   end
 
   create_table "rates", :force => true do |t|
