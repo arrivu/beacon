@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'jquery-rails'
@@ -12,10 +12,11 @@ gem "simple_form", ">= 2.0.4"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
-gem 'activemerchant'
-gem 'active_merchant_ccavenue'
+
+
 #gem 'multiple_table_inheritance', '~> 0.2.1'
 #gem 'heritage'
+gem "payday"#, '1.1.0'
 gem 'omniauth-google-oauth2'
 
 gem 'oauth2'
@@ -40,7 +41,7 @@ group :development do
 # gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
 # gem 'ruby-debug19'
  gem "debugger"
- #gem "mysql2"
+ gem "mysql2"
 end
 gem 'sqlite3', :group => :development
 gem "quiet_assets", ">= 1.0.1", :group => :development
@@ -70,6 +71,6 @@ gem 'canvas',:git => 'git://github.com/m-narayan/canvas'
 gem 'annotate', '2.4.1.beta1'
 gem 'couponsgem',:git => 'git://github.com/m-narayan/couponsgem'
 #gem 'couponsgem',:git => 'git://github.com/ssimeonov/couponsgem.git'
-gem 'invoicing',:git => 'git://github.com/m-narayan/invoicing'
+#gem 'invoicing',:git => 'git://github.com/m-narayan/invoicing'
 
 gem 'client_side_validations',:git => 'https://github.com/bcardarella/client_side_validations.git'

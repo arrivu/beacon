@@ -80,12 +80,8 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "how_many",          :default => 1
     t.integer  "redemptions_count", :default => 0
     t.integer  "integer",           :default => 0
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.boolean  "course_check_box",  :default => true
-    t.string   "coupon_obj"
-    t.integer  "coupon_obj_id"
-    t.string   "coupon_obj_email"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "coupons", ["alpha_code"], :name => "index_coupons_on_alpha_code"
@@ -147,6 +143,26 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "invoices", :force => true do |t|
+    t.date     "due_at"
+    t.date     "paid_at"
+    t.decimal  "total",        :precision => 10, :scale => 0
+    t.string   "company_name"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.decimal  "price",            :precision => 10, :scale => 0
+    t.string   "description"
+    t.integer  "quantity"
+    t.integer  "display_price"
+    t.integer  "display_quantity"
+    t.integer  "invoice_id"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
   end
 
   create_table "o_classes", :force => true do |t|
@@ -257,6 +273,16 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "taxrates", :force => true do |t|
+    t.datetime "valid_from",                                   :null => false
+    t.datetime "valid_until"
+    t.integer  "replaced_by_id"
+    t.decimal  "factor",         :precision => 6, :scale => 6
+    t.boolean  "is_default"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+  end
+
   create_table "teaching_staff_courses", :force => true do |t|
     t.integer  "course_id"
     t.integer  "teaching_staff_id"
@@ -306,6 +332,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "attachment"
     t.string   "content_type"
     t.binary   "image_blob"
+    t.string   "subtype"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

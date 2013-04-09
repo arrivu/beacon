@@ -4,6 +4,7 @@ cas:
   url: https://localhost:8888
   login_path: '/cas/api-login'
   logout_path: '/cas/api-logout'
+  tax_rate: 13.5
 lms:
   enable: false
   account_id: 1

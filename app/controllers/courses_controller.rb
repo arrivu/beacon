@@ -59,9 +59,9 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
 	def show
 		@course = Course.find(params[:id])
 		@authors=[]
-  	@course.teaching_staffs.each do |teaching_staff|
-  		@authors << User.where(id: teaching_staff.user_id).first
-  	end
+  	    @course.teaching_staffs.each do |teaching_staff|
+  		  @authors << User.where(id: teaching_staff.user_id).first
+  	    end
 
 		@modules=lms_get_modules(@course)
 		#@countCommentsPerPage = 6
@@ -93,11 +93,19 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
  		def course_payment
  			@user = current_user
  			@course = Course.find(params[:id]) 
+ 			@price = Course.course_price(@course)
+ 			@tax = Course.tax_calculation(@course,@price)
+ 			#@coupon = Coupon.find_by_metadata(params[:id])
+            #@a = Coupon.apply(@coupon.alpha_code,@course)
+ 		  
  		end
 
  	  def course_payment_gateway
- 		debugger
- 			@course = Course.find(params[:id]) 
+ 			@course = Course.find(params[:id])
+ 			@coupon_code = Coupon.where(:coupon_obj_id => params[:id])
+           # @aa = Coupon.apply(@coupon_code,Course.all)
+
+
  		end
 
 
@@ -125,10 +133,25 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:manage_co
     end
 
     def index_pdf
-    	@course = Course.find(params[:id].to_i)
- 	    @user = User.first
-    	render :pdf => "my_pdf",:layout => false,:template => '/courses/index_pdf',:footer => {:center =>"Center", :left => "Left", :right => "Right"}
+    	 @course = Course.find(params[:id].to_i)
+    	 invoice = Payday::Invoice.new(:invoice_number => 12)
+    	 invoice.bill_to = current_user.try(:name) if current_user
+    	 invoice.notes = "Thank you for your purchase!"
+    	 #invoice.tax_rate = 10
 
+         invoice.line_items << LineItem.new(:price => 20, :quantity => 5, :description => "Pants")
+        # invoice.render_pdf_to_file("/path/to_file.pdf")
+ 	    # @user = User.first
+    	# render :pdf => "my_pdf",:layout => false,:template => '/courses/index_pdf',:footer => {:center =>"Center", :left => "Left", :right => "Right"}
+       Payday::Config.default.invoice_logo = "#{Rails.root}/public/images/beaconslogo.png"
+       Payday::Config.default.company_name = "Beacon Higher\nEducation Services\n Private Limited"
+       Payday::Config.default.company_details = "Gurgaon, Haryana - 122016"
+       Payday::Config.default.currency = "INR"
+       respond_to do |format|
+        format.pdf do
+          send_data invoice.render_pdf, :filename => "Invoice.pdf", :type => "application/pdf", :disposition => "inline"
+        end
+       end  
     end
 
     def manage_courses

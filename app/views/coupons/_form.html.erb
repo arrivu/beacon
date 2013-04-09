@@ -14,18 +14,11 @@
 <%= simple_form_for @coupon do |f| %>
 
 
-<%= f.input :course_check_box,:as=>:boolean,  :label=>"For all course",:input_html => { :check => @coupon.course_check_box }  %>
 
-<div id='select_box' style='display:none;'>
-  <%= f.input :coupon_obj, :as=>:select,:label=>"Coupon For",:collection => [['Course','Course'], ['Student','Student']], :prompt => "Choose a option" %>
+<div id='all_course'>
+  <%= f.input :metadata, :as=>:select, :collection =>Course.all.collect{|p| [p.title,p.id]}.push(['All','All']),:prompt => "Select course" %>
 </div>
 
-<div id='all_course' style='display:none;'>
-  <%= f.input :coupon_obj_id, :as=>:select, :collection => Course.all %>
-</div>
-<div id='student_email' style='display:none;'>
-  <%= f.input :coupon_obj_email ,:label => 'Student email' %>
-</div>
 </div>
   <div class="input required">
     How many? 
@@ -35,51 +28,17 @@
   <%= f.input :name, :label => 'Coupon name'  %>
   <%= f.input :how_many, :label => 'Number of times redeemable' %>
   <%= f.input :description, :label => 'Description' %>
-  <%= f.input :alpha_mask, :label => 'Alpha mask', :hint => 'e.g., AA-AA-AA'  %>
-  <%= f.input :digit_mask, :label => 'Digit mask', :hint => 'e.g., 11-11-11'  %>
-  <%= f.input :category_one, :label => 'Category 1', :hint => 'e.g., product'  %>
-  <%= f.input :amount_one, :label => 'Amount off 1', :hint => 'Amount off'  %>
-  <%= f.input :percentage_one, :label => 'Percentage off 1', :hint => 'Amount off, in percent'  %>
+  <%= f.input :alpha_mask, :label => 'Alpha mask', :placeholder => 'e.g., AA-AA-AA'  %>
+  <%= f.input :digit_mask, :label => 'Digit mask', :placeholder => 'e.g., 11-11-11'  %>
+  <%= f.input :category_one, :label => 'Category 1', :placeholder => 'e.g., product'  %>
+  <%= f.input :amount_one, :label => 'Amount 1', :placeholder => 'Amount off'  %>
+  <%= f.input :percentage_one, :label => 'Percentage off 1', :placeholder=> 'Amount off, in percent'  %>
   
-  <%= f.input :category_two, :label => 'Category 2', :hint => 'e.g., shipping'  %>
-  <%= f.input :amount_two, :label => 'Amount off 2', :hint => 'Amount off'  %>
-  <%= f.input :percentage_two, :label => 'Percentage off 2', :hint => 'Amount off, in percent'  %>
+  <%= f.input :category_two, :label => 'Category 2', :placeholder => 'e.g., product'  %>
+  <%= f.input :amount_two, :label => 'Amount 2', :placeholder => 'Amount off'  %>
+  <%= f.input :percentage_two, :label => 'Percentage off 2', :placeholder=> 'Amount off, in percent'  %>
   
   <%= f.input :expiration, :label => 'Expires', :start_year => Date.today.year, :end_year => Date.today.year + 30  %>
   
   <%= f.button :submit %>
 <% end %>
-
-<script>
-$('#coupon_course_check_box').click(function(){
-  if($('#coupon_course_check_box').is(':checked')){
-    $("#select_box").hide();
-    $('#all_course').hide();
-    $('#student_email').hide();
-  } else {
-     $("#select_box").show();
-  }
- })
-  
-$('#coupon_coupon_obj').click(function(){
-     var v = $('#coupon_coupon_obj').val();
-    
-     if(v=="Course"){
-      $('#all_course').show();
-      $('#student_email').hide();
-     }
-     else if( v=="Student"){
-       $('#student_email').show();
-       $('#all_course').hide();
-     }
-     else{
-      $('#all_course').hide();
-      $('#student_email').hide();
-     }
-
-    });
-
-
-
-
-</script>

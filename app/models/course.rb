@@ -59,7 +59,20 @@ class Course < ActiveRecord::Base
   validates  :short_desc, presence: true, length:{maximum: 100}
 
   default_scope order: 'courses.created_at ASC'
-
+   def self.course_price(course)
+    course.course_pricings.each do |course_price|
+     if course_price.start_date <= Date.today && course_price.end_date >= Date.today
+      @price = course_price.price
+    end
+   end
+   return @price
+ end
+   def self.tax_calculation(course,price)
+   @tax_rate= Settings.cas.tax_rate
+  
+   @total_price = price * @tax_rate/100
+   return @tax =  @total_price
+  end
   def student_enrolled
     self.student_courses.where(:status => "enroll")
   end

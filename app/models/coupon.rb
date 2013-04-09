@@ -1,6 +1,6 @@
 class Coupon < ActiveRecord::Base
   attr_accessible :name, :description,:expiration,:how_many,:category_one,:category_two,:amount_one,
-                  :percentage_one,:amount_two,:percentage_two,:alpha_mask,:digit_mask,:course_check_box, :coupon_obj,:coupon_obj_id,:coupon_obj_email
+                  :percentage_one,:amount_two,:percentage_two,:alpha_mask,:digit_mask,:metadata
   require 'errors'
 
 
@@ -103,8 +103,9 @@ class Coupon < ActiveRecord::Base
   def self.apply(coupon_code, product_bag = {})
     r = {:savings => 0.0, :grand_total => 0.0}
     coupon = find_coupon(coupon_code)
+    category = []
     product_bag.each do |category, price|
-      price = Float(price)
+      price = Float(product_bag.course_pricings.first.price)
       r[:grand_total] += price
       r[category] = price
       if coupon
@@ -167,5 +168,6 @@ class Coupon < ActiveRecord::Base
     end
     hash
   end
+  
   
 end

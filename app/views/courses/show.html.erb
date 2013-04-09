@@ -18,9 +18,12 @@
           </div>
           <div class="container clearfix"></div>
           <div class="subsection">
-            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-              enroll
-            </div></a>
+            <%if current_user.present?%>
+                <%= link_to "enroll",course_payment_course_path(@course),:class=>"enroll" %>
+            <%else%>  
+                  <a href="#loginmodal" role="button" data-toggle="modal" class="enroll">enroll</a>
+            <% end %>
+            
             <a href="#previewcourse"><div class="shortlist">
               Preview
             </div></a>

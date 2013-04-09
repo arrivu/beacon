@@ -44,26 +44,26 @@
     </div>
     <div class="span2">
 
-      Rs. <%=  @course.course_price_inbetween_date.first.price %>
+      Rs. <%= @price %>
     </div>
      <div class="span2" style=" padding-left: 33px;">
-      Rs. <%= @course.course_price_inbetween_date.first.price%>
+      Rs. <%= @price%>
     </div>
     <div class="span2" style="margin-top: -15px; padding-left: 294px;">
-      Rs. 0
+      Rs.  <%=  @tax  %>
     </div>
 
 </div>  
 <br /><br /> <br /><br />
+<div style="float:right; margin-right: 145px;" >
+<%= label_tag "enter the coupon code" %>
+<%= text_field_tag "coupon_code" %>
+  </div>  
 
-<div class="span12" style="background:#F2F2F2; height: 24px;line-height: 22px; margin-top: 47px;text-align: right; font-family: arial;font-size: 19px;">
-Amount Payable: Rs. <%= @course.course_price_inbetween_date.first.price  %>
+<div class="button-place-holder" style="margin-top: 311px; margin-right: 138px;">
 
-</div>
-<div class="button-place-holder" style="margin-top: 126px; margin-right: 138px;">
-
-               <%= submit_tag 'Place Order',:class=>'placeholder' %>
-           
+    <%= submit_tag 'Proceed',:class=>'placeholder' %>
+   
 </div>
 </div>
 <% end %>
