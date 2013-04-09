@@ -39,7 +39,7 @@ class CouponsController < ApplicationController
     if params[:after]
       @coupons = Coupon.where(["id >= ?", params[:after]])
     else
-      @coupons = Coupon.all
+      @coupons = Coupon.all.paginate(page: params[:page], per_page: 10)
     end
     respond_to do |format|
       format.html

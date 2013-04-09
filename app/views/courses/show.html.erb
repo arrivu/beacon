@@ -45,8 +45,6 @@
             </div></a>
 
 
-
-
           </div>
           <div class="container clearfix"></div>
           <div style="margin-left: 80px;">
@@ -169,7 +167,7 @@
     <div class="row">
       <h2>Lecture Preview: A Sneak Peak into the course</h2>
       <% a=0 %>
-      <% @course.previews.where(enable: 1).order(:sequence).each do |p| %>
+      <% @course.course_previews.where(enable: 1).order(:sequence).each do |p| %>
       <% a +=1  %>
       <div class="span6 prevbox">
        <table> <tr>
