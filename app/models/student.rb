@@ -12,16 +12,16 @@ class Student < ActiveRecord::Base
   has_many :courses, :through => :student_courses
   belongs_to :user
 
-  def course_enrolled
+  def course_enroll
   	self.student_courses.where(:status => "enroll")
   end
-  def course_completed
+  def course_complete
   	self.student_courses.where(:status => "completed")
   end 
-   def course_shortlisted
+   def course_shortlist
   	self.student_courses.where(:status => "shortlisted")
   end 
 
-  has_many :courses, :through => :student_courses 
+  # has_many :courses, :through => :student_courses 
 end
 

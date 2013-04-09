@@ -1,6 +1,7 @@
-<%= render :partial => "form" %>
-
-<p><%= link_to "CSV", coupons_path(:format => "csv") %></p>
+<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+<div style="margin-left:200px">
 
 <table border="0" cellspacing="5" cellpadding="5">
   <tr>
@@ -37,3 +38,6 @@
   </tr>
   <% end %>
 </table>
+<div class='apple_pagination' align="center"><%= will_paginate  @users, :container => false %></div>
+
+</div>

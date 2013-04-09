@@ -58,6 +58,15 @@
                   <h3>My Current Courses</h3>
                   <div class="row">
 
+                    <div class="span8">
+                      <div class="courses">
+                        <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                           
+                        </article>
+                      </div>
+                    </div>
+
+
                     <% @enrolled_courses.each do |course|%>
                     <div class="span8">
                       <div class="courses">
@@ -67,9 +76,9 @@
                       <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>                            <div class="course-content">
                             <em class="label-a label-offset green" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Finadewqnce</em>
                             <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name"><%= course.title %></h3>
+                           <%=link_to(course) do %><h3 class="course-name"><%= course.title %></h3>
                             <p class="course-desc"><%= course.short_desc %></p>
-                            </a></div>
+                            <% end %></div>
                             </div>
                         </article>
                       </div>
@@ -90,14 +99,24 @@
                   <div class="span8">
                       <div class="courses">
                         <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                            
+                        </article>
+                      </div>
+                    </div>
+
+                    <div class="span8">
+                      <div class="courses">
+                        <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
                             <div class="card-a course-inner">
                             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                            <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %><div class="course-content">
-                            <em class="label-a label-offset blue" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%= course.topic.name %></em>
+                            <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
+                            <div class="course-content">
+                            <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Operations</em>
+
                             <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name"><%= course.title %></h3>
+                           <%=link_to(course) do %><h3 class="course-name"><%= course.title %></h3>
                             <p class="course-desc"><%= course.short_desc %></p>
-                            </a></div>
+                            <% end %></div>
                             </div>
                         </article>
                       </div>
@@ -126,9 +145,9 @@
                             <div class="course-content">
                             <em class="label-a label-offset violate" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">New</em>
                             <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name">New Course</h3>
+                           <%=link_to(@course) do %><h3 class="course-name">New Course</h3>
                             <p class="course-desc">Learn the basic building blocks of New Course in your browser.</p>
-                            </a></div>
+                            <% end %></div>
                             </div>
                         </article>
                       </div>
@@ -145,9 +164,9 @@
                 <h3>Explore more courses</h3>
                 <!-- <a href="courselibrary.php"><span class="btn btn-info btn-large exploremore">Explore More Courses</span></a> -->
                 <div align="center">
-                  <a href="#"><span class="browsemore" align="center">
-                    Browser More Courses
-                  </span></a>
+                  <span class="browsemore" align="center">
+                   <%= link_to "Browser More Courses", courses_path %>
+                  </span>
                 </div>
           </div>
 

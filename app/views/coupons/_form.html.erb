@@ -1,17 +1,53 @@
-<% if flash[:coupon_notice] %>
-  <div id="coupon_notice" class="notice">
-    <%= flash[:coupon_notice]%>
-  </div>
-<% end %>
+<style type="text/css">
+.tableform
+{
+  width: 500px;
+
+}
+.tableform th
+{
+  width:200px;
+  font-weight: normal;
+  text-align: left;
+font-size: 14px;
+
+}
+.tableform tr
+{
+
+}
+
+.tableform td
+{
+  width:300px;
+
+}
+.samplehint {
+  clear: left;
+  
+  font-size: 11px;
+  color: maroon;
+  display: inline;
+  font-style: italic;
+}
+.date{
+width:80px;
+}
+
+
+</style>
+
 
 <% if flash[:coupon_error] %>
-  <div id="coupon_error" class="error">
-    <%= flash[:coupon_error]%>
-  </div>
+<div id="coupon_error" class="error">
+  <%= flash[:coupon_error]%>
+</div>
 <% end %>
 
+<div class="row">
+  <div class="span10 ">
 
-<%= simple_form_for @coupon do |f| %>
+
 
 
 
@@ -20,25 +56,96 @@
 </div>
 
 </div>
-  <div class="input required">
-    How many? 
+  
+  <tr><th>  
+    How many? </th><td>
+    
     <%= text_field_tag :how_many, 1 %>
-  </div>
 
-  <%= f.input :name, :label => 'Coupon name'  %>
-  <%= f.input :how_many, :label => 'Number of times redeemable' %>
-  <%= f.input :description, :label => 'Description' %>
-  <%= f.input :alpha_mask, :label => 'Alpha mask', :placeholder => 'e.g., AA-AA-AA'  %>
-  <%= f.input :digit_mask, :label => 'Digit mask', :placeholder => 'e.g., 11-11-11'  %>
-  <%= f.input :category_one, :label => 'Category 1', :placeholder => 'e.g., product'  %>
-  <%= f.input :amount_one, :label => 'Amount 1', :placeholder => 'Amount off'  %>
-  <%= f.input :percentage_one, :label => 'Percentage off 1', :placeholder=> 'Amount off, in percent'  %>
+  </td></tr>
+
+
+  <tr><th>
+   Coupon Name
+  </th><td>
   
-  <%= f.input :category_two, :label => 'Category 2', :placeholder => 'e.g., product'  %>
-  <%= f.input :amount_two, :label => 'Amount 2', :placeholder => 'Amount off'  %>
-  <%= f.input :percentage_two, :label => 'Percentage off 2', :placeholder=> 'Amount off, in percent'  %>
-  
-  <%= f.input :expiration, :label => 'Expires', :start_year => Date.today.year, :end_year => Date.today.year + 30  %>
-  
-  <%= f.button :submit %>
-<% end %>
+  <%= f.input_field :name  %></td></tr>
+  <tr><th>
+    Number of times redeemable
+  </th>
+  <td><%= f.input :how_many,label: false %></td></tr>
+  <tr><th>
+    Description</th><td>
+    <%= f.input_field :description,label: false %></td></tr>
+    <tr><th> Alpha mask</th><td>
+      <%= f.input_field :alpha_mask,label: false  %></td></tr>
+      <tr><th></th><td class="hint">  ["e.g., AA-AA-AA"]</td></tr>
+      <tr><th>Digit mask</th><td>
+        <%= f.input_field :digit_mask,label: false  %></td></tr>
+        <tr><th></th><td class="hint">  ["e.g., 11-11-11"]</td></tr>
+        <tr><th> Course</th><td>
+          <%= f.input_field :category_one,label: false   %></td></tr>
+          <tr><th></th><td class="hint">["e.g., course"]  
+            <tr><th>Amount off Course</th><td>
+              <%= f.input :amount_one ,label: false %></td></tr>
+              <tr><th></th><td class="hint"> "hint:Amount off Course" 
+                <tr><th>Percentage of course</th><td>
+                  <%= f.input :percentage_one,label: false  %></td></tr>
+                  <tr><th></th><td class="hint"> "hint:Amount off, in percentage course" 
+                    <tr><th>Servise Tax</th><td>
+                      <%= f.input :category_two,label: false  %></td></tr>
+                      <tr><th></th><td class="hint"> ["e.g., Tax"] </td></tr>
+                      <tr><th>Amount off Sevice Tax</th><td>
+                        <%= f.input :amount_two,label: false  %></td></tr><tr><th></th>
+                        <td class="hint">"hint:Amount off Service Tax"</td></tr>
+                        <tr><th>Percentage off Service Tax</th><td>
+                         <%= f.input :percentage_two,label: false %></td></tr></td></tr>
+                         <tr><th></th><td class="hint"> "hint:Amount off, in percent service tax" </td></tr>
+
+
+
+                         <tr><th>Expires</th><td>
+                          <%= f.input_field :expiration, :start_year => Date.today.year, :end_year => Date.today.year + 30, class:"date" %></td></tr>
+                          <tr><th></th><td> <%= f.button :submit ,class:"btn btn-primary" %></td></tr></table>
+
+
+
+                          <% end %>
+                        </div>
+
+                          <script>
+                          $('#coupon_course_check_box').click(function(){
+                            if($('#coupon_course_check_box').is(':checked')){
+                              $("#select_box").hide();
+                              $('#all_course').hide();
+                              $('#student_email').hide();
+                            } else {
+                             $("#select_box").show();
+                           }
+                         })
+
+                          $('#coupon_coupon_obj').click(function(){
+                           var v = $('#coupon_coupon_obj').val();
+
+                           if(v=="Course"){
+                            $('#all_course').show();
+                            $('#student_email').hide();
+                          }
+                          else if( v=="Student"){
+                           $('#student_email').show();
+                           $('#all_course').hide();
+                         }
+                         else{
+                          $('#all_course').hide();
+                          $('#student_email').hide();
+                        }
+
+                      });
+
+
+
+
+                          </script>
+</div>
+</div>
+
