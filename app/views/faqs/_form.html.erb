@@ -1,0 +1,12 @@
+<%= form_for @faq do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </p>
+  <p>
+    <%= f.label :answer %><br />
+    <%= f.text_field :answer %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

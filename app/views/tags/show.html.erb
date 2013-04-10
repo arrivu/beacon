@@ -1,0 +1,134 @@
+<% provide(:title, 'Blogs for ' + @tag.name) %>
+<%- model_class = Tag -%>
+<div class="container">
+
+  <div class="row">
+        <ul class="nav nav-pills .pull-right">
+          <li>
+            <%= link_to "Courses", courses_path %>
+          </li>
+          <li><%= link_to "Tutorials", tutorials_path %></li>
+          <% if signed_in? %>
+            <li><%= link_to "Online Classes", o_classes_path %></li>
+          <% end %>
+          <li class="active"><%= link_to "Blog", blogs_path %></li>
+           <li ><%= link_to "Coaches", users_path %></li>
+        </ul>
+      </div>
+
+  <div class="page-header">
+    <% @tagStructure = @tag.name + " ( #{@tag.blogs.where(ispublished: 1).size} )" %>
+    <h3>blogs related to category: <%= @tagStructure %></h3>
+  </div>
+  <% if signed_in? && current_user.user_type == 3 #Admin %>
+    <div class="form-actions">
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                  blogs_path, :class => 'btn'  %>
+      <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                  edit_tag_path(@tag), :class => 'btn' %>
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  tag_path(@tag),
+                  :method => 'delete',
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger' %>
+    </div>
+  <% end %>
+  
+  
+  <div class="row">
+        <div class="span8">
+            
+            <% if @tag.blogs.where(ispublished: 1).size >= 1 %>
+                <div class="well">
+                    <% if signed_in? && current_user.user_type == 1 #Teacher %>
+                      <p><%= link_to "Add New Blog", new_blog_path , class: "move-to-right-top"%></p>
+                    <% end %>
+                    
+                    <%= render @tag.blogs.where(ispublished: 1) %>
+
+                    <% @tag.blogs.each do |blog| %>
+                      <% if ((blog.id % @countBlogsPerPage) == 0 ) %>
+                        <% if signed_in? && current_user.user_type == 1 #Teacher %>
+                          <p><%= link_to "Add New Blog", new_blog_path , class: "move-to-right-bottom"%></p>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                    
+                    <div class="clearfix"></div>
+                </div>
+            <% else %>
+                <div class="alert alert-alert">
+                  No Blogs in this category yet!!!!
+                </div>
+            <% end %>
+        </div><!-- <div class="span8"> -->
+
+        <div class="span3">
+            <div class="">
+
+               <!--  <form class="navbar-search pull-left">
+                  <input type="text" class="search-query" placeholder="Search">
+                </form>
+                <div class="clearfix"></div> -->
+
+                <div class="tabbable"> <!-- Only required for left/right tabs -->
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#categories" data-toggle="tab">Categories</a></li>
+                    <li><a href="#upcomingcourses" data-toggle="tab">Upcoming Blogs</a></li>
+                  </ul>
+                  <div class="tab-content">
+
+                    <div class="tab-pane active" id="categories">
+                      
+                      <div class="categories">
+                          
+                          <ul class="nav nav-list">
+                              <li class="nav-header"></li>
+                              <li><%= link_to "All" + " ( #{Blog.where(ispublished: 1).all.size} )", blogs_path %></a></li>
+                              <% @tags.each do |tag| %>
+                                <% @tagStructure = tag.name + " ( #{tag.blogs.where(ispublished: 1).size } )" %>
+                                <% if tag.id == @tag.id %>
+                                  <li class="active"><a href="#"><%= link_to @tagStructure, tag %></a></li>
+                                <% else %>
+                                  <li><a href="#"><%= link_to @tagStructure, tag %></a></li>
+                                <% end %>
+                              <% end %>
+                          </ul>
+                          <br/>
+                          
+                          <% if signed_in? && current_user.user_type == 3 #Admin %>
+                            <%= link_to "Manage Category", tags_path, class: "btn btn-info" %>
+                          <% end %>
+                      </div>
+
+                    </div><!-- <div class="tab-pane active" id="categories"> -->
+
+                    <div class="tab-pane" id="upcomingcourses">
+                      
+                      <div class="upcoming">
+                          <% Blog.where(ispublished: 0).all.each do |t| %>
+                              <div class="upcoming-widget">
+                                <div class="widget-thumbnail">
+                                  <!-- <img src="homeOnline.jpg" width="70px" height="100px"> -->
+                                  <!--#link_to image_tag("homeOnline.jpg", border 0), {action: '#', controller: '#'},class: '#'-->
+                                  <%= link_to image_tag("#{t.image}", border: 0, width: "50", height: "50")%>
+                                </div><!-- end .widget-thumbnail -->
+                                <div class="widget-body">
+                                  <h4><%= t.title %></h4>
+                                  <span class="label label-info"><%= t.releasemonth %></span>
+                                </div>
+                                <div class="clearfix"></div>
+                              </div>
+                          <% end %>
+                      </div>
+                    </div><!-- <div class="tab-pane" id="categories"> -->
+                  
+                  </div><!--<div class="tab-content"> -->
+                </div><!-- Only required for left/right tabs -->
+
+                
+          </div>
+        </div><!-- <div class="span3"> -->
+      </div><!-- <div class="row"> -->
+
+</div>

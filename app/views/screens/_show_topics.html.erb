@@ -1,0 +1,7 @@
+<div class="bannerlearn">
+	<span class="learnheading">Learn: </span>
+	<% @topics.each do |topic|%>
+	<% @topicStructure = topic.name %>
+	<span class="badge leartopic"><%= link_to @topicStructure, topic, class: "badge1" %></span>
+	<% end %>
+</div>

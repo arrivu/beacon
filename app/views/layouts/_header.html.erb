@@ -1,0 +1,57 @@
+
+
+  <header class="navbar navbar-fixed-top" >
+  <div >
+    <div class="logo" >
+      <a href="/">
+      </div>
+    <div class="container" style= " padding-top:20px;  padding-bottom:20px;height:350px; margin-left:373px; ">
+      <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>
+      <nav style="margin-left:30px;">
+        <ul class="nav pull-right">
+          <li> <%= link_to "Course Library", courses_path %></li>
+          <% if user_signed_in?%>
+          <% if current_user.has_role? :admin %>
+            <li ><%= link_to 'Admin', users_path %></li>
+              <script>
+          $('.courseslink').css('left',"-100px");
+          </script>
+           <% else  %>
+          <li class="courseslink"><%= link_to "My Courses", my_courses_path %></li>
+     
+          <script>
+          $('.courseslink').css('left',"-140px");
+          </script>
+               <% end  %>       
+          <li id="fat-menu" class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+               <% if current_user.image_blob == nil %>
+                <% if current_user.omni_image_url == nil %>
+                <div style="top:-20px; float:left; margin-left:3px; margin-top:0px; margin-right: 3px;">
+                <%= gravatar_for_with_size current_user, "20x20"%>
+                </div><% else  %>
+                 <div style="top:-20px; float:left; margin-left:3px; margin-top:0px; margin-right: 3px;">
+                <%= image_tag(current_user.omni_image_url,size: "20x20", alt: "")%> 
+                </div>
+                <% end  %>
+                <% else  %>
+                  <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => current_user.id), :size => "15x15" %>
+                <% end  %><%= current_user.name %> <b class="caret" style="top:0px;" ></b>
+            </a>
+            <ul class="dropdown-menu">
+              
+              <li><%= link_to "My Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
+             
+            </ul>
+          </li>
+          <% else %>
+          <li ><a href="#loginmodal" role="button" data-toggle="modal"  >Log In</a></li>
+          <li ><a href="#sign_up_Modal" role="button" data-toggle="modal" >Create Account</a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  
+</header>

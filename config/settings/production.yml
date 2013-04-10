@@ -1,0 +1,19 @@
+cas:
+  enable: false
+  expiry: 3600
+  url: https://localhost:8888
+  login_path: '/cas/api-login'
+  logout_path: '/cas/api-logout'
+lms:
+  enable: false
+  account_id: 1
+  oauth_token: BWByYxU7pnqLi6lWICmGcYGn66xuaZEAsImJgLgUsmj3hSkoTK5UzCFesmZUdQDx
+  api_root_url: https://192.168.1.40/api/v1
+mailserver:
+  address: smtp.gmail.com
+  port: 587
+  domain: example.com
+  user_name: beaconlms@gmail.com
+  password: beaconlms123$
+admin_mail:
+  to: beaconlms@gmail.com

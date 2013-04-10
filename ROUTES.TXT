@@ -1,0 +1,83 @@
+                    faqs GET    /faqs(.:format)                         faqs#index
+                         POST   /faqs(.:format)                         faqs#create
+                 new_faq GET    /faqs/new(.:format)                     faqs#new
+                edit_faq GET    /faqs/:id/edit(.:format)                faqs#edit
+                     faq GET    /faqs/:id(.:format)                     faqs#show
+                         PUT    /faqs/:id(.:format)                     faqs#update
+                         DELETE /faqs/:id(.:format)                     faqs#destroy
+                   blogs GET    /blogs(.:format)                        blogs#index
+                         POST   /blogs(.:format)                        blogs#create
+                new_blog GET    /blogs/new(.:format)                    blogs#new
+               edit_blog GET    /blogs/:id/edit(.:format)               blogs#edit
+                    blog GET    /blogs/:id(.:format)                    blogs#show
+                         PUT    /blogs/:id(.:format)                    blogs#update
+                         DELETE /blogs/:id(.:format)                    blogs#destroy
+                    tags GET    /tags(.:format)                         tags#index
+                         POST   /tags(.:format)                         tags#create
+                 new_tag GET    /tags/new(.:format)                     tags#new
+                edit_tag GET    /tags/:id/edit(.:format)                tags#edit
+                     tag GET    /tags/:id(.:format)                     tags#show
+                         PUT    /tags/:id(.:format)                     tags#update
+                         DELETE /tags/:id(.:format)                     tags#destroy
+                 courses GET    /courses(.:format)                      courses#index
+                         POST   /courses(.:format)                      courses#create
+              new_course GET    /courses/new(.:format)                  courses#new
+             edit_course GET    /courses/:id/edit(.:format)             courses#edit
+                  course GET    /courses/:id(.:format)                  courses#show
+                         PUT    /courses/:id(.:format)                  courses#update
+                         DELETE /courses/:id(.:format)                  courses#destroy
+                  topics GET    /topics(.:format)                       topics#index
+                         POST   /topics(.:format)                       topics#create
+               new_topic GET    /topics/new(.:format)                   topics#new
+              edit_topic GET    /topics/:id/edit(.:format)              topics#edit
+                   topic GET    /topics/:id(.:format)                   topics#show
+                         PUT    /topics/:id(.:format)                   topics#update
+                         DELETE /topics/:id(.:format)                   topics#destroy
+               tutorials GET    /tutorials(.:format)                    tutorials#index
+                         POST   /tutorials(.:format)                    tutorials#create
+            new_tutorial GET    /tutorials/new(.:format)                tutorials#new
+           edit_tutorial GET    /tutorials/:id/edit(.:format)           tutorials#edit
+                tutorial GET    /tutorials/:id(.:format)                tutorials#show
+                         PUT    /tutorials/:id(.:format)                tutorials#update
+                         DELETE /tutorials/:id(.:format)                tutorials#destroy
+                  groups GET    /groups(.:format)                       groups#index
+                         POST   /groups(.:format)                       groups#create
+               new_group GET    /groups/new(.:format)                   groups#new
+              edit_group GET    /groups/:id/edit(.:format)              groups#edit
+                   group GET    /groups/:id(.:format)                   groups#show
+                         PUT    /groups/:id(.:format)                   groups#update
+                         DELETE /groups/:id(.:format)                   groups#destroy
+     under_constructions GET    /under_constructions(.:format)          under_constructions#index
+                         POST   /under_constructions(.:format)          under_constructions#create
+  new_under_construction GET    /under_constructions/new(.:format)      under_constructions#new
+ edit_under_construction GET    /under_constructions/:id/edit(.:format) under_constructions#edit
+      under_construction GET    /under_constructions/:id(.:format)      under_constructions#show
+                         PUT    /under_constructions/:id(.:format)      under_constructions#update
+                         DELETE /under_constructions/:id(.:format)      under_constructions#destroy
+               o_classes GET    /o_classes(.:format)                    o_classes#index
+                         POST   /o_classes(.:format)                    o_classes#create
+             new_o_class GET    /o_classes/new(.:format)                o_classes#new
+            edit_o_class GET    /o_classes/:id/edit(.:format)           o_classes#edit
+                 o_class GET    /o_classes/:id(.:format)                o_classes#show
+                         PUT    /o_classes/:id(.:format)                o_classes#update
+                         DELETE /o_classes/:id(.:format)                o_classes#destroy
+                    root        /                                       screens#home
+                    root        /                                       screens#home
+                   about        /about(.:format)                        screens#about
+                 privacy        /privacy(.:format)                      screens#privacy
+                   terms        /terms(.:format)                        screens#terms
+            construction        /construction(.:format)                 screens#construction
+        new_user_session GET    /users/sign_in(.:format)                devise/sessions#new
+            user_session POST   /users/sign_in(.:format)                devise/sessions#create
+    destroy_user_session DELETE /users/sign_out(.:format)               devise/sessions#destroy
+           user_password POST   /users/password(.:format)               devise/passwords#create
+       new_user_password GET    /users/password/new(.:format)           devise/passwords#new
+      edit_user_password GET    /users/password/edit(.:format)          devise/passwords#edit
+                         PUT    /users/password(.:format)               devise/passwords#update
+cancel_user_registration GET    /users/cancel(.:format)                 devise/registrations#cancel
+       user_registration POST   /users(.:format)                        devise/registrations#create
+   new_user_registration GET    /users/sign_up(.:format)                devise/registrations#new
+  edit_user_registration GET    /users/edit(.:format)                   devise/registrations#edit
+                         PUT    /users(.:format)                        devise/registrations#update
+                         DELETE /users(.:format)                        devise/registrations#destroy
+                                /auth/:provider/callback(.:format)      authentication#create

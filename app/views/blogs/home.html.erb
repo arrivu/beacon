@@ -1,0 +1,191 @@
+<% provide(:title, 'A Smarter Way to Learn') %>
+<% provide(:effectingHeader) %>
+ <div class="homebanner">
+    <div class="container">
+      <div class="row">
+        <div class="span12" align="center">
+            <div class="bannertext">
+              <h3>Learning is fun</h3>
+            </div>
+            <div class="bannersubtitle">
+              No Set up , No hassle, Just learning and only learning with fun
+            </div>  
+        </div>
+        <div class="clearfix"></div>
+        <div class="span5" align="center">
+            <div class="bannervideo">
+              <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="350" height="230" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
+        </div>
+        <div class="span7" align="justify">
+            <div class="bannerinfo">
+              <p>Beacon Online teaches managemnet subjects in the comfort of your browser with video lessons, quizzes and screnshots.</p>
+              
+              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span></a> -->
+            </div>
+            <div class="bannerlearn">
+                <span class="learnheading">Learn: </span>
+                <span class="badge leartopic">Branding</span>
+                <span class="badge leartopic">Analytics</span>
+                <span class="badge leartopic">SCM</span>
+                <span class="badge leartopic">VALUATIOn</span>
+                <span class="badge leartopic">Enterpreneurship</span>
+              
+
+            </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+<div class="homecourse">
+    <div class="secondary-content">
+    <div class="container" align="center">
+      <div class="row testimonial">
+        <!-- <h2 class="ribbon">
+          <span class="title">Our Courses</span>
+        </h2> -->
+        <h2>Popular Courses</h2>
+
+      </div>
+    </div>
+  </div>
+    <div class="container">
+      <div class="row">
+        <!-- <div class="span12" align="center">
+          <div class="bannersubtitle">
+              Learn where to start and what to take next with our courses
+          </div> 
+        </div> -->
+            
+              <% @courses.each do |course|%>
+              <div class="span7">
+                <div class="courses">
+                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                      <div class="card-a course-inner">
+                      <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+                       <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
+                      <div class="course-content">
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%= course.topic.name if !course.topic.nil?%></em>
+                      <!-- <em class="label-b">Free Course</em> -->
+                      <%=link_to(course) do %><h3 class="course-name"><%=truncate(course.title, :length => 18)%></h3>
+                      <p class="course-desc"><%=truncate(course.desc, :length => 50)  %></p>
+                       <%end%>
+                    </div>
+                      </div>
+                  </article>
+                </div>
+              </div>
+              <%end%>
+            
+              <div align="center">
+                <!-- <a href="courselibrary.php"><span class="browsemore" align="center">
+                  Browser More Courses
+                </span></a> -->
+                <%= link_to "Browse More Courses", courses_path, :class => "browsemore" %>
+
+              </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ourcustomers secondary-content">
+    <div class="container" align="center">
+      <div class="row testimonial">
+        <!-- <h2 class="ribbon">
+          <span class="title">Our Customers</span>
+        </h2> -->
+        <h2>Our Customers</h2>
+        <div class="span4">
+          <div class="verticalcustomerbox testimonial-one" align="center">
+            <div class="customerimage">
+              <img src="assets/manlogo.jpg" class="img-polaroid"/>
+            </div>
+            <div class="testimonialtext">
+              "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+            </div>
+            <div class="testimonialauthor">
+              - Ankit Gupta,<br/>Mangalayatan University
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="verticalcustomerbox testimonial-two">
+            <div class="customerimage">
+              <img src="assets/greatlakeslogo.jpg" class="img-polaroid"/>
+            </div>
+            <div class="testimonialtext">
+              “Beacon has a library of lessons that goes far beyond the surface, touching on nearly every aspect of Finance Marketing.”
+            </div>
+            <div class="testimonialauthor">
+              - Sumit Saxena,<br/>Great Lakes Institute of Management
+            </div>
+          </div>
+        </div>
+        <div class="span4">
+          <div class="verticalcustomerbox testimonial-three">
+            <div class="customerimage">
+              <img src="assets/greatlakeslogoimr.jpg" class="img-polaroid"/>
+            </div>
+            <div class="testimonialtext">
+              "Beacon offers tremendous coverage on a wide range of topics and they do a great job of providing education and support.”
+            </div>
+            <div class="testimonialauthor">
+              - Preeti Mishra,<br/>Great Lakes Institute of Energy Management and Research
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ourknowledgepartners secondary-content">
+    <div class="container" align="center">
+      <div class="row testimonial">
+        <!-- <h2 class="ribbon">
+          <span class="title">Our Customers</span>
+        </h2> -->
+        <h2>Our Knowledge Partners</h2>
+
+        <div class="listofkp">
+          <div class="firstkp">
+            <img src="assets/yale.png" />
+          </div>
+          <div class="kp">
+            <img src="assets/cuoa.png" />
+          </div>
+          <div class="kp">
+            <img src="assets/bauer.png" />
+          </div>
+          <div class="kp">
+            <img src="assets/illinois.png" />
+          </div>
+          <div class="lastkp">
+            <img src="assets/nanyang.png" />
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="bottomadsection">
+    <div class="container">
+      <div class="row">
+        <div class="span12" align="center">
+          <h3>Ready to start your learning adventure?</h2>
+          <!-- <a href="courselibrary.php"><span class="browseourcoursessmall">Browse Our Courses</span></a> -->
+          <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          
+          <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">Create Account</a>
+        </div>
+        <!-- <div class="span4">
+          <img src="http://placehold.it/400x200/f1f1f1/000&text=Courses" class="img-polaroid"/>
+        </div> -->
+      </div>
+    </div>
+  </div>
+ 

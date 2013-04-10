@@ -1,0 +1,418 @@
+.coursedetailtop{
+	min-height: 100px;
+	background-color: #d14836;
+	background-image: -webkit-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: -moz-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: -ms-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: -o-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: linear-gradient(top,#2C3E50,#ECF0F1);
+	color:#fff;
+}
+
+
+.modulesclub{
+	margin-bottom: 20px;
+	margin-top: 10px;
+	padding-bottom: 20px;
+	/*background-color: #d14836;
+	background-image: -webkit-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: -moz-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: -ms-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: -o-linear-gradient(top,#2C3E50,#ECF0F1);
+	background-image: linear-gradient(top,#2C3E50,#ECF0F1);*/
+	border-bottom: 1px solid #eee;
+}
+.coursevideo{
+	padding:20px;
+	width:300px;
+	height: 200px;
+}
+
+.coursedesc{
+	padding:20px;
+}
+
+.coursetitle h3{
+	line-height: 34px;
+	font-size: 30px;
+	font-weight: 200;
+	color: #f1f1f1;
+	z-index: 0;
+	margin-left: 30px;
+	text-transform: uppercase;
+}
+
+.subtitle{
+	font-size: 15px;
+	line-height: 20px;
+	font-weight: 100;
+	color: #f1f1f1;
+	z-index: 0;
+	margin-left: 30px;
+}
+
+.subsection{
+	margin-left: 30px;
+	margin-top: 10px;
+	text-transform: uppercase;
+}
+
+
+.enroll{
+	float: left;
+	margin-top: 10px;
+	font-weight: bold;
+	padding: 12px 15px;
+	background: #4090ba;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	/*-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;*/
+	margin-right: 20px;
+}
+
+.enroll:hover{
+	background: #3498DB ;
+}
+
+
+
+.shortlist{
+	float: left;
+	margin-top: 10px;
+	font-weight: bold;
+	padding: 12px 15px;
+	background: #16A085 ;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	/*-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;*/
+}
+.placeholder{
+	float: right;
+	margin-top: 10px;
+	font-weight: bold;
+	background: -moz-linear-gradient(center top , #FAA51A, #F47A20) repeat scroll 0 0 transparent;
+    border: 1px solid #DA7C0C;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border-radius: 4px 4px 4px 4px;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	padding: 2px 15px 3px;
+	/*-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;*/
+}
+.placeholder:hover{
+	background: #F58112 ;
+}
+
+.coursesession{
+	padding: 10px;
+	color:#333;
+	border-bottom: 1px solid #eee;
+
+}
+
+.socialcourse{
+	float: left;
+	margin-top: 10px;
+	font-weight: bold;
+	padding: 12px 15px;
+	background: #2C3E50 ;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	/*-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;*/
+}
+
+.readallreview{
+	margin-top: 10px;
+	font-weight: bold;
+	padding: 12px 15px;
+	background: #2C3E50 ;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+}
+
+.readallreview:hover{
+	background: #34495E ;
+}
+
+.aboutcourse{
+	padding: 10px;
+	color:#333;
+	padding-bottom: 20px;
+	background-color: #d14836;
+	background-image: -webkit-linear-gradient(top,#fff,#f1f1f1);
+	background-image: -moz-linear-gradient(top,#fff,#f1f1f1);
+	background-image: -ms-linear-gradient(top,#fff,#f1f1f1);
+	background-image: -o-linear-gradient(top,#fff,#f1f1f1);
+	background-image: linear-gradient(top,#fff,#f1f1f1);
+	border-bottom: 1px solid #eee;
+}
+
+.aboutcourse .head{
+	line-height: 34px;
+	font-size: 30px;
+	font-weight: 200;
+	color: #4090ba;
+	z-index: 0;
+	margin-left: 30px;
+	border-bottom: 1px solid #eee;
+}
+
+.coursesyllabus {
+	padding: 10px;
+}
+.coursesyllabus .head{
+	line-height: 34px;
+	font-size: 30px;
+	font-weight: 200;
+	color: #4090ba;
+	z-index: 0;
+	margin-left: 30px;
+	border-bottom: 1px solid #eee;
+}
+
+.coursesyllabus .underlinetext{
+	text-align: justify;
+	margin-top: 10px;
+	font-size: 18px;
+	font-weight: 100;
+	color: #333;
+	z-index: 0;
+	margin-left: 30px;
+}
+
+.previewcourse{
+	min-height: 100px;
+	color: #fff;
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: #16A085 ;
+}
+
+.previewcourse h2{
+	padding-bottom: 20px;
+}
+
+.previewcourse .prevbox{
+	background-color: #F8F8F6 ;
+	margin-bottom: 10px;
+}
+
+.previewcourse .previmage{
+	float: left;
+	padding: 10px;
+}
+
+.previewcourse .previnfo{
+	float: left;
+	padding-left: 10px;
+	color: #333 ;
+}
+
+.prevtxt{
+	color: #16A085;
+}
+
+.aboutauthor{
+	min-height: 100px;
+
+	/*background-color: #2C3E50 ;*/
+	background-color: #f2e1ac;
+	margin-top: 20px;
+	color: #2a488e;
+
+	padding:20px;
+}
+
+.aboutauthor .authorimage{
+
+}
+
+.aboutauthor .authorinfo{
+	position: relative;
+	float: left;
+	top:2px;
+	margin-left:0px;
+}
+
+.coursereviews{
+	min-height: 100px;
+	background-color: #ECF0F1 ;
+	margin-top: 0px;
+	color: #333;
+	margin-bottom: 20px;
+	padding:20px;
+}
+
+.coursereviews .reviewer{
+	position: relative;
+	float: left;
+}
+
+.coursereviews .reviewcomment{
+	position: relative;
+	float: left;
+	margin-left: 20px;
+}
+
+.aboutcourse .underlinetext{
+	text-align: justify;
+	margin-top: 10px;
+	font-size: 15px;
+	font-weight: 100;
+	color: #333;
+	z-index: 0;
+	margin-left: 30px;
+}
+
+.aboutinstructor{
+	color:#333;
+	position: relative;
+	margin-top: 20px;
+	margin-left: 40px;
+}
+
+.aboutinstructor .instructorimage{
+	float: left;
+	margin-right: 20px;
+}
+
+.aboutinstructor .instructordetail{
+	float: left;
+}
+
+
+/*.browsemore{
+	width:100%;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.browsemore .browsermorebutton{
+	margin-top: 10px;
+	font-weight: bold;
+	padding: 12px 15px;
+	background: #4090ba;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+}*/
+
+.starrating{
+	margin-left: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+
+.bubble-content {
+   position:relative;
+   float:left;
+   padding: 10px;
+   margin-left: 12px;
+   border-radius:10px;
+   background-color:#fff;
+   color: #333;
+   width:350px;
+   box-shadow:1px 1px 5px rgba(0,0,0,.2);
+   text-align: justify;
+   }
+.bubble {
+     margin-top:20px;
+     }
+.point {
+   border-top:10px solid transparent;
+   border-bottom:10px solid transparent;
+   border-right: 12px solid #fff;
+   position:absolute;
+   left:-10px;
+   top:12px;
+   }
+
+.underlinetext ul {
+	list-style: none;
+}
+
+.underlinetext ul li {
+	list-style: none;
+	padding: 10px;
+}
+
+.underlinetext ul li h4{
+	list-style: none;
+	color: #333;
+
+	font-family: verdena;
+}

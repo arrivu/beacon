@@ -1,0 +1,42 @@
+<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+
+<br>
+<div class="row">
+	<div class="span12 offset3">
+		
+
+		<div class="row">
+			<div class="span10 ">
+				<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+					<table class="table table-hover ">
+						<tr>
+							<h3 align = "center">New Preview</h3>
+						</tr>
+						<%= form_for @preview do |f| %>
+						<%= render 'shared/error_messages', object: f.object %>
+						<tr><td><%= f.label :course_id, "Courses" %></td>
+							<td>
+									<% courses_array = Course.all.map { |course| [course.title, course.id] } %>
+							<%= select_tag(:id,options_for_select(courses_array))%>
+							</td></tr>
+							<tr><td><%= f.label :name, "Title" %></td>
+								<td><%= f.text_field :name,:maxlength => 25 %></td></tr>
+								<tr><td><%= f.label :desc, "Description" %></td>
+									<td><%= f.text_area :desc ,:cols => "30", :rows => "5",:maxlength => 50 %></td></tr>
+									<tr><td><%= f.label :video_url, "Video URL" %></td>
+										<td><%= f.text_area :video_url ,:cols => "30", :rows => "3" %></td></tr>										
+										<tr><td><%= f.label :sequence, "Display Order" %></td>
+											<td><%= f.text_field :sequence ,:size => '2' %></td></tr>
+											<tr><td><%= f.label :enable, "Show This Preview" %></td>
+												<td><%= f.check_box :enable ,:checked => true%></td></tr>
+												<tr><td></td><td><%= f.submit "Add Preview", class: "btn btn-large btn-primary" %></td></tr>
+											</table>
+											<% end %>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>

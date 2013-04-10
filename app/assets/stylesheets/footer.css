@@ -1,0 +1,196 @@
+.footer {
+background: #fff;
+padding-top: 10px;
+position: relative;
+width: 100%;
+margin-top: 50px;
+border-top: 1px solid #ddd;
+}
+
+.footer .mission {
+}
+
+.four, .row .four {
+width: 33.33333%;
+}
+
+.footer .mission {
+max-width: 315px;
+}
+
+.four, .row .four {
+width: 33.33333%;
+}
+
+.column, .columns {
+float: left;
+min-height: 1px;
+padding: 0 15px;
+position: relative;
+}
+
+.footer .columns.three, .footer .row .columns.three, .row .footer .columns.three {
+width: 22%;
+}
+
+.two, .row .two {
+width: 16.66667%;
+}
+
+.footer .mission img {
+height: 30px;
+width: 30px;
+margin-bottom: 15px;
+}
+
+.footer .mission p {
+color: #888;
+margin-top: 15px;
+}
+
+.footer .mission p {
+display: block;
+clear: left;
+color: #888;
+line-height: 1.5;
+margin: 0 0 15px;
+}
+
+.footer p {
+font-size: 13px;
+}
+
+.footer p .headinglike{
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.footer .mission ul.social {
+border-top: 1px solid #ddd;
+margin: 15px 0;
+padding: 15px 0 0;
+}
+
+.footer .mission ul.social li {
+display: inline-block;
+margin: 0 4px 0 0;
+}
+
+.footer .mission ul li {
+font-size: 1.25em;
+color: #999;
+margin-bottom: 10px;
+}
+
+.footer .mission ul.social li a {
+display: block;
+height: 26px;
+width: 26px;
+}
+
+.footer .mission ul a {
+font-weight: bold;
+color: #999;
+}
+
+.footer .mission p.copyright {
+color: #bbb;
+}
+
+.footer_icon
+{
+width: auto\9;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+.footer .mission p {
+display: block;
+clear: left;
+color: #888;
+line-height: 1.5;
+margin: 0 0 15px;
+}
+
+.footer p {
+font-size: 13px;
+}
+
+
+.footer ul.link-list {
+text-align: left;
+}
+
+.footer .link-list {
+font-size: 1.25em;
+}
+
+ul.inline-list, ul.link-list {
+margin: 0 0 17px -22px;
+padding: 0;
+list-style: none;
+overflow: hidden;
+}
+
+.right {
+float: right;
+}
+
+.footer ul.link-list li.heading {
+font-weight: bold;
+margin-bottom: 4px;
+}
+
+.footer ul.link-list li {
+color: #999;
+display: block;
+float: none;
+font-size: 13px;
+}
+
+.footer .link-list li, .footer .link-list a {
+color: #999;
+display: block;
+line-height: 1.8;
+}
+
+
+ul.inline-list>li, ul.link-list>li {
+list-style: none;
+float: left;
+margin-left: 22px;
+display: block;
+}
+
+
+
+
+.footer ul.link-list li.heading a {
+color: #777;
+}
+
+.footer .link-list .heading a {
+font-weight: bold;
+color: #777;
+margin-bottom: 5px;
+}
+
+.footer ul.link-list a {
+color: #999;
+}
+
+.footer .link-list li, .footer .link-list a {
+color: #999;
+display: block;
+line-height: 1.8;
+}
+
+.footer .link-list li a:hover {
+text-decoration: underline;
+}
+
+ul.inline-list>li>*, ul.link-list>li>* {
+display: block;
+}

@@ -1,0 +1,58 @@
+   
+<div class="row">
+    <div class="span6 offset3">
+      <!-- Modal -->
+ <div id="sign_up_Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <button  type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></button>
+  <div class="modal-header" style = "border-bottom: 0px">
+    <h3 id="myModalLabel" align="center"> </h3>
+</div>
+    
+    <div class="modal-body">
+                <%= simple_form_for(User.new, :as => :user, :url => registration_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
+
+     
+                  <table>
+    <tr>
+        <td> <h3 align="center" style="margin:0px;font-size:19px;">Register</h3>
+           <div style="margin-top:20px;">
+                        <%= f.error_notification %>
+        <%= display_base_errors User.new %>
+        <%= f.input :name, :autofocus => true %>
+        <%= f.input :email, :required => true %>
+        <%= f.input :password, :required => true %>
+        <%= f.input :password_confirmation, :required => true %>
+        <%= f.button :submit, 'Create my account', :class => 'btn-primary'%>
+      </div>
+    </td>
+
+  
+    <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('assets/verticle_line.jpg');background-position: center;">
+       <div style="margin: 190px 15px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
+    </td>
+    
+   
+    <td valign="top">
+        <h3 align="center" style="margin:0px;font-size:19px;">   Login using</h3>
+        <div style="margin-left:20px;margin-top:60px;">
+
+         <%= link_to image_tag("loginfacebook.png", alt: ""), '/auth/facebook/' %>
+         <br>
+         Facebook
+         <br><br>
+         <%= link_to image_tag("Google_Logo.jpg", alt: ""), '/auth/google_oauth2/' %>
+         <br>
+         Google
+         <br><br>
+         <%= link_to image_tag("login-linkedin.png", alt: ""), '/auth/linkedin/' %>
+         <br>
+         LinkedIn</div>
+</td>
+</tr>
+</table>  
+   <% end %> 
+    </div>
+</div>
+    </div>
+  </div>
+

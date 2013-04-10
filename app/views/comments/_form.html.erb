@@ -1,0 +1,34 @@
+<div id="wite_review">
+<% if user_signed_in?%>
+<%= form_for(@comment , :url => comments_path(:commentable_type =>@commentable_type, :commentable_id =>@commentable_id )) do |f| %>
+<%= render 'shared/error_messages', object: @comment %>
+<%= f.label :title, 'Add Review' %>
+<%= f.text_field :title ,placeholder: "Review title"%><br />
+<br>
+<%= f.text_area :comment , :rows => 5, :cols => 40 ,placeholder: "comment" %><br />
+<div class="container clearfix"></div>
+    <div >
+      <a>
+        <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
+        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+         <br align = "center">
+        <% end %>
+        <%= rating_for @course, "rate" if !@course.blank?%> 
+        <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+         <div class = "rated" %>
+        <% if @rated == nil  %>
+        Rate This Course
+        <% else  %>
+        Course Rated
+        <% end %>
+      </div>
+        <% end %>
+      </a>
+   </div>
+<div class="container clearfix"></div>
+<%= f.submit nil, :class => 'btn btn-primary' %>
+<br />
+<% end %>
+
+<% end %>
+</div>

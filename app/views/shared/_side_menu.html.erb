@@ -1,0 +1,53 @@
+   <script type="text/javascript">
+
+   $(function(){
+    // this will get the full URL at the address bar
+    var url = window.location.href; 
+
+    // passes on every "a" tag 
+    $("#side_menu a").each(function() {
+            // checks if its the same on the address bar
+            if(url == (this.href)) { 
+            	$(this).closest("a").addClass("active");
+            }
+          });
+  });
+   </script>
+
+   <div>
+
+   	<ul id="side_menu">
+
+   		<li><%= link_to "Users", users_path %>
+   			
+   		</li>
+   		
+   		
+   		<li><%= link_to "New Course Library", new_course_path %>
+   			
+   			
+   		</li>
+   		<li><%= link_to "Manage Course Library", manage_courses_path %>
+   			
+   		</li>
+   		
+   		
+   		
+   		
+   		<li> <%= link_to "New Category",new_topic_path %> </li></li>
+   		<li> <%= link_to "Manage Category", topics_path %></li>
+   		
+   		
+   		
+   		<li><%= link_to "New Preview",new_course_preview_path %></li>
+   		<li><%= link_to "Manage Preview",course_previews_path %></li>
+      <li><%= link_to "New Coupon", new_coupon_path %></li>
+   		<li><%= link_to "Manage Coupon", coupons_path %></li>
+   		
+   		
+   	</ul>
+   	
+
+   </div>
+
+

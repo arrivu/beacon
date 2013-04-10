@@ -1,0 +1,43 @@
+<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+<div style="margin-left:200px;min-height:325px;">
+
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <th>Alpha code</th>
+    <th>Alpha mask</th>
+    <th>Digit code</th>
+    <th>Digit mask</th>
+    <th>Category one</th>
+    <th>Amount one</th>
+    <th>Percentage one</th>
+    <th>Category two</th>
+    <th>Amount two</th>
+    <th>Percentage two</th>
+    <th>Expiration</th>
+    <th>How Many</th>
+    <th>Number redeemed</th>
+  </tr>
+
+  <% @coupons.each do |coupon| %>
+  <tr>
+    <td><%= coupon.alpha_code %></td>
+    <td><%= coupon.alpha_mask %></td>
+    <td><%= coupon.digit_code %></td>
+    <td><%= coupon.digit_mask %></td>
+    <td><%= coupon.category_one %></td>
+    <td><%= coupon.amount_one %></td>
+    <td><%= coupon.percentage_one %></td>
+    <td><%= coupon.category_two %></td>
+    <td><%= coupon.amount_two %></td>
+    <td><%= coupon.percentage_two %></td>
+    <td><%= coupon.expiration %></td>
+    <td><%= coupon.how_many %></td>
+    <td><%= coupon.redemptions_count %></td>
+  </tr>
+  <% end %>
+</table>
+<div class='apple_pagination' align="center"><%= will_paginate  @coupons, :container => false %></div>
+
+</div>

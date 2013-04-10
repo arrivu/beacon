@@ -1,0 +1,120 @@
+<% provide(:title, 'Blog') %>
+
+<div class="container">
+  <div class="row">
+    <ul class="nav nav-pills .pull-right">
+      <li>
+        <%= link_to "Courses", courses_path %>
+      </li>
+      
+      <% if signed_in? %>
+      <li><%= link_to "Online Classes", o_classes_path %></li>
+      <% end %>
+      <li class="active"><%= link_to "Blog", blogs_path %></li>
+      
+    </ul>
+  </div>
+
+  <div class="row">
+    <div class="span8">
+     <div class="well">
+      <% if @blogs.count < 1 %>
+      <div class="alert alert-success">
+        Be the First one to Write the First Blog!!!!
+        <%= link_to "Sign In", signin_path , class: "move-to-right-top"%>
+      </div>
+      <% if signed_in? && current_user.user_type == 2 #Teacher %>
+      <p><%= link_to "Add New Blog", new_blog_path , class: "move-to-right-top"%></p>
+      <% end %>
+      
+      <% else %>
+      <%= form_tag blogs_path, method: "get", id: "blogs_search", html: { class: 'form-horizontal' } do %>
+      <p>
+        <%= text_field_tag :search, params[:search], class: 'text_field', placeholder: "Enter your search string to find the blog by it's title", autocomplete: "off"  %>
+      </p>
+      <% if signed_in? && current_user.user_type == 2 #Teacher %>
+      <p><%= link_to "Add New Blog", new_blog_path , class: "move-to-right-top"%></p>
+      <% end %>
+      <div class="clearfix"></div>
+      <div id="blogs"><%= render 'blogs' %></div>
+      <% end %> <!-- end of form -->
+      <% end %><!-- end of if condition -->
+    </div> 
+  </div><!-- <div class="span8"> -->
+
+  <div class="span4">
+    <div class="well">
+
+               <!--  <form class="navbar-search pull-left">
+                  <input type="text" class="search-query" placeholder="Search">
+                </form>
+                <div class="clearfix"></div> -->
+
+                <div class="tabbable"> <!-- Only required for left/right tabs -->
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a href="#categories" data-toggle="tab">Categories</a></li>
+                    <li><a href="#upcomingcourses" data-toggle="tab">Upcoming Blogs</a></li>
+                  </ul>
+                  <div class="tab-content">
+
+                    <div class="tab-pane active" id="categories">
+                      
+
+                      <div class="categories">
+                        <% if @tags.size > 1 %>
+                        <ul class="nav nav-list">
+                          <li class="nav-header"></li>
+                          <li class="active"><%= link_to "All" + " ( #{Blog.where(ispublished: 1).all.size} )", blogs_path %></a></li>
+                          <% @tags.each do |tag| %>    
+                          <% @tagStructure = tag.name + " ( #{ tag.blogs.where(ispublished: 1).size} )" %>
+                          <li><a href="#"><%= link_to @tagStructure, tag %></a></li>
+                          <% end %>
+                        </ul>
+                        <% else %>
+                        <div class="alert alert-error">
+                          No Categoried defined!!
+                        </div>
+                        <% end %>
+                        <br/>
+                          <!-- <button id="createTopicbottom" class="btn btn-info" type="button">Add new Topic
+                        </button> -->
+                        <% if signed_in? && current_user.user_type == 3 #Admin %>
+                        <%= link_to "Manage Category", tags_path, class: "btn btn-info" %>
+                        <% end %>
+                      </div>
+
+                    </div><!-- <div class="tab-pane active" id="categories"> -->
+
+                    <div class="tab-pane" id="upcomingcourses">
+                      
+                      <div class="upcoming">
+                        <% Blog.where(ispublished: 0).all.each do |t| %>
+                        <div class="upcoming-widget">
+                          <div class="widget-thumbnail">
+                            <!-- <img src="homeOnline.jpg" width="70px" height="100px"> -->
+                            <!--#link_to image_tag("homeOnline.jpg", border 0), {action: '#', controller: '#'},class: '#'-->
+                            <%= link_to image_tag("#{t.image}", border: 0, width: "50", height: "50")%>
+                          </div><!-- end .widget-thumbnail -->
+                          <div class="widget-body">
+                            <h4><%= t.title %></h4>
+                            <span class="label label-info"><%= t.releasemonth %></span>
+                          </div>
+                          <div class="clearfix"></div>
+                        </div>
+                        <% end %>
+                      </div>
+                    </div><!-- <div class="tab-pane" id="categories"> -->
+                    
+                  </div><!--<div class="tab-content"> -->
+                </div><!-- Only required for left/right tabs -->
+
+                
+              </div>
+            </div><!-- <div class="span3"> -->
+
+
+
+
+
+          </div><!-- <div class="row"> -->
+</div><!-- <div class="container"> -->

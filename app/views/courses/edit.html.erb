@@ -1,0 +1,54 @@
+<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="span12 offset3">
+<% provide(:title, 'Create Course') %>
+<br>
+<div class="row">
+	<div class="span10">
+		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+			<table class="table table-hover ">
+				<tr>
+					<h3 align = "center">Edit Course Library</h3>
+				</tr>
+
+				<%= form_for(@course) do |f| %>
+				<%= render 'shared/error_messages', object: f.object %>
+				<tr><td><%= f.label :title, "Title" %></td>
+					<td><%= f.text_field :title %></td></tr>
+
+					<tr><td><%= f.label :author, "Author Name" %></td>
+						<td><%= f.text_field :author %></td></tr>
+
+						<tr><td><%= f.label :short_desc, "Short Description" %></td>
+							<td><%= f.text_field :short_desc %></td></tr>
+						
+
+						<tr><td><%= f.label :desc, "Course Description" %></td>
+							<td><%= f.text_area :desc ,:cols => "30", :rows => "10"%></td></tr>
+
+							<tr><td>  </td><td><%= image_tag url_for(:action => 'show_image', :id => @course.id), :size => "100x100" %></td></tr>
+
+							<tr><td><%= f.label 'attachment', "Image" %></td>
+								<td><%= f.file_field 'attachment' %></td></tr>
+
+								<tr><td><%= f.label :ispopular, "Popular" %></td>
+									<td><%= f.check_box :ispopular %></td></tr>
+
+									<tr><td><%= f.label :ispublished, "Publish" %></td>
+										<td><%= f.check_box :ispublished 	%></td></tr>
+
+										<tr><td><%= f.label :topic_id, "Topics" %></td>
+											<td><%= f.collection_select :topic_id, Topic.order(:name), :id, :name, {}, {multiple: false} %></td></tr>
+											<tr><td></td><td><%= f.submit "Update Course", class: "btn btn-large btn-info" %></td></tr>
+											<% end %>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
