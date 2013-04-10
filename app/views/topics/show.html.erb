@@ -17,8 +17,54 @@
         <div class="courselibsectioninfo">
         <div class="coursecount pull-left">
            <span class="badge badge-info">Found&nbsp;&nbsp;<%= pluralize(@total_course_count, "Course") %></span>
-        </div>
-        <ul id="dropdownlistelse" class="pull-right moveup">
+        </div><ul class="nav pull-right" style="margin-left:5px;">
+           <li id="fat-menu" class="dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:black;">Sort By&nbsp;&nbsp;<b class="caret" style="margin-top:4px;"></b></a>
+            
+               <!--  <div style="top:-20px; float:left; margin-left:3px; margin-top:0px; margin-right: 3px;">
+                <img alt="Ankit Gupta" class="gravatar" src="https://secure.gravatar.com/avatar/b94eaadd611b184036707b3bd3d7e303" height="20" width="20">
+                </div> -->
+            
+            <ul class="dropdown-menu">
+              
+             <li><%= link_to "Date", datewise_courses_path %></li>
+                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", upcomming_courses_path %></li>
+                    <li><%= link_to "Popularity", popular_courses_path %></li>
+                    <li><%= link_to "Subscribed", subscribed_courses_path %></li> 
+                   <li><%= link_to "Default", courses_path %></li>
+             
+            </ul>
+          </li>
+
+            <!-- <li>
+                <a href="#">Sort By&nbsp;&nbsp;<i style="width:12px;margin-top:4px;float:right;height:15px;background-image:url('assets/arrow_white.png');background-position:-312px -96px;"></i></a>
+                <ul>
+                    <li><%= link_to "Date", datewise_courses_path %></li>
+                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", upcomming_courses_path %></li>
+                    <li><%= link_to "Popularity", popular_courses_path %></li>
+                    <li><%= link_to "Subscribed", subscribed_courses_path %></li> 
+                   <li><%= link_to "Default", courses_path %></li>
+                </ul>
+            </li> -->
+        </ul>
+
+        <ul class="nav pull-right">
+           <li id="fat-menu" class="dropdown" style="color:black;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:black;">Categories&nbsp;<b class="caret" style="margin-top:4px;"></b></a>
+                <ul class="dropdown-menu">
+
+                    <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></li>
+
+
+                    <% @topics.each do |topic| %>   
+                       <% @topicStructure = topic.name + " ( #{ topic.courses.where(ispublished: 1).size} )" %>
+
+                          <li><%= link_to @topicStructure, topic %></li>
+                    <%end%>    
+                </ul>
+            </li>
+        </ul>
+        <!-- <ul id="dropdownlistelse" class="pull-right moveup">
             <li>
                 <a href="#">Sort By&nbsp;&nbsp;<i style="width:12px;margin-top:4px;float:right;height:15px;background-image:url('../assets/arrow_white.png');background-position:-312px -96px;"></i></a>
                 <ul>
@@ -44,7 +90,7 @@
                     <%end%>      
                 </ul>
             </li>
-        </ul>
+        </ul> -->
         <div class="clearfix"></div>
         <!-- <div class="btn-group pull-right moveup">
                 <button class="btn dropdown-toggle btn-info" data-toggle="dropdown">Sort By&nbsp;&nbsp;<span class="caret"></span></button>

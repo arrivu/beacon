@@ -3,8 +3,7 @@
 <div class="mycourseheader">
     <div class="container">
       <div class="row">
-        <div class="span2">
-          
+        <div class="span2">          
           <% if current_user.image_blob == nil %>
             <% if current_user.omni_image_url == nil %>
             <%= gravatar_for_with_size current_user, "100x100" %>
@@ -19,11 +18,11 @@
           <h3><%= current_user.name %></h3> <%= link_to "Edit Profile", edit_user_registration_path %>
           <br/>
           <span class="mycoursecurrentdnumber">
-            <strong>2</strong> Courses Ongoing
+            <strong><%= @enrolled_courses.count %></strong> Courses Ongoing
           </span>
           <br/>
           <span class="mycoursecompletednumber">
-            <strong>2</strong> Courses Completed
+            <strong><%= @completed_courses.count %></strong> Courses Completed
           </span>
           <!-- <br/>
           <span class="mycourseshortlistednumber">
@@ -42,10 +41,10 @@
         <div class="span8">
           <ul class="nav nav-tabs">
             <li class="active">
-              <a href="#currentcourses" data-toggle="tab">My Current Courses (2)</a>
+              <a href="#currentcourses" data-toggle="tab">My Current Courses (<%= @enrolled_courses.count %>)</a>
             </li>
             <li class="">
-              <a href="#completedcourses" data-toggle="tab">My Graduated Courses (2)</a>
+              <a href="#completedcourses" data-toggle="tab">My Graduated Courses (<%= @completed_courses.count %>)</a>
             </li>
             <!-- <li class="">
               <a href="#shortlistedcourses" data-toggle="tab">My Shortlisted Courses (1)</a>
@@ -58,39 +57,33 @@
                 <div class="mycurrentcoursesection">
                   <h3>My Current Courses</h3>
                   <div class="row">
-                    <div class="span8">
-                      <div class="courses">
-                        <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                            <div class="card-a course-inner">
-                            <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                            <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
-                            <div class="course-content">
-                            <em class="label-a label-offset green" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Finance</em>
-                            <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name">Finance Management</h3>
-                            <p class="course-desc">Learn the basic building blocks of Finance Management in your browser.</p>
-                            </a></div>
-                            </div>
-                        </article>
-                      </div>
-                    </div>
 
                     <div class="span8">
                       <div class="courses">
                         <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+                           
+                        </article>
+                      </div>
+                    </div>
+
+
+                    <% @enrolled_courses.each do |course|%>
+                    <div class="span8">
+                      <div class="courses">
+                        <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
                             <div class="card-a course-inner">
                             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                            <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
-                            <div class="course-content">
-                            <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Analytics</em>
+                      <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>                            <div class="course-content">
+                            <em class="label-a label-offset green" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Finadewqnce</em>
                             <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name">Data Analytics</h3>
-                            <p class="course-desc">Learn the basic building blocks of Data Analysis in your browser.</p>
-                            </a></div>
+                           <%=link_to(course) do %><h3 class="course-name"><%= course.title %></h3>
+                            <p class="course-desc"><%= course.short_desc %></p>
+                            <% end %></div>
                             </div>
                         </article>
                       </div>
                     </div>
+                    <% end %>
 
                     
 
@@ -102,19 +95,11 @@
               <div class="mycompletedcoursesesection">
                 <h3>My Completed Courses</h3>
                 <div class="row">
+                  <% @completed_courses.each do |course|%>
                   <div class="span8">
                       <div class="courses">
                         <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                            <div class="card-a course-inner">
-                            <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                            <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
-                            <div class="course-content">
-                            <em class="label-a label-offset blue" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Marketing</em>
-                            <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name">MARKETING</h3>
-                            <p class="course-desc">Learn the basic building blocks of Marketing in your browser.</p>
-                            </a></div>
-                            </div>
+                            
                         </article>
                       </div>
                     </div>
@@ -126,15 +111,18 @@
                             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
                             <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
                             <div class="course-content">
-                            <em class="label-a label-offset green" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Operations</em>
+                            <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Operations</em>
+
                             <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name">OPERATIONS</h3>
-                            <p class="course-desc">Learn the basic building blocks of Operation Management in your browser.</p>
-                            </a></div>
+                           <%=link_to(course) do %><h3 class="course-name"><%= course.title %></h3>
+                            <p class="course-desc"><%= course.short_desc %></p>
+                            <% end %></div>
                             </div>
                         </article>
                       </div>
                     </div>
+                     <% end %>
+                    
 
                   
                   
@@ -157,9 +145,9 @@
                             <div class="course-content">
                             <em class="label-a label-offset violate" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">New</em>
                             <!-- <em class="label-b">Free Course</em> -->
-                            <a href="#"><h3 class="course-name">New Course</h3>
+                           <%=link_to(@course) do %><h3 class="course-name">New Course</h3>
                             <p class="course-desc">Learn the basic building blocks of New Course in your browser.</p>
-                            </a></div>
+                            <% end %></div>
                             </div>
                         </article>
                       </div>
@@ -176,9 +164,9 @@
                 <h3>Explore more courses</h3>
                 <!-- <a href="courselibrary.php"><span class="btn btn-info btn-large exploremore">Explore More Courses</span></a> -->
                 <div align="center">
-                  <a href="#"><span class="browsemore" align="center">
-                    Browser More Courses
-                  </span></a>
+                  <span class="browsemore" align="center">
+                   <%= link_to "Browser More Courses", courses_path %>
+                  </span>
                 </div>
           </div>
 

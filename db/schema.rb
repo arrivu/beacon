@@ -62,6 +62,42 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "coupons", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.text     "metadata"
+    t.string   "alpha_code"
+    t.string   "alpha_mask"
+    t.string   "digit_code"
+    t.string   "digit_mask"
+    t.string   "category_one"
+    t.float    "amount_one",        :default => 0.0
+    t.float    "percentage_one",    :default => 0.0
+    t.string   "category_two"
+    t.float    "amount_two",        :default => 0.0
+    t.float    "percentage_two",    :default => 0.0
+    t.date     "expiration"
+    t.integer  "how_many",          :default => 1
+    t.integer  "redemptions_count", :default => 0
+    t.integer  "integer",           :default => 0
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "coupons", ["alpha_code"], :name => "index_coupons_on_alpha_code"
+  add_index "coupons", ["digit_code"], :name => "index_coupons_on_digit_code"
+
+  create_table "course_previews", :force => true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.string   "video_url"
+    t.integer  "sequence"
+    t.integer  "enable"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "course_id"
+  end
+
   create_table "course_pricings", :force => true do |t|
     t.integer  "course_id"
     t.float    "price"
@@ -120,6 +156,26 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "invoices", :force => true do |t|
+    t.date     "due_at"
+    t.date     "paid_at"
+    t.decimal  "total"
+    t.string   "company_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.decimal  "price"
+    t.string   "description"
+    t.integer  "quantity"
+    t.integer  "display_price"
+    t.integer  "display_quantity"
+    t.integer  "invoice_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
   create_table "o_classes", :force => true do |t|
     t.string   "name"
     t.string   "desc"
@@ -133,17 +189,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
     t.integer  "user_id"
-  end
-
-  create_table "previews", :force => true do |t|
-    t.string   "name"
-    t.text     "desc"
-    t.string   "video_url"
-    t.integer  "sequence"
-    t.integer  "enable"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "course_id"
   end
 
   create_table "rates", :force => true do |t|
@@ -170,6 +215,15 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   end
 
   add_index "rating_caches", ["cacheable_id", "cacheable_type"], :name => "index_rating_caches_on_cacheable_id_and_cacheable_type"
+
+  create_table "redemptions", :force => true do |t|
+    t.integer  "coupon_id"
+    t.string   "user_id"
+    t.string   "transaction_id"
+    t.text     "metadata"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "relationships", :force => true do |t|
     t.integer  "course_id"
@@ -268,7 +322,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "attachment"
     t.string   "content_type"
     t.binary   "image_blob"
-    t.string   "subtype"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -280,12 +280,12 @@ ol, ul {
 #dropdownlistelse a{
 	display:block;
 	color:#fff;
-	background:#2980B9;
+	background:#2a488e;
 	text-decoration:none;
 }
 #dropdownlistelse a:hover{
 	color:#fff;
-	background:#3498DB ;
+	background:#2a488e ;
 	text-decoration:none;
 }
 
@@ -301,18 +301,19 @@ ol, ul {
 }
 #dropdownlistelse ul a{
 	white-space:nowrap;
+	background:#2a488e;
 }
 
 #dropdownlistelse li:hover ul{ 
 	display: block; 
 }
 #dropdownlistelse li:hover a{ 
-	background:#2980B9;
+	background:#2a488e;
 	text-decoration:none;
 }
 #dropdownlistelse li:hover ul a{ 
 	text-decoration:none;
 }
 #dropdownlistelse li:hover ul li a:hover{ 
-	background:#3498DB ;
+	background:#2a488e ;
 }

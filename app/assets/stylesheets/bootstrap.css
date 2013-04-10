@@ -7,6 +7,20 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
+ 
+@import url("http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
+@font-face {
+  font-family: "Flat-UI-Icons-16";
+  src: url("fonts/Flat-UI-Icons-16.eot");
+  src: url("fonts/Flat-UI-Icons-16.eot?#iefix") format("embedded-opentype"), url("fonts/Flat-UI-Icons-16.woff") format("woff"), url("fonts/Flat-UI-Icons-16.ttf") format("truetype"), url("fonts/Flat-UI-Icons-16.svg#Flat-UI-Icons-16") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {font-family:"Open Sans Light";src:url("OpenSans-Light.eot?") format("eot"),url("OpenSans-Light.woff") format("woff"),url("OpenSans-Light.ttf") format("truetype"),url("OpenSans-Light.svg#OpenSans-Light") format("svg");font-weight:normal;font-style:normal;}
+
+body{
+  color: #34495e;
+    font: 14px/1.231 "Lato", sans-serif;
+}
 
 body:after
 {
@@ -655,6 +669,8 @@ a:hover {
 
 p {
   margin: 0 0 10px;
+  font-family:"Lato", sans-serif;
+  font-size: 1.6em;
 }
 
 .lead {
@@ -2933,14 +2949,14 @@ table th[class*="span"],
 .dropdown-submenu:hover > a {
   color: #ffffff;
   text-decoration: none;
-  background-color: #0081c2;
-  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-color: #2a488e;
+  /*background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
   background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
   background-image: -o-linear-gradient(top, #0088cc, #0077b3);
   background-image: linear-gradient(to bottom, #0088cc, #0077b3);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);*/
   -moz-border-radius-topright: 0px;
   -moz-border-radius-bottomright: 0px;                
   -moz-border-radius-topleft: 0px;
@@ -5574,18 +5590,18 @@ a.thumbnail:hover {
   display: inline-block;
   padding: 2px 4px;
   font-size: 11.844px;
-  font-weight: bold;
   line-height: 14px;
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #999999;
-}
-.badge1
+  /*background-color: #999999;*/
+  background:#f3da95;
+  }
+/*.badge1
 {
   color:#ffffff;
-}
+}*/
 .badge1:hover
 {
   color:#2980B9;
@@ -5648,12 +5664,12 @@ a.badge:hover {
 
 .label-info,
 .badge-info {
-  background-color: #3a87ad;
+  background-color: #2a488e;
 }
 
 .label-info[href],
 .badge-info[href] {
-  background-color: #2d6987;
+  background-color: #2a488e;
 }
 
 .label-inverse,
