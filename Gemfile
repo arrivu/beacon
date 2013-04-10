@@ -34,7 +34,7 @@ gem 'uglifier', '>= 1.0.3'
 gem 'therubyracer', :platforms => :ruby
 end
 group :production do
-#gem 'pg', '0.12.2'
+gem 'pg', '0.12.2'
 end
 group :development do
 # gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
