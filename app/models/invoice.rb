@@ -11,5 +11,5 @@ class Invoice < ActiveRecord::Base
   # else
   #   0
   # end
-end
+# end
 end
