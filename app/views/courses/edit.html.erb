@@ -21,9 +21,13 @@
 				<tr><td><%= f.label :title, "Title" %></td>
 					<td><%= f.text_field :title %></td></tr>
 
-					<tr><td><%= f.label :author, "Author Name" %></td>
-						<td><%= f.text_field :author %></td></tr>
+					<tr><td><%= f.label :teaching_staff_ids, "Author Name" %></td>
+						<td>
 
+							<%= f.collection_select :teaching_staff_ids, TeachingStaff.order(:name), :id, :name, {}, {multiple: true} %>
+
+
+						</td></tr>
 						<tr><td><%= f.label :short_desc, "Short Description" %></td>
 							<td><%= f.text_field :short_desc %></td></tr>
 						
