@@ -1,5 +1,4 @@
 class CoursesController < ApplicationController
-
 	include LmsHelper
 	
 	#before_filter :current_user, only: [:create, :edit,:update,:delete]
@@ -73,7 +72,7 @@ if(current_user!=nil)
 	end
 end
 
-
+end
 	def show
 		@course = Course.find(params[:id])
 		@authors=[]
@@ -157,12 +156,14 @@ end
 
     def index_pdf
     	 @course = Course.find(params[:id].to_i)
+    	 @price  = Course.course_price(@course)
+    	 @user = current_user
     	 invoice = Payday::Invoice.new(:invoice_number => 12)
     	 invoice.bill_to = current_user.try(:name) if current_user
     	 invoice.notes = "Thank you for your purchase!"
     	 #invoice.tax_rate = 10
 
-         invoice.line_items << LineItem.new(:price => 20, :quantity => 5, :description => "Pants")
+         invoice.line_items << LineItem.new(:price => @price , :quantity => 1, :description =>  @course.title )
         # invoice.render_pdf_to_file("/path/to_file.pdf")
  	    # @user = User.first
     	# render :pdf => "my_pdf",:layout => false,:template => '/courses/index_pdf',:footer => {:center =>"Center", :left => "Left", :right => "Right"}
@@ -172,9 +173,20 @@ end
        Payday::Config.default.currency = "INR"
        respond_to do |format|
         format.pdf do
-          send_data invoice.render_pdf, :filename => "Invoice.pdf", :type => "application/pdf", :disposition => "inline"
+       @pdf =   send_data invoice.render_pdf, :filename => "Invoice.pdf", :type => "application/pdf", :disposition => "inline"
+        
+       end 
+       
+       end 
+      
+       directory = "#{Rails.root}/tmp"
+        name = "invoice_no_#{invoice.invoice_number}_course_id_#{@course.id}_user_id_#{current_user.id}.pdf"
+        path = File.join(directory, name) 
+         #File.open(path, "wb") { |f| f.write(@pdf.read) }
+         File.open("#{directory}/#{name}", "wb") do |f|
+           @pdf.each do |row| f << row end
         end
-       end  
+  
     end
 
 
@@ -230,4 +242,4 @@ end
     end
 
 
-  end
+ end
