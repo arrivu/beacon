@@ -47,15 +47,18 @@ width:80px;
 <div class="row">
   <div class="span10 ">
 
+<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+  <h3 align="center">New Coupons </h3>
+<%= simple_form_for(@coupon) do |f|%>
 
-
-
-
+<%= render 'shared/error_messages', object: f.object %>
+<table class="tableform">
+  <tr><th>Course Name</th><td>
 <div id='all_course'>
-  <%= f.input :metadata, :as=>:select, :collection =>Course.all.collect{|p| [p.title,p.id]}.push(['All','All']),:prompt => "Select course" %>
+  <%= f.input :metadata, :as=>:select, :collection =>Course.all.collect{|p| [p.title,p.id]}.push(['All','All']),label:false,:prompt => "Select course" %>
 </div>
 
-</div>
+</div></td></tr>
   
   <tr><th>  
     How many? </th><td>
@@ -85,24 +88,21 @@ width:80px;
         <tr><th></th><td class="hint">  ["e.g., 11-11-11"]</td></tr>
         <tr><th> Course</th><td>
           <%= f.input_field :category_one,label: false   %></td></tr>
-          <tr><th></th><td class="hint">["e.g., course"]  
+          
             <tr><th>Amount off Course</th><td>
               <%= f.input :amount_one ,label: false %></td></tr>
-              <tr><th></th><td class="hint"> "hint:Amount off Course" 
-                <tr><th>Percentage of course</th><td>
+          
+                <tr><th>Percentage off course</th><td>
                   <%= f.input :percentage_one,label: false  %></td></tr>
-                  <tr><th></th><td class="hint"> "hint:Amount off, in percentage course" 
-                    <tr><th>Servise Tax</th><td>
+          
+                    <tr><th>Service Tax</th><td>
                       <%= f.input :category_two,label: false  %></td></tr>
-                      <tr><th></th><td class="hint"> ["e.g., Tax"] </td></tr>
+
                       <tr><th>Amount off Sevice Tax</th><td>
                         <%= f.input :amount_two,label: false  %></td></tr><tr><th></th>
-                        <td class="hint">"hint:Amount off Service Tax"</td></tr>
+
                         <tr><th>Percentage off Service Tax</th><td>
                          <%= f.input :percentage_two,label: false %></td></tr></td></tr>
-                         <tr><th></th><td class="hint"> "hint:Amount off, in percent service tax" </td></tr>
-
-
 
                          <tr><th>Expires</th><td>
                           <%= f.input_field :expiration, :start_year => Date.today.year, :end_year => Date.today.year + 30, class:"date" %></td></tr>
@@ -146,6 +146,7 @@ width:80px;
 
 
                           </script>
+                        </div>
 </div>
 </div>
 
