@@ -1,7 +1,7 @@
 <div style="float:left">
 <%= render 'shared/side_menu' %>
 </div>
-<div style="margin-left:200px">
+<div style="margin-left:200px;min-height:300px">
 
 <table border="0" cellspacing="5" cellpadding="5">
   <tr>
@@ -38,6 +38,6 @@
   </tr>
   <% end %>
 </table>
-<div class='apple_pagination' align="center"><%= will_paginate  @users, :container => false %></div>
+<div class='apple_pagination' align="center"><%= will_paginate  @coupons, :container => false %></div>
 
 </div>
