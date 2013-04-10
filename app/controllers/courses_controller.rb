@@ -65,13 +65,22 @@ def show
 		@authors << User.where(id: teaching_staff.user_id).first
 	end
 
-	if(current_user!=nil)
-		student=Student.where(user_id: current_user.id).first
-		@status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
-		if @status_check!=nil
-			@status=@status_check.status
-		end
+if(current_user!=nil)
+	student=Student.where(user_id: current_user.id).first
+	@status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
+	if @status_check!=nil
+		@status=@status_check.status
 	end
+end
+
+
+	def show
+		@course = Course.find(params[:id])
+		@authors=[]
+  	    @course.teaching_staffs.each do |teaching_staff|
+  		  @authors << User.where(id: teaching_staff.user_id).first
+  	    end
+
 
 	@modules=lms_get_modules(@course)
 		#@countCommentsPerPage = 6
@@ -103,29 +112,29 @@ def show
 	end
 
 
-	def course_payment
-		@user = current_user
-		@course = Course.find(params[:id]) 
-		@price = Course.course_price(@course)
-		@tax = Course.tax_calculation(@course,@price)
+ 		def course_payment
+ 			@user = current_user
+ 			@course = Course.find(params[:id]) 
+ 			@price = Course.course_price(@course)
+ 			@tax = Course.tax_calculation(@course,@price)
  			#@coupon = Coupon.find_by_metadata(params[:id])
             #@a = Coupon.apply(@coupon.alpha_code,@course)
-          end
+ 		  
+ 		end
 
-
-          def course_payment_gateway
-          	@course = Course.find(params[:id])
-          	@coupon_code = Coupon.where(:coupon_obj_id => params[:id])
+ 	  def course_payment_gateway
+ 			@course = Course.find(params[:id])
+ 			@coupon_code = Coupon.where(:coupon_obj_id => params[:id])
            # @aa = Coupon.apply(@coupon_code,Course.all)
 
 
-         end
+ 		end
 
 
 
-         def confirm_course_payment
-         	@course = Course.find(7)
-         	@user =User.first
+	def confirm_course_payment
+		@course = Course.find(7)
+		@user =User.first
  			#UserMailer.course_payment(@user,@course,params[:price]).deliver
  			# @course = Course.find(params[:id].to_i)
  			# if current_user.present?
@@ -146,57 +155,57 @@ def show
     #   end
   end
 
-  def index_pdf
-  	@course = Course.find(params[:id].to_i)
-  	invoice = Payday::Invoice.new(:invoice_number => 12)
-  	invoice.bill_to = current_user.try(:name) if current_user
-  	invoice.notes = "Thank you for your purchase!"
+    def index_pdf
+    	 @course = Course.find(params[:id].to_i)
+    	 invoice = Payday::Invoice.new(:invoice_number => 12)
+    	 invoice.bill_to = current_user.try(:name) if current_user
+    	 invoice.notes = "Thank you for your purchase!"
     	 #invoice.tax_rate = 10
 
-    	 invoice.line_items << LineItem.new(:price => 20, :quantity => 5, :description => "Pants")
+         invoice.line_items << LineItem.new(:price => 20, :quantity => 5, :description => "Pants")
         # invoice.render_pdf_to_file("/path/to_file.pdf")
  	    # @user = User.first
     	# render :pdf => "my_pdf",:layout => false,:template => '/courses/index_pdf',:footer => {:center =>"Center", :left => "Left", :right => "Right"}
-    	Payday::Config.default.invoice_logo = "#{Rails.root}/public/images/beaconslogo.png"
-    	Payday::Config.default.company_name = "Beacon Higher\nEducation Services\n Private Limited"
-    	Payday::Config.default.company_details = "Gurgaon, Haryana - 122016"
-    	Payday::Config.default.currency = "INR"
-    	respond_to do |format|
-    		format.pdf do
-    			send_data invoice.render_pdf, :filename => "Invoice.pdf", :type => "application/pdf", :disposition => "inline"
-    		end
-    	end  
+       Payday::Config.default.invoice_logo = "#{Rails.root}/public/images/beaconslogo.png"
+       Payday::Config.default.company_name = "Beacon Higher\nEducation Services\n Private Limited"
+       Payday::Config.default.company_details = "Gurgaon, Haryana - 122016"
+       Payday::Config.default.currency = "INR"
+       respond_to do |format|
+        format.pdf do
+          send_data invoice.render_pdf, :filename => "Invoice.pdf", :type => "application/pdf", :disposition => "inline"
+        end
+       end  
     end
 
 
-    def manage_courses
-    	@courses = Course.paginate(page: params[:page], :per_page => 10).order(:id)
-    	@topic = Topic.all
-    end
+  def manage_courses
+  	@courses = Course.paginate(page: params[:page], :per_page => 10).order(:id)
+  	@topic = Topic.all
+  end
 
-    def upcomming_courses
-    	@total_course_count = Course.where(ispublished: 0).all.count
-    	@countCoursesPerPage = 6
-    	@courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
-    	@topics = Topic.order(:name)
-    end
+  def upcomming_courses
+  	@total_course_count = Course.where(ispublished: 0).all.count
+  	@countCoursesPerPage = 6
+  	@courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
+  	@topics = Topic.order(:name)
+  end
 
-    def popular_courses
-    	@total_course_count = Course.where(ispopular: 1).all.count
-    	@countCoursesPerPage = 6
-    	@courses = Course.where(ispopular: 1).paginate(page: params[:page], per_page: 6)
-    	@topics = Topic.order(:name)
-    end
+  def popular_courses
+  	@total_course_count = Course.where(ispopular: 1).all.count
+  	@countCoursesPerPage = 6
+  	@courses = Course.where(ispopular: 1).paginate(page: params[:page], per_page: 6)
+  	@topics = Topic.order(:name)
+  end
 
-    def datewise_courses
-    	@total_course_count = Course.all.count
-    	@countCoursesPerPage = 6
-    	@courses = Course.order(:created_at).paginate(page: params[:page], per_page: 6)
-    	@topics = Topic.order(:name)
-    end
+  def datewise_courses
+  	@total_course_count = Course.all.count
+  	@countCoursesPerPage = 6
+  	@courses = Course.order(:created_at).paginate(page: params[:page], per_page: 6)
+  	@topics = Topic.order(:name)
+  end
 
-    def subscribed_courses
-    	if !current_user.nil?
+  def subscribed_courses
+  	if !current_user.nil?
 
 
     		#@total_course_count = CourseStatus.where(current_user.id).count 
