@@ -1,4 +1,6 @@
 Myapp::Application.routes.draw do
+  resources :course_pricings
+
   match '/rate' => 'rater#create', :as => 'rate'
 
   resources :coupons do

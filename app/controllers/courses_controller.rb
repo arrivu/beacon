@@ -108,7 +108,10 @@ def course_payment
  			#@coupon = Coupon.find_by_metadata(params[:id])
             #@a = Coupon.apply(@coupon.alpha_code,@course)
 
- end
+
+            
+          end
+
 
 
           def course_payment_gateway

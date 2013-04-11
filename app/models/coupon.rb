@@ -3,9 +3,9 @@ class Coupon < ActiveRecord::Base
                   :percentage_one,:amount_two,:percentage_two,:alpha_mask,:digit_mask,:metadata
   require 'errors'
 
-
+  belongs_to :course
   has_many :redemptions
-
+  validates :metadata,:presence=>true
   validates :name, :presence => true
   validates :description, :presence => true
   validates :expiration, :presence => true
@@ -14,12 +14,12 @@ class Coupon < ActiveRecord::Base
     errors.add(:how_many, "must be positive") unless coupon.how_many > 0
   end
 
-  validates :category_one, :presence => true
+  #validates :category_one, :presence => true
   validates :amount_one, :presence => true, :numericality => true
   validates :percentage_one, :presence => true, :numericality => true
 
-  validates :amount_two, :numericality => true
-  validates :percentage_two, :numericality => true
+  #validates :amount_two, :numericality => true
+  #validates :percentage_two, :numericality => true
 
   
   # Check to see if, given the size of the mask and the number of requested coupons
@@ -175,6 +175,13 @@ class Coupon < ActiveRecord::Base
       hash[k] = v.round(2) if v.is_a?(Float)
     end
     hash
+  end
+  def self.course_name(courseid)
+    if courseid.to_s.downcase== "All".downcase
+      "All"
+    else
+      Course.find(courseid).title
+    end
   end
   
   
