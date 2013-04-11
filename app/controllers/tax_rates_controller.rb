@@ -1,5 +1,5 @@
 class TaxRatesController < ApplicationController
-	before_filter :custom_method, :only => [:new, :edit, :destroy,:index]
+	before_filter :check_admin_user, :only => [:new, :edit, :destroy,:index]
 	def new
 		@tax_rate=TaxRate.new
 	end
