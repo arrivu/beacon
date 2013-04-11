@@ -32,13 +32,5 @@ class UsersController < ApplicationController
     end
   end
 
-  def custom_method    
-    authenticate_user!
-    if current_user.admin
-     return
-   else
-       redirect_to root_url # or whatever
-     end
-   end
 
 end
