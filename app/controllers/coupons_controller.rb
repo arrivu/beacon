@@ -38,8 +38,10 @@ class CouponsController < ApplicationController
     
     if params[:after]
       @coupons = Coupon.where(["id >= ?", params[:after]]).paginate(page: params[:page], per_page: 10)
+      @course = Course.all
     else
       @coupons = Coupon.all.paginate(page: params[:page], per_page: 10)
+      @course = Course.all
     end
     respond_to do |format|
       format.html
@@ -91,6 +93,26 @@ class CouponsController < ApplicationController
     end
     
     
+  end
+  def edit
+    @coupon=Coupon.find(params[:id])
+  end 
+  def update
+    @coupon=Coupon.find(params[:id])
+    if @coupon.update_attributes(params[:coupon])
+      flash[:notice]="Coupon Updated Successfully"
+      redirect_to coupons_path
+    else
+      render 'edit'
+    end
+  end
+  def destroy
+    @coupon = Coupon.find(params[:id])
+
+    @coupon.destroy
+
+    flash[:success] = "Successfully Destroyed coupon."
+    redirect_to coupons_path
   end
   
   private

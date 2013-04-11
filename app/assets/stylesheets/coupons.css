@@ -112,3 +112,34 @@ a {
 }
 form.form-inline div.control-group { display: inline-block; }
 form.form-inline div.control-group div.controls { display: inline-block; }
+
+.tableform
+{
+  width: 500px;
+
+}
+.tableform th
+{
+  width:200px;
+  font-weight: normal;
+  text-align: left;
+font-size: 14px;
+
+}
+.tableform tr
+{
+
+}
+
+.tableform td
+{
+  width:300px;
+
+}
+
+.date{
+width:80px;
+}
+
+
+

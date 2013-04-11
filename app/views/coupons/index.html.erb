@@ -4,19 +4,21 @@
 <div style="margin-left:200px;min-height:330px">
 
 <table border="0" cellspacing="5" cellpadding="5">
-  <tr>
+  <tr> 
+    <td colspan="4"><h3 align = "center">Coupons</h3></td></tr>
+    <tr>
+    <th>Course</th>
     <th>Alpha code</th>
     <th>Alpha mask</th>
     <th>Digit code</th>
     <th>Digit mask</th>
-    <th>Course</th>
+   
     <th style="text-align:right">Amount off<br/> Course</th>
     <th style="text-align:right">Percentage off<br/> Course</th>
-    <th style="text-align:right">Service Tax</th>
-    <th style="text-align:right">Amount off <br/>Service Tax</th>
-    <th style="text-align:right">Percentage <br/>off Service Tax</th>
+    
     <th>Expiration</th>
     <th style="text-align:right">Number Redeemed</th>
+    <th>Action</th>
   </tr>
 
   <% @coupons.each do |coupon| %>
@@ -25,14 +27,20 @@
     <td><%= coupon.alpha_mask %></td>
     <td><%= coupon.digit_code %></td>
     <td><%= coupon.digit_mask %></td>
-    <td><%= coupon.category_one %></td>
+    <td><%= Coupon.course_name(coupon.metadata)%></td>
     <td style="text-align:right"><%= coupon.amount_one %></td>
     <td style="text-align:right"><%= coupon.percentage_one %></td>
-    <td style="text-align:right"><%= coupon.category_two %></td>
-    <td style="text-align:right"><%= coupon.amount_two %></td>
-    <td style="text-align:right"><%= coupon.percentage_two %></td>
+    
     <td><%= coupon.expiration %></td>
     <td style="text-align:right"><%= coupon.redemptions_count %></td>
+    <td><%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_coupon_path(coupon), :class => 'btn btn-mini' %>
+
+              <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              coupon_path(coupon),
+              :method => :delete,
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-mini btn-danger' %></td>
   </tr>
   <% end %>
 </table>

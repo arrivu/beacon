@@ -111,15 +111,11 @@ def show
 		@tax = Course.tax_calculation(@course,@price)
  			#@coupon = Coupon.find_by_metadata(params[:id])
             #@a = Coupon.apply(@coupon.alpha_code,@course)
-<<<<<<< HEAD
-          end
 
-
-=======
             
           end
 
->>>>>>> fb3c48b0cea2151cb45e2cda751994911f78b444
+
           def course_payment_gateway
           	@course = Course.find(params[:id])
           	@coupon_code = Coupon.where(:coupon_obj_id => params[:id])
