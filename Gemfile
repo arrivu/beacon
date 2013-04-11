@@ -12,8 +12,7 @@ gem "simple_form", ">= 2.0.4"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
-
-
+gem 'delayed_job_active_record'
 #gem 'multiple_table_inheritance', '~> 0.2.1'
 #gem 'heritage'
 gem "payday"#, '1.1.0'
