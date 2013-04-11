@@ -1,4 +1,7 @@
 Myapp::Application.routes.draw do
+  
+  resources :tax_rates
+
   match '/rate' => 'rater#create', :as => 'rate'
 
   resources :coupons do
