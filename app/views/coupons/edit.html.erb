@@ -44,10 +44,10 @@
     Number of times redeemable
   </th>
   <td><%= f.input :how_many,label: false %></td></tr>
-  <tr><th>Alpha Mask</th><td><%= f.input :alpha_mask,:disabled =>true,label:false %></td></tr>
-  <tr><th>Alpha Code</th><td><%= f.input :alpha_code,:disabled =>true,label:false %></td></tr>
-   <tr><th>Digit Mask</th><td><%= f.input :digit_mask,:disabled =>true,label:false %></td></tr>
-  <tr><th>Digit Code</th><td><%= f.input :digit_code,:disabled =>true,label:false %></td></tr>
+  <tr><th>Alpha Mask</th><td><%= @coupon.alpha_mask %></td></tr>
+  <tr><th>Alpha Code</th><td><%= @coupon.alpha_code%></td></tr>
+   <tr><th>Digit Mask</th><td><%= @coupon.digit_mask %></td></tr>
+  <tr><th>Digit Code</th><td><%=  @coupon.digit_code %></td></tr>
   <tr><th>
     Description</th><td>
     <%= f.input_field :description,label: false %></td></tr>
