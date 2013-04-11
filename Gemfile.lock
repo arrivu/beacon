@@ -4,6 +4,13 @@ GIT
   specs:
     canvas (0.0.0)
 
+GIT
+  remote: git://github.com/m-narayan/couponsgem
+  revision: 6f20568406ec691b5e60151e1f14fbaf5b6bf0f5
+  specs:
+    couponsgem (0.0.10)
+      simple_form
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -297,6 +304,7 @@ DEPENDENCIES
   canvas!
   capybara (>= 2.0.2)
   coffee-rails (~> 3.2.1)
+  couponsgem!
   cucumber-rails (>= 1.3.0)
   database_cleaner (>= 0.9.1)
   debugger
