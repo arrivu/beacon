@@ -51,7 +51,7 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem"rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "database_cleaner", ">= 0.9.1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
-gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
+# gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
 gem "launchy", ">= 2.2.0", :group => :test
 gem "capybara", ">= 2.0.2", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
