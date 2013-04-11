@@ -27,8 +27,8 @@ Myapp::Application.configure do
     domain: "#{Settings.mailserver.domain}",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "#{Settings.mailserver.user_name}",
-    password: "#{Settings.mailserver.password}"
+    user_name: "surendragoud2009@gmail.com",
+    password: "surendra9826372592"
   }
   
 
