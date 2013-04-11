@@ -1,55 +1,35 @@
 <div class="container">
-  <div>
- <div class="span4" style="font-size: 20px;padding-left: 214px;">
-    Item Description
- </div>
- 
- <div class="span2" style="font-size: 20px;">
-    Price
- </div>
- <div class="span2" style="font-size: 20px;">
-   SubTotal
- </div>
- <div class="span2" style="font-size: 20px;">
-   Tax
- </div>
-</div>
- <br /><br />
- <div class="span12" style="background:#F0F5F6;border:1px solid;">
-
-    <div class="span2">
+<table cellpadding="20" style="width:1000px;">
+<tr style="background:steelblue;padding: 5px 0px;color: white;font-size: 20px;text-align:center;line-height: 0px;">
+<td> Item Description</td>
+<td>Price</td>
+<td>Tax</td>
+<td>Total</td> 
+</tr>
+<tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
+<td ><div class="span2" > 
       <%= image_tag url_for(:action => 'show_image', :id => @course.id), width: "150", height: "120" %>
     </div>
 
     <div class="span4">
         <div class='span4' style="font-size: 15px; font-family: Arial;  text-align: justify;">
-           <p>Course title 
-            <br/>
+           <p>
            <%= @course.title %></p>
-           <p>Course description 
-            <br />
+           <p>
            <%= @course.desc%></p>
-        </div>   
-         
-    </div>
-    <div class="span2">
-      Rs. 120
-    </div>
-     <div class="span2" style=" padding-left: 33px;">
-      Rs. 120
-    </div>
-    <div class="span2" style="margin-top: -15px; padding-left: 294px;">
-      Rs. 0
-    </div>
+        </div>   </td>
+<td valign="top"> Rs. 100</td>
+<td valign="top">Rs. 20</td>
+<td valign="top">Rs. 120</td> 
+</tr>
+</table>
 
-</div>  
-<br /><br /> <br /><br />
-
-<div class="span12" style="background:#F2F2F2; height: 24px;line-height: 22px; margin-top: 47px;text-align: right; font-family: arial;font-size: 19px;">
+  
+<div class="span12" style="background:#F2F2F2; height: 24px;line-height: 22px; margin-top: 47px;text-align: right; width:1000px;font-family: arial;font-size: 19px;margin-left:0px;">
 Amount Paid: Rs. 120
 
 </div>
-<div class="button-place-holder" style="float:right; margin-right: 138px;">
+<div class="button-place-holder" style="float:right; margin-right: 105px;margin-top:20px;">
     <p><%= link_to "Download Invoice", index_pdf_path(:id=>@course, :format => "pdf") %></p>
 
 </div>
