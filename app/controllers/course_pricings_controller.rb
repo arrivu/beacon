@@ -40,7 +40,7 @@ class CoursePricingsController < ApplicationController
   def update
     @coursepricing=CoursePricing.find(params[:id])
     if @coursepricing.start_date<=@coursepricing.end_date
-    if @coursepricing.update_attributes(params[:coursepricing])
+    if @coursepricing.update_attributes(params[:course_pricing])
       flash[:notice] = "Updated Course Price Details Successfully..."
       redirect_to course_pricings_path
     else

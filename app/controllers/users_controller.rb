@@ -2,20 +2,13 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!
   
   
-  def index
-    
+  def index    
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
-
-    @users = User.all.paginate(page: params[:page], :per_page => 10)
-
-    
-
+    @users = User.all.paginate(page: params[:page], :per_page => 10)  
   end
 
   def show
     @user = User.find(params[:id])
-    
-
   end
   
   def update
@@ -38,14 +31,14 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
-  def custom_method
-  authenticate_user!
 
-  if current_user.admin
-   return
- else
-     redirect_to root_url # or whatever
+  def custom_method    
+    authenticate_user!
+    if current_user.admin
+     return
+   else
+       redirect_to root_url # or whatever
+     end
    end
- end
 
 end

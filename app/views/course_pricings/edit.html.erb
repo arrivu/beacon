@@ -1,28 +1,30 @@
 
 <div style="float:left">
-<%= render 'shared/side_menu' %>
+	<%= render 'shared/side_menu' %>
 </div>
 <div class="row">
-	<div class="span12 offset3">
-<div style="margin:40px 0px 0px 200px"><%= simple_form_for (@coursepricing) do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
-	<table><tr><th>Course Name</th><td><% courses_array = Course.all.map { |course| [course.title, course.id] } %>
-							<%= f.select(:course_id,options_for_select(courses_array))%></td></tr>
-							<tr><th>Start Date</th><td>
-							<div >
-						
-								<%= f.input_field :start_date, :start_year => Date.today.year, :end_year => Date.today.year + 30, class:"date" %></td></tr>
-</td></tr></div>
-							<tr><th>End Date</th><td>
-									<%= f.input_field :end_date, :start_year => Date.today.year, :end_year => Date.today.year + 30, class:"date" %></td></tr>
-							<tr><th>Price</th><td>
+	<div class="span8 offset3" style="min-height:500px;">
+		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+			<h3 align = "center">Edit Course Price</h3>
+			<%= simple_form_for (@coursepricing) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<table><tr><th>Course Name</th><td><% courses_array = Course.all.map { |course| [course.title, course.id] } %>
+				<%= f.select(:course_id,options_for_select(courses_array))%></td></tr>
+				<tr><th>Start Date</th><td>
+					<div >
+
+						<%= f.input_field :start_date, :start_year => Date.today.year, :end_year => Date.today.year + 30, class:"date" %></td></tr>
+					</td></tr></div>
+					<tr><th>End Date</th><td>
+						<%= f.input_field :end_date, :start_year => Date.today.year, :end_year => Date.today.year + 30, class:"date" %></td></tr>
+						<tr><th>Price</th><td>
 							<%= f.text_field :price %></td></tr>
-							<tr><th></th><td><%= f.submit "Course Price" ,class: "btn btn-primary" %></td></tr></table>
+							<tr><th></th><td><%= f.submit "Update" ,class: "btn btn-primary" %></td></tr></table>
 
 
-<% end %>
+							<% end %>
 
 
 
-</div>
-</div></div>
+						</div>		</div>
+					</div>
