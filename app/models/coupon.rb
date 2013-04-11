@@ -127,7 +127,8 @@ class Coupon < ActiveRecord::Base
   end
     HUMANIZED_ATTRIBUTES = {
    
-    :category_one => "Course"
+    :metadata => "Course"
+    
   }
 
   def self.human_attribute_name(attr, options={})
