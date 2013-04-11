@@ -4,19 +4,6 @@ GIT
   specs:
     canvas (0.0.0)
 
-GIT
-  remote: git://github.com/m-narayan/couponsgem
-  revision: 6f20568406ec691b5e60151e1f14fbaf5b6bf0f5
-  specs:
-    couponsgem (0.0.10)
-      simple_form
-
-GIT
-  remote: https://github.com/bcardarella/client_side_validations.git
-  revision: a6a515504520e9925ca63524ae9854168163283e
-  specs:
-    client_side_validations (3.2.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -309,9 +296,7 @@ DEPENDENCIES
   cancan (>= 1.6.8)
   canvas!
   capybara (>= 2.0.2)
-  client_side_validations!
   coffee-rails (~> 3.2.1)
-  couponsgem!
   cucumber-rails (>= 1.3.0)
   database_cleaner (>= 0.9.1)
   debugger
