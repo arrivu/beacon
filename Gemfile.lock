@@ -187,6 +187,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    pg (0.12.2)
     polyglot (0.3.3)
     prawn (0.12.0)
       pdf-reader (>= 0.9.0)
@@ -312,6 +313,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-linkedin
   payday
+  pg (= 0.12.2)
   quiet_assets (>= 1.0.1)
   rails (= 3.2.12)
   rails_config
