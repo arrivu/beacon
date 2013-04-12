@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
         else
           my_courses_path
         end
-        
         #root_path
       else
         @course = Course.find(params[:course_id])
