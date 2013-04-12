@@ -1,4 +1,4 @@
-class CoursePricingsController < ApplicationController
+-class CoursePricingsController < ApplicationController
  before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:index]
   def new
     @coursepricing=CoursePricing.new
@@ -14,7 +14,7 @@ class CoursePricingsController < ApplicationController
 
     if @coursepricing.start_date<=@coursepricing.end_date 
     if @coursepricing.save
-      flash[:notice]="course price registered successfully"
+      flash[:notice]="Course price saved successfully"
       redirect_to course_pricings_path
     else
       render 'new'
@@ -31,7 +31,7 @@ else
 else
   if @coursepricing.start_date<=@coursepricing.end_date 
     if @coursepricing.save
-      flash[:notice]="course price registered successfully"
+      flash[:notice]="Course price saved successfully"
       redirect_to course_pricings_path
     else
       render 'new'
