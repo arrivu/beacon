@@ -22,7 +22,7 @@
 							<%= select_tag(:id,options_for_select(courses_array))%>
 							</td></tr>
 							<tr><td><%= f.label :name, "Title" %></td>
-								<td><%= f.text_field :name,:maxlength => 25 %></td></tr>
+								<td><%= f.text_field :name,:maxlength => 15 %></td></tr>
 								<tr><td><%= f.label :desc, "Description" %></td>
 									<td><%= f.text_area :desc ,:cols => "30", :rows => "5",:maxlength => 50 %></td></tr>
 									<tr><td><%= f.label :video_url, "Video URL" %></td>
