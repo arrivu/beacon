@@ -1,4 +1,4 @@
--class CoursePricingsController < ApplicationController
+class CoursePricingsController < ApplicationController
  before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:index]
   def new
     @coursepricing=CoursePricing.new
