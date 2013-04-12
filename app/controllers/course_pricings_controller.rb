@@ -8,8 +8,11 @@ class CoursePricingsController < ApplicationController
   end
   def create
     @coursepricing=CoursePricing.new(params[:course_pricing])
-    
-    if @coursepricing.start_date<=@coursepricing.end_date
+    @coursecheck=CoursePricing.find_by_course_id(params[:course_pricing][:course_id])
+    if @coursecheck!=nil
+    if @coursecheck.end_date<@coursepricing.start_date && @coursecheck.start_date<@coursepricing.start_date
+
+    if @coursepricing.start_date<=@coursepricing.end_date 
     if @coursepricing.save
       flash[:notice]="course price registered successfully"
       redirect_to course_pricings_path
@@ -20,7 +23,25 @@ class CoursePricingsController < ApplicationController
     flash[:error] = "End date should be greater than or equal to start date "
     render 'new'
   end
+
+else
+  flash[:error] = "Course Price Alredy defined for the date range"
+  render 'new'
   end
+else
+  if @coursepricing.start_date<=@coursepricing.end_date 
+    if @coursepricing.save
+      flash[:notice]="course price registered successfully"
+      redirect_to course_pricings_path
+    else
+      render 'new'
+    end
+  else
+    flash[:error] = "End date should be greater than or equal to start date "
+    render 'new'
+  end
+end
+end
   def index
      if(params[:search] != nil && params[:search] != "")
     @coursepricing = CoursePricing.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
