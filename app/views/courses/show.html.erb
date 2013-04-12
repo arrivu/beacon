@@ -229,7 +229,7 @@
       <%if current_user.present?%>
       <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course},class:"browsemore" %>
       <%else%>  
-      <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
+      <a href="#loginmodal" role="button" data-toggle="modal" class="browsemore">Add reveiw</a>
       <% end %>  
     </div>
 
