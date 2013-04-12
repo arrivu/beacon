@@ -15,11 +15,11 @@ Myapp::Application.routes.draw do
   resources :tags
   resources :courses 
 
-  match 'enrolls/course_payment_gateway',:to=>'enrolls#course_payment_gateway'
-  match 'enrolls/course_payment',:to=>'enrolls#course_payment'
-  match 'enrolls/confirm_course_payment',:to=>'enrolls#confirm_course_payment'
-  match "/download_pdf(.:format)" => "enrolls#index_pdf", :method => :get, :as=>:index_pdf
-  match '/show_image', :to => 'enrolls#show_image'
+  match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
+  match 'payments/course_payment',:to=>'payments#course_payment'
+  match 'payments/confirm_course_payment',:to=>'payments#confirm_course_payment'
+  match "/download_pdf(.:format)" => "invoices#invoice_pdf", :method => :get, :as=>:invoice_pdf
+  match '/show_image', :to => 'payments#show_image'
   resources :topics
   resources :tutorials
   resources :groups

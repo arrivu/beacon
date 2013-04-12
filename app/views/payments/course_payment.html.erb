@@ -1,3 +1,13 @@
+<%# payment_service_for 1, "dddd",
+    :amount => "300",
+    :currency => 'INR',
+    :service => :ccavenue do |service| %>    
+  <%#  service.customer :name => "hitesh",
+             :email => "test@test.com",
+             :phone =>  "9893171496" %>    
+  <%#  service.redirect :return_url => confirm_course_payment_course_url(Course.first) %>
+<br />
+<%= form_tag(payments_course_payment_gateway_path(:id=>@course)) do %>
 <div class="container">
   <div>
  <div class="span4" style="font-size: 20px;padding-left: 214px;">
@@ -33,24 +43,27 @@
          
     </div>
     <div class="span2">
-      Rs. 120
+
+      Rs. <%= @price %>
     </div>
      <div class="span2" style=" padding-left: 33px;">
-      Rs. 120
+      Rs. <%= @price%>
     </div>
     <div class="span2" style="margin-top: -15px; padding-left: 294px;">
-      Rs. 0
+      Rs.  <%=  @tax  %>
     </div>
 
 </div>  
 <br /><br /> <br /><br />
+<div style="float:right; margin-right: 145px;" >
+<%= label_tag "enter the coupon code" %>
+<%= text_field_tag "coupon_code" %>
+  </div>  
 
-<div class="span12" style="background:#F2F2F2; height: 24px;line-height: 22px; margin-top: 47px;text-align: right; font-family: arial;font-size: 19px;">
-Amount Paid: Rs. 120
+<div class="button-place-holder" style="margin-top: 311px; margin-right: 138px;">
 
-</div>
-<div class="button-place-holder" style="float:right; margin-right: 138px;">
-    <p><%= link_to "Download Invoice", index_pdf_path(:id=>@course, :format => "pdf") %></p>
-
+    <%= submit_tag 'Proceed',:class=>'placeholder' %>
+   
 </div>
 </div>
+<% end %>

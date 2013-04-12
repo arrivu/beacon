@@ -30,9 +30,9 @@
             <% elsif @status=="completed" %>
          
             <% elsif @status=="shortlisted" %>
-            <%= link_to "enroll",enrolls_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% else %>
-            <%= link_to "enroll",enrolls_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>
             
             <%else%>  
