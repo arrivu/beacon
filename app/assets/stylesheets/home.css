@@ -452,3 +452,53 @@ border: none;
 	padding-right: 10px;
 	padding-left:10px;
 }
+
+
+
+/*browsemore customize for home page*/
+
+.browsemore-home {
+padding: 20px;
+margin-top: 30px;
+font-weight: bold;
+/*background: #2980B9;*/
+background-color:  	#19757f;
+color: #fff !important;
+line-height: 1 !important;
+font-size: 20px !important;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+white-space: nowrap;
+border: none;
+cursor: pointer;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+zoom: 1;
+}
+
+.browsemore-home:hover{
+	background: #3e9c7c ;
+}
+
+/*home page course categories display in badges*/
+
+.badge1 {
+  display: inline-block;
+  padding: 2px 4px;
+  font-size: 12px;
+  line-height: 14px;
+
+  color:#2980B9;
+  /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+  white-space: nowrap;
+  vertical-align: baseline;
+  /*background-color: #999999;*/
+  background:#f3da95;
+  font-weight: bold
+  }
+.badge1:hover
+{
+  /*color:#2980B9;*/
+  color:#2a488e;
+  font-weight: bold;
+}
