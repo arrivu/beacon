@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
 	
+	before_filter :signed_in_user
 	before_filter :load_commentable,:except=>[:new]
 
 	# def index
 	# 	@comments =comments.recent.limit(10).all
 	# end
+	
 	def new
 
 		@comment = Comment.new
