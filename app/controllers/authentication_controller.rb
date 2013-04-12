@@ -20,6 +20,9 @@ class AuthenticationController < ApplicationController
       if check_user
         provider=check_user.provider.split("_")
         provider=provider[0].capitalize
+        if provider=="google_oauth2"
+          provider="google"
+        end
         flash[:error] = "Email id #{email} Already Registered using #{provider}"
         redirect_to root_url
       else

@@ -51,3 +51,5 @@ class TaxRatesController < ApplicationController
 		redirect_to tax_rates_path, notice: "Tax Successfully Destroyed"
 	end
 end
+
+

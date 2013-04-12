@@ -8,6 +8,7 @@ class CoursePricingsController < ApplicationController
   end
   def create
     @coursepricing=CoursePricing.new(params[:course_pricing])
+    
     if @coursepricing.start_date<=@coursepricing.end_date
     if @coursepricing.save
       flash[:notice]="course price registered successfully"
@@ -21,7 +22,12 @@ class CoursePricingsController < ApplicationController
   end
   end
   def index
-    @coursepricing=CoursePricing.paginate(page: params[:page], :per_page => 10)
+     if(params[:search] != nil && params[:search] != "")
+    @coursepricing = CoursePricing.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
+     else
+       @coursepricing = CoursePricing.paginate(page: params[:page], :per_page => 15)
+     end
+  
     @course = Course.all
   end
   def destroy
