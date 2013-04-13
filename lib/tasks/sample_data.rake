@@ -432,7 +432,7 @@ end
 				count=count+1
 			end
 
-			TaxRate.create!(valid_from:"2013-03-01", valid_until:"2014-03-31",factor:12,is_default: true)
+			TaxRate.create!(valid_from:"2013-03-01", valid_until:"2014-03-31",factor:12,is_default: true, description: "Service Tax")
 
 @student_user =Student.all
 @courses = Course.all
