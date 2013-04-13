@@ -12,7 +12,8 @@ gem "simple_form", ">= 2.0.4"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
-
+#This is needed to fix rupee symbol
+gem 'money',:git => 'git://github.com/m-narayan/money'
 
 #gem 'multiple_table_inheritance', '~> 0.2.1'
 #gem 'heritage'
@@ -74,3 +75,4 @@ gem 'couponsgem',:git => 'git://github.com/m-narayan/couponsgem'
 #gem 'invoicing',:git => 'git://github.com/m-narayan/invoicing'
 #gem 'client_side_validations',:git => 'https://github.com/bcardarella/client_side_validations.git'
 #gem 'rails3_before_render'
+

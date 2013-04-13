@@ -147,6 +147,7 @@ def course_payment
     invoice.notes = "Thank you for your purchase!"
     #invoice.tax_rate = 10
 
+
     invoice.line_items << LineItem.new(:price => @price , :quantity => 1, :description => @course.title )
     # invoice.render_pdf_to_file("/path/to_file.pdf")
     # @user = User.first
