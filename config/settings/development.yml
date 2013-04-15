@@ -21,3 +21,7 @@ mailserver:
   password: surendra9826372592#beaconlms123$
 admin_mail:
   to: beaconlms@gmail.com
+payment_gateway:
+  enable: false
+invoices:
+  notes:Thank you for your enroll!

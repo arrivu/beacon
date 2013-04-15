@@ -1,13 +1,5 @@
-<%# payment_service_for 1, "dddd",
-    :amount => "300",
-    :currency => 'INR',
-    :service => :ccavenue do |service| %>    
-  <%#  service.customer :name => "hitesh",
-             :email => "test@test.com",
-             :phone =>  "9893171496" %>    
-  <%#  service.redirect :return_url => confirm_course_payment_course_url(Course.first) %>
+
 <br />
-<%= form_tag(payments_course_payment_gateway_path(:id=>@course)) do %>
 <div class="container">
 <table cellpadding="20" style="width:1000px;">
 <tr style="background:#2a488e;padding: 5px 0px;color: white;font-size: 20px;text-align:center;line-height: 0px;">
@@ -45,11 +37,24 @@
 
   </div>  
   <div  style="float:right;margin-top:10px;margin-right:85px;">
+    <% if gateway_enable? %>
+      <% payment_service_for 2, "dddd",
+          :amount => "300",
+          :currency => 'INR',
+          :service => :ccavenue do |service| %>    
+        <%  service.customer :name => "hitesh",
+                   :email => "test@test.com",
+                   :phone =>  "9893171496" %>    
+        <%  service.redirect :return_url =>(payments_confirm_course_payment_url(:id=>@course)) %>
+        <%= submit_tag 'Proceed to payment',:class=>'enroll'  %>
+      <% end %>
+    <% else %>
+      <%= form_tag(payments_course_payment_gateway_path(:id=>@course)) do %>
+        <%= submit_tag 'Proceed',:class=>'enroll' %>
+      <% end %>
+     <% end %>
 
-    <%= submit_tag 'Proceed',:class=>'enroll' %>
-   
 </div>
 
 
 </div>
-<% end %>

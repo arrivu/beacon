@@ -64,7 +64,6 @@ class Course < ActiveRecord::Base
 
   def self.course_price(course)
     course.course_pricings.each do |course_price|
-      #debugger
       if course_price.start_date <= Date.today && course_price.end_date >= Date.today
         @price = course_price.price
       end
