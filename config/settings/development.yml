@@ -17,7 +17,7 @@ mailserver:
   address: smtp.gmail.com
   port: 587
   domain: example.com
-  user_name: beaconlms@gmail.com
-  password: beaconlms123$
+  user_name: surendragoud2009@gmail.com#beaconlms@gmail.com
+  password: surendra9826372592#beaconlms123$
 admin_mail:
   to: beaconlms@gmail.com

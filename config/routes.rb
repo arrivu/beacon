@@ -20,16 +20,13 @@ Myapp::Application.routes.draw do
   resources :faqs
   resources :blogs
   resources :tags
-  resources :courses do
-    member do
-     get 'course_payment'
-    end
-     collection do
-     post 'course_payment_gateway'
-    end
-  end
-  match 'courses/confirm_course_payment',:to=>'courses#confirm_course_payment'
-  match "/download_pdf(.:format)" => "courses#index_pdf", :method => :get, :as=>:index_pdf
+  resources :courses 
+
+  match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
+  match 'payments/course_payment',:to=>'payments#course_payment'
+  match 'payments/confirm_course_payment',:to=>'payments#confirm_course_payment'
+  match "/download_pdf(.:format)" => "invoices#invoice_pdf", :method => :get, :as=>:invoice_pdf
+  match '/show_image', :to => 'payments#show_image'
   resources :topics
   resources :tutorials
   resources :groups
@@ -68,7 +65,6 @@ Myapp::Application.routes.draw do
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
 
   match '/my_courses', :to => 'courses#my_courses'  
-
 
 end
 

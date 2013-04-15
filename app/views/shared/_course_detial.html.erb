@@ -29,21 +29,12 @@
 
             <% elsif @status=="completed" %>
 
-            <% elsif @status=="shortlisted" %>
-            
-            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-              enroll
-            </div></a>
             <% else %>
-            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-              enroll
-            </div></a>
+            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>
             
             <%else%>  
-            <a href="#loginmodal" role="button" data-toggle="modal"><div class="enroll">
-              enroll
-            </div></a>
+            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>  
             <a href="#previewcourse"><div class="shortlist">
               Preview
