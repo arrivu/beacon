@@ -1,0 +1,36 @@
+			<%= simple_form_for(@teachingstaff) do |f| %>
+
+					<%= f.fields_for :teachingStaff_user do |user_form| %>
+			    <table> 
+			        <tbody><tr> 
+			            <td> 
+			            <%= user_form.text_field :name, :autofocus => true %>
+			              </td> 
+			        </tr> 
+			        <tr> 
+			            <td> 
+			            <%= user_form.text_field :email, :required => true %>
+			              </td> 
+			        </tr> 
+			        <tr> 
+			            <td> 
+			            <%= user_form.text_field :password, :required => true %>
+			              </td> 
+			        </tr> 
+			        <tr> 
+			            <td> 
+			            <%= user_form.text_field :password_confirmation, :required => true %>
+			              </td> 
+			        </tr> 
+			        <%end %>
+
+			        <%= f.text_field :description %>
+			 		    <%= f.text_field :name %>
+					    <%= f.text_field :qualification %>
+			        
+
+
+			  	<%= f.submit "Add Teacher", class: "btn btn-large btn-primary" %>
+			   
+			  
+			<% end %>

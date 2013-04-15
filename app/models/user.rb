@@ -42,11 +42,14 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_one :student
-  has_one :teaching_staff
+  has_one :teaching_staff  
+
   # has_one :teaching_staffs, dependent: :destroy
   # has_one :students, dependent: :destroy
 
-
+def teachingdetails
+     self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
+end
 
 
   letsrate_rater
