@@ -24,6 +24,7 @@
 	font-weight: 200;
 	/*color: #ECF0F1 ;*/
 	color: #333;
+	margin-left:115px;
 	z-index: 0;
 	text-transform: capitalize;
 }
@@ -65,10 +66,12 @@
 .bannerlearn .leartopic{
 	float:left;
 	margin-right: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	padding: 5px;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	border-radius: 1px;
+	border-right:1px solid white;
+	line-height:0px;
 }
 
 .learnheading{
@@ -114,6 +117,31 @@
 }
 
 .browsemore {
+	width: 50px;
+	height:50px;
+/*padding: 18px 3px 18px 20px;*/
+margin-top: 30px;
+font-weight: bold;
+/*background: #2980B9;*/
+/*background-color:  	#2a488e;*/
+background-image:url('../assets/plus.png');
+background-size: 50px 50px;
+color: #fff !important;
+line-height: 1 !important;
+font-size: 16px !important;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+white-space: nowrap;
+border: none;
+cursor: pointer;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+zoom: 1;
+text-align: right;
+}
+
+.browsemore1 {
+		
 padding: 20px;
 margin-top: 30px;
 font-weight: bold;
@@ -131,11 +159,13 @@ display: inline-block;
 vertical-align: middle;
 zoom: 1;
 }
-
-.browsemore:hover{
+/*.browsemore:hover{
 	background: #3498DB ;
 }
-
+*/
+.browsemore1:hover{
+	background: #3498DB ;
+}
 .ourcustomers{
 	/*background-color:#f1f1f1;*/
 	/*background-color: #d14836;
@@ -485,15 +515,15 @@ zoom: 1;
 .badge1 {
   display: inline-block;
   padding: 2px 4px;
-  font-size: 12px;
-  line-height: 14px;
-
-  color:#2980B9;
-  /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+  font-size: 13px;
+  line-height: 0px;
+color:white;
+  /*color:#2980B9;
+*/  /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
   white-space: nowrap;
   vertical-align: baseline;
   /*background-color: #999999;*/
-  background:#f3da95;
+  /*background:#f3da95;*/
   font-weight: bold
   }
 .badge1:hover
