@@ -7,13 +7,14 @@
 		 	 @teachingstaff = TeachingStaff.new
        @teachingstaff.build_user
        #respond_with(@teachingstaff)	
-       render 'new' 
+       
 
 			end
 
 			def create			
 				
-				@teachingstaff=TeachingStaff.new(params[:teaching_staff])
+				@teachingstaff=TeachingStaff.new
+				@user=@teachingstaff.build_user(params[:teaching_staff])
 				if @teachingstaff.save
 					flash[:notice]="Teaching Staff details created successfully"
 					redirect_to new_teaching_staff_path

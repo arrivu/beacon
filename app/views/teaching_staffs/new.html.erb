@@ -1,36 +1,48 @@
-			<%= simple_form_for(@teachingstaff) do |f| %>
+			<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
 
-					<%= f.fields_for :teachingStaff_user do |user_form| %>
+<br>
+<div class="row">
+<div class="span12 offset3" style="min-height:600px;">
+<%= simple_form_for(@teachingstaff) do |f| %>
+
+					<%= f.fields_for :teaching_staff_user do |user_form| %>
 			    <table> 
 			        <tbody><tr> 
+			        	<td>Name:</td>
 			            <td> 
 			            <%= user_form.text_field :name, :autofocus => true %>
 			              </td> 
 			        </tr> 
-			        <tr> 
+			        <tr> <td>Email:</td>
 			            <td> 
 			            <%= user_form.text_field :email, :required => true %>
 			              </td> 
 			        </tr> 
 			        <tr> 
+			        	<td>Password:</td>
 			            <td> 
-			            <%= user_form.text_field :password, :required => true %>
+			            <%= user_form.password_field :password, :required => true %>
 			              </td> 
 			        </tr> 
 			        <tr> 
+			        	<td>Password _confirmation:</td>
 			            <td> 
-			            <%= user_form.text_field :password_confirmation, :required => true %>
+			            <%= user_form.password_field :password_confirmation, :required => true %>
 			              </td> 
 			        </tr> 
 			        <%end %>
 
-			        <%= f.text_field :description %>
-			 		    <%= f.text_field :name %>
-					    <%= f.text_field :qualification %>
+			        <tr><td>Description</td><td><%= f.text_field :description %></td></tr>
+			 		    <tr><td>Name</td><td><%= f.text_field :name %></td></tr>
+					   <tr><td>Qualification</td><td> <%= f.text_field :qualification %></td></tr>
 			        
 
 
-			  	<%= f.submit "Add Teacher", class: "btn btn-large btn-primary" %>
+			  	<tr><td><%= f.submit "Add Teacher", class: "btn btn-large btn-primary" %>
 			   
 			  
-			<% end %>
+			<% end %></td></tr></table>
+		</div>
+	</div>

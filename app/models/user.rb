@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_one :student
   has_one :teaching_staff  
-
+accepts_nested_attributes_for :teaching_staff
   # has_one :teaching_staffs, dependent: :destroy
   # has_one :students, dependent: :destroy
 

@@ -1,6 +1,6 @@
 
 class TeachingStaff  < ActiveRecord::Base
-  attr_accessible :description, :name, :qualification,:user_id
+  attr_accessible :description, :name, :qualification,:users_attributes
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
   scope :teacher
