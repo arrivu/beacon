@@ -65,10 +65,12 @@
 .bannerlearn .leartopic{
 	float:left;
 	margin-right: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	padding: 5px;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	border-radius: 1px;
+	border-right:1px solid white;
+	line-height:0px;
 }
 
 .learnheading{
@@ -114,15 +116,15 @@
 }
 
 .browsemore {
-	width: 210px;
-	
-padding: 18px 3px 18px 20px;
+	width: 50px;
+	height:50px;
+/*padding: 18px 3px 18px 20px;*/
 margin-top: 30px;
 font-weight: bold;
 /*background: #2980B9;*/
 /*background-color:  	#2a488e;*/
-background-image:url('../assets/button_bg.png');
-background-size: 230px 52px;
+background-image:url('../assets/plus.png');
+background-size: 50px 50px;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 16px !important;
@@ -137,13 +139,13 @@ zoom: 1;
 text-align: right;
 }
 
-.browsemore1 {
+/*.browsemore {
 		
 padding: 20px;
 margin-top: 30px;
 font-weight: bold;
 /*background: #2980B9;*/
-background-color:  	#2a488e;
+/*background-color:  	#2a488e;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 20px !important;
@@ -155,14 +157,14 @@ display: -moz-inline-stack;
 display: inline-block;
 vertical-align: middle;
 zoom: 1;
-}
-.browsemore:hover{
+}*/
+/*.browsemore:hover{
 	background: #3498DB ;
 }
-
-.browsemore1:hover{
+*/
+/*.browsemore1:hover{
 	background: #3498DB ;
-}
+}*/
 .ourcustomers{
 	/*background-color:#f1f1f1;*/
 	/*background-color: #d14836;

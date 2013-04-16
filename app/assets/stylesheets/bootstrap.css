@@ -5596,8 +5596,12 @@ a.thumbnail:hover {
   white-space: nowrap;
   vertical-align: baseline;
   /*background-color: #999999;*/
-  background:#f3da95;
+  /*background:#f3da95;*/
   }
+.badge1
+{
+  color:white;
+}
 /*.badge1
 {
   color:#ffffff;
