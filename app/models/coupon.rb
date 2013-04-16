@@ -67,22 +67,12 @@ class Coupon < ActiveRecord::Base
   # We apply the fixed amount first before applying the percentage discount
   #
   # We also don't let the savings exceed the initial cost
-  def savings(category, cost)
-    if category == category_one
+  def savings( cost)
       if cost < amount_one
         cost
       else
         cost - ((cost - amount_one) * (1.0 - (percentage_one.to_f/100.to_f)))
       end
-    elsif category == category_two
-      if cost < amount_two
-        cost
-      else
-        cost - ((cost - amount_two) * (1.0 - (percentage_two.to_f/100.to_f)))
-      end
-    else
-      0
-    end
   end
   
   # Generate a hash similar to what #apply returns, except there is
@@ -100,21 +90,27 @@ class Coupon < ActiveRecord::Base
   # Apply a coupon (or throw an exception if the coupon is not valid)
   # Return a hash with the new prices for each product, as well the grand total
   # and total savings
-  def self.apply(coupon_code, product_bag = {})
+  def self.apply(coupon_code,price)
     r = {:savings => 0.0, :grand_total => 0.0}
     coupon = find_coupon(coupon_code)
+    price = price.to_f 
     category = []
-    product_bag.each do |category, price|
-      price = Float(product_bag.course_pricings.first.price)
-      r[:grand_total] += price
-      r[category] = price
-      if coupon
-        savings = coupon.savings(category, price)
-        r[:savings] += savings
-        r[:grand_total] -= savings
-        r[category] -= savings
-      end
+    r[:grand_total] += price
+    if coupon
+       savings = coupon.savings( price)
+       r[:savings] += savings
+       r[:grand_total] -= savings
     end
+    # course.each do |category|
+    #   r[:grand_total] += price
+    #  #r[category] = price
+    #   if coupon
+    #     savings = coupon.savings( price)
+    #     r[:savings] += savings
+    #     r[:grand_total] -= savings
+    #     #r[category] -= savings
+    #   end
+    # end
     return round_values(r)
   end
   
