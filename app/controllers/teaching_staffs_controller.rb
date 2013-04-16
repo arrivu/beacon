@@ -19,18 +19,7 @@ class TeachingStaffsController < ApplicationController
 								password: params[:teaching_staff][:teachingStaff_user][:password],
 								password_confirmation: params[:teaching_staff][:teachingStaff_user][:password_confirmation])
 		@teachingstaff.save
-		render :new
-
-		# @user = User.new
-		# @user.name = params[:teaching_staff][:teachingStaff_user][:name]
-		# @user.email = params[:teaching_staff][:teachingStaff_user][:email]
-		# @user.password = params[:teaching_staff][:teachingStaff_user][:password]
-		# @user.password_confirmation = params[:teaching_staff][:teachingStaff_user][:password_confirmation]		
-		# User.transaction do
-  # 		if @user.save
-  # 			@teachingstaff.save
-  # 		end
-		# end
+		render :new	
 	end
 
 	# def create
