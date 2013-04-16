@@ -1,0 +1,37 @@
+ <div style="float:left">
+  <%= render 'shared/side_menu' %>
+</div>
+
+
+<div class="row">
+  <div class="span12 offset3" style="min-height:500px;">
+  	<table class="table table-condensed table-hover">
+      <tr>
+       <th>Email</th>
+       <th>Name</th>
+       <th>Qualification</th>
+       <th>Description</th>
+       
+       <th>Created At</th>
+
+       <th><%=t '.actions', :default => t("helpers.actions") %></th>
+     </tr>
+<% @teachingstaff.each do |teachingstaff| %>
+<tr><td><%= teachingstaff.user.email %></td><td>
+<%= teachingstaff.qualification %></td><td>
+<%= teachingstaff.name %></td><td>
+<%= teachingstaff.description %></td><td>
+<%=l teachingstaff.created_at, :format=>'%d %b. %Y %I:%M' %></td><td>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+      edit_teaching_staff_path(teachingstaff), :class => 'btn btn-mini' %>
+
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+      teaching_staff_path(teachingstaff),
+      :method => :delete,
+      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+      :class => 'btn btn-mini btn-danger' %></td><td></tr>
+
+<% end %>
+</table>
+</div></div>
+<div class='apple_pagination' align="center"><%= will_paginate  @teachingstaff, :container => false %></div>
