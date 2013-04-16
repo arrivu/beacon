@@ -114,6 +114,31 @@
 }
 
 .browsemore {
+	width: 210px;
+	
+padding: 18px 3px 18px 20px;
+margin-top: 30px;
+font-weight: bold;
+/*background: #2980B9;*/
+/*background-color:  	#2a488e;*/
+background-image:url('../assets/button_bg.png');
+background-size: 230px 52px;
+color: #fff !important;
+line-height: 1 !important;
+font-size: 16px !important;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+white-space: nowrap;
+border: none;
+cursor: pointer;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+zoom: 1;
+text-align: right;
+}
+
+.browsemore1 {
+		
 padding: 20px;
 margin-top: 30px;
 font-weight: bold;
@@ -131,11 +156,13 @@ display: inline-block;
 vertical-align: middle;
 zoom: 1;
 }
-
 .browsemore:hover{
 	background: #3498DB ;
 }
 
+.browsemore1:hover{
+	background: #3498DB ;
+}
 .ourcustomers{
 	/*background-color:#f1f1f1;*/
 	/*background-color: #d14836;
