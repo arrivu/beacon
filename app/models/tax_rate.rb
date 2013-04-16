@@ -1,6 +1,6 @@
 class TaxRate < ActiveRecord::Base
-  attr_accessible :factor, :is_default, :valid_from, :valid_until
-  validates :factor, presence: true,:numericality => true
- 
 
+	attr_accessible :factor, :is_default, :valid_from, :valid_until,:description
+	validates :factor, presence: true, :numericality => true
+validates :description, presence: true, length: { maximum: 30 }
 end

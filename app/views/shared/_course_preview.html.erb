@@ -1,0 +1,37 @@
+<div class="previewcourse" id="previewcourse">
+  <div class="container">
+    <div class="row">
+      <h2>Lecture Preview: A Sneak Peak into the course</h2>
+      <% a=0 %>
+      <% @course.course_previews.where(enable: 1).order(:sequence).each do |p| %>
+      <% a +=1  %>
+      <div class="span6 prevbox">
+       <table> <tr>
+         <td>
+           <div class="bannervideo">
+            <% url = p.video_url.split('/')  %>
+            <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
+            <div id="preview_model<%= a %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></a></button>
+              <div class="modal-header">
+                <h3 id="myModalLabel">Preview Video</h3>
+              </div>
+              <div class="modal-body">
+               <iframe width="400" height="350" src=<%= p.video_url %> frameborder="0" allowfullscreen class="iframe"></iframe> 
+             </div>
+           </div>
+         </div>
+       </td>
+       <td>
+         <div class="previnfo">
+           <h3><%= p.name %></h3>
+           <p class="prevtxt"><%= p.desc %></p>
+         </div>
+       </td>
+     </tr>
+   </table>
+ </div>
+ <% end %>  
+</div>
+</div>
+</div>

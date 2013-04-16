@@ -280,6 +280,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.boolean  "is_default"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.string   "description"
   end
 
   create_table "teaching_staff_courses", :force => true do |t|
