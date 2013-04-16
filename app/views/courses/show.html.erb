@@ -142,24 +142,25 @@
     <div >
       <%if current_user.present?%>
       <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course},class:"browsemore1" %>
-      <%else%>  
-      <a href="#loginmodal" role="button" data-toggle="modal" class="browsemore">Add reveiw</a>
+      <% else %>  
+      <a href="#loginmodal" role="button" data-toggle="modal" class="browsemore1">Add reveiw</a>
       <% end %>  
     </div>
 
   </div>
 </div>
-
+<!-- 
 <%= render 'shared/author_info' %>
 <%= render 'shared/course_preview' %>
 <%= render 'shared/course_reviews' %>
-
+ -->
 
 
 <div align="center">
   <a href="<%= courses_path %>"><span class="browsemore" align="center">
-    Browse More Courses
-  </span></a>
+    
+      </span></a>
+      <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
 </div>
 </div>
 

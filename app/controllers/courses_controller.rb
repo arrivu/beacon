@@ -208,19 +208,9 @@ def course_payment
   end
 
   def my_courses
-    student=Student.where(user_id: current_user.id).first
-    @enrolled_courses=[]
-    if student!=nil 
-      student.course_enroll.each do |course|
-        @enrolled_courses << Course.where(id: course.id).first
-      end
-    end
-    @completed_courses=[]
-    if student!=nil and
-      student.course_complete.each do |course|
-        @completed_courses << Course.where(id: course.id).first
-      end
-    end
+    @student=Student.where(user_id: current_user.id).first
+    @enrolled_courses= @student.course_enroll
+    @completed_courses=@student.course_complete    
   end
 
 end

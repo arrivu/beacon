@@ -24,6 +24,7 @@
 	font-weight: 200;
 	/*color: #ECF0F1 ;*/
 	color: #333;
+	margin-left:115px;
 	z-index: 0;
 	text-transform: capitalize;
 }
@@ -139,13 +140,13 @@ zoom: 1;
 text-align: right;
 }
 
-/*.browsemore {
+.browsemore1 {
 		
 padding: 20px;
 margin-top: 30px;
 font-weight: bold;
 /*background: #2980B9;*/
-/*background-color:  	#2a488e;
+background-color:  	#2a488e;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 20px !important;
@@ -157,14 +158,14 @@ display: -moz-inline-stack;
 display: inline-block;
 vertical-align: middle;
 zoom: 1;
-}*/
+}
 /*.browsemore:hover{
 	background: #3498DB ;
 }
 */
-/*.browsemore1:hover{
+.browsemore1:hover{
 	background: #3498DB ;
-}*/
+}
 .ourcustomers{
 	/*background-color:#f1f1f1;*/
 	/*background-color: #d14836;
@@ -514,15 +515,15 @@ zoom: 1;
 .badge1 {
   display: inline-block;
   padding: 2px 4px;
-  font-size: 12px;
-  line-height: 14px;
-
-  color:#2980B9;
-  /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
+  font-size: 13px;
+  line-height: 0px;
+color:white;
+  /*color:#2980B9;
+*/  /*text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);*/
   white-space: nowrap;
   vertical-align: baseline;
   /*background-color: #999999;*/
-  background:#f3da95;
+  /*background:#f3da95;*/
   font-weight: bold
   }
 .badge1:hover

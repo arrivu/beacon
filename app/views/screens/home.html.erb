@@ -21,7 +21,8 @@
             <div class="bannerinfo">
               <p>Beacon Online teaches management subjects in the comfort of your browser with video lessons, quizzes and screnshots.</p>
               
-              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span></a> -->
+              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span>
+            </a> -->
             </div>
             
             <%= render 'show_topics' %>
@@ -77,6 +78,7 @@
                 </span></a> -->
 
                 <%= link_to "", courses_path, :class => "browsemore" %>
+                <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
 
                
               </div>
@@ -173,6 +175,7 @@
           <h3>Ready to start your learning adventure?</h2>
           <!-- <a href="courselibrary.php"><span class="browseourcoursessmall">Browse Our Courses</span></a> -->
           <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
+
           &nbsp;&nbsp;&nbsp;&nbsp;
           <% unless user_signed_in?%>
           <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">Create Account</a>
