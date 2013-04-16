@@ -64,7 +64,7 @@ class TeachingStaffsController < ApplicationController
 		end
 	end
 	def index
-		@teachingstaff=TeachingStaff.paginate(page: params[:page], :per_page => 15)
+		@teachingstaff=TeachingStaff.paginate(page: params[:page], :per_page => 10)
 	end
 
 	def destroy

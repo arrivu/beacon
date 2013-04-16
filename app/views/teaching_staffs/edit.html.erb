@@ -6,7 +6,7 @@
 <div class="row">
 <div class="span12 offset3" style="min-height:600px;">
 <%= simple_form_for(@teachingstaff) do |f| %>
-
+	<%= render 'shared/error_messages', object: f.object %>
 					<%= f.fields_for (@teachingstaff.user) do |user_form| %>
 			    <table> 
 			        <tbody><tr> 
@@ -20,18 +20,7 @@
 			            <%= user_form.text_field :email, :required => true %>
 			              </td> 
 			        </tr> 
-			        <tr> 
-			        	<td>Password:</td>
-			            <td> 
-			            <%= user_form.password_field :password, :required => true %>
-			              </td> 
-			        </tr> 
-			        <tr> 
-			        	<td>Password _confirmation:</td>
-			            <td> 
-			            <%= user_form.password_field :password_confirmation, :required => true %>
-			              </td> 
-			        </tr> 
+			        
 			        <%end %>
 
 			        <tr><td>Description</td><td><%= f.text_field :description %></td></tr>

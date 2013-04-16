@@ -4,8 +4,11 @@
 
 <br>
 <div class="row">
-<div class="span12 offset3" style="min-height:600px;">
+	<div class="span8 offset3" style="min-height:500px;">
+		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+		<h3 align = "center">Teaching Staff </h3>
 <%= simple_form_for(@teachingstaff) do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
 
 					<%= f.fields_for :teaching_staff_user do |user_form| %>
 			    <table> 
@@ -40,9 +43,10 @@
 			        
 
 
-			  	<tr><td><%= f.submit "Add Teacher", class: "btn btn-large btn-primary" %>
+			  	<tr><td></td><td><%= f.submit "Add Teacher", class: "btn btn-large btn-primary" %></td></tr>
 			   
 			  
-			<% end %></td></tr></table>
+			<% end %></table>
 		</div>
 	</div>
+</div>
