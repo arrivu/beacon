@@ -48,15 +48,15 @@ class TeachingStaffsController < ApplicationController
 
 	def update
 		@teachingstaff=TeachingStaff.find(params[:id])
-		@teachingstaff.name =  params[:teaching_staff][:user][:name]
-		@teachingstaff.description =  params[:teaching_staff][:description]
-		@teachingstaff.qualification =  params[:teaching_staff][:qualification]
-		@teachingstaff.build_user(name: params[:teaching_staff][:user][:name],
-								email: params[:teaching_staff][:user][:email],
-								password: params[:teaching_staff][:user][:password],
-								password_confirmation: params[:teaching_staff][:user][:password_confirmation])
-		if @teachingstaff.update_attributes(params[:teaching_staff])
-			flash="Teaching Staff details updated successfully"
+		
+		if @teachingstaff.user.update_attributes(:email => params[:teaching_staff][:user][:email],
+									password: params[:teaching_staff][:user][:password],
+									password_confirmation: params[:teaching_staff][:user][:password_confirmation],
+									name:params[:teaching_staff][:user][:name]) && @teachingstaff.update_attributes(
+									description:params[:teaching_staff][:description],
+									qualification:params[:teaching_staff][:qualification],
+									name:params[:teaching_staff][:user][:name])
+			flash[:notice]="Teaching Staff details updated successfully"
 			redirect_to teaching_staffs_path
 
 		else
@@ -70,7 +70,7 @@ class TeachingStaffsController < ApplicationController
 	def destroy
 		@teachingstaff=TeachingStaff.find(params[:id])
 		@teachingstaff.destroy
-		redirect_to teaching_staffs_path
+		redirect_to teachingstaffs_path
 		flash[:notice] = "Deleted teaching staff details successfully"
 	end
 end
