@@ -12,12 +12,12 @@ def show_image
 end
 
 def index
- @total_course_count = Course.where(ispublished: 1).all.count
+ @total_course_count = Course.where(ispublished: 1, iscompleted: false ).all.count
  @countCoursesPerPage = 6
  if params[:mycourses]=="mycourses"
    @courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 6)
  else
-   @courses = Course.where(ispublished: 1).paginate(page: params[:page], :per_page => 6)
+   @courses = Course.where(ispublished: 1, iscompleted: false).paginate(page: params[:page], :per_page => 6)
  end
  @topics = Topic.all
 end
@@ -178,23 +178,23 @@ def course_payment
     end
 
     def upcomming_courses
-      @total_course_count = Course.where(ispublished: 0).all.count
+      @total_course_count = Course.where(ispublished: 0, iscompleted: false).all.count
       @countCoursesPerPage = 6
       @courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
       @topics = Topic.order(:name)
     end
 
     def popular_courses
-      @total_course_count = Course.where(ispopular: 1).all.count
+      @total_course_count = Course.where(ispopular: 1, iscompleted: false).all.count
       @countCoursesPerPage = 6
-      @courses = Course.where(ispopular: 1).paginate(page: params[:page], per_page: 6)
+      @courses = Course.where(ispopular: 1,ispublished: 1, iscompleted: false).paginate(page: params[:page], per_page: 6)
       @topics = Topic.order(:name)
     end
 
     def datewise_courses
-      @total_course_count = Course.all.count
+      @total_course_count = Course.where(ispublished: 1, iscompleted: false).all.count
       @countCoursesPerPage = 6
-      @courses = Course.order(:created_at).paginate(page: params[:page], per_page: 6)
+      @courses = Course.where(ispublished: 1, iscompleted: false).order(:created_at).paginate(page: params[:page], per_page: 6)
       @topics = Topic.order(:name)
     end
 

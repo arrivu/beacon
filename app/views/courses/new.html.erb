@@ -19,7 +19,7 @@
 					<%= render 'shared/error_messages', object: f.object %>
 				</tr>
 				<tr><td><%= f.label :title, "Title" %></td>
-					<td><%= f.text_field :title,:maxlength => 30%></td></tr>
+					<td><%= f.text_field :title,:maxlength => 30, :autofocus => true%></td></tr>
 
 					<tr><td><%= f.label :teaching_staff_ids, "Author Name" %></td>
 						<td>
@@ -52,6 +52,11 @@
 													<%= f.select(:topic_id,options_for_select(topics_array))%>
 
 												</td></tr>
+												<tr><td>Completed</td><td><%= f.check_box :iscompleted %></td></tr>
+											
+												<tr><td>Completed Review</td><td><%= f.text_field :completedreview %></td></tr>
+											
+											
 
 												<tr><td></td><td><%= f.submit "Add Course", class: "btn btn-large btn-primary" %>
 												</td></tr></table>
@@ -60,5 +65,7 @@
 											</div>
 										</div>
 									</div>
+								
+
 
 

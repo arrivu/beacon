@@ -22,7 +22,7 @@
         <div class="courselibsectioninfo">
         <div class="coursecount pull-left">
 
-          <span class="badge badge-info">Found <%= Course.where(:ispublished=>true).size %> Courses</span>
+          <span class="badge badge-info">Found <%= Course.where(:ispublished=>true,:iscompleted=>false).size %> Courses</span>
 
         </div>
         <ul class="nav pull-right" style="margin-left:20px;">
