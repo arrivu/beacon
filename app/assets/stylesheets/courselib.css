@@ -18,9 +18,9 @@ border-bottom: 1px solid #eee;
 	background-image: -o-linear-gradient(top,#ECF0F1,#BDC3C7);
 	background-image: linear-gradient(top,#ECF0F1,#BDC3C7);*/
 	/*background:#f2e1ac;*/
-	background-color:Infobackground;
+	background-color:#fae58a;
 	text-align:center;
-	box-shadow: 3px 3px 3px;
+	box-shadow: 1px 2px 1px;
    margin-top: -20px;
 }
 
