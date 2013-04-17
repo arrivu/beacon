@@ -357,7 +357,7 @@ end
 			 	[1], #Category
 			 	"sublime.jpg", #image
 			 	"Welcome! In this course, we are going to take the knowledge that you have gained from coding for the browser, and apply it to the server environment. Over the next fifteen lessons, we will start from the beginning, get Node installed and running, and then move on to more complex projects that will explore the basics tools and functionality that the Node.js platform has to offer.",
-			 	4,
+			 	3,
 			 	"Sublime is an tremendiasly powerful text editor."
 			 	],
 			 9 => ["Introduction to Node.js", #Title
