@@ -225,19 +225,13 @@ end
 		# end
 
 		topics_hash = {
-			1 => ["Web Development",
-				"Topic Web Development"],
-				2 => ["Web Design",
-					"Topic Web Design"],
-					3 => ["Software Development",
-						"Topic Software Development"],
-						4 => ["Business",
-							"Topic Business"],
-							5 => ["Photoshop",
-								"Topic Photoshop"],
-								6 => ["Mobile development",
-									"Topic Mobile development"
-									]}
+			1 => ["Analytics",
+				"category Analytics"],
+				2 => ["Digital Marketing",
+					"category Digital Marketing"],
+					3 => ["Entrepreneurship",
+						"category Entrepreneurship"]
+					}
 
 									topics_hash.each do |key, array|
 										Topic.create!(

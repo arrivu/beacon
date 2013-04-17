@@ -105,6 +105,11 @@ GEM
       debugger-ruby_core_source (~> 1.2.0)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.0)
+    delayed_job (3.0.5)
+      activesupport (~> 3.0)
+    delayed_job_active_record (0.4.4)
+      activerecord (>= 2.1.0, < 4)
+      delayed_job (~> 3.0)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -301,6 +306,7 @@ DEPENDENCIES
   couponsgem!
   database_cleaner (>= 0.9.1)
   debugger
+  delayed_job_active_record
   devise (>= 2.2.3)
   devise_cas_authenticatable
   email_spec (>= 1.4.0)
