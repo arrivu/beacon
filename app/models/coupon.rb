@@ -90,9 +90,9 @@ class Coupon < ActiveRecord::Base
   # Apply a coupon (or throw an exception if the coupon is not valid)
   # Return a hash with the new prices for each product, as well the grand total
   # and total savings
-  def self.apply(coupon_code,price)
+  def self.apply(coupon_code, price, user_id, metadata)
     r = {:savings => 0.0, :grand_total => 0.0}
-    coupon = find_coupon(coupon_code)
+    coupon = find_coupon(coupon_code, user_id, metadata)
     price = price.to_f 
     category = []
     r[:grand_total] += price
@@ -134,7 +134,7 @@ class Coupon < ActiveRecord::Base
   private
   
   # find the coupon, or raise an exception if that coupon is not valid
-  def self.find_coupon(coupon_code, user_id = nil)
+  def self.find_coupon(coupon_code, user_id = nil, metadata=nil)
     coupon = Coupon.with_code(coupon_code.upcase).first
     raise CouponNotFound if coupon.nil?
     if user_id && coupon.redemptions.find_by_user_id(user_id)
@@ -142,6 +142,7 @@ class Coupon < ActiveRecord::Base
     end
     raise CouponRanOut if coupon.redemptions_count >= coupon.how_many
     raise CouponExpired if coupon.expiration < Time.now.to_date
+    raise CouponNotValid if((coupon.metadata != 'all') && (coupon.metadata != metadata))
     return coupon
   end
    

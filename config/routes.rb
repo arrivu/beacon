@@ -1,11 +1,7 @@
 Myapp::Application.routes.draw do
 
-  resources :course_pricings
-
-  
+  resources :course_pricings  
   resources :tax_rates
-
-
   match '/rate' => 'rater#create', :as => 'rate'
 
   resources :coupons do
@@ -16,7 +12,6 @@ Myapp::Application.routes.draw do
     end
   end
   resources :contacts
-
   resources :faqs
   resources :blogs
   resources :tags
@@ -26,7 +21,7 @@ Myapp::Application.routes.draw do
   match 'payments/course_payment',:to=>'payments#course_payment'
   match 'payments/confirm_course_payment',:to=>'payments#confirm_course_payment'
   match "/download_pdf(.:format)" => "invoices#invoice_pdf", :method => :get, :as=>:invoice_pdf
-  match '/show_image', :to => 'payments#show_image'
+  
   resources :topics
   resources :tutorials
   resources :groups
@@ -49,9 +44,7 @@ Myapp::Application.routes.draw do
   match '/popular_courses', :to => 'courses#popular_courses'  
   match '/datewise_courses', :to => 'courses#datewise_courses'
   match '/subscribed_courses', :to => 'courses#subscribed_courses'
-  match '/show_image', :to => 'courses#show_image' 
-  match '/show_image', :to => 'topics#show_image' 
-  match '/show_image', :to => 'screens#show_image' 
+  
 
 
   devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
@@ -65,6 +58,6 @@ Myapp::Application.routes.draw do
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
 
   match '/my_courses', :to => 'courses#my_courses'  
-
+  match '/show_image/:id', :to => 'courses#show_image'  
 end
 

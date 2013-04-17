@@ -27,4 +27,4 @@ payment_gateway:
   work_key: "6abc0ty90e0v7jk9hj"
   ccavenue_account: "test123"
 invoices:
-  notes:Thank you for your enroll!
+  notes: "Thank you for your enroll!"

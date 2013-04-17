@@ -15,7 +15,7 @@ class InvoicesController < ApplicationController
     invoice.coupon_description =  nil
 
     invoice.tax_rate = @tax_rate.factor
-    invoice.tax_description = @tax_rate.description
+    #invoice.tax_description = @tax_rate.description
     
     invoice.paid_at = Date.today
     invoice.currency = Payday::Config.default.currency 
@@ -38,8 +38,6 @@ class InvoicesController < ApplicationController
 		 File.open("#{directory}/#{name}", "wb") do |f|
 		   @pdf.each do |row| f << row end
 		 end
-		UserMailer.delay(:queue => 'tracking').course_payment(@user,@course,@price)    
-  end
-
- 
+		UserMailer.delay(:queue => 'tracking').course_payment(@user, @course, @price)    
+  end 
 end
