@@ -1,15 +1,9 @@
 Myapp::Application.routes.draw do
 
-<<<<<<< HEAD
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'
 
   resources :course_pricings
   resources :teaching_staffs
-
-  
-=======
-  resources :course_pricings  
->>>>>>> payment_hitesh
   resources :tax_rates
   match '/rate' => 'rater#create', :as => 'rate'
 

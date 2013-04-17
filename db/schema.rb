@@ -189,6 +189,8 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "coupon_description"
     t.string   "currency"
     t.string   "invoice_details"
+    t.integer  "user_id"
+    t.integer  "course_id"
   end
 
   create_table "line_items", :force => true do |t|
