@@ -80,7 +80,7 @@
 	padding: 5px;
 	text-transform: uppercase;
 	position: relative;
-	top:-5px;
+	top:-10px;
 	font-size: 15px;
 	font-weight: 200;
 	color:#333;
@@ -529,6 +529,7 @@ color:white;
 .badge1:hover
 {
   /*color:#2980B9;*/
-  color:#2a488e;
+ /* color:#2a488e;*/
+ color:orange;
   font-weight: bold;
 }
