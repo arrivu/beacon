@@ -1,7 +1,8 @@
 class Invoice < ActiveRecord::Base
   include Payday::Invoiceable
-  
+  attr_accessible :total
   has_many :line_items
+<<<<<<< HEAD
 
   # def tax
   # if defined?(tax_rate)
@@ -12,3 +13,6 @@ class Invoice < ActiveRecord::Base
   #   0
   # end
 end
+=======
+end
+>>>>>>> payment_hitesh
