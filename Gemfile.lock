@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/m-narayan/canvas
-  revision: 221645a2d9404b461399668f6d621433115320c9
+  revision: 815607cf29e574dac1d56ca9f19bb381233520bc
   specs:
     canvas (0.0.0)
 
@@ -63,7 +63,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     acts_as_commentable (3.0.1)
-    addressable (2.3.3)
+    addressable (2.3.4)
     afm (0.2.0)
     annotate (2.4.1.beta1)
     arel (3.0.2)
@@ -115,7 +115,7 @@ GEM
       orm_adapter (~> 0.1)
       railties (~> 3.1)
       warden (~> 1.2.1)
-    devise_cas_authenticatable (1.2.0)
+    devise_cas_authenticatable (1.2.1)
       devise (>= 1.0.6)
       rubycas-client (>= 2.2.1)
     diff-lcs (1.2.3)
@@ -150,7 +150,7 @@ GEM
     json (1.7.7)
     jwt (0.1.8)
       multi_json (>= 1.5)
-    launchy (2.2.0)
+    launchy (2.3.0)
       addressable (~> 2.3)
     letsrate (1.0.8)
     libv8 (3.11.8.17)
