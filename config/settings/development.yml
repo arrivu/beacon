@@ -21,3 +21,10 @@ mailserver:
   password: surendra9826372592#beaconlms123$
 admin_mail:
   to: beaconlms@gmail.com
+payment_gateway:
+  enable: false
+  merchant_id: "M_blahpache_5678"
+  work_key: "6abc0ty90e0v7jk9hj"
+  ccavenue_account: "test123"
+invoices:
+  notes: "Thank you for your enroll!"

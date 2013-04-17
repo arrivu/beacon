@@ -7,7 +7,7 @@
 
 <br>
 <div class="row">
-  <div class="span12 offset3" style="min-height:250px;">
+  <div class="span12 offset3" style="min-height:530px;">
 
 <%- model_class = Course -%>
 
@@ -30,7 +30,7 @@
 
       <td>
         <%= if course.data !=nil 
-          image_tag url_for(:action => 'show_image', :id => course.id), :size => "40x40" 
+          image_tag url_for(:controller=>"courses", :action => 'show_image', :id => course.id), :size => "40x40" 
         end 
         %></td>
         <td><%= course.topic.name %></td>

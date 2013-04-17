@@ -30,4 +30,9 @@ module SessionsHelper
 			@user = User.find(params[:id])
 			redirect_to(root_path) unless current_user?(@user)
 		end
+
+		def admin_user?
+			current_user.has_role? :admin
+		end
+
 end

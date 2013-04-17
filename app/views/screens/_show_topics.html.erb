@@ -1,7 +1,11 @@
 <div class="bannerlearn">
-	<span class="learnheading">Learn: </span>
+	<span class="learnheading" style="color:white;">Learn: </span>
+	<% i=0 %>
 	<% @topics.each do |topic|%>
+	<% i=i+1 %>
 	<% @topicStructure = topic.name %>
-	<span class="badge1 leartopic"><%= link_to @topicStructure, topic, class: "badge1" %></span>
+	<span class="badge1 leartopic"><%= link_to @topicStructure, topic, class: "badge1" %>
+	<% if(i < @topics.count) %>|<% end %>
+	</span>
 	<% end %>
 </div>

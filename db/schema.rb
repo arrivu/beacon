@@ -177,8 +177,20 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.date     "paid_at"
     t.decimal  "total"
     t.string   "company_name"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "invoice_number"
+    t.string   "bill_to"
+    t.string   "notes"
+    t.decimal  "tax_rate"
+    t.string   "tax_description"
+    t.decimal  "coupon_rate"
+    t.string   "coupon_code"
+    t.string   "coupon_description"
+    t.string   "currency"
+    t.string   "invoice_details"
+    t.integer  "user_id"
+    t.integer  "course_id"
   end
 
   create_table "line_items", :force => true do |t|
@@ -190,6 +202,8 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "invoice_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "invoice_number"
+    t.string   "item_type"
   end
 
   create_table "o_classes", :force => true do |t|
@@ -292,10 +306,11 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   create_table "tax_rates", :force => true do |t|
     t.date     "valid_from",                                :null => false
     t.date     "valid_until"
-    t.decimal  "factor",      :precision => 6, :scale => 6
+    t.decimal  "factor",      :precision => 2, :scale => 2
     t.boolean  "is_default"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.string   "description"
   end
 
   create_table "teaching_staff_courses", :force => true do |t|

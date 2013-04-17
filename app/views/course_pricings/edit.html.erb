@@ -8,7 +8,7 @@
 			<h3 align = "center">Edit Course Price</h3>
 			<%= simple_form_for (@coursepricing) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
-			<table><tr><th>Course Name</th><td><% courses_array = Course.all.map { |course| [course.title, course.id] } %>
+			<table class="tableform"><tr><th>Course Name</th><td><% courses_array = Course.all.map { |course| [course.title, course.id] } %>
 				<%= f.select(:course_id,options_for_select(courses_array))%></td></tr>
 				<tr><th>Start Date</th><td>
 					<div >

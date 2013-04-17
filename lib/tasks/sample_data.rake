@@ -225,19 +225,13 @@ end
 		# end
 
 		topics_hash = {
-			1 => ["Web Development",
-				"Topic Web Development"],
-				2 => ["Web Design",
-					"Topic Web Design"],
-					3 => ["Software Development",
-						"Topic Software Development"],
-						4 => ["Business",
-							"Topic Business"],
-							5 => ["Photoshop",
-								"Topic Photoshop"],
-								6 => ["Mobile development",
-									"Topic Mobile development"
-									]}
+			1 => ["Analytics",
+				"category Analytics"],
+				2 => ["Digital Marketing",
+					"category Digital Marketing"],
+					3 => ["Entrepreneurship",
+						"category Entrepreneurship"]
+					}
 
 									topics_hash.each do |key, array|
 										Topic.create!(
@@ -363,7 +357,7 @@ end
 			 	[1], #Category
 			 	"sublime.jpg", #image
 			 	"Welcome! In this course, we are going to take the knowledge that you have gained from coding for the browser, and apply it to the server environment. Over the next fifteen lessons, we will start from the beginning, get Node installed and running, and then move on to more complex projects that will explore the basics tools and functionality that the Node.js platform has to offer.",
-			 	4,
+			 	3,
 			 	"Sublime is an tremendiasly powerful text editor."
 			 	],
 			 9 => ["Introduction to Node.js", #Title
@@ -392,6 +386,9 @@ end
 
 			}
 
+
+			
+
 			count=0
 			courses_hash.each do |key, array|
 				Course.create!(title: array[0],
@@ -409,6 +406,31 @@ end
 					# Relationship.create!(course_id: count,topic_id: topicId)
 				end
 			end
+
+			@courses=Course.all
+			course_price_hash={
+				1=>[@courses[0].id,"10000","2013-02-01","2014-03-31"],
+				2=>[@courses[1].id,"10000","2013-02-01","2014-03-31"],
+				3=>[@courses[2].id,"10000","2013-02-01","2014-03-31"],
+				4=>[@courses[3].id,"10000","2013-02-01","2014-03-31"],
+				5=>[@courses[4].id,"10000","2013-02-01","2014-03-31"],
+				6=>[@courses[5].id,"10000","2013-02-01","2014-03-31"],
+				7=>[@courses[6].id,"10000","2013-02-01","2014-03-31"],
+				8=>[@courses[7].id,"10000","2013-02-01","2014-03-31"],
+				9=>[@courses[8].id,"10000","2013-02-01","2014-03-31"],
+				10=>[@courses[9].id,"10000","2013-02-01","2014-03-31"]
+			}
+			count=0
+			course_price_hash.each do |key,array|
+				CoursePricing.create!(course_id:array[0],
+					price:array[1],
+					start_date:array[2],
+					end_date:array[3])
+				count=count+1
+			end
+
+			TaxRate.create!(valid_from:"2013-03-01", valid_until:"2014-03-31",factor:0.0, is_default: true, description: "Service Tax")
+
 
 @student_user =Student.all
 @courses = Course.all
@@ -663,21 +685,21 @@ teaching_staff_courses_hash.each do |key, array|
 			 
 			}
 
-			count=0
-			blogs_hash.each do |key, array|
-				Blog.create!(title: array[0],
-					author: array[1],
-					user_id: array[2],
-					ispublished: array[3],
-					releasemonth: array[4],
-			# 5 is category/topic
-			image: array[6],
-			content: array[7])
-				count=count+1
-				array[5].each do |tagId| 
-					Tagging.create!(blog_id: count,tag_id: tagId)
-				end
-			end
+			# count=0
+			# blogs_hash.each do |key, array|
+			# 	Blog.create!(title: array[0],
+			# 		author: array[1],
+			# 		user_id: array[2],
+			# 		ispublished: array[3],
+			# 		releasemonth: array[4],
+			# # 5 is category/topic
+			# image: array[6],
+			# content: array[7])
+			# 	count=count+1
+			# 	array[5].each do |tagId| 
+			# 		Tagging.create!(blog_id: count,tag_id: tagId)
+			# 	end
+			# end
 
 
 			

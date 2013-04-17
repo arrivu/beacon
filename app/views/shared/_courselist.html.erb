@@ -7,14 +7,14 @@
         <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
           <div class="card-a course-inner">
             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-            <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
             
             <div class="course-content">
-              <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.capitalize if !course.topic.nil? %></b></em>
+              <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>
             
               <!-- <em class="label-b">Free Course</em> -->
 
-              <%=link_to(course) do %><h3 class="course-name"><%= course.title.capitalize %></h3>
+              <%=link_to(course) do %><h3 class="course-name"><%= course.title.split(' ').map(&:capitalize).join(' ') %></h3>
               <p class="course-desc"><%= course.short_desc  %></p>
               <%end%></div>
 

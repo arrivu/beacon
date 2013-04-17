@@ -1,0 +1,54 @@
+			<div style="float:left">
+
+				<%= render 'shared/side_menu' %>
+			</div>
+
+			<br>
+			<div class="row">
+				<div class="span8 offset3" style="min-height:550px;">
+					<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+						<h3 align = "center">Teaching Staff </h3>
+						<%= simple_form_for(@teachingstaff) do |f| %>
+						<%= render 'shared/error_messages', object: f.object %>
+
+						<%= f.fields_for :teaching_staff_user do |user_form| %>
+						<table class="tableform"> 
+							<tbody><tr> 
+								<th>Name </th>
+								<td> 
+									<%= user_form.text_field :name, :autofocus => true %>
+								</td> 
+							</tr> 
+							<tr> <th>Email</th>
+								<td> 
+									<%= user_form.text_field :email, :required => true %>
+								</td> 
+							</tr> 
+							<tr> 
+								<th>Password</th>
+								<td> 
+									<%= user_form.password_field :password, :required => true %>
+								</td> 
+							</tr> 
+							<tr> 
+								<th>Password confirmation</th>
+								<td> 
+									<%= user_form.password_field :password_confirmation, :required => true %>
+								</td> 
+							</tr> 
+							<%end %>
+
+							<tr><th>Description</th><td><%= f.text_area :description, :cols => "30", :rows => "10",:maxlength => 1000 %></td></tr>
+
+							<tr><th>Qualification</th><td> <%= f.text_field :qualification %></td></tr>
+
+
+
+							<tr><td></td><td><%= f.submit "Save", class: "btn btn-large btn-primary" %></td></tr>
+
+
+							<% end %></table>
+						</div>
+					</div>
+				</div>
+

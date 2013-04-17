@@ -5,7 +5,7 @@
     <div class="row">
       <div class="span4">
         <div class="coursevideo">
-          <%= image_tag url_for(:action => 'show_image', :id => @course.id), width: "200", height: "200" %>
+          <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => @course.id), width: "200", height: "200" %>
         </div>
       </div>
       <div class="span7">
@@ -29,21 +29,12 @@
 
             <% elsif @status=="completed" %>
 
-            <% elsif @status=="shortlisted" %>
-            
-            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-              enroll
-            </div></a>
             <% else %>
-            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-              enroll
-            </div></a>
+            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>
             
             <%else%>  
-            <a href="#loginmodal" role="button" data-toggle="modal"><div class="enroll">
-              enroll
-            </div></a>
+            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>  
             <a href="#previewcourse"><div class="shortlist">
               Preview

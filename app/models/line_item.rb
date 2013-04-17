@@ -1,5 +1,7 @@
 class LineItem < ActiveRecord::Base
   include Payday::LineItemable
-  attr_accessible :price, :quantity, :description,:display_price,:invoice_id
+  #item_id is the course_id or coupon_id
+  #item_type is course or coupon
+  attr_accessible :item_id, :item_type, :price, :quantity, :description, :display_price, :invoice_id
   belongs_to :invoice
 end

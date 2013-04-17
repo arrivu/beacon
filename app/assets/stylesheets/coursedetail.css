@@ -82,6 +82,34 @@
 	border-radius: 4px;*/
 	margin-right: 20px;
 }
+.enroll-payment{
+	float: right;
+	margin-top: 10px;
+	font-weight: bold;
+	padding: 12px 15px;
+	background: #4090ba;
+	color: #fff !important;
+	line-height: 1 !important;
+	font-size: 14px !important;
+/*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+*/	white-space: nowrap;
+	border: none;
+	cursor: pointer;
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+	/*-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-ms-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;*/
+	margin-right:173px;
+}
+.enroll-payment{
+	background: #3498DB ;
+}
+
 
 .enroll:hover{
 	background: #3498DB ;

@@ -26,11 +26,8 @@
         <ul class="nav pull-right" style="margin-left:20px;">
            <li id="fat-menu" class="dropdown" >
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" style=" font-size: 1.2em;
-      position: relative;color:black; ">Sort By&nbsp;&nbsp;<b class="caret" style="margin-top:1px;border-left: 7px solid transparent;border-right: 7px solid transparent;border-top: 7px solid steelblue;"></b></a>
+      position: relative;color:black; ">Sort By&nbsp;&nbsp;<b class="caret" style="margin-top:1px;border-left: 7px solid transparent;border-right: 7px solid transparent;border-top: 7px solid #34495E;"></b></a>
             
-               <!--  <div style="top:-20px; float:left; margin-left:3px; margin-top:0px; margin-right: 3px;">
-                <img alt="Ankit Gupta" class="gravatar" src="https://secure.gravatar.com/avatar/b94eaadd611b184036707b3bd3d7e303" height="20" width="20">
-                </div> -->
             
             <ul class="dropdown-menu">
               
@@ -58,7 +55,8 @@
         <ul class="nav pull-right">
            <li id="fat-menu" class="dropdown" style="color:black;">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" style=" font-size: 1.2em;
-      position: relative;color:black; ">Categories&nbsp;<b class="caret" style="margin-top:1px;border-left: 7px solid transparent;border-right: 7px solid transparent;border-top: 7px solid steelblue;"></b></a>
+      position: relative;color:black; ">Categories&nbsp;<b class="caret" style="margin-top:1px;border-left: 7px solid transparent;border-right: 7px solid transparent;border-top: 7px solid #34495E;">
+    </b></a>
                 <ul class="dropdown-menu">
 
                     <li><%= link_to "All" + " ( #{Course.where(ispublished: 1).all.size} )", courses_path %></li>
@@ -112,7 +110,7 @@
                   <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
                       <div class="card-a course-inner">
                       <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                      <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
+                      <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
                       
                       <div class="course-content">
                       <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><%=course.topic.name if !course.topic.nil? %></em>

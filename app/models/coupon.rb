@@ -67,22 +67,12 @@ class Coupon < ActiveRecord::Base
   # We apply the fixed amount first before applying the percentage discount
   #
   # We also don't let the savings exceed the initial cost
-  def savings(category, cost)
-    if category == category_one
+  def savings( cost)
       if cost < amount_one
         cost
       else
         cost - ((cost - amount_one) * (1.0 - (percentage_one.to_f/100.to_f)))
       end
-    elsif category == category_two
-      if cost < amount_two
-        cost
-      else
-        cost - ((cost - amount_two) * (1.0 - (percentage_two.to_f/100.to_f)))
-      end
-    else
-      0
-    end
   end
   
   # Generate a hash similar to what #apply returns, except there is
@@ -100,21 +90,27 @@ class Coupon < ActiveRecord::Base
   # Apply a coupon (or throw an exception if the coupon is not valid)
   # Return a hash with the new prices for each product, as well the grand total
   # and total savings
-  def self.apply(coupon_code, product_bag = {})
+  def self.apply(coupon_code, price, user_id, metadata)
     r = {:savings => 0.0, :grand_total => 0.0}
-    coupon = find_coupon(coupon_code)
+    coupon = find_coupon(coupon_code, user_id, metadata)
+    price = price.to_f 
     category = []
-    product_bag.each do |category, price|
-      price = Float(product_bag.course_pricings.first.price)
-      r[:grand_total] += price
-      r[category] = price
-      if coupon
-        savings = coupon.savings(category, price)
-        r[:savings] += savings
-        r[:grand_total] -= savings
-        r[category] -= savings
-      end
+    r[:grand_total] += price
+    if coupon
+       savings = coupon.savings( price)
+       r[:savings] += savings
+       r[:grand_total] -= savings
     end
+    # course.each do |category|
+    #   r[:grand_total] += price
+    #  #r[category] = price
+    #   if coupon
+    #     savings = coupon.savings( price)
+    #     r[:savings] += savings
+    #     r[:grand_total] -= savings
+    #     #r[category] -= savings
+    #   end
+    # end
     return round_values(r)
   end
   
@@ -138,7 +134,7 @@ class Coupon < ActiveRecord::Base
   private
   
   # find the coupon, or raise an exception if that coupon is not valid
-  def self.find_coupon(coupon_code, user_id = nil)
+  def self.find_coupon(coupon_code, user_id = nil, metadata=nil)
     coupon = Coupon.with_code(coupon_code.upcase).first
     raise CouponNotFound if coupon.nil?
     if user_id && coupon.redemptions.find_by_user_id(user_id)
@@ -146,6 +142,7 @@ class Coupon < ActiveRecord::Base
     end
     raise CouponRanOut if coupon.redemptions_count >= coupon.how_many
     raise CouponExpired if coupon.expiration < Time.now.to_date
+    raise CouponNotValid if((coupon.metadata != 'all') && (coupon.metadata != metadata))
     return coupon
   end
    

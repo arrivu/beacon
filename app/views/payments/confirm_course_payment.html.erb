@@ -8,7 +8,7 @@
 </tr>
 <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
 <td ><div class="span2" > 
-      <%= image_tag url_for(:action => 'show_image', :id => @course.id), width: "150", height: "120" %>
+      <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => @course.id), width: "150", height: "120" %>
     </div>
 
     <div class="span4">
@@ -29,13 +29,10 @@
 Amount Paid: Rs. 120
 
 </div>
-<<<<<<< HEAD:app/views/courses/confirm_course_payment.html.erb
-<div class="button-place-holder" style="float:right; margin-right: 105px;margin-top:20px;">
-    <p><%= link_to "Download Invoice", index_pdf_path(:id=>@course, :format => "pdf") %></p>
-=======
+
 <div class="button-place-holder" style="float:right; margin-right: 138px;">
     <p><%= link_to "Download Invoice", invoice_pdf_path(:id=>@course, :format => "pdf") %></p>
->>>>>>> payment_hitesh:app/views/payments/confirm_course_payment.html.erb
+
 
 </div>
 </div>

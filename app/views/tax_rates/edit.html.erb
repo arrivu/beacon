@@ -13,6 +13,14 @@
 					<div class="divrow">
 						<div><h3 align="center">Tax Edit</h3></div>
 						<div class="divleft">
+							Description
+						</div>
+						<div class="divright">
+							<%=f.text_field :description %>
+						</div>
+					</div>
+					<div class="divrow">
+					<div class="divleft">
 							Factor
 						</div>
 						<div class="divright">
@@ -56,7 +64,7 @@
 							&nbsp;
 						</div>
 						<div class="divright">
-							<%= f.submit "Update",class:"btn btn-primary btn-large"  %>
+							<%= f.submit "Update",class:"btn btn-primary"  %>
 						</div>
 					</div>
 					<br>

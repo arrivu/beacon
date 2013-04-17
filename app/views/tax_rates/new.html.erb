@@ -5,15 +5,24 @@
 	</div>
 
 	<div class="row">
-		<div class="span10 offset3" style="min-height:500px">
+		<div class="span10 offset3" style="min-height:600px">
 			<div  style="">
 				<div class="divcontainer">
 
 					<%= simple_form_for(@tax_rate) do |f| %>
 					<%= render 'shared/error_messages', object: f.object %>
+
 					<div class="divrow">
-						<div><h3 align="center">Tax New</h3></div>
+						<div><h3 align="center">Create Tax</h3></div>
 						<div class="divleft">
+							Description
+						</div>
+						<div class="divright">
+							<%=f.text_field :description %>
+						</div>
+					</div>
+					<div class="divrow">
+					<div class="divleft">
 							Factor
 						</div>
 						<div class="divright">
@@ -57,7 +66,7 @@
 							&nbsp;
 						</div>
 						<div class="divright">
-							<%= f.submit "Save",class:"btn btn-primary btn-large" %>
+							<%= f.submit "Save",class:"btn btn-primary" %>
 						</div>
 					</div>
 					<br>
