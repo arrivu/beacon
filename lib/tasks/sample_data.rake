@@ -687,21 +687,21 @@ teaching_staff_courses_hash.each do |key, array|
 			 
 			}
 
-			count=0
-			blogs_hash.each do |key, array|
-				Blog.create!(title: array[0],
-					author: array[1],
-					user_id: array[2],
-					ispublished: array[3],
-					releasemonth: array[4],
-			# 5 is category/topic
-			image: array[6],
-			content: array[7])
-				count=count+1
-				array[5].each do |tagId| 
-					Tagging.create!(blog_id: count,tag_id: tagId)
-				end
-			end
+			# count=0
+			# blogs_hash.each do |key, array|
+			# 	Blog.create!(title: array[0],
+			# 		author: array[1],
+			# 		user_id: array[2],
+			# 		ispublished: array[3],
+			# 		releasemonth: array[4],
+			# # 5 is category/topic
+			# image: array[6],
+			# content: array[7])
+			# 	count=count+1
+			# 	array[5].each do |tagId| 
+			# 		Tagging.create!(blog_id: count,tag_id: tagId)
+			# 	end
+			# end
 
 
 			
