@@ -13,14 +13,24 @@ class Student < ActiveRecord::Base
   belongs_to :user
 
   def course_enroll
-  	self.student_courses.where(:status => "enroll")
+    load_course("enroll")       
   end
+
   def course_complete
-  	self.student_courses.where(:status => "completed")
+    load_course("completed")
   end 
+
    def course_shortlist
-  	self.student_courses.where(:status => "shortlisted")
+  	load_course("shortlisted")
   end 
+
+  def load_course( status)
+    courses_ids = []
+      self.student_courses.where(:status => status).each do |course_status|
+        courses_ids << course_status.course_id
+      end
+    Course.find(courses_ids)      
+  end
 
   # has_many :courses, :through => :student_courses 
 end

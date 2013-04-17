@@ -23,7 +23,7 @@ class SessionsController < Devise::SessionsController
       puts e.inspect
       puts "There is some error to sing_in to cas using user : #{current_user.inspect}"
       raise
-    end
+    end       
     
     #respond_with resource, :location => after_sign_in_path_for(resource)
     #self.class.superclass.instance_method(:foo).bind(self).call

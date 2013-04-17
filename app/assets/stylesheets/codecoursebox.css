@@ -36,7 +36,8 @@ a {
 
 h1 {
   font-size: 32px;
-  font-weight: 900; }
+  font-weight: 900; 
+font:"Lato",sans-serif;}
 
 h2 {
   font-size: 26px;
@@ -165,7 +166,7 @@ border-radius: 0px;
 color: #fff;
 display: inline-block;
 /*font: 1.5em "OpenSansCondensedBold",Helvetica,Arial,sans-serif;*/
-text-transform: uppercase;
+/*text-transform: uppercase;*/
 padding: 2px;
 
 }
@@ -211,9 +212,14 @@ color: #636365;
 p {
 font-size: 16px;
 font:"Lato",sans-serif;
+ margin: 0 0 -1px;
 
 }
-
+.bannerinfo p{
+  font-size: 21px;
+font:"Lato",sans-serif;
+ margin: 0 0 -1px;
+}
 .orange{
   background-color: #F39C12 ;
 }

@@ -410,6 +410,30 @@ end
 				end
 			end
 
+			@courses=Course.all
+			course_price_hash={
+				1=>[@courses[0].id,"10000","2013-02-01","2014-03-31"],
+				2=>[@courses[1].id,"10000","2013-02-01","2014-03-31"],
+				3=>[@courses[2].id,"10000","2013-02-01","2014-03-31"],
+				4=>[@courses[3].id,"10000","2013-02-01","2014-03-31"],
+				5=>[@courses[4].id,"10000","2013-02-01","2014-03-31"],
+				6=>[@courses[5].id,"10000","2013-02-01","2014-03-31"],
+				7=>[@courses[6].id,"10000","2013-02-01","2014-03-31"],
+				8=>[@courses[7].id,"10000","2013-02-01","2014-03-31"],
+				9=>[@courses[8].id,"10000","2013-02-01","2014-03-31"],
+				10=>[@courses[9].id,"10000","2013-02-01","2014-03-31"]
+			}
+			count=0
+			course_price_hash.each do |key,array|
+				CoursePricing.create!(course_id:array[0],
+					price:array[1],
+					start_date:array[2],
+					end_date:array[3])
+				count=count+1
+			end
+
+			TaxRate.create!(valid_from:"2013-03-01", valid_until:"2014-03-31",factor:12,is_default: true, description: "Service Tax")
+
 @student_user =Student.all
 @courses = Course.all
 student_courses_hash = {

@@ -1,5 +1,5 @@
 class CoursePreviewsController < ApplicationController
-before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
+before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:index]
 	def new
 		@preview = CoursePreview.new	
 		#@course = Course.all
@@ -21,6 +21,7 @@ before_filter :custom_method, :only => [:new,:create, :edit, :destroy,:index]
 	def index
 		@previews = CoursePreview.paginate(page: params[:page], :per_page => 10)
 		@course = Course.all
+		
 	end
 
 	def edit

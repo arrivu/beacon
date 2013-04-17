@@ -1,88 +1,4 @@
-
-<div class="coursedetailtop">
-
-  <div class="container">
-    <div class="row">
-      <div class="span4">
-        <div class="coursevideo">
-          <%= image_tag url_for(:action => 'show_image', :id => @course.id), width: "200", height: "200" %>
-        </div>
-      </div>
-      <div class="span7">
-        <div class="coursedesc">
-          <div class="coursetitle">
-            <h3><%= @course.title %></h3>
-          </div>
-          <div class="subtitle">
-            <h4><%= @course.short_desc %></h4>
-          </div>
-          <div class="container clearfix"></div>
-          <div class="subsection">
-
-
-            <% if current_user.present? %>
-
-            <% if @status=="enroll" %>
-            <a href="<%= lms_course_url(@course.lms_id)%>" target="_blank"><div class="enroll">
-              Take this Course Now!
-            </div></a>
-
-            <% elsif @status=="completed" %>
-         
-            <% elsif @status=="shortlisted" %>
-            
-            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-              enroll
-            </div></a>
-            <% else %>
-            <a href="<%= course_payment_course_path(@course)%>"><div class="enroll">
-              enroll
-            </div></a>
-            <% end %>
-            
-            <%else%>  
-            <a href="#loginmodal" role="button" data-toggle="modal"><div class="enroll">
-              enroll
-            </div></a>
-          <% end %>  
-            <a href="#previewcourse"><div class="shortlist">
-              Preview
-            </div></a>
-
-
-          </div>
-          <div class="container clearfix"></div>
-          <div style="margin-left: 80px;">
-           <a>
-            <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
-            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-            <br align = "center">
-            <% end %>
-            <%= rating_for @course, "rate" %><div id="rating" ><%= @qty%> Ratings</div>
-            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-            <div class = "rated" %>
-              <% if @rated == nil  %>
-              Rate This Course
-              <% else  %>
-              Course Rated
-              <% end %>
-            </div>
-            <% end %>
-          </a>
-        </div>
-      </div>
-      <div class="container clearfix"></div>
-    </div>
-  </div>
-  <div class="container clearfix">
-
-  </div>
-</div>
-
-<div class="container clearfix">
-</div>
-</div>
-
+<%= render 'shared/course_detial' %>
 
 <div class="coursesyllabus">
   <div class="container">
@@ -107,22 +23,19 @@
           <h3>Course Description</h3>
         </div>
         <div class="underlinetext" >
-
-         <%= truncate(@course.desc, :length => 300)  %></br> </br>
+          
+         <%= @course.desc  %></br> </br>
        </div>
        <div class="starrating">
          <div class='spread'>  <div class='twshare left'>   </div>
          <table> <tr>
           <td>
-           <td><script type="text/javascript" src="http://platform.linkedin.com/in.js"></script></td> <td></td>
+           <td><script type="text/javascript" src="http://platform.linkedin.com/in.js"></script></td>
            <script type="in/share" data-url="<%=request.url%>" data-counter="right"></script>
-
            <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  
-           <td><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like></td> <td></td>
-
-
+           <td><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like></td> 
            <script src="https://apis.google.com/js/plusone.js"></script>
-           <td><g:plus action="share" annotation="bubble" ></g:plus></td> <td></td>
+           <td><g:plus action="share" annotation="bubble" ></g:plus></td> 
            <td>
             <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
             <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70)  %>">Tweet</a>
@@ -138,6 +51,7 @@
 </div>
 </div>
 </div>
+
 <div class="aboutauthor">
   <div class="container ">
     <h1>About the Author</h1>
@@ -225,26 +139,28 @@
  <div class="container clearfix"></div>
  <div class="row">
   <div align="center">
-    <div class="readallreview">
+    <div >
       <%if current_user.present?%>
-      <%= link_to "Add reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
-      <%else%>  
-      <a href="#loginmodal" role="button" data-toggle="modal">Add reveiw</a>
+      <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course},class:"browsemore1" %>
+      <% else %>  
+      <a href="#loginmodal" role="button" data-toggle="modal" class="browsemore1">Add reveiw</a>
       <% end %>  
     </div>
 
   </div>
 </div>
-
-
-</div>
-
+<!-- 
+<%= render 'shared/author_info' %>
+<%= render 'shared/course_preview' %>
+<%= render 'shared/course_reviews' %>
+ -->
 
 
 <div align="center">
   <a href="<%= courses_path %>"><span class="browsemore" align="center">
-    Browser More Courses
-  </span></a>
+    
+      </span></a>
+      <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
 </div>
 </div>
 

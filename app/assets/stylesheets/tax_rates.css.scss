@@ -1,0 +1,71 @@
+// Place all the styles related to the tax_rates controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/*tax styles for new and edit page*/
+.divcontainer
+{
+	border:1px solid #0088cc;
+	border-radius:5px;
+	padding-left: 60px;
+	margin-bottom: 30px;
+	line-height: 30px;
+	color: inherit;
+}
+.divrow
+{
+	width:500px;
+	padding: 20px;
+}
+.divleft
+{
+
+	width:200px;
+	float: left;
+}
+.divright
+{
+	width: 300px;
+	float: left;
+}
+.date{
+	width:80px;
+}
+
+/*tax datatable for index page*/
+.datatable_container
+{
+
+	width:100%
+}
+
+.datatable_head
+{
+	text-align:center;
+	margin-bottom:10px;
+}
+.datatable_headings
+{
+	font-weight:bold;
+}
+.datatable_row
+{
+height:30px;
+line-height:30px;
+
+
+}
+.datatable_row_line
+{
+	border-bottom:1px solid silver;
+}
+.datatable_column
+{
+	width:150px;
+	float:left;
+	padding:2px;
+}
+.datatable_row_clear
+{
+	clear:both;
+}
+

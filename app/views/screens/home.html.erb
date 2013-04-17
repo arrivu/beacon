@@ -1,19 +1,19 @@
 <% provide(:title, 'A Smarter Way to Learn') %>
 <% provide(:effectingHeader) %>
- <div class="homebanner">
+ <div class="homebanner" style="background-image:url(assets/homebanner.png);background-repeat:no-repeat;background-size:100% 100%;color:white;">
     <div class="container">
       <div class="row">
-        <div class="span12" align="center">
+        <div class="span12" align="center" >
             <div class="bannertext">
-              <h3>Learning is fun</h3>
+              <h3 style="color:white;">Learning is fun</h3>
             </div>
 <!--             <div class="bannersubtitle">
               No Set up , No hassle, Just learning and only learning with fun
             </div>  
  -->        </div>
         <div class="clearfix"></div>
-        <div class="span5" align="center">
-            <div class="bannervideo">
+        <div class="span5" align="center" >
+            <div class="bannervideo" >
               <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="350" height="230" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
             </div>
         </div>
@@ -21,7 +21,8 @@
             <div class="bannerinfo">
               <p>Beacon Online teaches management subjects in the comfort of your browser with video lessons, quizzes and screnshots.</p>
               
-              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span></a> -->
+              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span>
+            </a> -->
             </div>
             
             <%= render 'show_topics' %>
@@ -59,9 +60,9 @@
                       <div class="course-progress" data-width="0%" style="width: 0%;"></div>
                        <%= image_tag url_for(:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
                       <div class="course-content">
-                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b> <%= course.topic.name if !course.topic.nil?%> </b> </em>
+                      <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b> <%= course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil?%> </b> </em>
                       <!-- <em class="label-b">Free Course</em> -->
-                      <%=link_to(course) do %><h3 class="course-name"><%=course.title%></h3>
+                      <%=link_to(course) do %><h3 class="course-name"><%=course.title.split(' ').map(&:capitalize).join(' ')%></h3>
                       <p class="course-desc"><%=course.short_desc  %></p>
                        <%end%>
                     </div>
@@ -75,8 +76,11 @@
                 <!-- <a href="courselibrary.php"><span class="browsemore" align="center">
                   Browser More Courses
                 </span></a> -->
-                <%= link_to "Browse More Courses", courses_path, :class => "browsemore" %>
 
+                <%= link_to "", courses_path, :class => "browsemore" %>
+                <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
+
+               
               </div>
       </div>
     </div>
@@ -91,7 +95,7 @@
         </h2> -->
         <h2>Learners Speak</h2>
         <hr style="margin:5px 0px;">
-        <div class="span4">
+        <div class="span4" style="margin-left:55px;">
           <div class="verticalcustomerbox testimonial-one" align="center">
             <div class="customerimage">
               <img src="assets/learner.jpg" />
@@ -104,7 +108,7 @@
             </div>
           </div>
         </div>
-        <div class="span4">
+        <div class="span4" style="margin-left:55px;">
           <div class="verticalcustomerbox testimonial-two">
             <div class="customerimage">
               <img src="assets/learner.jpg" />
@@ -117,7 +121,7 @@
             </div>
           </div>
         </div>
-        <div class="span4">
+        <div class="span4" style="margin-left:55px;">
           <div class="verticalcustomerbox testimonial-three">
             <div class="customerimage">
               <img src="assets/learner.jpg" />
@@ -142,7 +146,7 @@
         </h2> -->
         <h2>Our Knowledge Partners</h2>
 
-        <div class="listofkp">
+        <div class="listofkp" style="margin-left:100px;">
           <div class="firstkp">
             <img src="assets/yale.png" />
           </div>
@@ -167,10 +171,11 @@
   <div class="bottomadsection">
     <div class="container">
       <div class="row">
-        <div class="span12" align="center">
+        <div class="span12" align="center" style="margin-left:65px;">
           <h3>Ready to start your learning adventure?</h2>
           <!-- <a href="courselibrary.php"><span class="browseourcoursessmall">Browse Our Courses</span></a> -->
           <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
+
           &nbsp;&nbsp;&nbsp;&nbsp;
           <% unless user_signed_in?%>
           <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">Create Account</a>

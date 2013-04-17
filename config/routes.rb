@@ -1,4 +1,14 @@
 Myapp::Application.routes.draw do
+
+  match 'teaching_staffs/new',:to=>'teaching_staffs#new'
+
+  resources :course_pricings
+  resources :teaching_staffs
+
+  
+  resources :tax_rates
+
+
   match '/rate' => 'rater#create', :as => 'rate'
 
   resources :coupons do

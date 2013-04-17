@@ -1,0 +1,30 @@
+<%=t(:teachingstaff_description)%> : <%= text_field :teachingstaff, :description %>
+<%=t(:teachingstaff_name)%> : <%= text_field :teachingstaff, :name %>
+<%=t(:teachingstaff_qualification)%> : <%= text_field :teachingstaff, :qualification %>
+
+<fieldset> 
+    <legend><label><%=t(:user)%></label></legend> 
+    <%= f.fields_for :teachingstaff_user do |user_form| %>
+    <table> 
+        <tbody><tr> 
+            <td> 
+            <%= user_form.text_field :name, :autofocus => true %>
+              </td> 
+        </tr> 
+        <tr> 
+            <td> 
+            <%= user_form.text_field :email, :required => true %>
+              </td> 
+        </tr> 
+        <tr> 
+            <td> 
+            <%= user_form.text_field :password, :required => true %>
+              </td> 
+        </tr> 
+        <tr> 
+            <td> 
+            <%= user_form.text_field :password_confirmation, :required => true %>
+              </td> 
+        </tr> 
+        <%end %>
+       

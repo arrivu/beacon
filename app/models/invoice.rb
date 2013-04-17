@@ -13,3 +13,4 @@ class Invoice < ActiveRecord::Base
   # end
 # end
 end
+
