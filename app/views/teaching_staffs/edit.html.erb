@@ -1,0 +1,37 @@
+			<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+
+<br>
+<div class="row">
+<div class="span12 offset3" style="min-height:600px;">
+<%= simple_form_for(@teachingstaff) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+					<%= f.fields_for (@teachingstaff.user) do |user_form| %>
+			    <table> 
+			        <tbody><tr> 
+			        	<td>Name:</td>
+			            <td> 
+			            <%= user_form.text_field :name, :autofocus => true %>
+			              </td> 
+			        </tr> 
+			        <tr> <td>Email:</td>
+			            <td> 
+			            <%= user_form.text_field :email, :required => true %>
+			              </td> 
+			        </tr> 
+			        
+			        <%end %>
+
+			        <tr><td>Description</td><td><%= f.text_field :description %></td></tr>
+			 		    <tr><td>Name</td><td><%= f.text_field :name %></td></tr>
+					   <tr><td>Qualification</td><td> <%= f.text_field :qualification %></td></tr>
+			        
+
+
+			  	<tr><td><%= f.submit "Add Teacher", class: "btn btn-large btn-primary" %>
+			   
+			  
+			<% end %></td></tr></table>
+		</div>
+	</div>

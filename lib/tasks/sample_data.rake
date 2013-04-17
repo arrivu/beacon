@@ -410,6 +410,30 @@ end
 				end
 			end
 
+			@courses=Course.all
+			course_price_hash={
+				1=>[@courses[0].id,"10000","2013-02-01","2014-03-31"],
+				2=>[@courses[1].id,"10000","2013-02-01","2014-03-31"],
+				3=>[@courses[2].id,"10000","2013-02-01","2014-03-31"],
+				4=>[@courses[3].id,"10000","2013-02-01","2014-03-31"],
+				5=>[@courses[4].id,"10000","2013-02-01","2014-03-31"],
+				6=>[@courses[5].id,"10000","2013-02-01","2014-03-31"],
+				7=>[@courses[6].id,"10000","2013-02-01","2014-03-31"],
+				8=>[@courses[7].id,"10000","2013-02-01","2014-03-31"],
+				9=>[@courses[8].id,"10000","2013-02-01","2014-03-31"],
+				10=>[@courses[9].id,"10000","2013-02-01","2014-03-31"]
+			}
+			count=0
+			course_price_hash.each do |key,array|
+				CoursePricing.create!(course_id:array[0],
+					price:array[1],
+					start_date:array[2],
+					end_date:array[3])
+				count=count+1
+			end
+
+			TaxRate.create!(valid_from:"2013-03-01", valid_until:"2014-03-31",factor:12,is_default: true, description: "Service Tax")
+
 @student_user =Student.all
 @courses = Course.all
 student_courses_hash = {
@@ -663,21 +687,21 @@ teaching_staff_courses_hash.each do |key, array|
 			 
 			}
 
-			count=0
-			blogs_hash.each do |key, array|
-				Blog.create!(title: array[0],
-					author: array[1],
-					user_id: array[2],
-					ispublished: array[3],
-					releasemonth: array[4],
-			# 5 is category/topic
-			image: array[6],
-			content: array[7])
-				count=count+1
-				array[5].each do |tagId| 
-					Tagging.create!(blog_id: count,tag_id: tagId)
-				end
-			end
+			# count=0
+			# blogs_hash.each do |key, array|
+			# 	Blog.create!(title: array[0],
+			# 		author: array[1],
+			# 		user_id: array[2],
+			# 		ispublished: array[3],
+			# 		releasemonth: array[4],
+			# # 5 is category/topic
+			# image: array[6],
+			# content: array[7])
+			# 	count=count+1
+			# 	array[5].each do |tagId| 
+			# 		Tagging.create!(blog_id: count,tag_id: tagId)
+			# 	end
+			# end
 
 
 			

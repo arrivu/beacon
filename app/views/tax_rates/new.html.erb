@@ -11,9 +11,18 @@
 
 					<%= simple_form_for(@tax_rate) do |f| %>
 					<%= render 'shared/error_messages', object: f.object %>
+
 					<div class="divrow">
 						<div><h3 align="center">Tax New</h3></div>
 						<div class="divleft">
+							Description
+						</div>
+						<div class="divright">
+							<%=f.text_field :description %>
+						</div>
+					</div>
+					<div class="divrow">
+					<div class="divleft">
 							Factor
 						</div>
 						<div class="divright">

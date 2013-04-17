@@ -310,6 +310,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.boolean  "is_default"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.string   "description"
   end
 
   create_table "taxrates", :force => true do |t|

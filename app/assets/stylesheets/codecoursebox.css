@@ -215,7 +215,11 @@ font:"Lato",sans-serif;
  margin: 0 0 -1px;
 
 }
-
+.bannerinfo p{
+  font-size: 21px;
+font:"Lato",sans-serif;
+ margin: 0 0 -1px;
+}
 .orange{
   background-color: #F39C12 ;
 }

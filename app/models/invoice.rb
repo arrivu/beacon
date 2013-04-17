@@ -8,7 +8,6 @@ class Invoice < ActiveRecord::Base
   belongs_to :course
 
     
-
     # The tax rate that we're applying, as a BigDecimal
     def tax_rate=(value)
       @tax_rate = BigDecimal.new(value.to_s)
@@ -18,18 +17,4 @@ class Invoice < ActiveRecord::Base
     def shipping_rate=(value)
       @shipping_rate = BigDecimal.new(value.to_s)
     end
-
-      # def tax
-      # if defined?(tax_rate)
-      #   calculated = subtotal * tax_rate/100
-      #   return 0 if calculated < 0
-      #   calculated
-      # else
-      #   0
-      # end
-
-
-
 end
-
- 
