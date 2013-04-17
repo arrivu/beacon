@@ -19,11 +19,6 @@ class ScreensController < ApplicationController
   end
 
   def construction
-  end
-
-  def show_image
-    @course = Course.find(params[:id])
-    send_data @course.data, :type => @course.content_type, :disposition => 'inline'
-  end
+  end 
 
 end

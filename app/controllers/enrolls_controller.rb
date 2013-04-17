@@ -1,0 +1,3 @@
+class EnrollsController < ApplicationController
+
+end

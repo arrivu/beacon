@@ -53,57 +53,62 @@ class Course < ActiveRecord::Base
   #has_many :course_payments
   has_many :course_previews
 
+  has_many :invoices
+
   #before_save { |course| course.category = category.downcase }
 
   validates :desc, presence: true, length: { maximum: 1000 }
   validates  :short_desc, presence: true, length:{maximum: 100}
 
   default_scope order: 'courses.created_at ASC'
-   def self.course_price(course)
+
+  def self.course_price(course)
     course.course_pricings.each do |course_price|
-     if course_price.start_date <= Date.today && course_price.end_date >= Date.today
-      @price = course_price.price
+      if course_price.start_date <= Date.today && course_price.end_date >= Date.today
+        @price = course_price.price
+      end
     end
-   end
-   return @price
- end
-   def self.tax_calculation(course,price)
+    return @price
+  end
+
+  def self.tax_calculation(course,price)
    @tax_rate= Settings.cas.tax_rate
-  
+
    @total_price = price * @tax_rate/100
    return @tax =  @total_price
-  end
-  def student_enrolled
-    self.student_courses.where(:status => "enroll")
-  end
-  def student_completed
-    self.student_courses.where(:status => "completed")
-  end 
-   def student_shortlisted
-    self.student_courses.where(:status => "shortlisted")
-  end 
+ end
 
-  def staff_image
+ def student_enrolled
+  self.student_courses.where(:status => "enroll")
+end
+def student_completed
+  self.student_courses.where(:status => "completed")
+end 
+def student_shortlisted
+  self.student_courses.where(:status => "shortlisted")
+end 
+
+def staff_image
     #named_scope :omni_image_url, lambda {|c| {:joins=>([:courses,:teaching_staffs,:users]):conditions=>['baz_cat=',c]}}
   end
 
   def teacher_course
-     self.teaching_staff_courses.where(:teaching_staff_type => "teacher")
-  end
+   self.teaching_staff_courses.where(:teaching_staff_type => "teacher")
+ end
 
-  def teacher_assistant_course
-     self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
-  end
+ def teacher_assistant_course
+   self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
+ end
 
-  def attachment=(incoming_file)
-    self.image = incoming_file.original_filename
-    self.content_type = incoming_file.content_type
-    self.data = incoming_file.read
-  end
+ def attachment=(incoming_file)
+  self.image = incoming_file.original_filename
+  self.content_type = incoming_file.content_type
+  self.data = incoming_file.read
+end
 
-  def image=(new_filename)
-    write_attribute("image", sanitize_filename(new_filename))
-  end
+def image=(new_filename)
+  write_attribute("image", sanitize_filename(new_filename))
+end
    #def self.authorimage(courseid)
   #find_by_sql("select u.image_blob,u.name from teaching_staff_courses t left join user u on t.teaching_staff_id=u.id left join course c on c.id=t.course_id
    #where c.id=#{courseid}")
@@ -111,18 +116,18 @@ class Course < ActiveRecord::Base
   
 
   def course_price_inbetween_date
-     self.course_pricings.find(:all, :conditions => "#{Date.today} >= start_date or #{Date.today} <= end_date")
-  end
+   self.course_pricings.find(:all, :conditions => "#{Date.today} >= start_date or #{Date.today} <= end_date")
+ end
 
-  private
-  def sanitize_filename(filename)
+ private
+ def sanitize_filename(filename)
     #get only the filename, not the whole path (from IE)
     just_filename = File.basename(filename)
     #replace all non-alphanumeric, underscore or periods with underscores
     just_filename.gsub(/[^\w\.\-]/, '_')
   end
 
-    HUMANIZED_ATTRIBUTES = {
+  HUMANIZED_ATTRIBUTES = {
     :short_desc => "Short Description",
     :desc => "Description"
   }
