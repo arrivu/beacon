@@ -1,7 +1,4 @@
-<%= @grand_total%>
-<%= @saving %>
 
-  
 <br />
 
 <br />
@@ -13,7 +10,7 @@
  This page will come from Payment gateway
   </div>
   <div style="text-align: right;">
-Amount Payable: Rs. <%=  @course.course_pricings.first.price  %>
+Amount Payable: Rs. <%=  @grand_total  %>
   </div>
 <br /><br />
 </div><br /><br /><br /><br />
@@ -37,15 +34,21 @@ Amount Payable: Rs. <%=  @course.course_pricings.first.price  %>
     <div class="span4" style="padding-left: 30px;padding-top:20px;">
     <%= label_tag "first_name"%>
     <%= text_field_tag "first_name"%><br/>
-      <%= label_tag "last_name"%>
+    <%= label_tag "last_name"%>
     <%= text_field_tag "last_name"%><br/>
-    <%= label_tag "debit_card_no"%>
-    <%= text_field_tag "debit_card_no"%><br/>
+    <%= label_tag "card_no"%>
+    <%= text_field_tag "card_no"%><br/>
+    <%= label_tag "name_on_the_card"%>
+    <%= text_field_tag "name_on_the_card"%><br/>
+    <%= label_tag "expiry_date"%>
+    <%= date_select "expiry_date","date",:start_year => 2012, :end_year => 2020,:discard_day => true,:order => [:month,:year], :use_short_month =>true %>
+    <%= label_tag "cvv"%>
+    <%= text_field_tag "cvv"%><br/>
   </div>
   <%= hidden_field_tag "price",@course.course_pricings.first.price %>
  <div class="button-place-holder" style="margin-top: 10px; margin-right: 407px;">
-
-               <%= submit_tag 'submit',:class=>'placeholder' %>
+  <%= hidden_field_tag 'total',@grand_total %>   
+  <%= submit_tag 'submit',:class=>'placeholder' %>
       </div>
     </div>
 </div>  

@@ -1,9 +1,11 @@
 module TaxRatesHelper
 
 
+
   def tax_rate_for_today
      TaxRate.where("valid_from <=? and valid_until >= ?", Date.today,Date.today).first     
   end
+
 	def nooverlap?(tax_all, start_date2,end_date2)
 		#logger=Logger.new("test")
 		tax_all.each do |taxc|

@@ -45,17 +45,18 @@ class User < ActiveRecord::Base
   has_many :invoices
 
   has_one :teaching_staff , dependent: :destroy 
-accepts_nested_attributes_for :teaching_staff
+  accepts_nested_attributes_for :teaching_staff
+
   # has_one :teaching_staffs, dependent: :destroy
   # has_one :students, dependent: :destroy
 
-def teachingdetails
-     self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
-end
+  def teachingdetails
+   self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
+ end
 
 
-  letsrate_rater
-  def apply_omniauth(auth)
+ letsrate_rater
+ def apply_omniauth(auth)
 	  # In previous omniauth, 'user_info' was used in place of 'raw_info'
     self.email    = auth['info']['email']
     self.name     = auth['info']['name']
@@ -89,7 +90,7 @@ end
   end
 
   def self.insert_user_role(user_id,role_id)
-  find_by_sql("insert into users_roles(user_id,role_id) values(#{user_id},#{role_id})")  
+    find_by_sql("insert into users_roles(user_id,role_id) values(#{user_id},#{role_id})")  
   end
 
 end

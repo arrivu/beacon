@@ -1,6 +1,7 @@
 class CouponsController < ApplicationController
 	require 'csv'
-  before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:apply,:redeem]
+  require 'errors'
+  before_filter  :only => [:new,:create, :edit, :destroy,:apply,:redeem]
   def apply
     no_coupon = Coupon.no_coupon(params[:product_bag])
     respond_to do |wants|
@@ -31,6 +32,24 @@ class CouponsController < ApplicationController
   
   def new
     find_or_generate_coupon
+  end
+
+  def edit
+     @coupon = Coupon.find(params[:id])
+  end
+
+  def update
+     
+        @coupon = Coupon.find(params[:id])
+        if  @coupon.update_attributes(params[:coupon])
+          
+          flash[:notice] = "update coupons"
+          #flash[:coupon_notice] = "Created #{create_count} coupons"
+          redirect_to coupons_path
+        else
+          #flash[:notice] ||= 'Please fix the errors below'
+          render :action => "edit"
+        end
   end
   
   def index
@@ -90,7 +109,12 @@ class CouponsController < ApplicationController
       end
     end
     
-    
+  end
+
+  def destroy
+    @coupon = Coupon.find(params[:id])
+    @coupon.destroy
+    redirect_to coupons_path
   end
   
   private

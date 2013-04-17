@@ -1,7 +1,8 @@
 class Coupon < ActiveRecord::Base
+  require 'errors'
   attr_accessible :name, :description,:expiration,:how_many,:category_one,:category_two,:amount_one,
                   :percentage_one,:amount_two,:percentage_two,:alpha_mask,:digit_mask,:metadata
-  require 'errors'
+  
 
   belongs_to :course
   has_many :redemptions
@@ -77,22 +78,20 @@ class Coupon < ActiveRecord::Base
   
   # Generate a hash similar to what #apply returns, except there is
   # no savings.
-  def self.no_coupon(product_bag = {})
+  def self.no_coupon(price)
     r = {:savings => 0.0, :grand_total => 0.0}
-    product_bag.each do |category, price|
-      price = Float(price)
+      price = price.to_f 
       r[:grand_total] += price
-      r[category] = price
-    end
+      r[:savings] += 0.0
     round_values(r)
   end
     
   # Apply a coupon (or throw an exception if the coupon is not valid)
   # Return a hash with the new prices for each product, as well the grand total
   # and total savings
-  def self.apply(coupon_code,price)
+  def self.apply(coupon_code, price, user_id, metadata)
     r = {:savings => 0.0, :grand_total => 0.0}
-    coupon = find_coupon(coupon_code)
+    coupon = find_coupon(coupon_code, user_id, metadata)
     price = price.to_f 
     category = []
     r[:grand_total] += price
@@ -134,7 +133,7 @@ class Coupon < ActiveRecord::Base
   private
   
   # find the coupon, or raise an exception if that coupon is not valid
-  def self.find_coupon(coupon_code, user_id = nil)
+  def self.find_coupon(coupon_code, user_id = nil, metadata=nil)
     coupon = Coupon.with_code(coupon_code.upcase).first
     raise CouponNotFound if coupon.nil?
     if user_id && coupon.redemptions.find_by_user_id(user_id)
@@ -142,6 +141,8 @@ class Coupon < ActiveRecord::Base
     end
     raise CouponRanOut if coupon.redemptions_count >= coupon.how_many
     raise CouponExpired if coupon.expiration < Time.now.to_date
+   
+    raise CouponNotValid if((coupon.metadata != 'All') && (coupon.metadata != metadata))
     return coupon
   end
    
