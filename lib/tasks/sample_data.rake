@@ -386,6 +386,9 @@ end
 
 			}
 
+
+			
+
 			count=0
 			courses_hash.each do |key, array|
 				Course.create!(title: array[0],
@@ -426,7 +429,7 @@ end
 				count=count+1
 			end
 
-			TaxRate.create!(valid_from:"2013-03-01", valid_until:"2014-03-31",factor:12,is_default: true, description: "Service Tax")
+			TaxRate.create!(valid_from:"2013-04-01", valid_until:"2050-03-31",factor:0,is_default: true, description: "Service Tax")
 
 @student_user =Student.all
 @courses = Course.all
