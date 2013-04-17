@@ -37,12 +37,8 @@
 			        </tr> 
 
 			        <%end %>
-							<% courses_array = Role.all.map { |role| [role.name, role.id] } %>
-							<%= f.select(:user_role,options_for_select(courses_array))%>
-							<% [ 'admin', 'desert', 'green', 'corporate', 'funky' ].each do |theme| %>
-      <br><%= radio_button_tag 'theme', theme %>
-      <%= theme.humanize %>
-      <% end %>
+							
+						
 			        <tr><td>Description</td><td><%= f.text_field :description %></td></tr>
 			 		   <tr><td>Qualification</td><td> <%= f.text_field :qualification %></td></tr>
 			        

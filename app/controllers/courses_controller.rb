@@ -31,6 +31,7 @@ end
 def create
  @course = Course.new(params[:course])
  @course.user_id = current_user.id
+ 
  if @course.save
    flash[:success] = "Course added successfully!!!!"
    lms_create_course(@course)
@@ -38,6 +39,7 @@ def create
  else
    render 'new'
  end
+
 end
 
 def edit
@@ -46,6 +48,7 @@ end
 
 def update
  @course = Course.find(params[:id])
+ 
  if @course.update_attributes(params[:course])
    lms_update_course(@course)
    flash[:success] ="Successfully Updated Course."  
@@ -53,6 +56,7 @@ def update
  else
    render :edit
  end
+ 
 end
 
 def show

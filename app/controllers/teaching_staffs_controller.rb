@@ -20,6 +20,8 @@ class TeachingStaffsController < ApplicationController
 								email: params[:teaching_staff][:teaching_staff_user][:email],
 								password: params[:teaching_staff][:teaching_staff_user][:password],
 								password_confirmation: params[:teaching_staff][:teaching_staff_user][:password_confirmation])
+		
+
 		if @teachingstaff.save
 			flash[:notice] = "Teaching Staff add successfully"
 			redirect_to teaching_staffs_path
