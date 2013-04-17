@@ -17,7 +17,10 @@ border-bottom: 1px solid #eee;
 	background-image: -ms-linear-gradient(top,#ECF0F1,#BDC3C7);
 	background-image: -o-linear-gradient(top,#ECF0F1,#BDC3C7);
 	background-image: linear-gradient(top,#ECF0F1,#BDC3C7);*/
-	background:#f2e1ac;
+	/*background:#f2e1ac;*/
+	background-color:#fae58a;
+	text-align:center;
+	box-shadow: 1px 2px 1px;
    margin-top: -20px;
 }
 

@@ -1,3 +1,4 @@
+
 /*!
  * Bootstrap v2.2.2
  *
@@ -7,7 +8,7 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
- 
+
 @import url("http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
 @font-face {
   font-family: "Flat-UI-Icons-16";
@@ -106,7 +107,7 @@ textarea {
   margin: 0;
   font-size: 100%;
   vertical-align: middle;
-  
+
 }
 
 button,
@@ -1969,7 +1970,7 @@ legend + .control-group {
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  
+
   *margin-left: 0;
 }
 
@@ -2958,7 +2959,7 @@ table th[class*="span"],
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);*/
   -moz-border-radius-topright: 0px;
-  -moz-border-radius-bottomright: 0px;                
+  -moz-border-radius-bottomright: 0px;
   -moz-border-radius-topleft: 0px;
   -moz-border-radius-bottomleft: 0px;
   border-top-right-radius: 0px;
@@ -4496,7 +4497,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  
+
   right: 0;
   left: 0;
   z-index: 1030;
@@ -4675,7 +4676,7 @@ input[type="submit"].btn.btn-mini {
   margin-top: 15px;
   margin-left: 100px;
 
-  
+
 }
 
 .navbar .logo a:hover {
@@ -6063,7 +6064,7 @@ a.badge:hover {
   font-weight: 200;
   line-height: 30px;
   color: inherit;
-  
+
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
@@ -6106,8 +6107,8 @@ a.badge:hover {
 }
 
 .apple_pagination {
-    
-   
+
+
     cursor: default;
     padding: 1em;
     cursor: default;
