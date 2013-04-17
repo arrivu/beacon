@@ -1,15 +1,15 @@
 class UserMailer < ActionMailer::Base
  default :from => "admin@beacon.com"
   
-  def course_payment(user,price,invoice)
+  def course_payment(user,course,price)
   	@email = user.email
     @price =price
     @name = user.name
-    #invoice_pdf = Payday::PdfRenderer.render_to_file(invoice)
-    #attachments['Invoice.pdf'] = { :mime_type => 'application/pdf', :content => invoice_pdf }
+    path = "#{Rails.root}/tmp/invoice_course_id_#{course.id}_user_id_#{user.id}.pdf"
+    attachments['Invoice.pdf'] = File.read(path)
     mail(:to => "#{@email}", :subject => "Payment succesfully transfer")
   end
-
+  
   def mail_contact(name,email,message)
   	message="Name: #{name}\nEmail: #{email}\nMessage:\n#{message}" 
   	mail(:to => Settings.admin_mail.to, :subject => "Contact Us",:body => message)
