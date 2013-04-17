@@ -11,4 +11,8 @@ module TaxRatesHelper
 			return unless ((start_date1..end_date1).to_a & (start_date2..end_date2).to_a).empty?
 		end
 	end
+
+	def tax_rate_for_today
+		TaxRate.where("valid_from <=? and valid_until >= ?", Date.today,Date.today).first     
+	end
 end
