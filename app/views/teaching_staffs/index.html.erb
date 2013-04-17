@@ -19,8 +19,9 @@
      </tr>
 <% @teachingstaff.each do |teachingstaff| %>
 <tr><td><%= teachingstaff.user.email %></td><td>
+  <%= teachingstaff.name %></td><td>
 <%= teachingstaff.qualification %></td><td>
-<%= teachingstaff.name %></td><td>
+
 <%= teachingstaff.description %></td><td>
 <%=l teachingstaff.created_at, :format=>'%d %b. %Y %I:%M' %></td><td>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
