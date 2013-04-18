@@ -1,4 +1,10 @@
- <div  align="center" style="margin:30px 0px 0px 0px">
+ <div style="float:left">
+  <%= render 'shared/side_menu' %>
+</div>
+<div class="row">
+  <div class="span12 offset3" style="min-height:500px;">
+<div  align="center" style="margin:30px 0px 0px 0px">
+  <h3>Manage Course Status</h3>
   <%= form_tag "/course_status_search", :method => 'get' do %>
                 <%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
               
@@ -14,3 +20,6 @@
            <td> <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
       			completed_courses_path(:id=>course.id), :class => 'btn btn-mini' %></td></tr></table>
             <% end %>
+          </div>
+        </div>
+      </div>

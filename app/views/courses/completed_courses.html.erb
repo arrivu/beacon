@@ -1,12 +1,25 @@
-<%= form_tag "/updatecompleted_details", :method => 'put' do %>
 
-              
-              
-Course Name:<%=text_field_tag :title, @coursesstauts.course.title %><br/>
-User Name:<%=text_field_tag :name, @coursesstauts.student.user.name %><br/>
-Course Status<%= text_field_tag :status, @coursesstauts.status %>
-<%= hidden_field_tag :id, @coursesstauts.id %>
+<div style="float:left">
+	<%= render 'shared/side_menu' %>
+</div>
+<div class="row">
+	<div class="span8 offset3" style="min-height:500px;">
+		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+			<h3 align = "center">Update User's Course Status
+			</h3><br/>
+			<%= form_tag "/updatecompleted_details", :method => 'put' do %>
+<table><tr><td width="200px">Course Name</td><td><%= @coursesstauts.course.title %></td></tr>
+	<tr><td width="200px">User Name</td><td><%=@coursesstauts.student.user.name %></td></tr>
+      <tr><td width="200px">Course Status</td><td><%= text_field_tag :status, @coursesstauts.status %></td></tr>        
+          <tr><td></td><td><%= hidden_field_tag :id, @coursesstauts.id %></tr>
+<tr><td></td><td><%= submit_tag 'Change',class:"btn btn-primary" %></td></tr>  
+</table>  
 
-<br/>
-<%= submit_tag 'Change' %>
+
+
+
+
 <% end %>
+</div>
+</div>
+</div>
