@@ -176,9 +176,9 @@ end
       
         flash[:notice] = "Successfully Updated"
 
-        redirect_to concluded_courses_path
+        redirect_to course_status_search_path
       else
-        render concluded_courses
+        render course_status_search
       end
     
   end
