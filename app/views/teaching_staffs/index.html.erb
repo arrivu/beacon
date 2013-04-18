@@ -8,6 +8,7 @@
   	<h3 align = "center">Manage Teaching Staff Details</h3><br/>
   	<table class="table table-condensed table-hover">
       <tr>
+        <th></th>
        <th>Email</th>
        <th>Name</th>
        <th>Qualification</th>
@@ -18,7 +19,9 @@
        <th><%=t '.actions', :default => t("helpers.actions") %></th>
      </tr>
 <% @teachingstaff.each do |teachingstaff| %>
-<tr><td><%= teachingstaff.user.email %></td><td>
+<tr><td>
+<%= image_tag url_for(:controller=>"registrations",:action => 'user_image', :id => teachingstaff.user.id), :size => "30x30" %> </td>
+<td><%= teachingstaff.user.email %></td><td>
   <%= teachingstaff.name %></td><td>
 <%= teachingstaff.qualification %></td><td>
 

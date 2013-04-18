@@ -24,6 +24,14 @@
 			            <%= user_form.text_field :email, :required => true %>
 			              </td> 
 			        </tr> 
+
+
+			        <tr><td>  </td><td><%= image_tag url_for(:controller=>"registrations",:action => 'user_image', :id => @teachingstaff.user.id), :size => "100x100" %></td></tr>
+
+			        				<tr><th>Image</td>
+				<td><%= user_form.file_field :attachment %></td></tr>
+
+
 			        
 			        <%end %>
 
