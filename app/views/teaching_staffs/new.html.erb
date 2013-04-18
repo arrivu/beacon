@@ -1,5 +1,4 @@
 			<div style="float:left">
-
 				<%= render 'shared/side_menu' %>
 			</div>
 
@@ -35,7 +34,14 @@
 								<td> 
 									<%= user_form.password_field :password_confirmation, :required => true %>
 								</td> 
-							</tr> 
+						</tr> 
+
+				<tr><th>Image</td>
+				<td><%= user_form.file_field :attachment %></td></tr>
+
+								
+
+
 							<%end %>
 
 							<tr><th>Description</th><td><%= f.text_area :description, :cols => "30", :rows => "10",:maxlength => 1000 %></td></tr>
@@ -51,4 +57,5 @@
 						</div>
 					</div>
 				</div>
+
 

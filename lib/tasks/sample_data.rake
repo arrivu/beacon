@@ -98,7 +98,7 @@ users_hash = {
 				user_desc: array[5])
 		end
 
-(1..10).each do |i|
+(2..11).each do |i|
 	student = Student.new(
 		:name => Faker::Name.name,
 		:description => "fake description#{i}",
@@ -108,7 +108,7 @@ users_hash = {
 	student.save!
 end
 
-(1..10).each do |i|
+(12..12).each do |i|
 	teaching_staff = TeachingStaff.new(
 		:name => Faker::Name.name,
 		:description => "fake description#{i}",
@@ -285,7 +285,7 @@ end
 			 	],
 			 2 => ["Testable Require.js ", #Title
 			 	Faker::Name.name, #Author
-			 	2, #user_id
+			 	1, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[1,3], #Category
@@ -296,7 +296,7 @@ end
 			 	],
 			 3 => ["Programming in .NET", #Title
 			 	Faker::Name.name, #Author
-			 	3, #user_id
+			 	1, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[3], #Category
@@ -307,7 +307,7 @@ end
 			 	],
 			 4 => ["Less is More", #Title
 			 	Faker::Name.name, #Author
-			 	4, #user_id
+			 	1, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[1,3], #Category
@@ -318,7 +318,7 @@ end
 			 	],
 			 5 => ["Riding Ruby on Rails", #Title
 			 	Faker::Name.name, #Author
-			 	5, #user_id
+			 	1, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[1,3], #Category
@@ -329,7 +329,7 @@ end
 			 	],
 			 6 => ["Build Web Apps in Node", #Title
 			 	Faker::Name.name, #Author
-			 	6, #user_id
+			 	1, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[2], #Category
@@ -351,7 +351,7 @@ end
 			 	],
 			 8 => ["Workflow in Sublime", #Title
 			 	Faker::Name.name, #Author
-			 	2, #user_id
+			 	1, #user_id
 			 	0, #ispublished
 			 	"March", #ReleaseMonth
 			 	[1], #Category
@@ -362,7 +362,7 @@ end
 			 	],
 			 9 => ["Introduction to Node.js", #Title
 			 	Faker::Name.name, #Author
-			 	3, #user_id
+			 	1, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[1,2], #Category
@@ -373,7 +373,7 @@ end
 			 	],
 			 10 => ["Programming .NET", #Title
 			 	Faker::Name.name, #Author
-			 	5, #user_id
+			 	1, #user_id
 			 	1, #ispublished
 			 	"January", #ReleaseMonth
 			 	[3], #Category #Category
@@ -456,16 +456,16 @@ student_courses_hash.each do |key, array|
 
 @teacher_user = TeachingStaff.all
 teaching_staff_courses_hash = {
-	1=>[ @teacher_user[0].id, @courses[0].id, "teacher"],
-	2=>[ @teacher_user[1].id, @courses[1].id, "teacher"],
-	3=>[ @teacher_user[2].id, @courses[2].id, "teacher"],
-	4=>[ @teacher_user[3].id, @courses[3].id, "teacher"],
-	5=>[ @teacher_user[4].id, @courses[4].id, "teacher"],
-	6=>[ @teacher_user[5].id, @courses[5].id, "teacher"],
-    7=>[ @teacher_user[6].id, @courses[6].id, "teacher_assitant"],
-    8=>[ @teacher_user[7].id, @courses[7].id, "teacher_assitant"],
-    9=>[ @teacher_user[8].id, @courses[8].id, "teacher_assitant"],
-    10=>[ @teacher_user[9].id, @courses[9].id, "teacher_assitant"]
+	1=>[ 12, @courses[0].id, "teacher"],
+	2=>[ 12, @courses[1].id, "teacher"],
+	3=>[ 12, @courses[2].id, "teacher"],
+	4=>[ 12, @courses[3].id, "teacher"],
+	5=>[ 12, @courses[4].id, "teacher"],
+	6=>[ 12, @courses[5].id, "teacher"],
+    7=>[ 12, @courses[6].id, "teacher_assitant"],
+    8=>[ 12, @courses[7].id, "teacher_assitant"],
+    9=>[ 12, @courses[8].id, "teacher_assitant"],
+    10=>[ 12, @courses[9].id, "teacher_assitant"]
    }
 count=0
 teaching_staff_courses_hash.each do |key, array|

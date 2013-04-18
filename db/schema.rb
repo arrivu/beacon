@@ -120,17 +120,20 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "author"
     t.string   "image"
     t.text     "desc"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "user_id"
-    t.integer  "ispublished",  :default => 0
-    t.string   "releasemonth", :default => "December"
+    t.integer  "ispublished",     :default => 0
+    t.string   "releasemonth",    :default => "December"
     t.integer  "ispopular"
     t.string   "content_type"
     t.binary   "data"
     t.integer  "lms_id"
     t.integer  "topic_id"
     t.string   "short_desc"
+    t.boolean  "iscompleted"
+    t.string   "completedreview"
+    t.date     "completed"
   end
 
   add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"

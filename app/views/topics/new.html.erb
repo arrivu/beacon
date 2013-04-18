@@ -16,7 +16,7 @@
         <tr>
           <td><%= f.label :name, :class => 'control-label' %></td>
 
-          <td><%= f.text_field :name, :class => 'text_field',:maxlength => 30 %></td></tr>
+          <td><%= f.text_field :name, :class => 'text_field',:maxlength => 30 , :autofocus => true%></td></tr>
           <tr><td colspan="2" style="text-align:center;" ><%= f.submit "Create Category", :class => 'btn btn-primary'  %></td></tr>
 
           <% end %>

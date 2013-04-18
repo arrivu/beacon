@@ -1,0 +1,12 @@
+<%= form_tag "/updatecompleted_details", :method => 'put' do %>
+
+              
+              
+Course Name:<%=text_field_tag :title, @coursesstauts.course.title %><br/>
+User Name:<%=text_field_tag :name, @coursesstauts.student.user.name %><br/>
+Course Status<%= text_field_tag :status, @coursesstauts.status %>
+<%= hidden_field_tag :id, @coursesstauts.id %>
+
+<br/>
+<%= submit_tag 'Change' %>
+<% end %>

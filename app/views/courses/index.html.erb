@@ -20,7 +20,8 @@
         <div class="courselibsectioninfo">
         <div class="coursecount pull-left">
 
-         <span class="badge badge-info">Found <%= Course.where(:ispublished=>true).size %> Courses</span>
+
+          <span class="badge badge-info">Found <%= Course.where(:ispublished=>true).size %> Courses</span>
 
         </div>
         <ul class="nav pull-right" style="margin-left:20px;">
@@ -41,7 +42,18 @@
             </ul>
           </li>
 
-           
+
+            <!-- <li>
+                <a href="#">Sort By&nbsp;&nbsp;<i style="width:12px;margin-top:4px;float:right;height:15px;background-image:url('assets/arrow_white.png');background-position:-312px -96px;"></i></a>
+                <ul>
+                    <li><%= link_to "Date", datewise_courses_path %></li>
+                    <li><%= link_to "Upcoming" + " ( #{Course.where(ispublished: 0).all.size} )", upcomming_courses_path %></li>
+                    <li><%= link_to "Popularity", popular_courses_path %></li>
+                    <li><%= link_to "Subscribed", subscribed_courses_path %></li> 
+                   <li><%= link_to "Default", courses_path %></li>
+                </ul>
+            </li> -->
+
         </ul>
 
         <ul class="nav pull-right">
