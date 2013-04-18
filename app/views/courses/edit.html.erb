@@ -48,10 +48,7 @@
 
 										<tr><td><%= f.label :topic_id, "Topics" %></td>
 											<td><%= f.collection_select :topic_id, Topic.order(:name), :id, :name, {}, {multiple: false} %></td></tr>
-											<tr><td>Completed</td><td><%= f.check_box :iscompleted %></td></tr>
-												<tr><td>Completed Review</td><td><%= f.text_field :completedreview %></td></tr>
-
-											<tr><td></td><td><%= f.submit "Update Course", class: "btn btn-large btn-info" %></td></tr>
+											
 											<% end %>
 										</table>
 									</div>

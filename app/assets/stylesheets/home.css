@@ -65,12 +65,12 @@
 
 .bannerlearn .leartopic{
 	float:left;
-	margin-right: 5px;
+	margin-right: 0px;
 	margin-bottom: 15px;
-	padding: 5px;
+	padding: 5px 5px 0px 0px;
 	/*text-transform: uppercase;*/
 	border-radius: 1px;
-	border-right:1px solid white;
+	/*border-right:1px solid white;*/
 	line-height:0px;
 }
 
@@ -80,7 +80,7 @@
 	padding: 5px;
 	text-transform: uppercase;
 	position: relative;
-	top:-10px;
+	top:-12px;
 	font-size: 15px;
 	font-weight: 200;
 	color:#333;

@@ -81,14 +81,25 @@ class Course < ActiveRecord::Base
  end
 
  def student_enrolled
-  self.student_courses.where(:status => "enroll")
+  load_student("enroll")  
 end
+
 def student_completed
-  self.student_courses.where(:status => "completed")
+  load_student("completed")  
 end 
+
 def student_shortlisted
-  self.student_courses.where(:status => "shortlisted")
+  load_student("shortlisted")
 end 
+
+  def load_student( status)
+    student_ids = []
+      self.student_courses.where(:status => status).each do |course_status|
+        student_ids << course_status.student_id
+      end
+    Student.find(courses_ids)      
+  end
+
 
 def staff_image
     #named_scope :omni_image_url, lambda {|c| {:joins=>([:courses,:teaching_staffs,:users]):conditions=>['baz_cat=',c]}}

@@ -18,6 +18,9 @@ class TeachingStaffsController < ApplicationController
 		@teachingstaff.qualification =  params[:teaching_staff][:qualification]
 		@teachingstaff.build_user(name: params[:teaching_staff][:teaching_staff_user][:name],
 								email: params[:teaching_staff][:teaching_staff_user][:email],
+								user_type: 3,
+								content_type: params[:teaching_staff][:teaching_staff_user][:content_type],
+								attachment: params[:teaching_staff][:teaching_staff_user][:attachment],
 								password: params[:teaching_staff][:teaching_staff_user][:password],
 								password_confirmation: params[:teaching_staff][:teaching_staff_user][:password_confirmation])
 		
@@ -54,6 +57,8 @@ class TeachingStaffsController < ApplicationController
 		if @teachingstaff.user.update_attributes(:email => params[:teaching_staff][:user][:email],
 									password: params[:teaching_staff][:user][:password],
 									password_confirmation: params[:teaching_staff][:user][:password_confirmation],
+  								content_type: params[:teaching_staff][:user][:content_type],
+	  							attachment: params[:teaching_staff][:user][:attachment],
 									name:params[:teaching_staff][:user][:name]) && @teachingstaff.update_attributes(
 									description:params[:teaching_staff][:description],
 									qualification:params[:teaching_staff][:qualification],
@@ -72,7 +77,7 @@ class TeachingStaffsController < ApplicationController
 	def destroy
 		@teachingstaff=TeachingStaff.find(params[:id])
 		@teachingstaff.destroy
-		redirect_to teachingstaffs_path
+		redirect_to teaching_staffs_path
 		flash[:notice] = "Deleted teaching staff details successfully"
 	end
 end
