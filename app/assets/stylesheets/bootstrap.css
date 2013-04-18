@@ -22,12 +22,17 @@ body{
   color: #34495e;
     font: 14px/1.231 "Lato", sans-serif;
 }
-
-body:after
+#preloadedImages
 {
-  content: url(beaconslogop.png);
-  display:none;
+    width: 0px;
+    height: 0px;
+    display: inline;
+    background-image: url(beaconslogop.png);
+    background-image: url(beaconslogo.png);
+    background-image: url();
+
 }
+
 article,
 aside,
 details,
