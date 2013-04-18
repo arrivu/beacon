@@ -132,7 +132,7 @@ end
     @topic = Topic.all
   end
 
- def concluded_courses
+ def course_status_search
   if(params[:search] == nil || params[:search] == "" && params[:searchstatus]=='all')
   @coursesstauts = StudentCourse.paginate(page: params[:page], :per_page => 15)
   elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]=='all')
@@ -180,6 +180,10 @@ end
       else
         render concluded_courses
       end
+    
+  end
+
+  def concluded_courses
     
   end
 
