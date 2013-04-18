@@ -5,9 +5,9 @@
 	/*-moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0 0 10px #000000;*/
-   background:#f2e1ac;
-   background-size: 100% 200px;
-   background-repeat: repeat;
+  /* background:#f2e1ac;*/
+  /* background-size: 100% 200px;
+   background-repeat: repeat;*/
    color:#333;
    /*	background-color: #d14836;
 	background-image: -webkit-linear-gradient(top,#ECF0F1,#BDC3C7);
@@ -80,7 +80,7 @@
 	padding: 5px;
 	text-transform: uppercase;
 	position: relative;
-	top:-12px;
+	top:-10px;
 	font-size: 15px;
 	font-weight: 200;
 	color:#333;
@@ -117,15 +117,15 @@
 }
 
 .browsemore {
-	width: 50px;
-	height:50px;
+width: 65px;
+height:65px;
 /*padding: 18px 3px 18px 20px;*/
 margin-top: 30px;
 font-weight: bold;
 /*background: #2980B9;*/
 /*background-color:  	#2a488e;*/
 background-image:url('../assets/plus.png');
-background-size: 50px 50px;
+background-size: 65px 65px;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 16px !important;
@@ -140,8 +140,7 @@ zoom: 1;
 text-align: right;
 }
 
-.browsemore1 {
-		
+.browsemore1{		
 padding: 20px;
 margin-top: 30px;
 font-weight: bold;
