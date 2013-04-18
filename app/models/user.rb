@@ -74,8 +74,10 @@ class User < ActiveRecord::Base
 	end
 
   def attachment=(incoming_file)
-    self.content_type = incoming_file.content_type
-    self.image_blob = incoming_file.read
+    if incoming_file!=nil
+      self.content_type = incoming_file.content_type
+      self.image_blob = incoming_file.read
+    end
   end
 
   before_destroy:delete_in_lms

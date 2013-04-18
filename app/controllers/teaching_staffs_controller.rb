@@ -26,6 +26,7 @@ class TeachingStaffsController < ApplicationController
 		
 
 		if @teachingstaff.save
+			@teachingstaff.user.add_role(:teacher)
 			flash[:notice] = "Teaching Staff add successfully"
 			redirect_to teaching_staffs_path
 		else
