@@ -18,6 +18,7 @@ class TeachingStaffsController < ApplicationController
 		@teachingstaff.qualification =  params[:teaching_staff][:qualification]
 		@teachingstaff.build_user(name: params[:teaching_staff][:teaching_staff_user][:name],
 								email: params[:teaching_staff][:teaching_staff_user][:email],
+								user_type: 3,
 								content_type: params[:teaching_staff][:teaching_staff_user][:content_type],
 								attachment: params[:teaching_staff][:teaching_staff_user][:attachment],
 								password: params[:teaching_staff][:teaching_staff_user][:password],
