@@ -74,10 +74,11 @@ def show
     @status=@status_check.status
 
   end
+end
 
   
 
-    @modules=lms_get_modules(@course)
+  @modules=lms_get_modules(@course)
     #@countCommentsPerPage = 6
     @comments = @course.comments.paginate(page: params[:page], per_page: 6)
     #@count = @course.comments.count
@@ -131,30 +132,25 @@ def show
     @topic = Topic.all
   end
 
-  def upcomming_courses
-    @total_course_count = Course.where(ispublished: 0).all.count
-    @countCoursesPerPage = 6
-    @courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
-    @topics = Topic.order(:name)
+ def concluded_courses
+  if(params[:search] == nil || params[:search] == "" && params[:searchstatus]=='all')
+  @coursesstauts = StudentCourse.paginate(page: params[:page], :per_page => 15)
+  elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]=='all')
+  @coursesstauts = StudentCourse.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
+  elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
+    @coursesstauts = StudentCourse.where("course_id=#{params[:search]} and status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
+  
+  elsif(params[:search] == nil || params[:search] == "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
+  @coursesstauts = StudentCourse.where("status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
+  
+  else
+    @coursesstauts = StudentCourse.all
   end
-
-  def popular_courses
-    @total_course_count = Course.where(ispopular: 1).all.count
-    @countCoursesPerPage = 6
-    @courses = Course.where(ispopular: 1).paginate(page: params[:page], per_page: 6)
-    @topics = Topic.order(:name)
-  end
-
-  def datewise_courses
-    @total_course_count = Course.all.count
-    @countCoursesPerPage = 6
-    @courses = Course.order(:created_at).paginate(page: params[:page], per_page: 6)
-    @topics = Topic.order(:name)
-  end
+ end
 
 
   def subscribed_courses
-  if !current_user.nil?
+    if !current_user.nil?
       #@total_course_count = CourseStatus.where(current_user.id).count
       #@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
     end
@@ -167,5 +163,25 @@ def show
     @enrolled_courses= @student.course_enroll
     @completed_courses=@student.course_complete    
   end
+  def completed_courses
+    @coursesstauts=StudentCourse.find(params[:id])
+    
+    
+  end
+  def updatecompleted_details
+    
+      @coursesstauts=StudentCourse.find(params[:id])
+     
+      if @coursesstauts.update_attributes(status:params[:status])
+      
+        flash[:notice] = "Successfully Updated"
+
+        redirect_to concluded_courses_path
+      else
+        render concluded_courses
+      end
+    
+  end
+
 
 end
