@@ -18,7 +18,8 @@
       <th></th>
       <th>Category</th>
       <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:author) %></th>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
+      <th><%= model_class.human_attribute_name(:end_date) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -35,7 +36,8 @@
         %></td>
         <td><%= course.topic.name %></td>
         <td><%= link_to course.title, course_path(course) %></td>
-        <td><%= course.author %></td>
+        <td><%= course.start_date %></td>
+        <td><%= course.end_date %></td>
         <td><%=l course.created_at, :format=>'%d %b. %Y %I:%M' %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
