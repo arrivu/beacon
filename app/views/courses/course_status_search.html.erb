@@ -1,5 +1,5 @@
  <div  align="center" style="margin:30px 0px 0px 0px">
-  <%= form_tag "/concluded_courses", :method => 'get' do %>
+  <%= form_tag "/course_status_search", :method => 'get' do %>
                 <%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
               
               <%= select_tag(:searchstatus, options_for_select(['all','enroll','completed','shortlisted'])) %>

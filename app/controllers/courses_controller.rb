@@ -183,5 +183,9 @@ end
     
   end
 
+  def concluded_courses
+    
+  end
+
 
 end
