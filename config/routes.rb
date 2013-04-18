@@ -47,9 +47,7 @@ Myapp::Application.routes.draw do
   match '/popular_courses', :to => 'courses#popular_courses'  
   match '/datewise_courses', :to => 'courses#datewise_courses'
   match '/subscribed_courses', :to => 'courses#subscribed_courses'
-  match '/course_status_search', :to => 'courses#course_status_search'
-  match '/completed_courses', :to => 'courses#completed_courses'
-   match '/updatecompleted_details', :to => 'courses#updatecompleted_details'
+  
 
 
   devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
