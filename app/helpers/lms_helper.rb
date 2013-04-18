@@ -34,6 +34,30 @@ module LmsHelper
 		end
 	end
 
+	def lms_enroll_student(course_id,user_id)
+		if lms_enable? 
+			lmscourse=CanvasREST::Course.new
+			lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+			lmscourse.enroll_user(course_id,user_id)
+		end
+	end
+
+	def lms_conclude_enrollment(course_id,user_id)
+		if lms_enable? 
+			lmscourse=CanvasREST::Course.new
+			lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+			lmscourse.conclude_enrollment(course_id,user_id)
+		end
+	end	
+
+	def lms_conclude_course(course_id)
+		if lms_enable? 
+			lmscourse=CanvasREST::Course.new
+			lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
+			lmscourse.conclude_course(course_id)
+		end
+	end	
+
 	def lms_delete_course(lms_id)
 		if lms_enable? 
 			lmscourse=CanvasREST::Course.new
