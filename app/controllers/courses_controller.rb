@@ -5,7 +5,8 @@ class CoursesController < ApplicationController
 #before_filter :current_user, only: [:create, :edit,:update,:delete]
 ActiveMerchant::Billing::Integrations
 #before_filter :initialize, :only => [:create, :edit,:update,:delete]
-before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses]
+before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses,:course_status_search,
+              :completed_courses,:updatecompleted_details,:concluded_courses,:concluded_courses_update]
 
 def show_image
  @course = Course.find(params[:id])
