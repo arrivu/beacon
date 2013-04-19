@@ -9,7 +9,7 @@
   <%= form_tag "/course_status_search", :method => 'get' do %>
                 <%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
               
-              <%= select_tag(:searchstatus, options_for_select(['all','enroll','completed','shortlisted'])) %>
+              <%= select_tag(:searchstatus, options_for_select(['All','enroll','completed'])) %>
 
               <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %><% end %>
               <hr>
