@@ -51,6 +51,7 @@ Myapp::Application.routes.draw do
   match '/completed_courses', :to => 'courses#completed_courses'
   match '/updatecompleted_details', :to => 'courses#updatecompleted_details'
   match '/concluded_courses', :to =>'courses#concluded_courses'
+  match '/concluded_courses_update', :to=> 'courses#concluded_courses_update'
 
   devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
 
