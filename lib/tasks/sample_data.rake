@@ -411,7 +411,7 @@ end
 			desc: array[7],
 			topic_id: array[8],
 			short_desc: array[9],
-			iscompleted: array[10])
+			isconcluded: array[10])
 				count=count+1
 				array[5].each do |topicId| 
 					# Relationship.create!(course_id: count,topic_id: topicId)
