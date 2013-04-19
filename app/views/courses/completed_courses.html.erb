@@ -4,20 +4,16 @@
 </div>
 <div class="row">
 	<div class="span8 offset3" style="min-height:500px;">
-		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;margin:20px;">
 			<h3 align = "center">Update User's Course Status
 			</h3><br/>
 			<%= form_tag "/updatecompleted_details", :method => 'put' do %>
-<table><tr><td width="200px">Course Name</td><td><%= @coursesstauts.course.title %></td></tr>
-	<tr><td width="200px">User Name</td><td><%=@coursesstauts.student.user.name %></td></tr>
-      <tr><td width="200px">Course Status</td><td><%= select_tag :status,  options_for_select(["enroll","completed"],@coursesstauts.status)  %></td></tr>        
+<table class="table table-condensed table-hover "><tr><td width="200px"><label>Course Name</label></td><td><label><%= @coursesstauts.course.title %></label></td></tr>
+	<tr><td width="200px"><label>User Name</label></td><td><label><%=@coursesstauts.student.user.name %></label></td></tr>
+      <tr><td width="200px"><label>Course Status</label></td><td><%= select_tag :status,  options_for_select(["enroll","completed"],@coursesstauts.status)  %></td></tr>        
           <tr><td></td><td><%= hidden_field_tag :id, @coursesstauts.id %></tr>
 <tr><td></td><td><%= submit_tag 'Change',class:"btn btn-primary" %></td></tr>  
 </table>  
-
-
-
-
 
 <% end %>
 </div>

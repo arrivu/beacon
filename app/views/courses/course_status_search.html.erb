@@ -14,13 +14,20 @@
               <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %><% end %>
               <hr>
             </div>
+            <table class="table table-condensed table-hover table table-striped">
+              <tr class="tab_head">
+                <th style="background:#2A488E;color:white;">CourseName</th>
+                <th style="background:#2A488E;color:white;">UserName</th>
+                <th style="background:#2A488E;color:white;">Status</th>
+                <th style="background:#2A488E;color:white;">Action</th>
+              </tr>
             <% @coursesstauts.each do |course| %>
-            <table align="center" width="800px"><tr><td width="200px"><%= course.course.title %><td>
-            <td width="200px"><%= course.student.user.name %></td>
+            <tr><td ><%= course.course.title %></td>
+            <td ><%= course.student.user.name %></td>
             <td><%= course.status %></td>
-           <td> <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
-      			completed_courses_path(:id=>course.id), :class => 'btn btn-mini' %></td></tr></table>
-            <% end %>
+           <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+      			completed_courses_path(:id=>course.id), :class => 'btn btn-mini' %></td></tr>
+            <% end %></table>
           </div>
         </div>
       </div>

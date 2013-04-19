@@ -1,7 +1,11 @@
-<div class="row">
-	<div class="span10 offset3" style="min-height:600px">
-		<div class="divcontainer">
+<div style="float:left">
+	<%= render 'shared/side_menu' %>
+</div>
 
+<div class="row">
+	<div class="span8 offset3" style="min-height:600px">
+		
+	<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;margin:20px;padding:10px;">
 
 			<%= form_tag "/concluded_courses_update", :method=>'put' do %>
 			<div class="divrow">
@@ -9,7 +13,7 @@
 					<h3 align="center">Courses Conclude</h3>
 				</div>
 				<div class="divleft">
-					Course Name : 
+					<label>Course Name : </label>
 				</div>
 				<div class="divright">
 
@@ -18,7 +22,7 @@
 			</div>
 			<div class="divrow">
 				<div class="divleft">
-					Concluded
+					<label>Concluded</label>
 				</div>
 				<div class="divright">
 					<%= check_box_tag :iscompleted %>
@@ -26,7 +30,7 @@
 			</div>
 			<div class="divrow">
 				<div class="divleft">
-					Concluded Review 
+					<label>Concluded Review </label>
 				</div>
 				<div class="divright">
 					<%= text_area_tag :completedreview %>
@@ -41,9 +45,9 @@
 						</div>
 					</div>
 					<br>
-
-
 			<% end %>
+
 		</div>
-	</div>
+		</div>
+
 </div>
