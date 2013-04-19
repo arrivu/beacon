@@ -18,6 +18,10 @@
 	width:100%;
 }
 
+th{
+	background:#2A488E;
+	color:white;
+}
 .bannertext{
 	line-height: 30px;
 	font-size: 30px;
