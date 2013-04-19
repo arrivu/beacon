@@ -170,16 +170,19 @@ end
   end
   def updatecompleted_details
 
+
     @coursesstauts=StudentCourse.find(params[:id])
 
     if @coursesstauts.update_attributes(status:params[:status])
 
       flash[:notice] = "Successfully Updated"
 
-      redirect_to concluded_courses_path
-    else
-      render concluded_courses
-    end
+   
+        redirect_to course_status_search_path
+      else
+        render course_status_search
+      end
+
     
   end
 

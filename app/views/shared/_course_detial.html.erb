@@ -16,6 +16,9 @@
           <div class="subtitle">
             <h4><%= @course.short_desc %></h4>
           </div>
+          <div class="subtitle" style="color:#fcff00">
+            <h4>Next Session: <%= @course.start_date.to_formatted_s(:long) %> (<%= distance_of_time_in_words(@course.start_date,@course.end_date) %>)</h4>
+          </div>
           <div class="container clearfix"></div>
           <div class="subsection">
 

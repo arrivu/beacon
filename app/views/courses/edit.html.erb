@@ -16,10 +16,22 @@
 					<h3 align = "center">Edit Course Library</h3>
 				</tr>
 
-				<%= form_for(@course) do |f| %>
+				<%= simple_form_for(@course) do |f| %>
 				<%= render 'shared/error_messages', object: f.object %>
 				<tr><td><%= f.label :title, "Title" %></td>
 					<td><%= f.text_field :title %></td></tr>
+
+
+										<tr><td><%= f.label :start_date, "Start Date" %></td><td>
+
+						<%= f.input_field :start_date, :start_year => Date.today.year, :end_year => Date.today.year + 30, :order => [ :day, :month, :year], class:"date", :required => true %>
+					</td></tr>
+
+					<tr><td><%= f.label :end_date, "End Date" %></td><td>
+
+						<%= f.input_field :end_date, :start_year => Date.today.year, :end_year => Date.today.year + 30, :order => [ :day, :month, :year], class:"date", :required => true %>
+					</td></tr>
+
 
 					<tr><td><%= f.label :teaching_staff_ids, "Author Name" %></td>
 						<td>
@@ -48,8 +60,12 @@
 
 										<tr><td><%= f.label :topic_id, "Topics" %></td>
 											<td><%= f.collection_select :topic_id, Topic.order(:name), :id, :name, {}, {multiple: false} %></td></tr>
+
+											<tr><td></td><td><%= f.submit "Update Course", class: "btn btn-large btn-primary" %>
+												</td></tr>
 											
 											<% end %>
+
 										</table>
 									</div>
 								</div>

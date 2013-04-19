@@ -1,16 +1,28 @@
- <div  align="center" style="margin:30px 0px 0px 0px">
-  <%= form_tag "/course_status_search", :method => 'get' do %>
-  <%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
-  
-  <%= select_tag(:searchstatus, options_for_select(['All','enroll','completed'])) %>
 
-  <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %><% end %>
-  <hr>
+ <div style="float:left">
+  <%= render 'shared/side_menu' %>
 </div>
-<% @coursesstauts.each do |course| %>
-<table align="center" width="800px"><tr><td width="200px"><%= course.course.title %><td>
-  <td width="200px"><%= course.student.user.name %></td>
-  <td><%= course.status %></td>
-  <td> <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
-  completed_courses_path(:id=>course.id), :class => 'btn btn-mini' %></td></tr></table>
-  <% end %>
+<div class="row">
+  <div class="span12 offset3" style="min-height:500px;">
+<div  align="center" style="margin:30px 0px 0px 0px">
+  <h3>Manage Course Status</h3>
+  <%= form_tag "/course_status_search", :method => 'get' do %>
+                <%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
+              
+              <%= select_tag(:searchstatus, options_for_select(['all','enroll','completed','shortlisted'])) %>
+
+              <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %><% end %>
+              <hr>
+            </div>
+            <% @coursesstauts.each do |course| %>
+            <table align="center" width="800px"><tr><td width="200px"><%= course.course.title %><td>
+            <td width="200px"><%= course.student.user.name %></td>
+            <td><%= course.status %></td>
+           <td> <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
+      			completed_courses_path(:id=>course.id), :class => 'btn btn-mini' %></td></tr></table>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class='apple_pagination' align="center"><%= will_paginate  @coursesstauts, :container => false %></div>
+

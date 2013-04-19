@@ -17,10 +17,13 @@ border-bottom: 1px solid #eee;
 	background-image: -ms-linear-gradient(top,#ECF0F1,#BDC3C7);
 	background-image: -o-linear-gradient(top,#ECF0F1,#BDC3C7);
 	background-image: linear-gradient(top,#ECF0F1,#BDC3C7);*/
-	background:#f2e1ac;
+	/*background:#f2e1ac;*/
+
+background-color:#ffe6b3;
+border-radius:10px;
 	/*background-color:#fae58a;*/
 	text-align:center;
-	box-shadow: 1px 2px 1px;
+	  box-shadow: 0 3px 5px 7px #cccccc;
    margin-top: -20px;
 }
 
