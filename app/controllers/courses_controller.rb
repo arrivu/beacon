@@ -13,12 +13,12 @@ def show_image
 end
 
 def index
- @total_course_count = Course.where(ispublished: 1).all.count
+ @total_course_count = Course.where(ispublished: 1,iscompleted: "f").all.count
  @countCoursesPerPage = 6
  if params[:mycourses]=="mycourses"
-   @courses = Course.where(user_id: current_user.id).paginate(page: params[:page], per_page: 6)
+   @courses = Course.where(user_id: current_user.id, iscompleted: "f").paginate(page: params[:page], per_page: 6)
  else
-   @courses = Course.where(ispublished: 1).paginate(page: params[:page], :per_page => 6)
+   @courses = Course.where(ispublished: 1,iscompleted: "f").paginate(page: params[:page], :per_page => 6)
  end
  @topics = Topic.all
 end
@@ -32,7 +32,7 @@ end
 def create
  @course = Course.new(params[:course])
  @course.user_id = current_user.id
- 
+ @course.iscompleted="f"
  if @course.save
    flash[:success] = "Course added successfully!!!!"
    lms_create_course(@course)
@@ -78,7 +78,7 @@ end
 
 
 
-@modules=lms_get_modules(@course)
+    @modules=lms_get_modules(@course)
     #@countCommentsPerPage = 6
     @comments = @course.comments.paginate(page: params[:page], per_page: 6)
     #@count = @course.comments.count
@@ -89,26 +89,27 @@ end
 
       @rated = Rate.find_by_rater_id(current_user.id)
     end
+  end
 
 
     def upcomming_courses
-      @total_course_count = Course.where(ispublished: 0).all.count
+      @total_course_count = Course.where(ispublished: 0,:iscompleted=>false).all.count
       @countCoursesPerPage = 6
       @courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
       @topics = Topic.order(:name)
     end
 
     def popular_courses
-      @total_course_count = Course.where(ispopular: 1).all.count
+      @total_course_count = Course.where(ispopular: 1,:iscompleted=>false).all.count
       @countCoursesPerPage = 6
       @courses = Course.where(ispopular: 1,ispublished: 1).paginate(page: params[:page], per_page: 6)
       @topics = Topic.order(:name)
     end
 
     def datewise_courses
-      @total_course_count = Course.where(ispublished: 1).all.count
+      @total_course_count = Course.where(ispublished: 1,:iscompleted=>false).all.count
       @countCoursesPerPage = 6
-      @courses = Course.where(ispublished: 1).order(:created_at).paginate(page: params[:page], per_page: 6)
+      @courses = Course.where(ispublished: 1,:iscompleted=>false).order(:created_at).paginate(page: params[:page], per_page: 6)
       @topics = Topic.order(:name)
     end
 
@@ -116,7 +117,7 @@ end
     # @courses = Course.paginate(page: params[:page], per_page: 3)
     # @topics = Topic.all
     #@courses = Course.all
-  end
+ 
 
   def destroy
     @course = Course.find(params[:id])
@@ -195,6 +196,7 @@ end
   def concluded_courses_update
     if(params[:search]!="")
       @course_id=Course.find(params[:search])
+
       if @course_id.update_attributes(iscompleted:params[:iscompleted],completedreview:params[:completedreview])
         flash[:notice] = "Course Successfully Concluded..."
         redirect_to concluded_courses_path
