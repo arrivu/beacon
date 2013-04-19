@@ -1,49 +1,54 @@
-<div class="row">
-	<div class="span10 offset3" style="min-height:600px">
-		<div class="divcontainer">
+<div>
+	<div style="float:left">
+		<%= render 'shared/side_menu' %>
+	</div>
+
+	<div class="row">
+		<div class="span10 offset3" style="min-height:600px">
+			<div class="divcontainer">
 
 
-			<%= form_tag "/concluded_courses_update", :method=>'put' do %>
-			<div class="divrow">
-				<div>
-					<h3 align="center">Courses Conclude</h3>
-				</div>
-				<div class="divleft">
-					Course Name : 
-				</div>
-				<div class="divright">
-
-					<%= select_tag :search, options_from_collection_for_select(Course.where("iscompleted!=?","t"), "id", "title") , {:prompt => 'ALL'} %>
-				</div>
-			</div>
-			<div class="divrow">
-				<div class="divleft">
-					Concluded
-				</div>
-				<div class="divright">
-					<%= check_box_tag :iscompleted %>
-				</div>
-			</div>
-			<div class="divrow">
-				<div class="divleft">
-					Concluded Review 
-				</div>
-				<div class="divright">
-					<%= text_area_tag :completedreview %>
-				</div>
-			</div>
-			<div class="divrow">
-						<div class="divleft">
-							&nbsp;
-						</div>
-						<div class="divright">
-							<%= submit_tag "Save",class:"btn btn-primary" %>
-						</div>
+				<%= form_tag "/concluded_courses_update", :method=>'put' do %>
+				<div class="divrow">
+					<div>
+						<h3 align="center">Courses Conclude</h3>
 					</div>
-					<br>
+					<div class="divleft">
+						Course Name : 
+					</div>
+					<div class="divright">
+						<%= select_tag :search, options_from_collection_for_select(Course.where("isconcluded!=?","t"), "id", "title") , {:prompt => 'ALL'} %>
+					</div>
+				</div>
+				<div class="divrow">
+					<div class="divleft">
+						Concluded
+					</div>
+					<div class="divright">
+						<%= check_box_tag :isconcluded %>
+					</div>
+				</div>
+				<div class="divrow">
+					<div class="divleft">
+						Concluded Review 
+					</div>
+					<div class="divright">
+						<%= text_area_tag :concluded_review %>
+					</div>
+				</div>
+				<div class="divrow">
+					<div class="divleft">
+						&nbsp;
+					</div>
+					<div class="divright">
+						<%= submit_tag "Save",class:"btn btn-primary" %>
+					</div>
+				</div>
+				<br>
 
 
-			<% end %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>

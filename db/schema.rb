@@ -120,20 +120,20 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "author"
     t.string   "image"
     t.text     "desc"
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "user_id"
-    t.integer  "ispublished",     :default => 0
-    t.string   "releasemonth",    :default => "December"
+    t.integer  "ispublished",      :default => 0
+    t.string   "releasemonth",     :default => "December"
     t.integer  "ispopular"
     t.string   "content_type"
     t.binary   "data"
     t.integer  "lms_id"
     t.integer  "topic_id"
     t.string   "short_desc"
-    t.boolean  "iscompleted"
-    t.string   "completedreview"
-    t.date     "completed"
+    t.boolean  "isconcluded"
+    t.string   "concluded_review"
+    t.date     "concluded"
     t.date     "start_date"
     t.date     "end_date"
   end
@@ -311,7 +311,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   create_table "tax_rates", :force => true do |t|
     t.date     "valid_from",                                :null => false
     t.date     "valid_until"
-    t.decimal  "factor",      :precision => 6, :scale => 6
+    t.decimal  "factor",      :precision => 2, :scale => 2
     t.boolean  "is_default"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false

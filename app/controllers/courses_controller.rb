@@ -6,80 +6,80 @@ class CoursesController < ApplicationController
 ActiveMerchant::Billing::Integrations
 #before_filter :initialize, :only => [:create, :edit,:update,:delete]
 before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses,:course_status_search,
-              :completed_courses,:updatecompleted_details,:concluded_courses,:concluded_courses_update]
+  :completed_courses,:updatecompleted_details,:concluded_courses,:concluded_courses_update]
 
-def show_image
- @course = Course.find(params[:id])
- send_data @course.data, :type => @course.content_type, :disposition => 'inline'
-end
-
-def index
- @total_course_count = Course.where(ispublished: 1,iscompleted: "f").all.count
- @countCoursesPerPage = 6
- if params[:mycourses]=="mycourses"
-   @courses = Course.where(user_id: current_user.id, iscompleted: "f").paginate(page: params[:page], per_page: 6)
- else
-   @courses = Course.where(ispublished: 1,iscompleted: "f").paginate(page: params[:page], :per_page => 6)
- end
- @topics = Topic.all
-end
-
-def new
- @course = Course.new
- @topic = Topic.all
-end
-
-
-def create
- @course = Course.new(params[:course])
- @course.user_id = current_user.id
- @course.iscompleted="f"
- if @course.save
-   flash[:success] = "Course added successfully!!!!"
-   lms_create_course(@course)
-   redirect_to manage_courses_path
- else
-   render 'new'
+  def show_image
+   @course = Course.find(params[:id])
+   send_data @course.data, :type => @course.content_type, :disposition => 'inline'
  end
 
-end
-
-def edit
- @course= Course.find(params[:id])
-end
-
-def update
- @course = Course.find(params[:id])
- 
- if @course.update_attributes(params[:course])
-   lms_update_course(@course)
-   flash[:success] ="Successfully Updated Course."  
-   redirect_to manage_courses_url
- else
-   render :edit
- end
- 
-end
-
-def show
- @course = Course.find(params[:id])
- @authors=[]
- @course.teaching_staffs.each do |teaching_staff|
-   @authors << User.where(id: teaching_staff.user_id).first
+ def index
+   @total_course_count = Course.where(ispublished: 1,isconcluded: "f").all.count
+   @countCoursesPerPage = 6
+   if params[:mycourses]=="mycourses"
+     @courses = Course.where(user_id: current_user.id, isconcluded: "f").paginate(page: params[:page], per_page: 6)
+   else
+     @courses = Course.where(ispublished: 1,isconcluded: "f").paginate(page: params[:page], :per_page => 6)
+   end
+   @topics = Topic.all
  end
 
- if(current_user!=nil)
-  student=Student.where(user_id: current_user.id).first
-  @status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
-  if @status_check!=nil
-    @status=@status_check.status
+ def new
+   @course = Course.new
+   @topic = Topic.all
+ end
 
+
+ def create
+   @course = Course.new(params[:course])
+   @course.user_id = current_user.id
+   @course.isconcluded="f"
+   if @course.save
+     flash[:success] = "Course added successfully!!!!"
+     lms_create_course(@course)
+     redirect_to manage_courses_path
+   else
+     render 'new'
+   end
+
+ end
+
+ def edit
+   @course= Course.find(params[:id])
+ end
+
+ def update
+   @course = Course.find(params[:id])
+
+   if @course.update_attributes(params[:course])
+     lms_update_course(@course)
+     flash[:success] ="Successfully Updated Course."  
+     redirect_to manage_courses_url
+   else
+     render :edit
+   end
+
+ end
+
+ def show
+   @course = Course.find(params[:id])
+   @authors=[]
+   @course.teaching_staffs.each do |teaching_staff|
+     @authors << User.where(id: teaching_staff.user_id).first
+   end
+
+   if(current_user!=nil)
+    student=Student.where(user_id: current_user.id).first
+    @status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
+    if @status_check!=nil
+      @status=@status_check.status
+
+    end
   end
-end
 
 
 
-    @modules=lms_get_modules(@course)
+  @modules=lms_get_modules(@course)
     #@countCommentsPerPage = 6
     @comments = @course.comments.paginate(page: params[:page], per_page: 6)
     #@count = @course.comments.count
@@ -93,66 +93,66 @@ end
   end
 
 
-    def upcomming_courses
-      @total_course_count = Course.where(ispublished: 0,:iscompleted=>false).all.count
-      @countCoursesPerPage = 6
-      @courses = Course.where(ispublished: 0,:iscompleted=>false).paginate(page: params[:page], per_page: 6)
-      @topics = Topic.order(:name)
-    end
+  def upcomming_courses
+    @total_course_count = Course.where(ispublished: 0,:isconcluded=>false).all.count
+    @countCoursesPerPage = 6
+    @courses = Course.where(ispublished: 0,:isconcluded=>false).paginate(page: params[:page], per_page: 6)
+    @topics = Topic.order(:name)
+  end
 
-    def popular_courses
-      @total_course_count = Course.where(ispopular: 1,:iscompleted=>false).all.count
-      @countCoursesPerPage = 6
-      @courses = Course.where(ispopular: 1,ispublished: 1).paginate(page: params[:page], per_page: 6)
-      @topics = Topic.order(:name)
-    end
+  def popular_courses
+    @total_course_count = Course.where(ispopular: 1,:isconcluded=>false).all.count
+    @countCoursesPerPage = 6
+    @courses = Course.where(ispopular: 1,ispublished: 1).paginate(page: params[:page], per_page: 6)
+    @topics = Topic.order(:name)
+  end
 
-    def datewise_courses
-      @total_course_count = Course.where(ispublished: 1,:iscompleted=>false).all.count
-      @countCoursesPerPage = 6
-      @courses = Course.where(ispublished: 1,:iscompleted=>false).order(:created_at).paginate(page: params[:page], per_page: 6)
-      @topics = Topic.order(:name)
-    end
+  def datewise_courses
+    @total_course_count = Course.where(ispublished: 1,:isconcluded=>false).all.count
+    @countCoursesPerPage = 6
+    @courses = Course.where(ispublished: 1,:isconcluded=>false).order(:created_at).paginate(page: params[:page], per_page: 6)
+    @topics = Topic.order(:name)
+  end
 
     # Just to redirect, needed due to button click event
     # @courses = Course.paginate(page: params[:page], per_page: 3)
     # @topics = Topic.all
     #@courses = Course.all
- 
 
-  def destroy
-    @course = Course.find(params[:id])
-    lms_id=@course.lms_id
-    @course.destroy
-    lms_delete_course(lms_id)
-    flash[:success] = "Successfully destroyed course."
-    redirect_to manage_courses_url
-  end
 
-  def manage_courses
-    @courses = Course.paginate(page: params[:page], :per_page => 10).order(:id)
-    @topic = Topic.all
-  end
-
-  def course_status_search
-    if(params[:search] == nil || params[:search] == "" && params[:searchstatus]=='All')
-      @coursesstauts = StudentCourse.where("status!='shortlisted'").paginate(page: params[:page], :per_page => 15)
-    elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]=='All')
-      @coursesstauts = StudentCourse.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
-    elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
-      @coursesstauts = StudentCourse.where("course_id=#{params[:search]} and status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
-
-    elsif(params[:search] == nil || params[:search] == "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
-      @coursesstauts = StudentCourse.where("status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
-
-    else
-      @coursesstauts = StudentCourse.where("status!='shortlisted'").paginate(page: params[:page], :per_page => 15)
+    def destroy
+      @course = Course.find(params[:id])
+      lms_id=@course.lms_id
+      @course.destroy
+      lms_delete_course(lms_id)
+      flash[:success] = "Successfully destroyed course."
+      redirect_to manage_courses_url
     end
-  end
+
+    def manage_courses
+      @courses = Course.paginate(page: params[:page], :per_page => 10).order(:id)
+      @topic = Topic.all
+    end
+
+    def course_status_search
+      if(params[:search] == nil || params[:search] == "" && params[:searchstatus]=='All')
+        @coursesstauts = StudentCourse.where("status!='shortlisted'").paginate(page: params[:page], :per_page => 15)
+      elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]=='All')
+        @coursesstauts = StudentCourse.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
+      elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
+        @coursesstauts = StudentCourse.where("course_id=#{params[:search]} and status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
+
+      elsif(params[:search] == nil || params[:search] == "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
+        @coursesstauts = StudentCourse.where("status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
+
+      else
+        @coursesstauts = StudentCourse.where("status!='shortlisted'").paginate(page: params[:page], :per_page => 15)
+      end
+    end
 
 
-  def subscribed_courses
-    if !current_user.nil?
+    def subscribed_courses
+      if !current_user.nil?
       #@total_course_count = CourseStatus.where(current_user.id).count
       #@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
     end
@@ -178,12 +178,12 @@ end
     if @coursesstauts.update_attributes(status:params[:status])
 
       flash[:notice] = "Successfully Updated"
+      lms_conclude_enrollment(@coursesstauts.course.lms_id,@coursesstauts.student.user.lms_id)
 
-   
-        redirect_to course_status_search_path
-      else
-        render course_status_search
-      end
+      redirect_to course_status_search_path
+    else
+      render course_status_search
+    end
 
     
   end
@@ -197,11 +197,19 @@ end
   def concluded_courses_update
     if(params[:search]!="")
       @course_id=Course.find(params[:search])
+      @student_course_status=StudentCourse.find(@course_id)
+      if @student_course_status.status!="enroll"
 
-      if @course_id.update_attributes(iscompleted:params[:iscompleted],completedreview:params[:completedreview])
-        flash[:notice] = "Course Successfully Concluded..."
-        redirect_to concluded_courses_path
+        if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
+          flash[:notice] = "Course Successfully Concluded..."
+          lms_conclude_course(@course_id.lms_id)
+
+          redirect_to concluded_courses_path
+        else
+          render :concluded_courses
+        end
       else
+        flash[:notice] = "This course is already enrolled by User"
         render :concluded_courses
       end
     else
