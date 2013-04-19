@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="span10 offset3" style="min-height:600px">
+		<div class="divcontainer">
+
+
+			<%= form_tag "/concluded_courses_update", :method=>'put' do %>
+			<div class="divrow">
+				<div>
+					<h3 align="center">Courses Conclude</h3>
+				</div>
+				<div class="divleft">
+					Course Name : 
+				</div>
+				<div class="divright">
+					<%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
+				</div>
+			</div>
+			<div class="divrow">
+				<div class="divleft">
+					Concluded
+				</div>
+				<div class="divright">
+					<%= check_box_tag :iscompleted %>
+				</div>
+			</div>
+			<div class="divrow">
+				<div class="divleft">
+					Concluded Review 
+				</div>
+				<div class="divright">
+					<%= text_area_tag :completedreview %>
+				</div>
+			</div>
+			<div class="divrow">
+						<div class="divleft">
+							&nbsp;
+						</div>
+						<div class="divright">
+							<%= submit_tag "Save",class:"btn btn-primary" %>
+						</div>
+					</div>
+					<br>
+
+
+			<% end %>
+		</div>
+	</div>
+</div>

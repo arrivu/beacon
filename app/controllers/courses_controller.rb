@@ -76,9 +76,9 @@ def show
   end
 end
 
-  
 
-  @modules=lms_get_modules(@course)
+
+@modules=lms_get_modules(@course)
     #@countCommentsPerPage = 6
     @comments = @course.comments.paginate(page: params[:page], per_page: 6)
     #@count = @course.comments.count
@@ -132,21 +132,21 @@ end
     @topic = Topic.all
   end
 
- def course_status_search
-  if(params[:search] == nil || params[:search] == "" && params[:searchstatus]=='all')
-  @coursesstauts = StudentCourse.paginate(page: params[:page], :per_page => 15)
-  elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]=='all')
-  @coursesstauts = StudentCourse.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
-  elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
-    @coursesstauts = StudentCourse.where("course_id=#{params[:search]} and status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
-  
-  elsif(params[:search] == nil || params[:search] == "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
-  @coursesstauts = StudentCourse.where("status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
-  
-  else
-    @coursesstauts = StudentCourse.all
+  def course_status_search
+    if(params[:search] == nil || params[:search] == "" && params[:searchstatus]=='All')
+      @coursesstauts = StudentCourse.where("status!='shortlisted'").paginate(page: params[:page], :per_page => 15)
+    elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]=='All')
+      @coursesstauts = StudentCourse.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
+    elsif(params[:search] != nil && params[:search] != "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
+      @coursesstauts = StudentCourse.where("course_id=#{params[:search]} and status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
+
+    elsif(params[:search] == nil || params[:search] == "" && params[:searchstatus]!=nil && params[:searchstatus]!="")
+      @coursesstauts = StudentCourse.where("status='#{params[:searchstatus]}'").paginate(page: params[:page], :per_page => 15)
+
+    else
+      @coursesstauts = StudentCourse.where("status!='shortlisted'").paginate(page: params[:page], :per_page => 15)
+    end
   end
- end
 
 
   def subscribed_courses
@@ -169,23 +169,41 @@ end
     
   end
   def updatecompleted_details
-    
-      @coursesstauts=StudentCourse.find(params[:id])
-     
-      if @coursesstauts.update_attributes(status:params[:status])
-      
-        flash[:notice] = "Successfully Updated"
 
-        redirect_to concluded_courses_path
+
+    @coursesstauts=StudentCourse.find(params[:id])
+
+    if @coursesstauts.update_attributes(status:params[:status])
+
+      flash[:notice] = "Successfully Updated"
+
+   
+        redirect_to course_status_search_path
       else
-        render concluded_courses
+        render course_status_search
       end
+
     
   end
 
   def concluded_courses
-    
+
+
+
   end
 
-
+  def concluded_courses_update
+    if(params[:search]!="")
+      @course_id=Course.find(params[:search])
+      if @course_id.update_attributes(iscompleted:params[:iscompleted],completedreview:params[:completedreview])
+        flash[:notice] = "Course Successfully Concluded..."
+        redirect_to concluded_courses_path
+      else
+        render :concluded_courses
+      end
+    else
+      flash[:notice] = "Please choose a course"
+      render :concluded_courses
+    end
+  end
 end
