@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
 	before_filter :signed_in_user
 	include InvoicesHelper
+	
 
 	def course_payment
 		@user = current_user
@@ -13,12 +14,12 @@ class PaymentsController < ApplicationController
 		@course = Course.find(params[:id])
 		@price = Course.course_price(@course)
 		@user = current_user
-		#tx_id = 11
-		coupon_code = params[:coupon_code]
+		@coupon_code = params[:coupon_code]
+		#@coupon = Coupon.find_coupon(@coupon_code) if @coupon_code
 		response = {}
-		if coupon_code && ! coupon_code.empty?		
+		if @coupon_code && ! @coupon_code.empty?		
 			begin					
-				response = Coupon.apply(coupon_code, @price, current_user.id, @course.id)
+				response = Coupon.apply(@coupon_code, @price, current_user.id, @course.id)
 			rescue CouponNotFound
 				flash[:notice] =  "Coupon not found" 
 				redirect_to :back
@@ -47,21 +48,22 @@ class PaymentsController < ApplicationController
 
 
 	def confirm_course_payment
-		@price  = params[:price]
 		@course = Course.find(params[:id])
-		@tax = Course.tax_calculation(@course,@price)
 		@user = current_user
-		invoice = invoices_data(@course,@price)
-		#UserMailer.course_payment(@user,@course,params[:price]).deliver
-		# @course = Course.find(params[:id].to_i)
-		# if current_user.present?
+		invoice = invoices_data(@course,params)
+		invoice_generate_pdf(@course,params)
+	end
 
-		# @user = current_user
-		# UserMailer.course_payment(@user,@course.title,params[:price]).deliver
-		#    else
-		#    	flash[:notice] = "You need to sign in or sign up before continuing."
-		#    	redirect_to @course
-		#         end
+	def invoice_pdf
+		@course = Course.find(params[:id])
+		@user = current_user
+	  path = "#{Rails.root}/tmp/invoice_course_id_#{@course.id}_user_id_#{@user.id}.pdf"
+		send_data File.read(path)
+		UserMailer.delay(:queue => 'tracking').course_payment(@user, @course, @price)
+	end 
+
+	
+  def pyment_logic
 		# @notification = ActiveMerchant::Billing::Integrations::Ccavenue::Notification.new(request.raw_post)
 		#  if @notification.payment_id.present?
 		# 	@order = Course.find_by_order_id(@notification.payment_id)

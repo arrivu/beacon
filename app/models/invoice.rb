@@ -16,6 +16,8 @@ class Invoice < ActiveRecord::Base
     def shipping_rate=(value)
       @shipping_rate = BigDecimal.new(value.to_s)
     end
-    
+
+   
+
 end
 

@@ -99,6 +99,7 @@ class Coupon < ActiveRecord::Base
        savings = coupon.savings( price)
        r[:savings] += savings
        r[:grand_total] -= savings
+      
     end
     # course.each do |category|
     #   r[:grand_total] += price

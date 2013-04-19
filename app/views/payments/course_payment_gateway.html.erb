@@ -45,9 +45,15 @@ Amount Payable: Rs. <%=  @grand_total  %>
     <%= label_tag "cvv"%>
     <%= text_field_tag "cvv"%><br/>
   </div>
-  <%= hidden_field_tag "price",@course.course_pricings.first.price %>
  <div class="button-place-holder" style="margin-top: 10px; margin-right: 407px;">
-  <%= hidden_field_tag 'total',@grand_total %>   
+  <%= hidden_field_tag "price",@price %>
+  <%= hidden_field_tag 'tax', @tax %>
+  <%= hidden_field_tag 'tax_rate',Settings.cas.tax_rate%>
+  <%= hidden_field_tag 'tax_description',Settings.cas.tax_description %>
+  <%#= hidden_field_tag 'coupon_description',@coupon.description %>  
+  <%#= hidden_field_tag 'coupon_rate',@coupon.percentage_one %>
+  <%#= hidden_field_tag 'coupon_code',@coupon_code %>
+
   <%= submit_tag 'submit',:class=>'placeholder' %>
       </div>
     </div>

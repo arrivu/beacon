@@ -17,7 +17,7 @@ gem 'money',:git => 'git://github.com/m-narayan/money'
 gem 'delayed_job_active_record'
 #gem 'multiple_table_inheritance', '~> 0.2.1'
 #gem 'heritage'
-gem "payday"#, '1.1.0'
+gem "payday"
 gem 'omniauth-google-oauth2'
 
 gem 'oauth2'

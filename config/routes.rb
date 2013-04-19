@@ -23,7 +23,7 @@ Myapp::Application.routes.draw do
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
   match 'payments/course_payment',:to=>'payments#course_payment'
   match 'payments/confirm_course_payment',:to=>'payments#confirm_course_payment'
-  match "/download_pdf(.:format)" => "invoices#invoice_pdf", :method => :get, :as=>:invoice_pdf
+  match "/download_pdf(.:format)" => "payments#invoice_pdf", :method => :get, :as=>:invoice_pdf
  
   resources :topics
   resources :tutorials

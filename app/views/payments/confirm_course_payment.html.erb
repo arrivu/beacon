@@ -30,6 +30,7 @@ Amount Paid: Rs. <%=  @tax.to_f + @price.to_f  %>
 
 <div class="button-place-holder" style="float:right; margin-right: 138px;">
     <p><%= link_to "Download Invoice", invoice_pdf_path(:id=>@course) %></p>
+ </div>
 </table>
   
 
