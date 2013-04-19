@@ -95,7 +95,7 @@ end
     def upcomming_courses
       @total_course_count = Course.where(ispublished: 0,:iscompleted=>false).all.count
       @countCoursesPerPage = 6
-      @courses = Course.where(ispublished: 0).paginate(page: params[:page], per_page: 6)
+      @courses = Course.where(ispublished: 0,:iscompleted=>false).paginate(page: params[:page], per_page: 6)
       @topics = Topic.order(:name)
     end
 
