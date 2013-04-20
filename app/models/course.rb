@@ -15,7 +15,6 @@
 #
 
 class Course < ActiveRecord::Base
-
   self.per_page = 6
   acts_as_commentable
   attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, 
@@ -74,7 +73,7 @@ class Course < ActiveRecord::Base
   end
 
   def self.tax_calculation(course,price)
-   tax_rate= Settings.cas.tax_rate
+   tax_rate= ApplicationController.helpers.tax_rate_for_today.factor
    tax = price.to_f * (tax_rate.to_f/100.to_f)
    return tax.round(2)
  end
