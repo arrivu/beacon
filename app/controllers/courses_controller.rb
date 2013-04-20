@@ -16,12 +16,14 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
  def index
    @total_course_count = Course.where(ispublished: 1,isconcluded: "f").all.count
    @countCoursesPerPage = 6
+
    if params[:mycourses]=="mycourses"
      @courses = Course.where(user_id: current_user.id, isconcluded: "f").paginate(page: params[:page], per_page: 6)
    else
      @courses = Course.where(ispublished: 1,isconcluded: "f").paginate(page: params[:page], :per_page => 6)
    end
    @topics = Topic.all
+   Course.wh
  end
 
  def new
