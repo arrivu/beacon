@@ -45,7 +45,7 @@ class Course < ActiveRecord::Base
   letsrate_rateable "rate"
 
   
-  has_many :course_pricings
+  has_one :course_pricings
 
   #before_save { |course| course.category = category.downcase }
 
