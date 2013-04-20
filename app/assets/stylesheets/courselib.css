@@ -26,7 +26,14 @@ border-radius:10px;
 	  box-shadow: 0 3px 5px 7px #cccccc;
    margin-top: -20px;
 }
+.free{
+	 margin-left: -25px;margin-top: -16px;position: absolute;
+}
 
+.free img{
+	width:80px;
+
+}
 .pagehead .container {
 position: relative;
 }
