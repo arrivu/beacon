@@ -190,36 +190,35 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
 
   def concluded_courses
 
-
-
   end
 
   def concluded_courses_update
-    #if StudentCourse.find(@course_id)!=nil
-    if(params[:search]!="")
-      @course_id=Course.find(params[:search])
-      @student_course_status=StudentCourse.find(@course_id)
-      if @student_course_status.status!="enroll"
-
-        if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
-          flash[:notice] = "Course Successfully Concluded..."
-          lms_conclude_course(@course_id.lms_id)
-
-          redirect_to concluded_courses_path
-        else
-          render :concluded_courses
-        end
-      else
-        flash[:notice] = "This course is already enrolled by User"
-        render :concluded_courses
-      end
-    else
+    if params[:search]==""
       flash[:notice] = "Please choose a course"
       render :concluded_courses
+    elsif params[:isconcluded]==nil
+      flash[:notice] = "Please select a Conclude check box to Conclude this course"
+      render :concluded_courses
+    else  
+      @course_id=Course.find(params[:search])
+      if StudentCourse.find_by_course_id(@course_id)!=nil
+        @student_course_status=StudentCourse.find_by_course_id(@course_id)
+        if @student_course_status.status=="enroll"
+          flash[:notice] = "This course is already enrolled by User"
+          render :concluded_courses
+        else
+          if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
+            flash[:notice] = "Course Successfully Concluded..."
+            lms_conclude_course(@course_id.lms_id)
+            redirect_to concluded_courses_path
+          else
+            render :concluded_courses
+          end
+        end
+      end
     end
   end
   def display_concluded_courses
     @all_concluded_courses=Course.where("isconcluded=?","t")
-      
   end
 end
