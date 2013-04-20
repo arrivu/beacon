@@ -1,0 +1,31 @@
+cas:
+  enable: false
+  expiry: 3600 #one hour
+  url: https://localhost:8888
+  login_path: '/cas/api-login'
+  logout_path: '/cas/api-logout'
+  tax_rate: 13.5
+  tax_description: "Valid for today"
+lms:
+  enable: false
+  account_id: 1
+  oauth_token: BWByYxU7pnqLi6lWICmGcYGn66xuaZEAsImJgLgUsmj3hSkoTK5UzCFesmZUdQDx
+  root_url: https://192.168.1.40
+  course_url_path: /courses/
+  #api_url_path: /api/v1
+  api_root_url: https://192.168.1.40/api/v1
+mailserver:
+  address: smtp.gmail.com
+  port: 587
+  domain: example.com
+  user_name: surendragoud2009@gmail.com#beaconlms@gmail.com
+  password: surendra9826372592#beaconlms123$
+admin_mail:
+  to: beaconlms@gmail.com
+payment_gateway:
+  enable: false
+  merchant_id: "M_blahpache_5678"
+  work_key: "6abc0ty90e0v7jk9hj"
+  ccavenue_account: "test123"
+invoices:
+  notes: "Thank you for your enroll!"
