@@ -1,6 +1,5 @@
 
 <br />
-
 <br />
 <%= form_tag(payments_confirm_course_payment_path(:id=>@course)) do %>
 <div class="container">
@@ -46,13 +45,13 @@ Amount Payable: Rs. <%=  @grand_total  %>
     <%= text_field_tag "cvv"%><br/>
   </div>
  <div class="button-place-holder" style="margin-top: 10px; margin-right: 407px;">
-  <%= hidden_field_tag "price",@price %>
-  <%= hidden_field_tag 'tax', @tax %>
+  <%= hidden_field_tag "course_price",@price %>
   <%= hidden_field_tag 'tax_rate',Settings.cas.tax_rate%>
   <%= hidden_field_tag 'tax_description',Settings.cas.tax_description %>
-  <%#= hidden_field_tag 'coupon_description',@coupon.description %>  
-  <%#= hidden_field_tag 'coupon_rate',@coupon.percentage_one %>
-  <%#= hidden_field_tag 'coupon_code',@coupon_code %>
+  <%= hidden_field_tag 'coupon_des',@coupon_des %> 
+  <%= hidden_field_tag 'coupon_rate',@coupon_rate %>   
+  <%= hidden_field_tag 'coupon_price', @coupon_price %>
+  <%= hidden_field_tag 'coupon_code', @coupon_code %>
 
   <%= submit_tag 'submit',:class=>'placeholder' %>
       </div>

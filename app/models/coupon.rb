@@ -79,10 +79,10 @@ class Coupon < ActiveRecord::Base
   # Generate a hash similar to what #apply returns, except there is
   # no savings.
   def self.no_coupon(price)
-    r = {:savings => 0.0, :grand_total => 0.0}
+    r = {:grand_total => 0.0}
       price = price.to_f 
       r[:grand_total] += price
-      r[:savings] += 0.0
+
     round_values(r)
   end
     
@@ -90,14 +90,15 @@ class Coupon < ActiveRecord::Base
   # Return a hash with the new prices for each product, as well the grand total
   # and total savings
   def self.apply(coupon_code, price, user_id, metadata)
-    r = {:savings => 0.0, :grand_total => 0.0}
+    r = {:coupon_des => '', :grand_total => 0.0,:coupon_rate=>0.0}
     coupon = find_coupon(coupon_code, user_id, metadata)
     price = price.to_f 
     category = []
     r[:grand_total] += price
     if coupon
        savings = coupon.savings( price)
-       r[:savings] += savings
+       r[:coupon_des] += coupon.description
+       r[:coupon_rate] += coupon.percentage_one
        r[:grand_total] -= savings
       
     end
