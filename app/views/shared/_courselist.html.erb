@@ -8,10 +8,12 @@
           <div class="card-a course-inner">
             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
             <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
-            
-         <div class="free">
+           
+            <% if price_of_course_according_to_date(course).to_i ==0 %>
+                     <div class="free">
           <%= image_tag("free.png") %>
         </div>
+        <% end %>
       
             <div class="course-content">
               <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>

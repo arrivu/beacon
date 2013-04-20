@@ -23,7 +23,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
      @courses = Course.where(ispublished: 1,isconcluded: "f").paginate(page: params[:page], :per_page => 6)
    end
    @topics = Topic.all
-   Course.wh
+   
  end
 
  def new
