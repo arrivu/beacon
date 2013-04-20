@@ -22,7 +22,9 @@ module InvoicesHelper
     #invoice.invoice_number = 
     invoice.notes = "#{Settings.invoices.notes}"
 		invoice.line_items << LineItem.new(:price => params[:course_price] , :quantity => 1, :description =>  course.title,:item_type=>"Course")
-		invoice.line_items << LineItem.new(:price => params[:coupon_price], :quantity => 1, :description =>params[:coupon_des],:item_type=>"Coupon")
+        if params[:coupon_rate].to_i != 0
+		  invoice.line_items << LineItem.new(:price => params[:coupon_price], :quantity => 1, :description =>params[:coupon_des],:item_type=>"Coupon")
+        end
 		#invoice.line_items << LineItem.new(:price => params[:tax_rate] ,  :description =>  params[:tax_description],:item_type=>"tax")
 		invoice.save
   end
@@ -41,7 +43,9 @@ module InvoicesHelper
     invoice.currency = Payday::Config.default.currency 
     invoice.notes = "#{Settings.invoices.notes}"
 		invoice.line_items << LineItem.new(:price => params[:course_price] , :quantity => 1, :description =>  course.title)
-		invoice.line_items << LineItem.new(:price => params[:coupon_price], :quantity => 1, :description =>params[:coupon_des])
+        if params[:coupon_rate].to_i != 0
+		  invoice.line_items << LineItem.new(:price => params[:coupon_price], :quantity => 1, :description =>params[:coupon_des])
+        end
 		#invoice.line_items << LineItem.new(:price => params[:tax_rate] ,:quantity => 1,  :description =>  params[:tax_description])
 	  invoice.render_pdf_to_file("#{Rails.root}/tmp"+"/invoice_course_id_#{course.id}_user_id_#{user.id}.pdf")
   end

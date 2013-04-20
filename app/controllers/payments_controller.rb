@@ -46,7 +46,7 @@ class PaymentsController < ApplicationController
 				  @coupon_des =  response[:coupon_des]
 				  @coupon_rate =  response[:coupon_rate]
 				else
-					@coupon_des = "nil"
+					@coupon_des = nil
 					@coupon_rate = 0.0
 				end					
 				end
