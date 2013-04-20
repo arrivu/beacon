@@ -20,7 +20,7 @@ class Course < ActiveRecord::Base
   acts_as_commentable
   attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, 
                   :releasemonth, :ispopular,:filename,:content_type,:data, :short_desc,:teaching_staff_ids,
-                  :iscompleted,:completedreview,:start_date,:end_date
+                  :isconcluded,:concluded_review,:start_date,:end_date
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
 
@@ -74,10 +74,9 @@ class Course < ActiveRecord::Base
   end
 
   def self.tax_calculation(course,price)
-   @tax_rate= Settings.cas.tax_rate
-
-   @total_price = price * @tax_rate/100
-   return @tax =  @total_price
+   tax_rate= Settings.cas.tax_rate
+   tax = price.to_f * (tax_rate.to_f/100.to_f)
+   return tax.round(2)
  end
 
  def student_enrolled

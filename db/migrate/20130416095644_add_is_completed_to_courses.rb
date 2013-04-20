@@ -1,9 +1,7 @@
 class AddIsCompletedToCourses < ActiveRecord::Migration
   def change
-  	change_table :courses do |t|
-    t.boolean :iscompleted
-    t.string :completedreview
-    t.date :completed
-  end
+  	add_column :courses, :isconcluded, :boolean
+  	add_column :courses, :concluded_review, :string
+  	add_column :courses, :concluded, :date
   end
 end
