@@ -17,7 +17,20 @@
             <h4><%= @course.short_desc %></h4>
           </div>
           <div class="subtitle" style="color:#fcff00">
-            <h4>Next Session: <%= @course.start_date.to_formatted_s(:long) %> (<%= distance_of_time_in_words(@course.start_date,@course.end_date) %>)</h4>
+            <% start=""
+              if @course.start_date != nil 
+                start=@course.start_date.to_formatted_s(:long)
+              end
+              duration=""
+              if @course.start_date != nil and @course.end_date != nil 
+                duration=distance_of_time_in_words(@course.start_date,@course.end_date)
+              end
+              next_session=""
+              if @course.start_date != nil and @course.end_date != nil 
+                next_session="Next Session: #{start} (#{duration})"
+              end
+             %>
+            <h4><%= next_session %></h4>
           </div>
           <div class="container clearfix"></div>
           <div class="subsection">
