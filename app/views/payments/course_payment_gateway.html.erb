@@ -46,8 +46,9 @@ Amount Payable: Rs. <%=  @grand_total  %>
   </div>
  <div class="button-place-holder" style="margin-top: 10px; margin-right: 407px;">
   <%= hidden_field_tag "course_price",@price %>
-  <%= hidden_field_tag 'tax_rate',Settings.cas.tax_rate%>
-  <%= hidden_field_tag 'tax_description',Settings.cas.tax_description %>
+  <% tax=tax_rate_for_today %>
+  <%= hidden_field_tag 'tax_rate',@price * (tax.factor/100) %>
+  <%= hidden_field_tag 'tax_description',tax.description %>
   <%= hidden_field_tag 'coupon_des',@coupon_des %> 
   <%= hidden_field_tag 'coupon_rate',@coupon_rate %>   
   <%= hidden_field_tag 'coupon_price', @coupon_price %>

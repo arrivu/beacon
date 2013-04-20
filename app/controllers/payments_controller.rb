@@ -58,6 +58,8 @@ class PaymentsController < ApplicationController
 	def confirm_course_payment
 		tx_id = 123456789 # default tax_id we need to changes after latter
 		@course = Course.find(params[:id])
+		@price = Course.course_price(@course)
+		@tax = Course.tax_calculation(@course,@price)
 		@user = current_user
 		invoice = invoices_data(@course,params)
 		invoice_generate_pdf(@course,params)
