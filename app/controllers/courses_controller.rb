@@ -195,6 +195,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
   end
 
   def concluded_courses_update
+    #if StudentCourse.find(@course_id)!=nil
     if(params[:search]!="")
       @course_id=Course.find(params[:search])
       @student_course_status=StudentCourse.find(@course_id)
@@ -216,5 +217,9 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
       flash[:notice] = "Please choose a course"
       render :concluded_courses
     end
+  end
+  def display_concluded_courses
+    @all_concluded_courses=Course.where("isconcluded=?","t")
+      
   end
 end
