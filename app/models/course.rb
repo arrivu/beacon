@@ -74,10 +74,9 @@ class Course < ActiveRecord::Base
   end
 
   def self.tax_calculation(course,price)
-   @tax_rate= Settings.cas.tax_rate
-
-   @total_price = price * @tax_rate/100
-   return @tax =  @total_price
+   tax_rate= Settings.cas.tax_rate
+   tax = price.to_f * (tax_rate.to_f/100.to_f)
+   return tax.round(2)
  end
 
  def student_enrolled
