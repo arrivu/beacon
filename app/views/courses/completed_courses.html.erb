@@ -8,15 +8,15 @@
 			<h3 align = "center">Update User's Course Status
 			</h3><br/>
 			<%= form_tag "/updatecompleted_details", :method => 'put' do %>
-<table class="table table-condensed table-hover "><tr><td width="200px"><label>Course Name</label></td><td><label><%= @coursesstauts.course.title %></label></td></tr>
-	<tr><td width="200px"><label>User Name</label></td><td><label><%=@coursesstauts.student.user.name %></label></td></tr>
-      <tr><td width="200px"><label>Course Status</label></td><td><%= select_tag :status,  options_for_select(["enroll","completed"],@coursesstauts.status)  %></td></tr>        
-          <tr><td></td><td><%= hidden_field_tag :id, @coursesstauts.id %></tr>
-<tr><td></td><td><%= submit_tag 'Change',class:"btn btn-primary" %></td></tr>  
-</table>  
+			<table class="table table-condensed table-hover "><tr><td width="200px"><label>Course Name</label></td><td><label><%= @coursesstauts.course.title %></label></td></tr>
+				<tr><td width="200px"><label>User Name</label></td><td><label><%=@coursesstauts.student.user.name %></label></td></tr>
+				<tr><td width="200px"><label>Course Status</label></td><td><%= select_tag :status,  options_for_select(["enroll","completed"],@coursesstauts.status)  %></td></tr>        
+				<tr><td></td><td><%= hidden_field_tag :id, @coursesstauts.id %></tr>
+				<tr><td></td><td><%= submit_tag 'Change',class:"btn btn-primary" %></td></tr>  
+			</table>  
 
-<% end %>
-</div>
-</div>
+			<% end %>
+		</div>
+	</div>
 </div>
 
