@@ -1,5 +1,5 @@
 module InvoicesHelper
-
+    
 	def invoices_data(course, params)
 		course = course
     price = price_of_course_according_to_date(@course)
