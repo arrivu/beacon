@@ -3,3 +3,5 @@ class CouponNotApplicable < RuntimeError; end
 class CouponRanOut < RuntimeError; end
 class CouponNotFound < RuntimeError; end
 class CouponAlreadyRedeemedByUser < RuntimeError; end
+class CouponNotValid < RuntimeError; end
+class CoursePriceNotFound < RuntimeError; end

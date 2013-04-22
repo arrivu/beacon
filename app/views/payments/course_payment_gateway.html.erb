@@ -51,7 +51,7 @@ Amount Payable: Rs. <%=  @grand_total  %>
   <%= hidden_field_tag 'tax_description',tax.description %>
   <%= hidden_field_tag 'coupon_des',@coupon_des %> 
   <%= hidden_field_tag 'coupon_rate',@coupon_rate %>   
-  <%= hidden_field_tag 'coupon_price', @coupon_price %>
+  <%= hidden_field_tag 'coupon_price', @price-@coupon_price %>
   <%= hidden_field_tag 'coupon_code', @coupon_code %>
 
   <%= submit_tag 'submit',:class=>'placeholder' %>

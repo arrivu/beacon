@@ -18,8 +18,8 @@ class Course < ActiveRecord::Base
   self.per_page = 6
   acts_as_commentable
   attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, 
-                  :releasemonth, :ispopular,:filename,:content_type,:data, :short_desc,:teaching_staff_ids,
-                  :isconcluded,:concluded_review,:start_date,:end_date
+  :releasemonth, :ispopular,:filename,:content_type,:data, :short_desc,:teaching_staff_ids,
+  :isconcluded,:concluded_review,:start_date,:end_date
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
 
@@ -72,11 +72,11 @@ class Course < ActiveRecord::Base
     return @price
   end
 
-  def self.tax_calculation(course,price)
-   tax_rate= ApplicationController.helpers.tax_rate_for_today.factor
-   tax = price.to_f * (tax_rate.to_f/100.to_f)
-   return tax.round(2)
- end
+  def self.tax_calculation(course, price)
+    tax_rate= ApplicationController.helpers.tax_rate_for_today.factor
+    tax = price.to_f * (tax_rate.to_f/100.to_f)
+    return tax.round(2)
+  end
 
  def student_enrolled
   load_student("enroll")  
@@ -90,13 +90,13 @@ def student_shortlisted
   load_student("shortlisted")
 end 
 
-  def load_student( status)
-    student_ids = []
-      self.student_courses.where(:status => status).each do |course_status|
-        student_ids << course_status.student_id
-      end
-    Student.find(courses_ids)      
+def load_student( status)
+  student_ids = []
+  self.student_courses.where(:status => status).each do |course_status|
+    student_ids << course_status.student_id
   end
+  Student.find(courses_ids)      
+end
 
 
 def staff_image

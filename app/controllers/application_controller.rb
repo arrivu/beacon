@@ -1,5 +1,6 @@
   class ApplicationController < ActionController::Base
     protect_from_forgery
+    include ApplicationHelper
     include CoursesHelper
     include SessionsHelper    
     include ActiveMerchant::Billing::Integrations::ActionViewHelper

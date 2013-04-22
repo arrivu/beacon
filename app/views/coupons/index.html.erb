@@ -10,16 +10,13 @@
     
     <tr class="tab_head">
     <th>Course</th>
-    <th>Alpha code</th>
-    <th>Alpha mask</th>
-    <th>Digit code</th>
-    <th>Digit mask</th>
-   
+    <th>Alpha code</th>   
+    <th>Digit code</th>      
     <th style="text-align:right">Amount off</th>
-    <th style="text-align:right">Percentage off</th>
-    
-    <th>Expiration</th>
+    <th style="text-align:right">Percentage off</th>    
+    <th>Expiration</th>     
     <th style="text-align:right">No Of times<br/>Redeemable</th>
+    <th>Current<br/> Redeem count</th> 
     <th>Action</th>
   </tr>
 
@@ -27,14 +24,14 @@
   <tr>
     <td><%= Coupon.course_name(coupon.metadata)%></td>
     <td><%= coupon.alpha_code %></td>
-    <td><%= coupon.alpha_mask %></td>
-    <td><%= coupon.digit_code %></td>
-    <td><%= coupon.digit_mask %></td>    
+     <td><%= coupon.digit_code %></td>   
+      
     <td style="text-align:right"><%= coupon.amount_one %></td>
     <td style="text-align:right"><%= coupon.percentage_one %></td>
-    
-    <td><%= coupon.expiration %></td>
+    <td><%= coupon.expiration %></td> 
+    <td><%= coupon.how_many %></td>   
     <td style="text-align:right"><%= coupon.redemptions_count %></td>
+
     <td><%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_coupon_path(coupon), :class => 'btn btn-mini' %>
 

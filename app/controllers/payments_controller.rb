@@ -12,46 +12,60 @@ class PaymentsController < ApplicationController
 
 
   # called after course_payment and in this logic for  coupon code calculation, tax calculation, and final price display for user   
-	def course_payment_gateway
-		@course = Course.find(params[:id])
-		@price = Course.course_price(@course)
-		@user = current_user
-		@coupon_code = params[:coupon_code] if !params[:coupon_code].blank?
-		response = {}
-		if @coupon_code && ! @coupon_code.empty?		
-			begin					
-				response = Coupon.apply(@coupon_code, @price, current_user.id, @course.id)
-			rescue CouponNotFound
-				flash[:notice] =  "Coupon not found" 
-				redirect_to :back
-			rescue CouponNotApplicable
-				flash[:notice] = "Coupon does not apply"
-				redirect_to :back
-			rescue CouponRanOut
-				flash[:notice] =  "Coupon has run out"
-				redirect_to :back
-			rescue CouponExpired
-				flash[:notice] = "Coupon has expired"
-				redirect_to :back
-			end
-		else
-			response = Coupon.no_coupon(@price)
-		end
-		respond_to do |format|
-			format.html do
-		    @tax = Course.tax_calculation(@course,response[:grand_total])
-				@grand_total = @tax + response[:grand_total]
-				@coupon_price = response[:grand_total]
-				if response[:coupon_des].present? && response[:coupon_rate].present?
-				  @coupon_des =  response[:coupon_des]
-				  @coupon_rate =  response[:coupon_rate]
-				else
-					@coupon_des = nil
-					@coupon_rate = 0.0
-				end					
-				end
-			end      
-		end
+  def course_payment_gateway
+  	@course = Course.find(params[:id])
+  	@price = price_of_course_according_to_date(@course)
+  	@user = current_user
+  	@coupon_code = params[:coupon_code] if !params[:coupon_code].blank?
+  	coupon_calc = {}
+  	redirect_req = false
+  	if @coupon_code && ! @coupon_code.empty?		
+  		begin					
+  			coupon_calc = Coupon.apply(@coupon_code, @price, current_user.id, @course.id)
+  		rescue CouponNotFound
+  			flash[:error] =  "Coupon not found" 
+  			redirect_req =true
+  		rescue CouponNotApplicable
+  			flash[:error] = "Coupon does not apply"
+  			redirect_req =true
+  		rescue CouponRanOut
+  			flash[:error] =  "Coupon has run out"
+  			redirect_req =true
+  		rescue CouponExpired
+  			flash[:error] = "Coupon has expired"
+  			redirect_req =true			
+  		rescue CouponAlreadyRedeemedByUser
+  			flash[:error] = "Coupon already used"
+  			redirect_req =true  			
+  		end		
+  	else
+  		coupon_calc = Coupon.no_coupon(@price)
+  	end
+
+  	if redirect_req
+  		redirect_to :back
+  	else
+  		respond_to do |format|
+  			format.html do				
+  				@tax = Course.tax_calculation(@course,coupon_calc[:grand_total])
+  				@grand_total = @tax + coupon_calc[:grand_total]
+  				@coupon_price = coupon_calc[:grand_total]
+  				if coupon_calc[:coupon_des].present? && coupon_calc[:coupon_rate].present?
+  					@coupon_des =  coupon_calc[:coupon_des]
+  					@coupon_rate =  coupon_calc[:coupon_rate]
+  				else
+  					@coupon_des = nil
+  					@coupon_rate = 0.0
+  				end	
+          session[:coupon_code]=@coupon_code			
+          session[:coupon_des]=@coupon_des      
+          session[:coupon_rate]=@coupon_rate      
+          session[:coupon_price]=@price- @coupon_price 
+          session[:course_price]=@grand_total
+  			end
+  		end
+  	end       
+  end
 
   # called after payment_getway method in this save invoice data and generate pdf using payday and  enter the coupon code
   # entry on redeem table if coupon present
@@ -61,13 +75,13 @@ class PaymentsController < ApplicationController
 		@price = Course.course_price(@course)
 		@tax = Course.tax_calculation(@course,@price)
 		@user = current_user
-		invoice = invoices_data(@course,params)
-		invoice_generate_pdf(@course,params)
 		if params[:coupon_code].present?
-		 @coupon = Coupon.find_coupon(params[:coupon_code], user_id = nil, metadata=nil)
+		 @coupon = Coupon.find_coupon(params[:coupon_code], user_id = current_user.id, metadata=@course.id)
 		 Coupon.redeem(params[:coupon_code], @user.id, tx_id, @coupon.metadata)
 	  end
-		
+	  
+		invoice = invoices_data(@course, params)
+		invoice_generate_pdf(@course, params)			
 	end
 
   # call this method for when some one click on download invoice link  

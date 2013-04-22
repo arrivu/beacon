@@ -119,9 +119,13 @@ class Coupon < ActiveRecord::Base
   # create a redemption of a coupon storing the tx_id and any metadata.
   # throws an exception if the coupon is not valid or any problem creating the redemption
   def self.redeem(coupon_code, user_id, tx_id, metadata)
-    coupon = find_coupon(coupon_code)
-    coupon.redemptions.create!(:transaction_id => tx_id, :user_id => user_id, :metadata => metadata)
+    coupon = find_coupon(coupon_code, user_id, metadata)
+    coupon.redemptions_count = coupon.redemptions_count + 1
+    if coupon.save
+      coupon.redemptions.create!(:transaction_id => tx_id, :user_id => user_id, :metadata => metadata)
+    end
   end
+
     HUMANIZED_ATTRIBUTES = {
    
     :metadata => "Course"
@@ -144,7 +148,7 @@ class Coupon < ActiveRecord::Base
     raise CouponRanOut if coupon.redemptions_count >= coupon.how_many
     raise CouponExpired if coupon.expiration < Time.now.to_date
    
-    raise CouponNotValid if((coupon.metadata != 'All') && (coupon.metadata != metadata))
+    raise CouponNotValid if((coupon.metadata != 'All') && (coupon.metadata.to_s != metadata.to_s))
     return coupon
   end
    
