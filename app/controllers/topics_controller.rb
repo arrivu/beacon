@@ -42,8 +42,16 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:id])
+    @coursecheck=Course.where(topic_id: @topic.id )
+   
+  
+    if @coursecheck!=nil
+      flash[:error] = "Sorry This category have the Course"
+      redirect_to topics_path
+      else
     @topic.destroy
     flash[:success] = "Successfully Destroyed Category."
     redirect_to topics_url
   end
+end
 end

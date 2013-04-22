@@ -41,6 +41,7 @@ class Course < ActiveRecord::Base
   has_many :coupons, :through => :course_coupons 
   has_one  :rating_cache
   belongs_to :user
+  belongs_to :category
   letsrate_rateable "rate"
 
   
