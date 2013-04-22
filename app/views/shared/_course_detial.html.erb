@@ -36,8 +36,8 @@
           <div class="subsection">
 
 
-            <% if current_user.present? %>
-
+            <% if (current_user.present? ) %>
+            <% if !(current_user.has_role? :admin) %>
             <% if @status=="enroll" %>
             <a href="<%= lms_course_url(@course.lms_id)%>" target="_blank"><div class="enroll">
               Take this Course Now!
@@ -48,7 +48,7 @@
             <% else %>
             <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>
-            
+            <% end %>
             <%else%>  
             <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>  

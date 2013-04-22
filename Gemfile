@@ -15,11 +15,8 @@ gem 'omniauth-linkedin'
 #This is needed to fix rupee symbol
 gem 'money',:git => 'git://github.com/m-narayan/money'
 gem 'delayed_job_active_record'
-#gem 'multiple_table_inheritance', '~> 0.2.1'
-#gem 'heritage'
 gem "payday"
 gem 'omniauth-google-oauth2'
-
 gem 'oauth2'
 gem 'best_in_place'
 gem 'will_paginate', '~> 3.0.0'
@@ -52,7 +49,6 @@ gem "hub", ">= 1.10.2", :require => nil, :group => [:development]
 gem"rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "database_cleaner", ">= 0.9.1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
-# gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
 gem "launchy", ">= 2.2.0", :group => :test
 gem "capybara", ">= 2.0.2", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
@@ -71,8 +67,4 @@ gem 'letsrate'
 gem 'canvas',:git => 'git://github.com/m-narayan/canvas'
 gem 'annotate', '2.4.1.beta1'
 gem 'couponsgem',:git => 'git://github.com/m-narayan/couponsgem'
-#gem 'couponsgem',:git => 'git://github.com/ssimeonov/couponsgem.git'
-#gem 'invoicing',:git => 'git://github.com/m-narayan/invoicing'
-#gem 'client_side_validations',:git => 'https://github.com/bcardarella/client_side_validations.git'
-#gem 'rails3_before_render'
 

@@ -29,5 +29,14 @@ module ApplicationHelper
 			HTML
 			html.html_safe
 		end
-		
-	end
+
+		def check_admin_user
+			authenticate_user!
+			if current_user.has_role? :admin
+				return
+			else
+     redirect_to root_url # or whatever
+   end
+ end
+ 
+end
