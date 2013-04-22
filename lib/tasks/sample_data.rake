@@ -443,26 +443,26 @@ end
 			TaxRate.create!(valid_from:"2013-03-01", valid_until:"2050-03-31",factor:0.0, is_default: true, description: "Service Tax")
 
 
-@student_user =Student.all
-@courses = Course.all
-student_courses_hash = {
-	1=>[@student_user[0].id, @courses[0].id,"enroll"],
-    2=>[@student_user[1].id,@courses[1].id, "enroll"],
-    3=>[@student_user[2].id, @courses[2].id,"enroll"],
-    4=>[ @student_user[3].id, @courses[3].id, "completed"],
-    5=>[@student_user[4].id, @courses[4].id, "completed"],
-    6=>[ @student_user[5].id, @courses[5].id,"completed"],
-    7=>[ @student_user[6].id, @courses[6].id, "shortlisted"],
-    8=>[ @student_user[7].id, @courses[7].id, "shortlisted"],
-    9=>[ @student_user[8].id, @courses[8].id, "shortlisted"],
-  }
-count=0
-student_courses_hash.each do |key, array|
-	StudentCourse.create!(student_id: array[0],
-				course_id: array[1],
-				status: array[2])
-				count=count+1	
-			end
+# @student_user =Student.all
+# @courses = Course.all
+# student_courses_hash = {
+# 	1=>[@student_user[0].id, @courses[0].id,"enroll"],
+#     2=>[@student_user[1].id,@courses[1].id, "enroll"],
+#     3=>[@student_user[2].id, @courses[2].id,"enroll"],
+#     4=>[ @student_user[3].id, @courses[3].id, "completed"],
+#     5=>[@student_user[4].id, @courses[4].id, "completed"],
+#     6=>[ @student_user[5].id, @courses[5].id,"completed"],
+#     7=>[ @student_user[6].id, @courses[6].id, "shortlisted"],
+#     8=>[ @student_user[7].id, @courses[7].id, "shortlisted"],
+#     9=>[ @student_user[8].id, @courses[8].id, "shortlisted"],
+#   }
+# count=0
+# student_courses_hash.each do |key, array|
+# 	StudentCourse.create!(student_id: array[0],
+# 				course_id: array[1],
+# 				status: array[2])
+# 				count=count+1	
+# 			end
   
 
 @teacher_user = TeachingStaff.all
