@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
 ActiveMerchant::Billing::Integrations
 #before_filter :initialize, :only => [:create, :edit,:update,:delete]
 before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses,:course_status_search,
-  :completed_courses,:updatecompleted_details,:concluded_courses,:concluded_courses_update]
+  :completed_courses,:updatecompleted_details,:conclude_course,:concluded_course_update]
 
   def show_image
    @course = Course.find(params[:id])
@@ -190,37 +190,53 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     
   end
 
-  def concluded_courses
+  def conclude_course
 
   end
 
-  def concluded_courses_update
+  def concluded_course_update
+    #@course_id=params[:id]
     if params[:search]==""
       flash[:notice] = "Please choose a course"
-      render :concluded_courses
+      render :conclude_course
     elsif params[:isconcluded]==nil
       flash[:notice] = "Please select a Conclude check box to Conclude this course"
-      render :concluded_courses
+      render :conclude_course
     else  
       @course_id=Course.find(params[:search])
       if StudentCourse.find_by_course_id(@course_id)!=nil
         @student_course_status=StudentCourse.find_by_course_id(@course_id)
         if @student_course_status.status=="enroll"
           flash[:notice] = "This course is already enrolled by User"
-          render :concluded_courses
+          render :conclude_course
         else
           if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
             flash[:notice] = "Course Successfully Concluded..."
             lms_conclude_course(@course_id.lms_id)
             redirect_to concluded_courses_path
           else
-            render :concluded_courses
+            render :conclude_course
           end
         end
       end
     end
   end
-  def display_concluded_courses
+  def concluded_courses
     @all_concluded_courses=Course.where("isconcluded=?","t")
   end
+  def edit_conclude_course
+    @course=Course.find(params[:id])
+  end
+  def update_un_concluded_course
+    @course=Course.find(params[:id])
+   if @courseid.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
+    flash[:notice] = "Course Successfully Concluded..."
+    lms_conclude_course(@course_id.lms_id)
+    
+    redirect_to concluded_courses_path
+  else
+    render :conclude_course
+  end
+
+end
 end

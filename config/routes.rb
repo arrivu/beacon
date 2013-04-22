@@ -52,9 +52,11 @@ Myapp::Application.routes.draw do
   match '/completed_courses', :to => 'courses#completed_courses'
 
   match '/updatecompleted_details', :to => 'courses#updatecompleted_details'
-  match '/concluded_courses', :to =>'courses#concluded_courses'
-  match '/concluded_courses_update', :to=> 'courses#concluded_courses_update'
-  match '/display_concluded_courses', :to=> 'courses#display_concluded_courses'
+  match '/conclude_course', :to =>'courses#conclude_course'
+  match '/concluded_course_update', :to=> 'courses#concluded_course_update'
+  match '/concluded_courses', :to=> 'courses#concluded_courses'
+  match '/edit_concluded_course', :to=> 'courses#edit_concluded_course'
+  match '/update_un_concluded_course', :to=> 'courses#update_un_concluded_course'
 
   devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
 
