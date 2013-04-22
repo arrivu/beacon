@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
 	before_filter :signed_in_user
 	include InvoicesHelper
+  include LmsHelper
 	
   # called this when we click on enroll button
 	def course_payment
@@ -8,6 +9,14 @@ class PaymentsController < ApplicationController
 		@course = Course.find(params[:id]) 
 		@price = Course.course_price(@course)
 		@tax = Course.tax_calculation(@course,@price)
+    if @price.to_i == 0
+      student_course=StudentCourse.new
+      student_course.course_id=@course.id
+      student_course.status="enroll"
+      student_course.student_id=current_user.student.id
+      student_course.save
+      redirect_to :back
+    end
 	end
 
 
@@ -36,7 +45,10 @@ class PaymentsController < ApplicationController
   			redirect_req =true			
   		rescue CouponAlreadyRedeemedByUser
   			flash[:error] = "Coupon already used"
-  			redirect_req =true  			
+  			redirect_req =true 
+      rescue CouponNotValid
+        flash[:error] = "Coupon not Valid"
+        redirect_req =true 
   		end		
   	else
   		coupon_calc = Coupon.no_coupon(@price)
@@ -79,7 +91,11 @@ class PaymentsController < ApplicationController
 		 @coupon = Coupon.find_coupon(params[:coupon_code], user_id = current_user.id, metadata=@course.id)
 		 Coupon.redeem(params[:coupon_code], @user.id, tx_id, @coupon.metadata)
 	  end
-	  
+	  student_course=StudentCourse.new
+    student_course.course_id=@course.id
+    student_course.status="enroll"
+    student_course.student_id=current_user.student.id
+    student_course.save
 		invoice = invoices_data(@course, params)
 		invoice_generate_pdf(@course, params)			
 	end
