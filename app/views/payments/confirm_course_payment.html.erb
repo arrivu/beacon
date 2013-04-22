@@ -15,16 +15,27 @@
   <td style="font-size: 15px;font-weight:bold;text-align: left;">Price</td>
   <td style="text-align: left;"><div class="span4">Rs. <%= @price %> </div></td>
   </tr>
+
+  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;font-weight:bold;text-align: left;">Discount</td>
+  <td style="text-align: left;"><div class="span4">Rs. <%= @discount %> </div></td>
+  </tr>
+
+  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;font-weight:bold;text-align: left;">Subtotal</td>
+  <td style="text-align: left;"><div class="span4">Rs. <%= @subtotal %> </div></td>
+  </tr>
+
   <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
   <td style="font-size: 15px;font-weight:bold;text-align: left;">Tax</td>
   <td style="text-align: left;"><div class="span4">Rs. <%= @tax%> </div></td>
   </tr>
   <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
   <td style="font-size: 15px;font-weight:bold;text-align: left;">Total</td>
-  <td style="text-align: left;"><div class="span4">Rs.  <%=  @tax.to_f + @price.to_f  %> </div></td>
+  <td style="text-align: left;"><div class="span4">Rs.  <%=  @tax.to_f + @subtotal.to_f  %> </div></td>
   </tr>
  <div class="span12" style="background:#F2F2F2; height: 24px;line-height: 22px; margin-top: 47px;text-align: right; width:1000px;font-family: arial;font-size: 19px;margin-left:0px;">
-Amount Paid: Rs. <%=  @tax.to_f + @price.to_f  %>
+Amount Paid: Rs. <%=  @tax.to_f + @subtotal.to_f  %>
 
 </div>
 

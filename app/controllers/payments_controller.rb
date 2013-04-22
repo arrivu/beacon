@@ -85,7 +85,9 @@ class PaymentsController < ApplicationController
 		tx_id = 123456789 # default tax_id we need to changes after latter
 		@course = Course.find(params[:id])
 		@price = Course.course_price(@course)
-		@tax = Course.tax_calculation(@course,@price)
+    @discount=session[:coupon_price].to_f
+    @subtotal=@price - @discount
+		@tax = Course.tax_calculation(@course,@subtotal)
 		@user = current_user
 		if params[:coupon_code].present?
 		 @coupon = Coupon.find_coupon(params[:coupon_code], user_id = current_user.id, metadata=@course.id)
