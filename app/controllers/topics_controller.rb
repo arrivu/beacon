@@ -42,7 +42,8 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:id])
-    @coursecheck=Course.find_by_topic_id(@topic)
+    @coursecheck=Course.where(topic_id: @topic.id )
+   
   
     if @coursecheck!=nil
       flash[:error] = "Sorry This category have the Course"
