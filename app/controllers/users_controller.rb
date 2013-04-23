@@ -23,9 +23,9 @@ class UsersController < ApplicationController
   
   def destroy
     authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
-    user = User.find(params[:id])
-    unless user == current_user
-      user.destroy
+    users = User.find(params[:id])
+    unless users == current_user
+      users.destroy
       redirect_to users_path, :notice => "User deleted."
     else
       redirect_to users_path, :notice => "Can't delete yourself."
