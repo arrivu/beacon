@@ -143,7 +143,29 @@ vertical-align: middle;
 zoom: 1;
 text-align: right;
 }
-
+.browsemore2{
+	width: 65px;
+height:65px;
+/*padding: 18px 3px 18px 20px;*/
+margin-top: 30px;
+font-weight: bold;
+/*background: #2980B9;*/
+/*background-color:  	#2a488e;*/
+background-image:url('../assets/plus1.png');
+background-size: 65px 65px;
+color: #fff !important;
+line-height: 1 !important;
+font-size: 16px !important;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+white-space: nowrap;
+border: none;
+cursor: pointer;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+zoom: 1;
+text-align: right;
+}
 .browsemore1{		
 padding: 20px;
 margin-top: 30px;
