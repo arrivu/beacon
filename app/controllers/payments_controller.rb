@@ -112,7 +112,7 @@ class PaymentsController < ApplicationController
 		@course = Course.find(params[:id])
 		@user = current_user
 	  path = "#{Rails.root}/tmp/invoice_course_id_#{@course.id}_user_id_#{@user.id}.pdf"
-		send_data File.read(path)
+		send_data File.read(path),:filename => "invoice.pdf",:type => "application/pdf"
 		UserMailer.delay(:queue => 'tracking').course_payment(@user, @course, @price)
 	end 
 
