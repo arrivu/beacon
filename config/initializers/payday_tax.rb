@@ -21,7 +21,7 @@ Payday::PdfRenderer.class_eval do
 		end
 
 		if stamp
-			pdf.bounding_box([350, pdf.cursor - 50], :width => pdf.bounds.width - 300) do
+			pdf.bounding_box([150, pdf.cursor - 150], :width => pdf.bounds.width - 300) do
 				pdf.font("Helvetica-Bold") do
 					pdf.fill_color "cc0000"
 					pdf.text stamp, :align=> :center, :size => 25, :rotate => 15
