@@ -406,6 +406,8 @@ end
 					user_id: array[2],
 					ispublished: array[3],
 					releasemonth: array[4],
+					start_date: "2013-07-20",
+					end_date: "2013-07-30",
 			# 5 is category/topic
 			image: array[6],
 			desc: array[7],
