@@ -1,0 +1,53 @@
+
+<div style="float:left">
+	<%= render 'shared/side_menu' %>
+</div>
+
+<div class="row">
+	<div class="span8 offset3" style="min-height:600px">
+			<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;margin:20px;padding:10px;">
+			<%= form_tag "/update_un_concluded_course", :method=>'put' do %>
+			<div class="divrow">
+				<div>
+					<h3 align="center">Edit Concluded Course</h3>
+				</div>
+				<div class="divleft">
+					<label>Course Name</label>
+				</div>
+				<div class="divright">
+					<%= @course.title %>
+				
+				</div>
+			</div>
+			<div class="divrow">
+				<div class="divleft">
+					<label>Concluded</label>
+				</div>
+				<div class="divright">
+					
+					<%= check_box_tag :isconcluded,@course.isconcluded,value = "0" %>
+				</div>
+			</div>
+
+			<div class="divrow">
+				<div class="divleft">
+					<label>Concluded Review </label>
+				</div>
+				<div class="divright">
+					<%= text_area_tag :concluded_review,@course.concluded_review %>
+				</div>
+			</div>
+			<%= hidden_field_tag :id,@course.id %>
+			<div class="divrow">
+				<div class="divleft">
+					&nbsp;
+				</div>
+				<div class="divright">
+					<%= submit_tag "Save",class:"btn btn-primary" %>
+				</div>
+			</div>
+
+			<% end %>
+		</div>
+	</div>
+</div>

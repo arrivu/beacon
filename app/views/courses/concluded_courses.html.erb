@@ -1,59 +1,56 @@
-<div style="float:left">
-	<%= render 'shared/side_menu' %>
-</div>
+ <div style="float:left">
+ 	<%= render 'shared/side_menu' %>
+ </div>
+ <div class="row">
+ 	<div class="span12 offset3" style="min-height:500px;">
+ 		<div  align="center" style="margin:30px 0px 0px 0px">
 
-<div class="row">
-	<div class="span8 offset3" style="min-height:600px">
-		
-	<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;margin:20px;padding:10px;">
+ 			<h3>Concluded Courses Status</h3>
+ 			<hr>
+ 			<%= form_tag "/concluded_courses", :method=> 'get' do %>
+ 		</div>
+ 		<table class="table table-condensed table-hover table table-striped">
+ 			<tr class="tab_head">
+ 				<th style="background:#2A488E;color:white;">
+ 					Course Title
+ 				</th>
+ 				<th style="background:#2A488E;color:white;">
+ 					Is Concluded
+ 				</th>
+ 				<th style="background:#2A488E;color:white;">
+ 					Concluded Review
+ 				</th>
+ 				<th style="background:#2A488E;color:white;">
+ 					Action
+ 				</th>
+ 			</tr>
 
-			<%= form_tag "/concluded_courses_update", :method=>'put' do %>
-			<div class="divrow">
-				<div>
-					<h3 align="center">Courses Conclude</h3>
-				</div>
-				<div class="divleft">
-					<label>Course Name</label>
-				</div>
-				<div class="divright">
+ 			<% @all_concluded_courses.each do |concluded_course| %>
+ 			<tr>
+ 				<td>
+ 					<%= concluded_course.title %>
+ 				</td>
+ 				<td>
+ 					<%= concluded_course.isconcluded %>
+ 				</td>
+ 				<td>
+ 					<%= concluded_course.concluded_review %>
+ 					</td
+ 					<td>
+ 						<tr><td></td><td><%= hidden_field_tag :id, concluded_course.id %></tr>
 
-					<%= select_tag :search, options_from_collection_for_select(Course.where("isconcluded!=?",0), "id", "title") , {:prompt => 'ALL'} %>
-				</div>
-			</div>
-			<div class="divrow">
-				<div class="divleft">
-					<label>Concluded</label>
+ 						<%= link_to 'edit',edit_concluded_course_path(concluded_course.id),:class => 'btn btn-mini' %>
 
-				</div>
-				
-					<div class="divright">
-						<%= check_box_tag :isconcluded %>
-					</div>
-				</div>
+ 						<%= link_to t('.edit', :default => t("helpers.links.edit")),
+ 						edit_concluded_course_path(:id=>concluded_course.id), :class => 'btn btn-mini' %>
+			<%= link_to t('.edit', :default => t("helpers.links.edit")),
+      			edit_concluded_course_path(:id=>concluded_course.id), :class => 'btn btn-mini' %>
+ 					</td>
+ 				</tr>
+ 					<% end %>
+ 			</table>
+ 		
+ 			<% end %>
+ 		</div>
+ 	</div>
 
-			<div class="divrow">
-				<div class="divleft">
-					<label>Concluded Review </label>
-</div>
-					<div class="divright">
-						<%= text_area_tag :concluded_review %>
-					</div>
-
-				</div>
-				<div class="divrow">
-					<div class="divleft">
-						&nbsp;
-					</div>
-					<div class="divright">
-						<%= submit_tag "Save",class:"btn btn-primary" %>
-					</div>
-				</div>
-
-				<br>
-
-
-				<% end %>
-			</div>
-		</div>
-
-</div>
