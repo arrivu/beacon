@@ -35,16 +35,14 @@
  				</td>
  				<td>
  					<%= concluded_course.concluded_review %>
- 					</td
+ 					</td>
  					<td>
- 						<tr><td></td><td><%= hidden_field_tag :id, concluded_course.id %></tr>
-
- 						<%= link_to 'edit',edit_concluded_course_path(concluded_course.id),:class => 'btn btn-mini' %>
-
  						<%= link_to t('.edit', :default => t("helpers.links.edit")),
- 						edit_concluded_course_path(:id=>concluded_course.id), :class => 'btn btn-mini' %>
-			<%= link_to t('.edit', :default => t("helpers.links.edit")),
       			edit_concluded_course_path(:id=>concluded_course.id), :class => 'btn btn-mini' %>
+ 						</td>
+ 						<td>
+							<%= hidden_field_tag :id, concluded_course.id %>
+			
  					</td>
  				</tr>
  					<% end %>

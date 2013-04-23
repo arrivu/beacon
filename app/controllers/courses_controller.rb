@@ -206,18 +206,29 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
       @course_id=Course.find(params[:search])
       if StudentCourse.find_by_course_id(@course_id)!=nil
         @student_course_status=StudentCourse.find_by_course_id(@course_id)
+
         if @student_course_status.status=="enroll"
           flash[:notice] = "This course is already enrolled by User"
           render :conclude_course
+
         else
           if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
             flash[:notice] = "Course Successfully Concluded..."
             lms_conclude_course(@course_id.lms_id)
-            redirect_to root_url
+            redirect_to conclude_course_path
           else
             render :conclude_course
           end
         end
+      else
+        if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
+            flash[:notice] = "Course Successfully Concluded..."
+            lms_conclude_course(@course_id.lms_id)
+            redirect_to conclude_course_path
+          else
+            render :conclude_course
+          end
+
       end
     end
   end
@@ -229,6 +240,9 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
   end
   def update_un_concluded_course
     @course=Course.find(params[:id])
+    if params[:isconcluded]==nil 
+      params[:isconcluded]="f"
+    end
    if @course.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
     flash[:notice] = "Course Successfully Concluded..."
     lms_conclude_course(@course.lms_id)
