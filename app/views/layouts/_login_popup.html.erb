@@ -13,7 +13,7 @@
                      <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
                 <%= f.input :password %>
                 <%  @course_id = request.url%>
-               <% @a = @course_id.gsub('http://localhost:3000/courses/', "").to_i%>
+               <% @a = @course_id.gsub('/courses', "").to_i%>
                 <%= hidden_field_tag "course_id",@a %>
                 <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
       </div>
