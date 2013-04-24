@@ -12,7 +12,7 @@
   <%= devise_error_messages! %>
 </div></div>
 <% end %>
-  <div><%= f.label :email , "Please enter your Email here" %>
+  <div><%= f.label :email , "Please enter your Email here#{Settings.mailserver.domain}" %>
   <%= f.email_field :email, :autofocus => true %></div>
 
   <div><%= f.submit "Send me reset password instructions", class:"btn btn-primary" %></div>
