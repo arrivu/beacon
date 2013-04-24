@@ -3,6 +3,10 @@ class RegistrationsController < Devise::RegistrationsController
   include LmsHelper
   after_filter :login_cas, :lms_create, :student_create, :only => [:create]
 
+  def after_sign_up_path_for(resource)
+    '/courses'
+  end
+
   def user_image
     @user = User.find(params[:id])
     send_data @user.image_blob, :type => @user.content_type, :disposition => 'inline'
