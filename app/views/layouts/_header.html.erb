@@ -1,9 +1,24 @@
 
+<script type="text/javascript">
+// Pre load images for rollover
+if (document.images) {
+  smile = new Image;
+  nosmile = new Image;
+
+  smile.src = "/assets/beaconslogop.png";
+  nosmile.src = "/assets/beaconslogo.png";
+}
+function swapImage(thisImage,newImage) {
+  if (document.images) {
+    document[thisImage].src = eval(newImage + ".src");
+  }
+}
+</script> 
 
   <header class="navbar navbar-fixed-top" >
   <div >
     <div class="logo" >
-      <a href="/">
+    <a href="/" onMouseOver="swapImage('jack','smile')" onMouseOut="swapImage('jack','nosmile')"><img src="/assets/beaconslogo.png" width="222" height="71" border="0" name="jack"></a>
       </div>
     <div class="container" style= " padding-top:20px;  padding-bottom:20px;height:350px; margin-left:373px; ">
       <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>

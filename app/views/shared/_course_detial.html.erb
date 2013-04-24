@@ -23,7 +23,15 @@
               end
               duration=""
               if @course.start_date != nil and @course.end_date != nil 
-                duration=distance_of_time_in_words(@course.start_date,@course.end_date)
+                x=(@course.end_date - @course.start_date).to_i
+                y=x/7
+                z=x%7
+                duration = pluralize(y,"Week") 
+                if(z != 0) 
+                  duration = duration + " " + pluralize(z,"Day") 
+                end
+                duration = duration + " Long"
+                #duration=distance_of_time_in_words(@course.start_date,@course.end_date)
               end
               next_session=""
               if @course.start_date != nil and @course.end_date != nil 

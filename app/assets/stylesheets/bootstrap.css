@@ -4672,7 +4672,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar .logo a {
   position: relative;
-  background: url(beaconslogo.png)  no-repeat;
+  background-image: "beaconslogop.png";
   float: left;
   height: 71px;
   width: 222px;
@@ -4680,14 +4680,9 @@ input[type="submit"].btn.btn-mini {
   padding-top:10px;
   margin-top: 15px;
   margin-left: 100px;
-
-
 }
 
-.navbar .logo a:hover {
 
-background: url(beaconslogop.png)  no-repeat;
-}
 .navbar .nav > li > .dropdown-menu:after {
   position: absolute;
   top: -6px;

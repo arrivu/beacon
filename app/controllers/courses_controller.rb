@@ -103,9 +103,9 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
   end
 
   def popular_courses
-    @total_course_count = Course.where(ispopular: 1,:isconcluded=>false).all.count
+    @total_course_count = Course.where(ispopular: 1,:isconcluded=>false,ispublished: 1).all.count
     @countCoursesPerPage = 6
-    @courses = Course.where(ispopular: 1,ispublished: 1).paginate(page: params[:page], per_page: 6)
+    @courses = Course.where(ispopular: 1,ispublished: 1,:isconcluded=>false).paginate(page: params[:page], per_page: 6)
     @topics = Topic.order(:name)
   end
 
@@ -154,47 +154,45 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
 
 
     def subscribed_courses
-      if !current_user.nil?
-      #@total_course_count = CourseStatus.where(current_user.id).count
-      #@courses = Course.where(id: CourseStatus.where(current_user.id).all).paginate(page: params[:page], per_page: 6)
-    end
-    @countCoursesPerPage = 6
-    @topics = Topic.order(:name)
-  end
-
-  def my_courses
-    @student=Student.where(user_id: current_user.id).first
-    @enrolled_courses= @student.course_enroll
-    @completed_courses=@student.course_complete    
-  end
-  def completed_courses
-    @coursesstauts=StudentCourse.find(params[:id])
-    
-    
-  end
-  def updatecompleted_details
-
-
-    @coursesstauts=StudentCourse.find(params[:id])
-
-    if @coursesstauts.update_attributes(status:params[:status])
-
-      flash[:notice] = "Successfully Updated"
-      lms_conclude_enrollment(@coursesstauts.course.lms_id,@coursesstauts.student.user.lms_id)
-
-      redirect_to course_status_search_path
-    else
-      render course_status_search
+      @total_course_count =StudentCourse.where(:status =>"enroll").map(&:course_id).uniq.size
+      @courses = Course.where(id: StudentCourse.where(:status =>"enroll").map(&:course_id).uniq).paginate(page: params[:page], per_page: 6)
+      @countCoursesPerPage = 6
+      @topics = Topic.order(:name)
     end
 
-    
-  end
+    def my_courses
+      @student=Student.where(user_id: current_user.id).first
+      @enrolled_courses= @student.course_enroll
+      @completed_courses=@student.course_complete    
+    end
+    def completed_courses
+      @coursesstauts=StudentCourse.find(params[:id])
 
-  def conclude_course
 
-  end
+    end
+    def updatecompleted_details
 
-  def concluded_course_update
+
+      @coursesstauts=StudentCourse.find(params[:id])
+
+      if @coursesstauts.update_attributes(status:params[:status])
+
+        flash[:notice] = "Successfully Updated"
+        lms_conclude_enrollment(@coursesstauts.course.lms_id,@coursesstauts.student.user.lms_id)
+
+        redirect_to course_status_search_path
+      else
+        render course_status_search
+      end
+
+
+    end
+
+    def conclude_course
+
+    end
+
+    def concluded_course_update
     #@course_id=params[:id]
     if params[:search]==""
       flash[:notice] = "Please choose a course"
@@ -222,12 +220,12 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
         end
       else
         if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
-            flash[:notice] = "Course Successfully Concluded..."
-            lms_conclude_course(@course_id.lms_id)
-            redirect_to conclude_course_path
-          else
-            render :conclude_course
-          end
+          flash[:notice] = "Course Successfully Concluded..."
+          lms_conclude_course(@course_id.lms_id)
+          redirect_to conclude_course_path
+        else
+          render :conclude_course
+        end
 
       end
     end
@@ -243,14 +241,14 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     if params[:isconcluded]==nil 
       params[:isconcluded]="f"
     end
-   if @course.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
-    flash[:notice] = "Course Successfully Concluded..."
-    lms_conclude_course(@course.lms_id)
-    
-    redirect_to concluded_courses_path
-  else
-    render :conclude_course
-  end
+    if @course.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
+      flash[:notice] = "Course Successfully Concluded..."
+      lms_conclude_course(@course.lms_id)
 
-end
+      redirect_to concluded_courses_path
+    else
+      render :conclude_course
+    end
+
+  end
 end
