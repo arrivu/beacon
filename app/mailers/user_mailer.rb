@@ -1,4 +1,5 @@
 class UserMailer < ActionMailer::Base
+  
  default :from => "admin@beacon.com"
   
   def course_payment(user,course,price)

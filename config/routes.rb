@@ -31,7 +31,7 @@ Myapp::Application.routes.draw do
   resources :under_constructions
   resources :o_classes
   resources :course_previews
-  
+
   authenticated :user do
     root :to => 'screens#home'
   end
@@ -58,13 +58,17 @@ Myapp::Application.routes.draw do
   match '/edit_concluded_course', :to=> 'courses#edit_concluded_course'
   match '/update_un_concluded_course', :to=> 'courses#update_un_concluded_course'
 
-  devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
+
+  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions",:passwords=>"passwords"}
+
 
   devise_scope :user do
     match '/user_image', :to => 'registrations#user_image' 
   end
   
-  resources :users
+  
+   
   match '/auth/:provider/callback' => 'authentication#create'
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
 

@@ -1,0 +1,23 @@
+<div class="container">   
+	<div class="row">
+		<div class="span6 offset3">
+			<div class="hero-unit">
+
+<h2>Forgot your password?</h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+<% if devise_error_messages! !="" %>
+<div id="error_explanation">
+<div class="alert alert-error">
+  <%= devise_error_messages! %>
+</div></div>
+<% end %>
+  <div><%= f.label :email , "Please enter your Email here" %>
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.submit "Send me reset password instructions", class:"btn btn-primary" %></div>
+<% end %>
+</div>
+</div>
+</div>
+</div>

@@ -76,7 +76,7 @@ class RegistrationsController < Devise::RegistrationsController
     def lms_create
       lms_create_user(current_user)  if (current_user && lms_enable?)
     end
-    
+   
     # check if we need password to update user data
     # ie if password or email was changed
     # extend this as needed
