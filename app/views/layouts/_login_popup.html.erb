@@ -15,11 +15,12 @@
          <% @a = @course_id.gsub('/courses', "").to_i%>
          <%= hidden_field_tag "course_id",@a %>
          <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
+          <br/>
          <div>
            <u> <%= link_to "Forgot Password?", new_password_path(:user) %></u>
          </div>
-
-         <div type="button"  data-dismiss="modal" aria-hidden="true"> <a href="#sign_up_Modal" onclick="close_popup()"  data-toggle="modal" style="text-decoration" ><u>Don't have an account? Create one. It's free!</u></a></a>
+          <br/>
+         <div type="button"  data-dismiss="modal" aria-hidden="true"> <a href="#sign_up_Modal" onclick="close_popup()"  data-toggle="modal" style="text-decoration" ><u>Don't have an account? Create one. It's Free!</u></a></a>
          </div>
 
 
