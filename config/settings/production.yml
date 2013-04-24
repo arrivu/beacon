@@ -12,7 +12,7 @@ lms:
 mailserver:
   address: smtp.gmail.com
   port: 587
-  domain: example.com
+  domain: beacon-learning.herokuapp.com
   user_name: beaconlms@gmail.com
   password: beaconlms123$
 admin_mail:
