@@ -11,7 +11,7 @@
    <td><%= form_tag "", :method => 'get' do %></td>
    <td><%= label_tag(:query,"Username or Email") %></td>
    <td><%= text_field_tag(:query) %></td>
-   <td><%= label_tag(:provider,"Login") %></td>
+   <td><%= label_tag(:provider,"Login Type") %></td>
    <td><%= select_tag(:provider, options_for_select(['All',['Signup','signup'],['Facebook','facebook'],['Linkedin','linkedin'],['Google','google_oauth2']])) %></td>
    <td valign="top"><%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %></td>
    </tr>
