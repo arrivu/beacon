@@ -1,46 +1,51 @@
 <div style="float:left">
-<%= render 'shared/side_menu' %>
+  <%= render 'shared/side_menu' %>
 </div>
- 
+
 <br>
 <div class="row">
-<div class="span12 offset3" style="min-height:530px;">
- <h3 align = "center">Users</h3>
-<table class="table table-condensed table-hover table table-striped">
-  <thead>
-    <tr class="tab_head">
-      <th >Username</th>
-      <th >Email</th>
-      <th >Registered</th>
-       <th>Login Type</th>
-      <th >Role</th>
+  <div class="span12 offset3" style="min-height:530px;">
+   <h3 align = "center">Users</h3>
+   <%= form_tag "", :method => 'get' do %>
+   <%= text_field_tag(:query) %>
+   <%= select_tag(:provider, options_for_select(['All','signup','facebook','linkedin',['google','google_oauth2']])) %>
+   <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %>
+   <% end %>
+   <table class="table table-condensed table-hover table table-striped">
+    <thead>
+      <tr class="tab_head">
+        <th >Username</th>
+        <th >Email</th>
+        <th >Registered</th>
+        <th>Login Type</th>
+        <th >Role</th>
 
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td ><%= link_to user.name, user %></td>
-      <td><%= user.email %></td>
-      <td><%=l user.created_at , :format=>'%d %b. %Y %I:%M'%></td>
-      <% if user.provider=="google_oauth2" %>
-      <td>google</td>
-      <% else %>
-      <td><%= user.provider %></td>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        <td ><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+        <td><%=l user.created_at , :format=>'%d %b. %Y %I:%M'%></td>
+        <% if user.provider=="google_oauth2" %>
+        <td>google</td>
+        <% else %>
+        <td><%= user.provider %></td>
+        <% end %>
+        <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
+        <td >
+          <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
+          <%= render user %>
+        </td>
+        <td><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user %></td>
+      </tr>
       <% end %>
-      <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
-      <td >
-        <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
-        <%= render user %>
-      </td>
-      <td><%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user %></td>
-    </tr>
-  <% end %>
 
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
 
 </div>
