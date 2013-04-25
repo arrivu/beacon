@@ -9,13 +9,16 @@
 
   <h3 align = "center">Edit Category</h3>
 
- <%= form_for @topic, :html => { :class => 'form-horizontal' } do |f| %>
+ <%= simple_form_for @topic, :html => { :class => 'form-horizontal' } do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
       <table class="table table-hover ">
         <tr>
           <td><%= f.label :name, :class => 'control-label' %></td>
 
           <td><%= f.text_field :name, :class => 'text_field',:maxlength => 30 %></td></tr>
+           <tr><td><%= f.label :color, :class => 'control-label' %> </td>
+            <td> <%= f.input :color, as: :minicolors,label:false %></td>
+          </tr>
           <tr><td colspan="2" style="text-align:center;" ><%= f.submit "Update Category", :class => 'btn btn-primary'  %></td></tr>
 
           <% end %>
