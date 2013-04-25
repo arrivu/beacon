@@ -16,7 +16,7 @@
         <% end %>
       
             <div class="course-content">
-              <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>
+              <em class="label-a label-offset" <%= course.topic.color=="" ? "style=background-color:#2b6341": "style=background-color:#{course.topic.color}" %> rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>
             
               <!-- <em class="label-b">Free Course</em> -->
 
