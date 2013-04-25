@@ -74,7 +74,7 @@ class RegistrationsController < Devise::RegistrationsController
     
     def student_create
       Student.create(:user_id=>current_user.id) if current_user 
-      @user.add_role(:student)
+      current_user.add_role(:student)
     end
 
     def lms_create

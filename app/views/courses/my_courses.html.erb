@@ -55,7 +55,7 @@
 
             <div class="tab-pane active" id="currentcourses">
                 <div class="mycurrentcoursesection">
-                  <h3>My Current Courses</h3>
+                  
                   <div class="row">
 
                    
@@ -63,7 +63,7 @@
 
                     <% @enrolled_courses.each do |course|%>
                     <div class="span8">
-                      <div class="courses">
+                      <div class="courses" style="margin-top:0px;">
                         <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
                             <div class="card-a course-inner">
                             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
@@ -87,19 +87,11 @@
 
             <div class="tab-pane" id="completedcourses">
               <div class="mycompletedcoursesesection">
-                <h3>My Completed Courses</h3>
-                <div class="row">
+                           <div class="row">
                   <% @completed_courses.each do |course|%>
-                  <div class="span8">
-                      <div class="courses">
-                        <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                            
-                        </article>
-                      </div>
-                    </div>
-
+               
                     <div class="span8">
-                      <div class="courses">
+                      <div class="courses" style="margin-top:0px;">
                         <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
                             <div class="card-a course-inner">
                             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
