@@ -13,7 +13,7 @@ class UsersController < ApplicationController
           if(params[:query] == nil || params[:query] == "")
             @users = User.where("provider = ?",params[:provider]).all.paginate(page: params[:page], :per_page => 10)
           else
-            @users = User.where("(name like ? or email like ?) and provider = ?" , query,query,params[:provider]).paginate(page: params[:page], :per_page => 10)
+            @users = User.where("name like ? or email like ?) and provider = ?" , query,query,params[:provider]).paginate(page: params[:page], :per_page => 10)
           end
         else
           if(params[:query] != "")
