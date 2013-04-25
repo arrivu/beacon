@@ -6,10 +6,17 @@
 <div class="row">
   <div class="span12 offset3" style="min-height:530px;">
    <h3 align = "center">Users</h3>
-   <%= form_tag "", :method => 'get' do %>
-   <%= text_field_tag(:query) %>
-   <%= select_tag(:provider, options_for_select(['All',['Signup','signup'],['Facebook','facebook'],['Linkedin','linkedin'],['Google','google_oauth2']])) %>
-   <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %>
+   <table>
+   <tr>
+   <td><%= form_tag "", :method => 'get' do %></td>
+   <td><%= label_tag(:query,"Username or Email") %></td>
+   <td><%= text_field_tag(:query) %></td>
+   <td><%= label_tag(:provider,"Login") %></td>
+   <td><%= select_tag(:provider, options_for_select(['All',['Signup','signup'],['Facebook','facebook'],['Linkedin','linkedin'],['Google','google_oauth2']])) %></td>
+   <td valign="top"><%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %></td>
+   </tr>
+ </table>
+   
    <% end %>
    <table class="table table-condensed table-hover table table-striped">
     <thead>
