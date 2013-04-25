@@ -9,23 +9,23 @@ class UsersController < ApplicationController
     query = "%#{params[:query]}%"
       if params[:provider]==nil
         @users = User.all.paginate(page: params[:page], :per_page => 10)
-        @total_users = User.all
+        @total_users = User.all.count
       else
         if params[:provider]!="All"
           if(params[:query] == nil || params[:query] == "")
             @users = User.where("provider = ?",params[:provider]).all.paginate(page: params[:page], :per_page => 10)
-            @total_users = User.where("provider = ?",params[:provider]).all
+            @total_users = User.where("provider = ?",params[:provider]).count
           else
             @users = User.where("lower(name) like ? or lower(email) like ?) and provider = ?" , query.downcase,query.downcase,params[:provider]).paginate(page: params[:page], :per_page => 10)
-            @total_users = User.where("lower(name) like ? or lower(email) like ?) and provider = ?" , query.downcase,query.downcase,params[:provider])
+            @total_users = User.where("lower(name) like ? or lower(email) like ?) and provider = ?" , query.downcase,query.downcase,params[:provider]).count
           end
         else
           if(params[:query] != "")
             @users = User.where("lower(name) like ? or lower(email) like ?", query.downcase,query.downcase).paginate(page: params[:page], :per_page => 10) 
-            @total_users = User.where("lower(name) like ? or lower(email) like ?", query.downcase,query.downcase)
+            @total_users = User.where("lower(name) like ? or lower(email) like ?", query.downcase,query.downcase).count
           else
             @users = User.all.paginate(page: params[:page], :per_page => 10)
-            @total_users = User.all
+            @total_users = User.all.count
         end
       end  
     end
