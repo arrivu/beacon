@@ -8,7 +8,7 @@
    <h3 align = "center">Users</h3>
    <%= form_tag "", :method => 'get' do %>
    <%= text_field_tag(:query) %>
-   <%= select_tag(:provider, options_for_select(['All','signup','facebook','linkedin',['google','google_oauth2']])) %>
+   <%= select_tag(:provider, options_for_select(['All','Signup','Facebook','Linkedin',['Google','google_oauth2']])) %>
    <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %>
    <% end %>
    <table class="table table-condensed table-hover table table-striped">
