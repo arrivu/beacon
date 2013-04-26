@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.date     "concluded"
     t.date     "start_date"
     t.date     "end_date"
+    t.boolean  "is_coming_soon"
   end
 
   add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"
