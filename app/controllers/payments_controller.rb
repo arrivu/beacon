@@ -20,6 +20,16 @@ class PaymentsController < ApplicationController
     end
 	end
 
+  def follow_course
+    @course = Course.find(params[:id]) 
+    student_course=StudentCourse.new
+    student_course.course_id=@course.id
+    student_course.status="follow"
+    student_course.student_id=current_user.student.id
+    student_course.save
+    redirect_to :back    
+  end
+
 
   # called after course_payment and in this logic for  coupon code calculation, tax calculation, and final price display for user   
   def course_payment_gateway

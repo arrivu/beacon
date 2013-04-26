@@ -17,6 +17,9 @@
             <h4><%= @course.short_desc %></h4>
           </div>
           <div class="subtitle" style="color:#fcff00">
+            <% if @course.is_coming_soon %>
+            <h4>Date to be announced</h4>
+            <% else %>
             <% start=""
               if @course.start_date != nil 
                 start=@course.start_date.to_formatted_s(:long)
@@ -39,6 +42,7 @@
               end
              %>
             <h4><%= next_session %></h4>
+            <% end %>
           </div>
           <div class="container clearfix"></div>
           <div class="subsection">
@@ -54,11 +58,29 @@
             <% elsif @status=="completed" %>
 
             <% else %>
-            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+            <% if @course.is_coming_soon %>
+           <% if @status=="follow" %>
+           
+            <%else %>
+            <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
             <% end %>
+            <% else %>
+            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+
+            <% end %>
+
             <% end %>
             <%else%>  
+            <% if @course.is_coming_soon %>
+            <% if @status=="follow" %>
+            
+            <%else %>
+            <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
+            <% end %>
+            <% else %>
             <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+            <% end %>
+            <% end %>
             <% end %>  
             <a href="#previewcourse"><div class="shortlist">
               Preview
