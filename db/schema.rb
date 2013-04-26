@@ -309,7 +309,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   end
 
   create_table "tax_rates", :force => true do |t|
-
     t.date     "valid_from",                                :null => false
     t.date     "valid_until"
     t.decimal  "factor",      :precision => 2, :scale => 2
@@ -379,6 +378,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "content_type"
     t.binary   "image_blob"
     t.string   "subtype"
+    t.string   "uid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

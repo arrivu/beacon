@@ -58,17 +58,22 @@ Myapp::Application.routes.draw do
   match '/edit_concluded_course', :to=> 'courses#edit_concluded_course'
   match '/update_un_concluded_course', :to=> 'courses#update_un_concluded_course'
 
-  devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
+  devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions",:omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_scope :user do
     match '/user_image', :to => 'registrations#user_image' 
   end
   
   resources :users
-  match '/auth/:provider/callback' => 'authentication#create'
+  #match '/auth/:provider/callback' => 'authentication#create'
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
 
   match '/my_courses', :to => 'courses#my_courses'  
-  match '/show_image/:id', :to => 'courses#show_image'  
+  match '/show_image/:id', :to => 'courses#show_image' 
+  
+  devise_scope :user do
+  get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+
+end
 end
 

@@ -43,7 +43,7 @@
        
         <div style="margin-left:10px;margin-top:5px;">
 
-         <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), '/auth/facebook/' %>
+         <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), user_omniauth_authorize_path(:facebook) %>
          <br>
           Facebook
          <br><br>

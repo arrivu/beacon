@@ -265,4 +265,12 @@ Devise.setup do |config|
   #  auth.cookies.delete :tgt
   #end
 
+  if Rails.env.production?
+    require "omniauth-facebook"
+    config.omniauth :facebook, "153576101469926", "302358063a941b9e0d9c8ec9cb77b6ad", :strategy_class => OmniAuth::Strategies::Facebook
+  elsif Rails.env.development?
+    require "omniauth-facebook"
+    config.omniauth :facebook, "586163688080266", "093ab151dc5385a434b0e03815ac851f", :strategy_class => OmniAuth::Strategies::Facebook
+  end
+
 end
