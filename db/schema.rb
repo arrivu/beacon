@@ -181,16 +181,16 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   create_table "invoices", :force => true do |t|
     t.date     "due_at"
     t.date     "paid_at"
-    t.decimal  "total",              :precision => 10, :scale => 0
+    t.decimal  "total"
     t.string   "company_name"
-    t.datetime "created_at",                                        :null => false
-    t.datetime "updated_at",                                        :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "invoice_number"
     t.string   "bill_to"
     t.string   "notes"
-    t.decimal  "tax_rate",           :precision => 10, :scale => 0
+    t.decimal  "tax_rate"
     t.string   "tax_description"
-    t.decimal  "coupon_rate",        :precision => 10, :scale => 0
+    t.decimal  "coupon_rate"
     t.string   "coupon_code"
     t.string   "coupon_description"
     t.string   "currency"
@@ -200,14 +200,14 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   end
 
   create_table "line_items", :force => true do |t|
-    t.decimal  "price",            :precision => 10, :scale => 0
+    t.decimal  "price"
     t.string   "description"
     t.integer  "quantity"
     t.integer  "display_price"
     t.integer  "display_quantity"
     t.integer  "invoice_id"
-    t.datetime "created_at",                                      :null => false
-    t.datetime "updated_at",                                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "invoice_number"
     t.string   "item_type"
   end
@@ -379,7 +379,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "attachment"
     t.string   "content_type"
     t.binary   "image_blob"
-    t.string   "subtype"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
