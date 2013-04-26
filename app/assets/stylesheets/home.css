@@ -116,6 +116,7 @@
 	background-image: -ms-linear-gradient(top,#fff,#f1f1f1);
 	background-image: -o-linear-gradient(top,#fff,#f1f1f1);
 	background-image: linear-gradient(top,#fff,#f1f1f1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1'); 
 	border: 1px solid transparent;
 	border: 1px solid transparent;
 }
@@ -207,6 +208,7 @@ zoom: 1;
 	background-image: -ms-linear-gradient(top,#fff,#f1f1f1);
 	background-image: -o-linear-gradient(top,#fff,#f1f1f1);
 	background-image: linear-gradient(top,#fff,#f1f1f1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1'); 
 }
 
 .ourknowledgepartners{
