@@ -26,13 +26,21 @@ border-radius:10px;
 	  box-shadow: 0 3px 5px 7px #cccccc;
    margin-top: -20px;
 }
+
+.coming_soon{
+	 margin-left: -25px;margin-top: -16px;position: absolute;
+}
+
+.coming_soon img{
+	width:80px;
+}
+
 .free{
 	 margin-left: -25px;margin-top: -16px;position: absolute;
 }
 
 .free img{
 	width:80px;
-
 }
 img{
 	border:none;
