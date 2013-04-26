@@ -10,14 +10,13 @@ lms:
   oauth_token: BWByYxU7pnqLi6lWICmGcYGn66xuaZEAsImJgLgUsmj3hSkoTK5UzCFesmZUdQDx
   root_url: https://192.168.1.40
   course_url_path: /courses/
-  #api_url_path: /api/v1
   api_root_url: https://192.168.1.40/api/v1
 mailserver:
   address: smtp.gmail.com
   port: 587
-  domain: example.com
-  user_name: surendragoud2009@gmail.com#beaconlms@gmail.com
-  password: surendra9826372592#beaconlms123$
+  domain: localhost:3000
+  user_name: beaconlms@gmail.com
+  password: beaconlms123$
 admin_mail:
   to: beaconlms@gmail.com
 payment_gateway:

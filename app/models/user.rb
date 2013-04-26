@@ -20,7 +20,6 @@ class User < ActiveRecord::Base
   
   include CasHelper
   include LmsHelper
-  
 
   rolify
   # Include default devise modules. Others available are:

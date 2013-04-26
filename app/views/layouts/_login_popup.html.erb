@@ -1,66 +1,59 @@
-
-
- <!-- Modal  -->
  <div id="loginmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"><%=image_tag("close.png", alt: "")%></a></button>
   <div class="modal-header" >
     <h3 id="myModalLabel" align="center">Login </h3>
-</div>
-<div class="modal-body">
- <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
-
-
-
-  <table style="margin-left:-27px;">
-    <tr>
-        <td>
-           <div style="margin-top:20px;">
-                     <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
-                <%= f.input :password %>
-                <%  @course_id = request.url%>
-               <% @a = @course_id.gsub('/courses', "").to_i%>
-                <%= hidden_field_tag "course_id",@a %>
-                <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
-                <div>
-               <u> <%= link_to "Forgot Password?", new_password_path(:user) %></u>
   </div>
-
-<div type="button"  data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"> <a href="#sign_up_Modal" onclick="close_popup()"  data-toggle="modal" style="text-decoration" ><u>Don't have an account? Create one. It's free!</u></a></a>
-</div>
-
-
-               
-      </div>
-    </td>
-
-  
-    <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('/assets/verticle_line.jpg');background-position: center;background-size: 2px 100%;">
-       <div style="margin: 90px 35px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
-    </td>
-    
-   
-    <td>
-       
-        <div style="margin-left:10px;margin-top:5px;">
-
-         <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), user_omniauth_authorize_path(:facebook) %>
-         <br>
-          Facebook
-         <br><br>
-         <%= link_to image_tag("Google_Logo.jpg", :class => "login_img", alt: ""), '/auth/google_oauth2/' %>
-         <br>
-        Google
-         <br><br>
-         <%= link_to image_tag("login-linkedin.png", :class => "login_img", alt: ""), '/auth/linkedin/' %>
-         <br>
-         LinkedIn
+  <div class="modal-body">
+   <%= simple_form_for(User.new, :as => :user, :url => session_path(:user), :html => {:class => 'form-vertical' }) do |f| %>
+   <table style="margin-left:-27px;">
+    <tr>
+      <td>
+       <div style="margin-top:20px;">
+         <%= f.input :email, input_html: { class: 'devics' }, :autofocus => true %>
+         <%= f.input :password %>
+         <%  @course_id = request.url%>
+         <% @a = @course_id.gsub('/courses', "").to_i%>
+         <%= hidden_field_tag "course_id",@a %>
+         <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
+          <br/>
+         <div>
+           <u> <%= link_to "Forgot Password?", new_password_path(:user) %></u>
          </div>
-</td>
-</tr>
+          <br/>
+         <div type="button"  data-dismiss="modal" aria-hidden="true"> <a href="#sign_up_Modal" onclick="close_popup()"  data-toggle="modal" style="text-decoration" ><u>Don't have an account? Create one. It's Free!</u></a></a>
+         </div>
+
+
+
+       </div>
+     
+
+
+     <td style="float:left;width:auto;background-repeat:no-repeat;background-image:url('/assets/verticle_line.jpg');background-position: center;background-size: 2px 100%;">
+       <div style="margin: 90px 35px;"> <%= image_tag("or.png", :size => "50x50", :alt => "") %> </div>
+     </td>
+
+
+     <td>
+
+      <div style="margin-left:10px;margin-top:5px;">
+
+       <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), '/auth/facebook/' %>
+       <br>
+       Facebook
+       <br><br>
+       <%= link_to image_tag("Google_Logo.jpg", :class => "login_img", alt: ""), '/auth/google_oauth2/' %>
+       <br>
+       Google
+       <br><br>
+       <%= link_to image_tag("login-linkedin.png", :class => "login_img", alt: ""), '/auth/linkedin/' %>
+       <br>
+       LinkedIn
+     </div>
+   </td>
+ </tr>
+
 </table>
 <% end %>
-
-<!--     Facebook   Linkedin Google <br>  <br> --> 
-
 </div>
 </div>

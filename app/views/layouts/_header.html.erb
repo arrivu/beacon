@@ -6,7 +6,7 @@ if (document.images) {
   nosmile = new Image;
 
   smile.src = "/assets/beaconslogop.png";
-  nosmile.src = "/assets/beaconslogo.png";
+  nosmile.src = "/assets/001beaconslogo.png";
 }
 function swapImage(thisImage,newImage) {
   if (document.images) {
@@ -18,7 +18,7 @@ function swapImage(thisImage,newImage) {
   <header class="navbar navbar-fixed-top" >
   <div >
     <div class="logo" >
-    <a href="/" onMouseOver="swapImage('jack','smile')" onMouseOut="swapImage('jack','nosmile')"><img src="/assets/beaconslogo.png" width="222" height="71" border="0" name="jack"></a>
+    <a href="/" onMouseOver="swapImage('jack','smile')" onMouseOut="swapImage('jack','nosmile')"><img src="/assets/001beaconslogo.png" width="222" height="71" border="0" name="jack"></a>
       </div>
     <div class="container" style= " padding-top:20px;  padding-bottom:20px;height:350px; margin-left:373px; ">
       <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>

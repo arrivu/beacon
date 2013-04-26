@@ -9,9 +9,10 @@
 <%- model_class = Topic -%>
 <table class="table table-condensed table-hover table table-striped">
   <thead>
-    <tr><td colspan="3"><h3 align = "center">Manage Category</h3></td></tr>
+    <tr><td colspan="4"><h3 align = "center">Manage Category</h3></td></tr>
     <tr class="tab_head">
       <th><%= model_class.human_attribute_name(:name) %></th>
+      <th>Color</th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -20,6 +21,7 @@
     <% @topics.each do |topic| %>
       <tr>
         <td><%= link_to topic.name, topic_path(topic) %></td>
+        <td><span style="width:20px;background-color:<%= topic.color %>">&nbsp;&nbsp;&nbsp;</span></td>
         <td><%=l topic.created_at, :format=>'%d %b. %Y %I:%M'  %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),

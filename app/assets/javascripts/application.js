@@ -16,6 +16,8 @@
 //= require_tree .
 //= require jquery.purr
 //= require best_in_place
+//= require jquery-minicolors
+//= require jquery-minicolors-simple_form
 
 $(function() {
   $(".pagination").on("click", function() {

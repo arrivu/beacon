@@ -31,6 +31,7 @@ class AuthenticationController < ApplicationController
         if user.save(:validate => false)
           Student.create(:user_id=>user.id)
           flash.now[:notice] = "Account created and signed in successfully."
+          user.add_role(:student)
           sign_in_and_redirect(:user, user)
           #login_and_redirect_user(user)
         else
