@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def index    
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    #@users = User.all.paginate(page: params[:page], :per_page => 10)  
+
     query = "%#{params[:query]}%"
       if params[:provider]==nil
         @users = User.all.paginate(page: params[:page], :per_page => 10)
@@ -16,8 +16,8 @@ class UsersController < ApplicationController
             @users = User.where("provider = ?",params[:provider]).all.paginate(page: params[:page], :per_page => 10)
             @total_users = User.where("provider = ?",params[:provider]).count
           else
-            @users = User.where("lower(name) like ? or lower(email) like ?) and provider = ?" , query.downcase,query.downcase,params[:provider]).paginate(page: params[:page], :per_page => 10)
-            @total_users = User.where("lower(name) like ? or lower(email) like ?) and provider = ?" , query.downcase,query.downcase,params[:provider]).count
+            @users = User.where("(lower(name) like ? or lower(email) like ?) and provider = ?" , query.downcase,query.downcase,params[:provider]).paginate(page: params[:page], :per_page => 10)
+            @total_users = User.where("(lower(name) like ? or lower(email) like ?) and provider = ?" , query.downcase,query.downcase,params[:provider]).count
           end
         else
           if(params[:query] != "")
