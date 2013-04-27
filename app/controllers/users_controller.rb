@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_admin_user, :only => [:show, :destroy,:index]
-  
+  require 'csv'
   
   def index    
     authorize! :index, @user, :message => 'Not authorized as an administrator.'

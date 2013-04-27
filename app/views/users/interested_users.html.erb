@@ -12,7 +12,7 @@
    
    <td><%= label_tag(:search,"Courses") %></td>
 
-   <td><%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %></td>
+   <td><%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title",:selected => params[:search]) , {:prompt => 'ALL'} %></td>
 
    <td valign="top"><%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %></td>
    </tr>
@@ -39,7 +39,7 @@
     <tbody>
       Download:
  
-  <%= link_to "Excel", interested_users_path(format: "xls") %>
+  <%= link_to "Excel", interested_users_path(format: "xls",:search =>params[:search]) %>
       <% @users.each do |user| %>
       <tr>
         <td ><%= link_to user.student.user.name %></td>

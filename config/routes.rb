@@ -1,7 +1,7 @@
 Myapp::Application.routes.draw do
 
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'
-  require 'csv'
+  
   resources :course_pricings
   resources :teaching_staffs
   resources :tax_rates
