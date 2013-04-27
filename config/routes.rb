@@ -22,7 +22,6 @@ Myapp::Application.routes.draw do
   
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
   match 'payments/course_payment',:to=>'payments#course_payment'
-  match 'payments/follow_course',:to=>'payments#follow_course'
   match 'payments/confirm_course_payment',:to=>'payments#confirm_course_payment'
   match "/download_pdf(.:format)" => "payments#invoice_pdf", :method => :get, :as=>:invoice_pdf
  
@@ -58,18 +57,23 @@ Myapp::Application.routes.draw do
   match '/concluded_courses', :to=> 'courses#concluded_courses'
   match '/edit_concluded_course', :to=> 'courses#edit_concluded_course'
   match '/update_un_concluded_course', :to=> 'courses#update_un_concluded_course'
+  match '/interested_users', :to=> 'users#interested_users'
 
-  devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions"}
+  devise_for :users, :controllers => {:registrations => "registrations",:sessions => "sessions",:omniauth_callbacks => "users/omniauth_callbacks"}
 
   devise_scope :user do
     match '/user_image', :to => 'registrations#user_image' 
   end
   
   resources :users
-  match '/auth/:provider/callback' => 'authentication#create'
+  #match '/auth/:provider/callback' => 'authentication#create'
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
 
   match '/my_courses', :to => 'courses#my_courses'  
-  match '/show_image/:id', :to => 'courses#show_image'  
+  match '/show_image/:id', :to => 'courses#show_image' 
+
+  devise_scope :user do
+  get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
+end
 end
 
