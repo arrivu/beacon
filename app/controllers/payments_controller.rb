@@ -21,12 +21,14 @@ class PaymentsController < ApplicationController
 	end
 
   def follow_course
-    @course = Course.find(params[:id]) 
-    student_course=StudentCourse.new
-    student_course.course_id=@course.id
-    student_course.status="follow"
-    student_course.student_id=current_user.student.id
-    student_course.save
+    if current_user.student != nil
+      @course = Course.find(params[:id]) 
+      student_course=StudentCourse.new
+      student_course.course_id=@course.id
+      student_course.status="follow"
+      student_course.student_id=current_user.student.id
+      student_course.save
+    end
     redirect_to :back    
   end
 
