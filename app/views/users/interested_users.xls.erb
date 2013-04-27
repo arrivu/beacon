@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        
+        <Cell><Data ss:Type="String">Username</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Interested Course</Data></Cell>
+        <Cell><Data ss:Type="String">Date</Data></Cell>
+      </Row>
+   <% @users.each do |user| %>
+      <Row>
+        
+        <Cell><Data ss:Type="String"><%= user.student.user.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.student.user.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= user.course.title %></Data></Cell>
+        <Cell><Data ss:Type="Date"><%= l user.created_at , :format=>'%d %b. %Y %I:%M' %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

@@ -37,6 +37,9 @@
       </tr>
     </thead>
     <tbody>
+      Download:
+ 
+  <%= link_to "Excel", interested_users_path(format: "xls") %>
       <% @users.each do |user| %>
       <tr>
         <td ><%= link_to user.student.user.name %></td>
