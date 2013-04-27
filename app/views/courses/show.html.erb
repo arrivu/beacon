@@ -1,5 +1,4 @@
 <%= render 'shared/course_detial' %>
-
 <div class="coursesyllabus">
   <div class="container">
     <div class="row">
@@ -39,10 +38,7 @@
            <td>
             <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
             <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70)  %>">Tweet</a>
-
-
           </td>
-
         </tr>
       </table>
     </div>
@@ -51,13 +47,11 @@
 </div>
 </div>
 </div>
-
 <div class="aboutauthor">
   <div class="container ">
     <h1>About the Author</h1>
     <% @authors.each do |author|%>
     <div class="row" style="width:30%; display:inline-block; clear:left; margin:15px">
-
       <div class="authorimage">
         <% if author.image_blob == nil %>
         <% if author.omni_image_url == nil %>
@@ -70,17 +64,14 @@
         <% end  %>
       </div>
       <div class="authorinfo">
-
         <h4><%= author.name %></h4>
         <p><%= author.user_desc %></p>
-
       </div>
       <div class="container clearfix"></div>
     </div>
     <% end %>
   </div>
 </div>
-
 <div class="previewcourse" id="previewcourse">
   <div class="container">
     <div class="row">
@@ -115,13 +106,9 @@
    </table>
  </div>
  <% end %>      
-
-</div>
-
-
 </div>
 </div>
-
+</div>
 <div class="coursereviews">
   <div class="container">
     <div class="row">
@@ -146,7 +133,6 @@
       <a href="#loginmodal" role="button" data-toggle="modal" class="browsemore1">Add reveiw</a>
       <% end %>  
     </div>
-
   </div>
 </div>
 <!-- 
@@ -154,8 +140,6 @@
 <%= render 'shared/course_preview' %>
 <%= render 'shared/course_reviews' %>
  -->
-
-
 <div align="center">
   <a href="<%= courses_path %>"><span class="browsemore" align="center">
     
