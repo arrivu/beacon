@@ -9,9 +9,8 @@
    <table>
    <tr>
    <td><%= form_tag "/interested_users", :method => 'get' do %></td>
-   <td><%= label_tag(:query,"Username or Email") %></td>
-   <td><%= text_field_tag(:query,params[:query]) %></td>
-   <td><%= label_tag(:provider,"Login Type") %></td>
+   
+   <td><%= label_tag(:search,"Courses") %></td>
 
    <td><%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %></td>
 
@@ -40,10 +39,8 @@
     <tbody>
       <% @users.each do |user| %>
       <tr>
-         
-         
-       
-        
+        <td ><%= link_to user.student.user.name %></td>
+        <td><%= user.student.user.email %></td>
         <td><%= user.course.title %></td>
         <td><%=l user.created_at , :format=>'%d %b. %Y %I:%M'%></td>
         

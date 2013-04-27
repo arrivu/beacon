@@ -62,31 +62,14 @@ class UsersController < ApplicationController
   end
   def interested_users
     query = "%#{params[:search]}%"
-    if params[:search]==nil
-        @users =  StudentCourse.where("status= ?","follow").paginate(page: params[:page], :per_page => 10) 
+    if params[:search]==nil || params[:search]=="All" || params[:search] == ""
+      @users =  StudentCourse.where("status= ?","follow").paginate(page: params[:page], :per_page => 10) 
         @total_users = @users.count
-      else
-        if params[:search]!="All" || params[:search] != ""
-          if(params[:query] == nil || params[:query] == "")
-            @users = StudentCourse.where("status= ? and course_id","follow",params[:search]).paginate(page: params[:page], :per_page => 10) 
-            @total_users = StudentCourse.where("status= ? and course_id","follow",params[:search]).count
-          else
-            #@users =  StudentCourse.all(:joins => :user).where("lower(user.name) like ? or lower(user.email) like ? and status= ? and course_id=?",query,query,"follow",params[:search])
-            #@total_users = @users = StudentCourse.all(:include => :user).where("lower(user.name) like ? or lower(user.email) like ? and status= ? and course_id=?",query,query,"follow",params[:search]).count
-             @users=StudentCourse.joins(:students).joins(:users).where("lower(users.name) like ? or lower(users.email) like ? != ",query.downcase,query.downcase)
-
-          end
-        else
-          if(params[:query] != "")
-            @users=StudentCourse.joins(:students).joins(:users).where("lower(users.name) like ? or lower(users.email) like ? != ",query.downcase,query.downcase)
-
-            @total_users = StudentCourse.joins(:students).joins(:users).where("lower(users.name) like ? or lower(users.email) like ? != ",query.downcase,query.downcase).count
-          else
-            @users =StudentCourse.where("status= ?","follow").paginate(page: params[:page], :per_page => 10) 
-            @total_users = StudentCourse.where("status= ?","follow").count
-        end
-      end 
-      end 
+    else
+      @users = StudentCourse.where("status= ? and course_id=?","follow",params[:search]).paginate(page: params[:page], :per_page => 10) 
+    @total_users = StudentCourse.where("status= ? and course_id=?","follow",params[:search]).count
+    end
+       
 
     end
 end
