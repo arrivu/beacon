@@ -13,7 +13,9 @@
    <td><%= text_field_tag(:query,params[:query]) %></td>
    <td><%= label_tag(:provider,"Login Type") %></td>
 
-   <td><%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %></td>
+    <td> <%= select_tag(:provider, options_for_select(['All','signup','facebook',['google','google_oauth2'],'linkedin'],:selected => params[:provider])) %>
+
+</td>
 
    <td valign="top"><%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %></td>
    </tr>
@@ -38,7 +40,6 @@
       </tr>
     </thead>
     <tbody>
-      
       <% @users.each do |user| %>
       <tr>
         <td ><%= link_to user.name, user %></td>
