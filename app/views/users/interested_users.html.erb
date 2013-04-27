@@ -5,7 +5,7 @@
 <br>
 <div class="row">
   <div class="span12 offset3" style="min-height:530px;">
-   <h3 align = "center">Users</h3>
+   <h3 align = "center">Interested Users</h3>
    <table>
    <tr>
    <td><%= form_tag "/interested_users", :method => 'get' do %></td>
@@ -23,17 +23,13 @@
           <span class="badge badge-info">Found <%=pluralize(@total_users,"user")%> </span>
         </div><br/><br/>
 
-   <table class="table table-condensed table-hover table table-striped">
+   <table class="table table-condensed table-hover table table-striped tablesorter" id="myTable">
     <thead>
       <tr class="tab_head">
         <th >Username</th>
         <th >Email</th>
         <th >Interested Course</th>
         <th>Date</th>
-        
-
-        <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -61,4 +57,10 @@
 
 
 </div>
-
+<script>
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter(); 
+    } 
+); 
+</script>  
