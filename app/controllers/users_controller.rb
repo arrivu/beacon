@@ -65,18 +65,16 @@ class UsersController < ApplicationController
     if params[:search]==nil || params[:search]=="All" || params[:search] == ""
       @users =  StudentCourse.where("status= ?","follow").paginate(page: params[:page], :per_page => 10) 
         @total_users = @users.count
-        respond_to do |format|
-    format.html
-        format.xls # { send_data @products.to_csv(col_sep: "\t") }
-  end  
+         
     else
       @users = StudentCourse.where("status= ? and course_id=?","follow",params[:search]).paginate(page: params[:page], :per_page => 10) 
     @total_users = StudentCourse.where("status= ? and course_id=?","follow",params[:search]).count
+    
+    end
     respond_to do |format|
     format.html
         format.xls # { send_data @products.to_csv(col_sep: "\t") }
   end  
-    end
       
 
     end
