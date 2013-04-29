@@ -55,15 +55,17 @@ class AuthenticationController < ApplicationController
 
       def user_cas_sign_in (user)
         tgt = nil
-        begin
-          tgt = cas_sign_in(user)  if cas_enable?
-          # Sets a cookie that expires in 1 hour.
-          #cookies[:tgt] = { :value => "#{tgt}", :expires => 1.hour.from_now }
-          cookies[:tgt] = tgt
-        rescue Exception => e
-          puts e.inspect
-          puts "There is some error to sing_in to cas using user : #{user.inspect}"
-          raise
+        if cas_enable?
+          begin
+            tgt = cas_sign_in(user)
+            # Sets a cookie that expires in 1 hour.
+            #cookies[:tgt] = { :value => "#{tgt}", :expires => 1.hour.from_now }
+            cookies[:tgt] = tgt
+          rescue Exception => e
+            puts e.inspect
+            puts "There is some error to sing_in to cas using user : #{user.inspect}"
+            raise
+          end
         end
       end     
 

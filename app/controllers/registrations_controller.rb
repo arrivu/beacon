@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   include CasHelper
   include LmsHelper
-  after_filter :login_cas, :lms_create, :student_create, :only => [:create]
+  #after_filter :login_cas, :lms_create, :student_create, :only => [:create]
 
   def after_sign_up_path_for(resource)
     '/courses'
@@ -12,29 +12,32 @@ class RegistrationsController < Devise::RegistrationsController
     send_data @user.image_blob, :type => @user.content_type, :disposition => 'inline'
   end
 
-  # # POST /resource
-  # def create
-  #   #build_resource
-  #   #
-  #   #if resource.save
-  #   #  if resource.active_for_authentication?
-  #   #    set_flash_message :notice, :signed_up if is_navigational_format?
-  #   #    sign_up(resource_name, resource)
-  #   #    #call cas sign to create the cas ticket
-  #   #    cas_sign_in(current_user) if  cas_enable?
-  #   #
-  #   #    respond_with resource, :location => after_sign_up_path_for(resource)
-  #   #  else
-  #   #    set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
-  #   #    expire_session_data_after_sign_in!
-  #   #    respond_with resource, :location => after_inactive_sign_up_path_for(resource)
-  #   #  end
-  #   #else
-  #   #  clean_up_passwords resource
-  #   #  respond_with resource
-  #   #end
-  #   super       
-  # end
+  # POST /resource
+  def create
+    #build_resource
+    #
+    #if resource.save
+    #  if resource.active_for_authentication?
+    #    set_flash_message :notice, :signed_up if is_navigational_format?
+    #    sign_up(resource_name, resource)
+    #    #call cas sign to create the cas ticket
+    #    cas_sign_in(current_user) if  cas_enable?
+    #
+    #    respond_with resource, :location => after_sign_up_path_for(resource)
+    #  else
+    #    set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+    #    expire_session_data_after_sign_in!
+    #    respond_with resource, :location => after_inactive_sign_up_path_for(resource)
+    #  end
+    #else
+    #  clean_up_passwords resource
+    #  respond_with resource
+    #end
+    super     
+    student_create     
+    lms_create
+    login_cas   
+  end
 
   def update
     @user = User.find(current_user.id)
@@ -62,23 +65,29 @@ class RegistrationsController < Devise::RegistrationsController
 
     def login_cas
       #call cas sign to create the cas ticket
-      begin
-        tgt = cas_sign_in(current_user) if (current_user && cas_enable?)
-        cookies[:tgt] = tgt if tgt
-      rescue Exception => e
-        puts e.inspect
-        puts "There is some error to sing_in to cas using user : #{current_user.inspect}"
-        raise
+      if (current_user && cas_enable?)
+        begin
+          tgt = cas_sign_in(current_user) 
+          cookies[:tgt] = tgt if tgt
+        rescue Exception => e
+          puts e.inspect
+          puts "There is some error to sing_in to cas using user : #{current_user.inspect}"
+          raise
+        end
       end
     end
     
     def student_create
-      Student.create(:user_id=>current_user.id) if current_user 
-      current_user.add_role(:student)
+      if current_user 
+        Student.create(:user_id=>current_user.id) 
+        current_user.add_role(:student)
+      end
     end
 
     def lms_create
-      lms_create_user(current_user)  if (current_user && lms_enable?)
+      if (current_user && lms_enable?)
+        lms_create_user(current_user)
+      end
     end
    
     # check if we need password to update user data

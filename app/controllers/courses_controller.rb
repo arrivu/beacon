@@ -79,8 +79,6 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     end
   end
 
-
-
   @modules=lms_get_modules(@course)
     #@countCommentsPerPage = 6
     @comments = @course.comments.paginate(page: params[:page], per_page: 6)
