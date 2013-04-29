@@ -1,11 +1,11 @@
 cas:
-  enable: false
+  enable: true
   expiry: 3600
-  url: https://localhost:8888
+  url: https://cas.arrivu.corecloud.com
   login_path: '/cas/api-login'
   logout_path: '/cas/api-logout'
 lms:
-  enable: false
+  enable: true
   account_id: 1
   oauth_token: 3p36JvnjHXfp1d5NwTqmtKExNRFoowLeMwbtbXzJJz3hTPS4geis8YcA9XWYEcFn
   root_url: https://lms.arrivu.corecloud.com/
