@@ -43,7 +43,7 @@ end
 def destroy
   @topic = Topic.find(params[:id])
   @coursecheck=Course.where(topic_id: @topic.id )
-  if @coursecheck!=nil
+  if @coursecheck!=[]
     flash[:error] = "This category cannot be deleted"
     redirect_to topics_path
   else
