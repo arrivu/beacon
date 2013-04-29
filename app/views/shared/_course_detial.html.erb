@@ -47,41 +47,26 @@
           <div class="container clearfix"></div>
           <div class="subsection">
 
-
             <% if (current_user.present? ) %>
-            <% if !(current_user.has_role? :admin) %>
-            <% if @status=="enroll" %>
-            <a href="<%= lms_course_url(@course.lms_id)%>" target="_blank"><div class="enroll">
-              Take this Course Now!
-            </div></a>
-
-            <% elsif @status=="completed" %>
-
+              <% if !(current_user.has_role? :admin) %>
+                <% if @course.is_coming_soon %>
+                  <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
+                <% elsif @status=="enroll" %>
+                <a href="<%= lms_course_url(@course.lms_id)%>" target="_blank"><div class="enroll">Take this Course Now!
+                </div></a>
+                <% elsif @status=="completed" %>
+                <% else %>
+                  <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+                <% end %> 
+              <% end %> 
             <% else %>
-            <% if @course.is_coming_soon %>
-           <% if @status=="follow" %>
-           
-            <%else %>
-            <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
-            <% end %>
-            <% else %>
-            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+              <% if @course.is_coming_soon %>
+                <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
+              <% else %>
+                <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+              <% end %> 
+            <% end %> 
 
-            <% end %>
-
-            <% end %>
-            <%else%>  
-            <% if @course.is_coming_soon %>
-            <% if @status=="follow" %>
-            
-            <%else %>
-            <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
-            <% end %>
-            <% else %>
-            <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
-            <% end %>
-            <% end %>
-            <% end %>  
             <a href="#previewcourse"><div class="shortlist">
               Preview
             </div></a>

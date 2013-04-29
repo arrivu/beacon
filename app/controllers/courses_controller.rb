@@ -36,7 +36,6 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
    @course = Course.new(params[:course])
    @course.user_id = current_user.id
    @course.isconcluded="f"
-   if @course.
    if @course.save
      flash[:success] = "Course added successfully!!!!"
      lms_create_course(@course)

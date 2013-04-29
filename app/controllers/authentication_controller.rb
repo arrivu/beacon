@@ -1,6 +1,7 @@
 class AuthenticationController < ApplicationController
-
+  include LmsHelper
   include CasHelper
+
   def create
     auth = request.env["omniauth.auth"]
 
@@ -9,9 +10,8 @@ class AuthenticationController < ApplicationController
     if authentication
       # Authentication found, sign the user in.
       flash[:info] = "Welcome. #{authentication.user.name}"
-      sign_in_and_redirect(:user, authentication.user)
-
-      #login_and_redirect_user(authentication.user)
+      #sign_in_and_redirect(:user, authentication.user)
+      login_and_redirect_user(authentication.user)
     else
       # Authentication not found, thus a new user.
       email=auth['info']['email']
@@ -28,12 +28,13 @@ class AuthenticationController < ApplicationController
       else
         user = User.new
         user.apply_omniauth(auth)
-        if user.save(:validate => false)
+        if user.save(:validate => false)          
           Student.create(:user_id=>user.id)
+          lms_create_user(user) if lms_enable?
           flash.now[:notice] = "Account created and signed in successfully."
           user.add_role(:student)
-          sign_in_and_redirect(:user, user)
-          #login_and_redirect_user(user)
+          #sign_in_and_redirect(:user, user)
+          login_and_redirect_user(user)
         else
           flash.now[:error] = "Error while creating a user account. Please try again."
           redirect_to root_url
@@ -64,7 +65,7 @@ class AuthenticationController < ApplicationController
           puts "There is some error to sing_in to cas using user : #{user.inspect}"
           raise
         end
-      end
+      end     
 
 end
 
