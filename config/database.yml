@@ -15,6 +15,14 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 
+# development:
+#   adapter: postgresql
+#   database: beacon_production
+#   username: beacon
+#   password: beacon
+#   host: 192.168.1.51
+#   reconnect: true
+
 development:
   adapter: sqlite3
   database: db/development.sqlite3
@@ -28,10 +36,10 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
-  pool: 5
+  adapter: postgresql
+  encoding: utf8
+  database: beacon_production
+  host: 192.168.1.51
+  username: beacon
+  password: beacon
   timeout: 5000
-
-  cucumber:
-  <<: *test

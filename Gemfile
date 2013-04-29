@@ -59,7 +59,7 @@ gem "rails_config"
 
 gem "simple_form", ">= 2.0.4"
 # group :development do
-# gem 'pg', '0.12.2'
+gem 'pg', '0.12.2'
  #gem 'mysql2'
 # end
 gem 'acts_as_commentable', '3.0.1'
