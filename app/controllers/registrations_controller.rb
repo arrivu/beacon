@@ -4,7 +4,11 @@ class RegistrationsController < Devise::RegistrationsController
   #after_filter :login_cas, :lms_create, :student_create, :only => [:create]
 
   def after_sign_up_path_for(resource)
-    '/courses'
+   if redirect_back_req?
+      redirect_back
+    else
+      courses_path
+    end
   end
 
   def user_image
