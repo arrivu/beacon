@@ -61,7 +61,7 @@ class SessionsController < Devise::SessionsController
         tgt = cookies['tgt']
         begin        
           cas_sign_out_tgt(tgt)
-          cookies.delete(:tgt, :domain => cas_cookie_domain)
+          cookies.delete(:tgt, :domain => :all)
         rescue  Exception => e
           puts e.inspect
           puts "There is some error to sign_out from cas using user email : #{current_user.email} and tgt : #{tgt}"

@@ -91,7 +91,7 @@ class RegistrationsController < Devise::RegistrationsController
           tgt = cas_sign_in(user)
           #cookies[:tgt] = tgt
           # Sets a cookie with the domain            
-          cookies[:tgt] = { :value => "#{tgt}", :domain => cas_cookie_domain }          
+          cookies[:tgt] = { :value => "#{tgt}", :domain => :all }          
         rescue Exception => e
           puts e.inspect
           puts "There is some error to sing_in to cas using user : #{user.inspect}"

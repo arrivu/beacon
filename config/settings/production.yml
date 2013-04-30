@@ -3,8 +3,7 @@ cas:
   expiry: 3600
   url: https://cas.arrivu.corecloud.com
   login_path: '/cas/api-login'
-  logout_path: '/cas/api-logout'
-  tgt_cookie_domain: '.arrivu.corecloud.com'
+  logout_path: '/cas/api-logout'  
 lms:
   enable: fasle
   account_id: 1
