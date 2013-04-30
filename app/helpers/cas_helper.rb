@@ -1,4 +1,5 @@
 module CasHelper
+  include BooleanHelper
 
     class LoginResponse
       attr_accessor :type, :tgt, :msg
@@ -30,6 +31,10 @@ module CasHelper
       parse_boolean "#{Settings.cas.enable}"
     end
 
+    def cas_cookie_domain
+      parse_boolean "#{Settings.cas.tgt_cookie_domain}"
+    end
+
     private
 
         def login_url
@@ -38,11 +43,7 @@ module CasHelper
 
         def logout_url
           "#{Settings.cas.url}#{Settings.cas.logout_path}"
-        end
-
-        def parse_boolean(value)
-          [true, 'true', 1, '1', 't'].include?(value.respond_to?(:downcase) ? value.downcase : value)
-        end
+        end     
 
         def login(username, password)
           #puts login_url
