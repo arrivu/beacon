@@ -49,21 +49,27 @@
 
             <% if (current_user.present? ) %>
               <% if !(current_user.has_role? :admin) %>
+
                 <% if @course.is_coming_soon %>
                   <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
                 <% elsif @status=="enroll" %>
                 <a href="<%= lms_course_url("#{@course.lms_id}/modules")%>" target="_blank"><div class="enroll">Take this Course Now!
                 </div></a>
                 <% elsif @status=="completed" %>
+                
                 <% else %>
                   <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
                 <% end %> 
+
               <% end %> 
+
             <% else %>
               <% if @course.is_coming_soon %>
-                <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
+               <a href="#loginmodal" role="button" data-toggle="modal" class="enroll">Follow</a>
+                
               <% else %>
-                <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
+              <a href="#loginmodal" role="button" data-toggle="modal" class="enroll">Enroll</a>
+
               <% end %> 
             <% end %> 
 
