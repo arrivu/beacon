@@ -1,7 +1,8 @@
 module LmsHelper
+	include BooleanHelper
 
 	def lms_enable?
-		Settings.lms.enable
+		parse_boolean "#{Settings.lms.enable}"
 	end
 
 	def lms_course_url(lms_id)

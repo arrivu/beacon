@@ -44,6 +44,8 @@ class AuthenticationController < ApplicationController
   end
 
 
+
+
   private
 
       def login_and_redirect_user(user)
@@ -58,9 +60,9 @@ class AuthenticationController < ApplicationController
         if cas_enable?
           begin
             tgt = cas_sign_in(user)
-            # Sets a cookie that expires in 1 hour.
-            #cookies[:tgt] = { :value => "#{tgt}", :expires => 1.hour.from_now }
-            cookies[:tgt] = tgt
+            #cookies[:tgt] = tgt
+            # Sets a cookie with the domain            
+            cookies[:tgt] = { :value => "#{tgt}", :domain => cas_cookie_domain }  
           rescue Exception => e
             puts e.inspect
             puts "There is some error to sing_in to cas using user : #{user.inspect}"

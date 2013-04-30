@@ -3,9 +3,10 @@ cas:
   expiry: 3600 #one hour
   url: https://cas.arrivu.corecloud.com/
   login_path: '/cas/api-login'
-  logout_path: '/cas/api-logout'  
+  logout_path: '/cas/api-logout' 
+  tgt_cookie_domain: '.lvh.me'
 lms:
-  enable: true
+  enable: fasle
   account_id: 1
   oauth_token: 3p36JvnjHXfp1d5NwTqmtKExNRFoowLeMwbtbXzJJz3hTPS4geis8YcA9XWYEcFn
   root_url: https://lms.arrivu.corecloud.com/

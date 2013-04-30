@@ -33,10 +33,12 @@ class RegistrationsController < Devise::RegistrationsController
     #  clean_up_passwords resource
     #  respond_with resource
     #end
-    super     
-    student_create     
-    lms_create
-    login_cas   
+    super   
+    if current_user  
+      student_create     
+      lms_create
+      user_cas_sign_in current_user
+    end 
   end
 
   def update
@@ -63,20 +65,37 @@ class RegistrationsController < Devise::RegistrationsController
 
     private
 
-    def login_cas
-      #call cas sign to create the cas ticket
-      if (current_user && cas_enable?)
+    # def login_cas
+    #   #call cas sign to create the cas ticket
+    #   if (current_user && cas_enable?)
+    #     begin
+    #       #cookies[:tgt] = tgt
+    #       # Sets a cookie with the domain            
+    #       cookies[:tgt] = { :value => "#{tgt}", :domain => cas_cookie_domain }          
+    #     rescue Exception => e
+    #       puts e.inspect
+    #       puts "There is some error to sing_in to cas using user : #{current_user.inspect}"
+    #       raise
+    #     end
+    #   end
+    # end
+
+    def user_cas_sign_in (user)
+      tgt = nil
+      if cas_enable?
         begin
-          tgt = cas_sign_in(current_user) 
-          cookies[:tgt] = tgt if tgt
+          tgt = cas_sign_in(user)
+          #cookies[:tgt] = tgt
+          # Sets a cookie with the domain            
+          cookies[:tgt] = { :value => "#{tgt}", :domain => cas_cookie_domain }          
         rescue Exception => e
           puts e.inspect
-          puts "There is some error to sing_in to cas using user : #{current_user.inspect}"
+          puts "There is some error to sing_in to cas using user : #{user.inspect}"
           raise
         end
       end
-    end
-    
+    end   
+
     def student_create
       if current_user 
         Student.create(:user_id=>current_user.id) 
