@@ -1,0 +1,29 @@
+cas:
+  enable: true
+  expiry: 3600
+  url: https://cas.arrivu.corecloud.com
+  login_path: '/cas/api-login'
+  logout_path: '/cas/api-logout'
+  tgt_cookie_domain: '.arrivu.corecloud.com'
+lms:
+  enable: true
+  account_id: 1
+  oauth_token: 3p36JvnjHXfp1d5NwTqmtKExNRFoowLeMwbtbXzJJz3hTPS4geis8YcA9XWYEcFn
+  root_url: https://lms.arrivu.corecloud.com/
+  course_url_path: /courses/
+  api_root_url: https://lms.arrivu.corecloud.com/api/v1
+mailserver:
+  address: smtp.gmail.com
+  port: 587
+  domain: "beacon-learning.herokuapp.com"
+  user_name: beaconlms@gmail.com
+  password: beaconlms123$
+admin_mail:
+  to: beaconlms@gmail.com
+payment_gateway:
+  enable: false 
+  merchant_id: "M_blahpache_5678"
+  work_key: "6abc0ty90e0v7jk9hj"
+  ccavenue_account: "test123"
+invoices:
+  notes: "Thank you for your enrollment!"

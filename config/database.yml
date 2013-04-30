@@ -43,3 +43,11 @@ production:
   username: beacon
   password: beacon
   timeout: 5000
+
+staging:
+  adapter: postgresql
+  database: beacon_production
+  username: beacon
+  password: beacon
+  host: 192.168.1.51
+  reconnect: true
