@@ -11,11 +11,13 @@ class PaymentsController < ApplicationController
 		@price = Course.course_price(@course)
 		@tax = Course.tax_calculation(@course,@price)
     if @price.to_i == 0
-      student_course=StudentCourse.new
-      student_course.course_id=@course.id
-      student_course.status="enroll"
-      student_course.student_id=current_user.student.id
-      student_course.save
+     # student_course=StudentCourse.new
+     #  student_course.course_id=@course.id
+     #  student_course.status="enroll"
+     #  student_course.student_id=current_user.student.id
+     #  student_course.save
+     #  lms_enroll_student(@course.lms_id,current_user.lms_id)
+      enroll_student(@course, current_user)
       redirect_to :back
     end
 	end
@@ -107,12 +109,13 @@ class PaymentsController < ApplicationController
   		 @coupon = Coupon.find_coupon(params[:coupon_code], user_id = current_user.id, metadata=@course.id)
   		 Coupon.redeem(params[:coupon_code], @user.id, tx_id, @coupon.metadata)
   	  end
-  	  student_course=StudentCourse.new
-      student_course.course_id=@course.id
-      student_course.status="enroll"
-      student_course.student_id=current_user.student.id
-      student_course.save
-      lms_enroll_student(@course.lms_id,current_user.lms_id)
+  	 # student_course=StudentCourse.new
+     #  student_course.course_id=@course.id
+     #  student_course.status="enroll"
+     #  student_course.student_id=current_user.student.id
+     #  student_course.save
+     #  lms_enroll_student(@course.lms_id,current_user.lms_id)
+      enroll_student(@course, current_user)
   		invoice = invoices_data(@course, params)
   		invoice_generate_pdf(@course, params)			
       session[:payment_completed]=true
@@ -140,4 +143,15 @@ class PaymentsController < ApplicationController
 		# 	end
 		#  end
 	end
+
+
+  private 
+      def enroll_student (course, user)
+        student_course=StudentCourse.new
+        student_course.course_id=course.id
+        student_course.status="enroll"
+        student_course.student_id= user.student.id
+        student_course.save
+        lms_enroll_student(course.lms_id, user.lms_id)
+      end
 end
