@@ -159,4 +159,14 @@ $(document).ready(function(){
 
 });
 
+function onYouTubePlayerReady(playerId) {
+    ytplayer = document.getElementById("ytplayer");
+}
+
+function stop() {
+  if (ytplayer) {
+    ytplayer.stopVideo();
+  }
+}
+
 </script>
