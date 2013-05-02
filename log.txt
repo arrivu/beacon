@@ -1,3 +1,0 @@
-
-
-CommentsController new action 10
