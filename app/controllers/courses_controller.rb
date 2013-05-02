@@ -65,6 +65,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
 
  def show
    @course = Course.find(params[:id])
+   @price = Course.course_price(@course)
    @authors=[]
    @course.teaching_staffs.each do |teaching_staff|
      @authors << User.where(id: teaching_staff.user_id).first
