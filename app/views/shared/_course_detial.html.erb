@@ -1,4 +1,4 @@
-
+ 
 <div class="coursedetailtop">
 
   <div class="container">
@@ -51,7 +51,9 @@
               <% if !(current_user.has_role? :admin) %>
 
                 <% if @course.is_coming_soon %>
+                <% if @status!="follow" %>
                   <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
+                  <% end %>
                 <% elsif @status=="enroll" %>
                 <a href="<%= lms_course_url("#{@course.lms_id}/modules")%>" target="_blank"><div class="enroll">Take this Course Now!
                 </div></a>
@@ -67,7 +69,7 @@
               <% if @course.is_coming_soon %>
                 <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
               <!--  <a href="#loginmodal" role="button" data-toggle="modal" class="enroll">Follow</a> -->
-                
+              
               <% else %>
                <%= link_to "enroll",payments_course_payment_path(:id=>@course.id),  :class=>"enroll" %>
               <!-- <a href="#loginmodal" role="button" data-toggle="modal" class="enroll">Enroll</a> -->
@@ -78,7 +80,6 @@
             <a href="#previewcourse"><div class="shortlist">
               Preview
             </div></a>
-
 
           </div>
           <div class="container clearfix"></div>

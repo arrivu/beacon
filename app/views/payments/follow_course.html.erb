@@ -1,0 +1,84 @@
+ <style type="text/css">
+ .follow{
+
+text-align: center;
+font-size: 20px;
+height: 40px;
+line-height: 40px;
+margin: 10px;
+font-family: times newr roman;
+ }
+ .body
+ {
+  padding: 20px;
+ }
+
+
+ </style>
+ <div id="follow_model" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"><%=image_tag("close.png", alt: "")%></a></button>
+  <div class="modal-header" >
+    <h3 id="myModalLabel" align="center">Follow </h3>
+  </div>
+  <div class="body">
+    <div>
+      <div class="follow">
+        Kudos! You've taken a step in the right direction
+      </div>
+      <div class="follow">
+        We will keep you posted on how to proceed
+      </div>
+      <div class="follow">
+        Share the joy with your friends
+      </div>
+      <br>
+      <div class="">
+        <table align="Center"> <tr>
+         
+
+           <td><script type="text/javascript" src="http://platform.linkedin.com/in.js"></script></td>
+           <script type="in/share" data-url="<%=request.url%>" data-counter="right"></script>
+           <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  
+           
+           <td><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like></td> 
+           <script src="https://apis.google.com/js/plusone.js"></script>
+          
+           <td><g:plus action="share" annotation="bubble" ></g:plus></td> 
+           
+           <td>
+            <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70)  %>">Tweet</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      I just signed up for this course. Check it out!.
+    </div>
+    <div>
+<table>
+<tr>
+  <td>  <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => @course.id), width: "50", height: "50" %></td>
+  <td>
+<div><%= @course.title %></div>
+<div> <%= @course.short_desc %></div>
+  </td>
+</tr>
+
+</table>
+
+ 
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+  $("#follow_model").modal('show');
+
+  function close_popup(){
+    
+    window.location.href="/courses/<%= @course.id %>";
+  }
+
+</script>
