@@ -9,6 +9,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
   :completed_courses,:updatecompleted_details,:conclude_course,:concluded_course_update]
 
   def show_image
+    
    @course = Course.find(params[:id])
    send_data @course.data, :type => @course.content_type, :disposition => 'inline'
  end
