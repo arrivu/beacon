@@ -10,36 +10,35 @@ class PaymentsController < ApplicationController
     @course = Course.find(params[:id]) 
     @price = Course.course_price(@course)
     @tax = Course.tax_calculation(@course,@price)
-    if @price.to_i == 0
+    if @price.to_i == 0     
+     enroll_student(@course, current_user)
+     redirect_to :back
+   end
+ end
+
+ def follow_course
+
+  if current_user.student != nil
+    @course = Course.find(params[:id])
+
+    @status_check = StudentCourse.find_by_student_id_and_course_id(current_user.student.id,@course.id)
+    if @status_check==nil
       student_course=StudentCourse.new
       student_course.course_id=@course.id
-      student_course.status="enroll"
+      student_course.status="follow"
       student_course.student_id=current_user.student.id
-      student_course.save
-      redirect_to :back
-    end
-  end
-
-  def follow_course
-    if current_user.student != nil
-      @course = Course.find(params[:id])
-      @status_check = StudentCourse.find_by_student_id_and_course_id(current_user.student.id,@course.id)
-      if @status_check==nil
+      student_course.save 
+    else
+      if @status_check.status!="follow"
         student_course=StudentCourse.new
         student_course.course_id=@course.id
         student_course.status="follow"
         student_course.student_id=current_user.student.id
-        student_course.save 
-      else
-        if @status_check.status!="follow"
-          student_course=StudentCourse.new
-          student_course.course_id=@course.id
-          student_course.status="follow"
-          student_course.student_id=current_user.student.id
-          student_course.save
-        end
+        student_course.save
       end
     end
+    
+  end
     #redirect_to :back    
   end
 
@@ -118,17 +117,14 @@ end
        @coupon = Coupon.find_coupon(params[:coupon_code], user_id = current_user.id, metadata=@course.id)
        Coupon.redeem(params[:coupon_code], @user.id, tx_id, @coupon.metadata)
      end
-     student_course=StudentCourse.new
-     student_course.course_id=@course.id
-     student_course.status="enroll"
-     student_course.student_id=current_user.student.id
-     student_course.save
-     lms_enroll_student(@course.lms_id,current_user.lms_id)
+
+     enroll_student(@course, current_user)
      invoice = invoices_data(@course, params)
      invoice_generate_pdf(@course, params)			
      session[:payment_completed]=true
    end
  end
+
 
   # call this method for when some one click on download invoice link  
   def invoice_pdf
@@ -151,4 +147,15 @@ end
 		# 	end
 		#  end
 	end
+
+
+  private 
+  def enroll_student (course, user)
+    student_course=StudentCourse.new
+    student_course.course_id=course.id
+    student_course.status="enroll"
+    student_course.student_id= user.student.id
+    student_course.save
+    lms_enroll_student(course.lms_id, user.lms_id)
+  end
 end
