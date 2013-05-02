@@ -21,8 +21,10 @@ class PaymentsController < ApplicationController
   end
 
   def follow_course
+    
     if current_user.student != nil
       @course = Course.find(params[:id])
+      
       @status_check = StudentCourse.find_by_student_id_and_course_id(current_user.student.id,@course.id)
       if @status_check==nil
         student_course=StudentCourse.new
@@ -39,7 +41,8 @@ class PaymentsController < ApplicationController
           student_course.save
         end
       end
-    end
+    
+  end
     #redirect_to :back    
   end
 

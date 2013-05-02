@@ -12,9 +12,23 @@ font-family: times newr roman;
  {
   padding: 20px;
  }
+.course-details
+{
+  padding: 10px;
+  font-weight: bold;
+
+}
+.imag{
+
+  margin:10px;
+  border: solid 1px silver;
+}
 
 
  </style>
+<%if current_user.has_role? :admin %>
+
+<% else %>
  <div id="follow_model" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"><%=image_tag("close.png", alt: "")%></a></button>
   <div class="modal-header" >
@@ -52,22 +66,26 @@ font-family: times newr roman;
         </tr>
       </table>
     </div>
-    <div>
+     <hr>
+    <div style="text-align:center">
       I just signed up for this course. Check it out!.
     </div>
     <div>
-<table>
+
+<table class="course-details" align="center">
 <tr>
-  <td>  <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => @course.id), width: "50", height: "50" %></td>
+  <td>  <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => @course.id), width: "50", height: "50",class: "imag" %></td>
   <td>
-<div><%= @course.title %></div>
+<i><div>
+<%= @course.title %></div>
 <div> <%= @course.short_desc %></div>
-  </td>
+  </i></td>
 </tr>
 
 </table>
-
- 
+<div align="right">
+ <button type="button"  data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()">close</a></button>
+ </div>
     </div>
   </div>
 </div>
@@ -82,3 +100,4 @@ font-family: times newr roman;
   }
 
 </script>
+<% end %>
