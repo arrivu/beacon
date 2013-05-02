@@ -31,7 +31,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:index]
 
 	def update
 		@preview = CoursePreview.find(params[:id])
-		if @preview.update_attributes(params[:preview])
+		if @preview.update_attributes(params[:course_preview])
 			flash[:success] = "Successfully Updated Preview."
 			redirect_to course_previews_path
 		else
