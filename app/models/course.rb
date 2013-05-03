@@ -17,9 +17,9 @@
 class Course < ActiveRecord::Base
   self.per_page = 6
   acts_as_commentable
-  attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, 
+  attr_accessible :lms_id,:attachment,:background,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, 
   :releasemonth, :is_coming_soon,:ispopular,:filename,:content_type,:data, :short_desc,:teaching_staff_ids,
-  :isconcluded,:concluded_review,:start_date,:end_date,:background_image
+  :isconcluded,:concluded_review,:start_date,:end_date,:background_image,:background_image_type
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
 
@@ -81,52 +81,58 @@ class Course < ActiveRecord::Base
     return tax.round(2)
   end
 
- def student_enrolled
-  load_student("enroll")  
-end
-
-def student_completed
-  load_student("completed")  
-end 
-
-def student_shortlisted
-  load_student("shortlisted")
-end 
-
-def student_follow
-  load_student("follow")
-end 
-
-def load_student( status)
-  student_ids = []
-  self.student_courses.where(:status => status).each do |course_status|
-    student_ids << course_status.student_id
+  def student_enrolled
+    load_student("enroll")  
   end
-  Student.find(courses_ids)      
-end
+
+  def student_completed
+    load_student("completed")  
+  end 
+
+  def student_shortlisted
+    load_student("shortlisted")
+  end 
+
+  def student_follow
+    load_student("follow")
+  end 
+
+  def load_student( status)
+    student_ids = []
+    self.student_courses.where(:status => status).each do |course_status|
+      student_ids << course_status.student_id
+    end
+    Student.find(courses_ids)      
+  end
 
 
-def staff_image
+  def staff_image
     #named_scope :omni_image_url, lambda {|c| {:joins=>([:courses,:teaching_staffs,:users]):conditions=>['baz_cat=',c]}}
   end
 
   def teacher_course
    self.teaching_staff_courses.where(:teaching_staff_type => "teacher")
- end
+  end
 
- def teacher_assistant_course
-   self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
- end
+  def teacher_assistant_course
+    self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
+  end
 
- def attachment=(incoming_file)
-  self.image = incoming_file.original_filename
-  self.content_type = incoming_file.content_type
-  self.data = incoming_file.read
-end
+  def attachment=(incoming_file)
+    self.image = incoming_file.original_filename
+    self.content_type = incoming_file.content_type
+    self.data = incoming_file.read
+  end
 
-def image=(new_filename)
-  write_attribute("image", sanitize_filename(new_filename))
-end
+  def background=(incoming_file)
+    self.background_image_type = incoming_file.content_type
+    self.background_image = incoming_file.read
+  end
+
+
+  def image=(new_filename)
+    write_attribute("image", sanitize_filename(new_filename))
+  end
    #def self.authorimage(courseid)
   #find_by_sql("select u.image_blob,u.name from teaching_staff_courses t left join user u on t.teaching_staff_id=u.id left join course c on c.id=t.course_id
    #where c.id=#{courseid}")
@@ -135,10 +141,10 @@ end
 
   def course_price_inbetween_date
    self.course_pricings.find(:all, :conditions => "#{Date.today} >= start_date or #{Date.today} <= end_date")
- end
+  end
 
- private
- def sanitize_filename(filename)
+  private
+  def sanitize_filename(filename)
     #get only the filename, not the whole path (from IE)
     just_filename = File.basename(filename)
     #replace all non-alphanumeric, underscore or periods with underscores

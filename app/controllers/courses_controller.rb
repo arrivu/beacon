@@ -7,12 +7,17 @@ ActiveMerchant::Billing::Integrations
 #before_filter :initialize, :only => [:create, :edit,:update,:delete]
 before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses,:course_status_search,
   :completed_courses,:updatecompleted_details,:conclude_course,:concluded_course_update]
-  
-  caches_page :show_image
+
+  caches_page :show_image,:background_image
   def show_image    
-   @course = Course.find(params[:id])
-   send_data @course.data, :type => @course.content_type, :disposition => 'inline'
- end
+    @course = Course.find(params[:id])
+    send_data @course.data, :type => @course.content_type, :disposition => 'inline'
+  end
+
+  def background_image    
+    @course = Course.find(params[:id])
+    send_data @course.background_image, :type => @course.background_image_type, :disposition => 'inline'
+  end
 
  def index
    @total_course_count = Course.where(ispublished: 1,isconcluded: "f").all.count
