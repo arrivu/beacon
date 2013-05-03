@@ -3,8 +3,8 @@
 $(document).ready(function(){
     var frames = document.getElementsByTagName("iframe");
     for (var i = 0; i < frames.length; i++) {
-             frames[i].src += "?wmode=opaque&autoplay=0;"  
-        
+             frames[i].src += "?wmode=opaque&autoplay=0&enablejsapi=1;"  
+              frames[i].id="ytplayer";
       }
 });
 </script>
@@ -105,7 +105,7 @@ $(document).ready(function(){
                 <h3 id="myModalLabel">Preview Video</h3>
               </div>
               <div class="modal-body" style="margin-left:0px;">
-                
+                <button onClick="please()">stop</button>
                <%= raw(p.video_url) %>
              
              </div>
@@ -167,4 +167,12 @@ $(document).ready(function(){
   $(".star").click(function(){
    $(".rated").html("Course Rated")
  });
+
+ $(".close").click(function(){
+//document.getElementById("ytplayer").src="";
+ });
+
+});
+
+
 </script>
