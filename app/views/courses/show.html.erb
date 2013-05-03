@@ -1,11 +1,12 @@
 <%= render 'shared/course_detial' %>
 <script type="text/javascript">
 $(document).ready(function(){
-  var frames = document.getElementsByTagName("iframe");
-  for (var i = 0; i < frames.length; i++) {
-    frames[i].src += "?wmode=opaque&autoplay=1&enablejsapi=1;"  
-    //frames[i].id="ytplayer";
-  }
+    var frames = document.getElementsByTagName("iframe");
+    for (var i = 0; i < frames.length; i++) {
+             frames[i].src += "?wmode=opaque;"  
+        
+      }
+
 });
 </script>
 
@@ -98,13 +99,17 @@ $(document).ready(function(){
 
             <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
       <div id="preview_model<%= a %>" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+
+                <%=image_tag("close.png", alt: "")%></a>
                </a></button>
 
               <div class="modal-header">
                 <h3 id="myModalLabel">Preview Video</h3>
               </div>
+
               <div class="modal-body" style="margin-left:0px;">
+
                <%= raw(p.video_url) %>
              </div>
            </div>
@@ -166,10 +171,15 @@ $(document).ready(function(){
   $(".star").click(function(){
    $(".rated").html("Course Rated")
  });
-<<<<<<< HEAD
+
+$(".close").click(function(){
+  var frames = document.getElementsByTagName("iframe");
+  for (var i = 0; i < frames.length; i++) {
+    frames[i].src += "&stop";
+  }
 });
-</script>
-=======
+
+});
 </script>
 
 
@@ -240,4 +250,4 @@ $(document).ready(function(){
   
   });
   </script>
->>>>>>> 3c7affa173b0dca2095686706194f3792c08befd
+
