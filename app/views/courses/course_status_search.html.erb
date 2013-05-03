@@ -7,9 +7,10 @@
 <div  align="center" style="margin:30px 0px 0px 0px">
   <h3>Manage Course Status</h3>
   <%= form_tag "/course_status_search", :method => 'get' do %>
-                <%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
+               Course: <%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title",:selected => params[:search]) , {:prompt => 'ALL'} %>
               
-              <%= select_tag(:searchstatus, options_for_select(['All','enroll','completed'])) %>
+              Status:
+              <%= select_tag(:searchstatus, options_for_select(['All','enroll','completed'],:selected => params[:searchstatus])) %>
 
               <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %><% end %>
               <hr>

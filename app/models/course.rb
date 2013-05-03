@@ -19,7 +19,7 @@ class Course < ActiveRecord::Base
   acts_as_commentable
   attr_accessible :lms_id,:attachment,:author, :desc, :image, :title, :topic_id, :user_id, :ispublished, 
   :releasemonth, :is_coming_soon,:ispopular,:filename,:content_type,:data, :short_desc,:teaching_staff_ids,
-  :isconcluded,:concluded_review,:start_date,:end_date
+  :isconcluded,:concluded_review,:start_date,:end_date,:background_image
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
 
