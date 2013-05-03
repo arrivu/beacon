@@ -1,4 +1,14 @@
 <%= render 'shared/course_detial' %>
+<script type="text/javascript">
+$(document).ready(function(){
+    var frames = document.getElementsByTagName("iframe");
+    for (var i = 0; i < frames.length; i++) {
+             frames[i].src += "?wmode=opaque&autoplay=0;"  
+        
+      }
+});
+</script>
+
 <div class="coursesyllabus">
   <div class="container">
     <div class="row">
@@ -87,7 +97,7 @@
             <% url = h[38..h.length-44].split('/')  %>
 
             <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
-      <div id="preview_model<%= a %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
+      <div id="preview_model<%= a %>" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%>
                </a></button>
 
@@ -95,8 +105,9 @@
                 <h3 id="myModalLabel">Preview Video</h3>
               </div>
               <div class="modal-body" style="margin-left:0px;">
-               
+                
                <%= raw(p.video_url) %>
+             
              </div>
            </div>
          
@@ -156,5 +167,4 @@ $(document).ready(function(){
   $(".star").click(function(){
    $(".rated").html("Course Rated")
  });
-});
 </script>
