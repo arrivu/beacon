@@ -52,6 +52,12 @@
 							<tr><td><%= f.label 'attachment', "Image" %></td>
 								<td><%= f.file_field 'attachment' %></td></tr>
 
+							<tr><td>  </td><td><%= image_tag url_for(:controller=>"courses", :action => 'background_image', :id =>  @course.id), :size => "450x103" %></td></tr>
+
+									<tr><td><%= f.label 'background', "Background Image (1350x310)" %></td>
+									<td><%= f.file_field 'background' %></td></tr>
+
+
 								<tr><td><%= f.label :ispopular, "Popular" %></td>
 									<td><%= f.check_box :ispopular %></td></tr>
 

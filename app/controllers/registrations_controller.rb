@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
   include CasHelper
   include LmsHelper
   #after_filter :login_cas, :lms_create, :student_create, :only => [:create]
-
+  caches_page :user_image
   def after_sign_up_path_for(resource)
    if redirect_back_req?
       redirect_back

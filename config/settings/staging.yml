@@ -6,8 +6,8 @@ cas:
   logout_path: '/cas/api-logout'  
 lms:
   enable: true
-  account_id: 1
-  oauth_token: nLN3KXWXoA5PuJHkpHXW7p0BKr5HfnJPRTzMUtZ8d6BR0mQTetebQYAOFE0Vq3rS
+  account_id: 4
+  oauth_token: mm3Yr1rIWM0c1miZjJe5ZWr87mSFFHTPaRd5ZoJShBtOe1hi6FBs7AF8G3dv8MSx
   root_url: https://lms.arrivu.corecloud.com/
   course_url_path: /courses/
   api_root_url: https://lms.arrivu.corecloud.com/api/v1
