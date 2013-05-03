@@ -120,11 +120,11 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "author"
     t.string   "image"
     t.text     "desc"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.integer  "user_id"
-    t.integer  "ispublished",      :default => 0
-    t.string   "releasemonth",     :default => "December"
+    t.integer  "ispublished",           :default => 0
+    t.string   "releasemonth",          :default => "December"
     t.integer  "ispopular"
     t.string   "content_type"
     t.binary   "data"
@@ -137,6 +137,8 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.date     "start_date"
     t.date     "end_date"
     t.boolean  "is_coming_soon"
+    t.binary   "background_image"
+    t.string   "background_image_type"
   end
 
   add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"
@@ -317,6 +319,16 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "description"
+  end
+
+  create_table "taxrates", :force => true do |t|
+    t.datetime "valid_from",                                   :null => false
+    t.datetime "valid_until"
+    t.integer  "replaced_by_id"
+    t.decimal  "factor",         :precision => 6, :scale => 6
+    t.boolean  "is_default"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
   create_table "teaching_staff_courses", :force => true do |t|
