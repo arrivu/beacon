@@ -1,13 +1,14 @@
 cas:
-  enable: false
-  expiry: 3600 #one hour
+  enable: true
+  expiry: 28800 #8 hour
   url: https://cas.arrivu.corecloud.com/
   login_path: '/cas/api-login'
   logout_path: '/cas/api-logout'   
 lms:
-  enable: false
-  account_id: 1
-  oauth_token: 3p36JvnjHXfp1d5NwTqmtKExNRFoowLeMwbtbXzJJz3hTPS4geis8YcA9XWYEcFn
+  enable: true
+  account_id: 4
+  #oauth_token: 88n7pFHCredVJLG3MiBU2Oidp6D4uYmpsxz8hG33RNhrrVKbJGsluL0tSdV7ydW2
+  oauth_token: dOe1y7fbvJx6ytwkcCinrmutmTkobhYe6xo6gf2wtWF38lEZt1J3ffQcDflAFDIe
   root_url: https://lms.arrivu.corecloud.com/
   course_url_path: courses/
   api_root_url: https://lms.arrivu.corecloud.com/api/v1
