@@ -1,18 +1,8 @@
 .coursedetailtop{
 	min-height: 100px;
-	background-size:1350px 310px;
+	background-size:100% 310px;
 	background-repeat: no-repeat;
-	/*background-color: #d14836;
-	background-image: -webkit-linear-gradient(top,#2C3E50,#ECF0F1);
-	background-image: -moz-linear-gradient(top,#2C3E50,#ECF0F1);
-	background-image: -ms-linear-gradient(top,#2C3E50,#ECF0F1);
-	background-image: -o-linear-gradient(top,#2C3E50,#ECF0F1);
-	background-image: linear-gradient(top,#2C3E50,#ECF0F1);
-	color:#fff;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2C3E50', endColorstr='#ECF0F1'); 
-	*/
 }
-
 
 .modulesclub{
 	margin-bottom: 20px;
@@ -33,7 +23,8 @@
 }
 
 .coursedesc{
-	padding:20px;
+padding: 15px 70px 0px 170px;
+width: 100%;
 }
 
 .coursetitle h3{
@@ -67,7 +58,7 @@
 	margin-top: 10px;
 	font-weight: bold;
 	padding: 12px 15px;
-	background: #4090ba;
+	background: #2a488e;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
