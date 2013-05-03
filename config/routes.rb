@@ -71,5 +71,6 @@ Myapp::Application.routes.draw do
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
   match '/my_courses', :to => 'courses#my_courses'  
   match '/show_image/:id', :to => 'courses#show_image' 
+  match '/background_image/:id', :to => 'courses#background_image' 
 end
 
