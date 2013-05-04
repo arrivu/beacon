@@ -2,7 +2,8 @@
     protect_from_forgery
     include ApplicationHelper
     include CoursesHelper
-    include SessionsHelper    
+    include SessionsHelper
+    include PaymentsHelper    
     include ActiveMerchant::Billing::Integrations::ActionViewHelper
     rescue_from CanCan::AccessDenied do |exception|
       redirect_to root_path, :alert => exception.message

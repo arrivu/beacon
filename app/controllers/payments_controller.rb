@@ -1,5 +1,6 @@
 class PaymentsController < ApplicationController
-	before_filter :signed_in_user  
+	before_filter :signed_in_user
+  before_filter :usercheck  
 	include InvoicesHelper
   include LmsHelper
 
