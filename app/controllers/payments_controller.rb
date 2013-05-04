@@ -1,11 +1,13 @@
 class PaymentsController < ApplicationController
 	before_filter :signed_in_user
-  before_filter :usercheck  
+  before_filter :usercheck
+  
 	include InvoicesHelper
   include LmsHelper
 
   # called this when we click on enroll button
   def course_payment
+   
     session[:payment_completed]=nil
     @user = current_user
     @course = Course.find(params[:id]) 
@@ -46,8 +48,13 @@ class PaymentsController < ApplicationController
 
   # called after course_payment and in this logic for  coupon code calculation, tax calculation, and final price display for user   
   def course_payment_gateway
-  	@course = Course.find(params[:id])
-  	@price = price_of_course_according_to_date(@course)
+    @course = Course.find(params[:id])
+   
+  
+ if  StudentCourse.where("student_id=? and course_id=? and status=?",current_user.student.id,@course.id,"enroll").empty?
+  	
+
+    @price = price_of_course_according_to_date(@course)
   	@user = current_user
   	@coupon_code = params[:coupon_code] if !params[:coupon_code].blank?
   	coupon_calc = {}
@@ -100,12 +107,21 @@ class PaymentsController < ApplicationController
        session[:course_price]=@grand_total
      end
    end
- end       
+
+ end
+ else
+ flash[:notice] = "You have already enrolled for this course " 
+ redirect_to course_path(@course)
+end
+ 
+     
 end
 
   # called after payment_getway method in this save invoice data and generate pdf using payday and  enter the coupon code
   # entry on redeem table if coupon present
   def confirm_course_payment
+   
+    
     tx_id = 123456789 # default tax_id we need to changes after latter
     @course = Course.find(params[:id])
     @price = Course.course_price(@course)
@@ -124,16 +140,20 @@ end
      invoice_generate_pdf(@course, params)			
      session[:payment_completed]=true
    end
+
  end
 
 
   # call this method for when some one click on download invoice link  
   def invoice_pdf
+   
     @course = Course.find(params[:id])
     @user = current_user
     path = "#{Rails.root}/tmp/invoice_course_id_#{@course.id}_user_id_#{@user.id}.pdf"
     send_data File.read(path),:filename => "invoice.pdf",:type => "application/pdf"
     UserMailer.delay(:queue => 'tracking').course_payment(@user, @course, @price)
+  
+  
   end 
 
 	# it is dummy method it contain the logic after return ccavanue 
@@ -159,4 +179,5 @@ end
     student_course.save
     lms_enroll_student(course.lms_id, user.lms_id)
   end
+  
 end
