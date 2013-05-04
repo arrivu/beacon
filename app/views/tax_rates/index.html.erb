@@ -4,53 +4,30 @@
 <div>
 	<div class="row">
 		<div class="span12 offset3" style="min-height:560px">
-			<div class="datatable_container">
-				<div class="datatable_head">
-					<h3>Manage Taxes</h3>
-				</div>
-				<div class="datatable_row datatable_row_line">
-					<div class="datatable_column datatable_headings">
-						Description
-					</div>
-					<div class="datatable_column datatable_headings">
-						Factor
-					</div>
-					<div class="datatable_column datatable_headings">
-						Valid From
-					</div>
-					<div class="datatable_column datatable_headings">
-						Valid Until
-					</div>
-					<div class="datatable_column datatable_headings">
-						Is Default
-					</div>
-					<div class="datatable_column datatable_headings">
-						Action
-					</div>
+<table class="table table-condensed table-hover table table-striped">
+  <thead>
+    <tr ><td colspan="6"><h3 align = "center">Manage Taxes</h3></td></tr>
+    <tr class="tab_head">
+      <th>Description</th>
+      <th>Factor</th>
+      <th>Valid From</th>
+      <th>Valid Until</th>
+      <th>Is Default</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+<% @tax_rate.each do |tax_rate| %>
+    <tr>
 
-				</div>
-
-				<% @tax_rate.each do |tax_rate| %>
-				<div class="datatable_row_clear">
-				</div>
-				<div class="datatable_row">
-					<div class="datatable_column">
-						<%= tax_rate.description %>
-					</div>
-					<div class="datatable_column">
-						<%= tax_rate.factor %>
-					</div>
-					<div class="datatable_column">
-						<%= tax_rate.valid_from %>
-					</div>
-					<div class="datatable_column">
-						<%= tax_rate.valid_until %>
-					</div>
-					<div class="datatable_column">
-						<%= tax_rate.is_default %>
-					</div>
-					<div class="datatable_column">
-						<%= link_to t('.edit', :default => t("helpers.links.edit")),
+     
+        <td><%= tax_rate.description %></td>
+        <td><%= tax_rate.factor %></td>
+        <td><%= tax_rate.valid_from %></td>
+        <td><%= tax_rate.valid_until %></td>
+        <td><%= tax_rate.is_default %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
 						edit_tax_rate_path(tax_rate), :class => 'btn btn-mini' %>
 
 						<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
@@ -58,11 +35,18 @@
 						:method => :delete,
 						:data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
 						:class => 'btn btn-mini btn-danger' %>
-					</div>
-				</div>
+        </td>
+      </tr>
+      <% end %>
+   
 
-				<% end %>
-			</div>
+
+  </tbody>
+
+</table>
+
+
+			
 		</div>
 	</div>
 </div>

@@ -182,7 +182,7 @@ $(".close").click(function(){
 </script>
 
 
-<script>
+ <script>
   $(function() {
   
     function filterPath(string) {
@@ -214,7 +214,8 @@ $(".close").click(function(){
   
               // Prevent jump-down
               event.preventDefault();
-  
+                //alert(target);
+                if(target!="#previewcourse" && target!="#top" ) return;
               // Animate to target
               $(scrollElem).animate({scrollTop: targetOffset}, 900, function() {
   
@@ -248,5 +249,5 @@ $(".close").click(function(){
     }
   
   });
-  </script>
+ </script>
 
