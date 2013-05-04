@@ -21,7 +21,9 @@
 	width:300px;
 	height: 200px;
 }
-
+#rated .rating{
+	color:#ffffff;
+}
 .coursedesc{
 padding: 15px 70px 0px 170px;
 width: 100%;

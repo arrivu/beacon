@@ -99,9 +99,9 @@
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
             <br align = "center">
             <% end %>
-            <%= rating_for @course, "rate" %><div id="rating" ><%= @qty%> Ratings</div>
+            <%= rating_for @course, "rate" %><div id="rating" style="color:#fff;"><%= @qty%> Ratings</div>
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-            <div class = "rated" %>
+            <div class = "rated" style="color:#fff;">
               <% if @rated == nil  %>
               Rate This Course
               <% else  %>
