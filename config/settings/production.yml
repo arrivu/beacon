@@ -1,6 +1,6 @@
 cas:
   enable: false
-  expiry: 3600
+  expiry: 28800 #8 hour
   url: https://cas.arrivu.corecloud.com
   login_path: '/cas/api-login'
   logout_path: '/cas/api-logout'  

@@ -259,10 +259,20 @@ Devise.setup do |config|
   #  auth.cookies.permanent[:tgt] = tgt if tgt
   #end
 
-  #Warden::Manager.before_logout do |user,auth,opts|
-  #  tgt =  auth.cookies[:tgt]
-  #  user.cas_sign_out_tgt(tgt)
-  #  auth.cookies.delete :tgt
-  #end
-
+  Warden::Manager.before_logout do |user,auth,opts|
+    sc = SessionsController.new  
+    if sc.cas_enable?
+      tgt =  auth.cookies[:tgt]
+      if tgt
+        begin                
+          sc.cas_sign_out_tgt(tgt)
+          auth.response.delete_cookie :tgt          
+          #cookies.delete(:tgt, :domain => :all)
+        rescue  Exception => e
+          puts e.inspect
+          puts "There is some error to sign_out from cas for the tgt : #{tgt}"
+        end
+      end
+    end  
+  end
 end
