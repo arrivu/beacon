@@ -321,16 +321,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "description"
   end
 
-  create_table "taxrates", :force => true do |t|
-    t.datetime "valid_from",                                   :null => false
-    t.datetime "valid_until"
-    t.integer  "replaced_by_id"
-    t.decimal  "factor",         :precision => 6, :scale => 6
-    t.boolean  "is_default"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
-  end
-
   create_table "teaching_staff_courses", :force => true do |t|
     t.integer  "course_id"
     t.integer  "teaching_staff_id"

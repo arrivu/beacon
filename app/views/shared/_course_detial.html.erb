@@ -1,14 +1,17 @@
  
-
+<% if @course.background_image ==nil %>
+<div class="coursedetailtop" style="background-color: #d14836;background-image: -webkit-linear-gradient(top,#2C3E50,#ECF0F1); background-image: -moz-linear-gradient(top,#2C3E50,#ECF0F1);  background-image: -ms-linear-gradient(top,#2C3E50,#ECF0F1);  background-image: -o-linear-gradient(top,#2C3E50,#ECF0F1);  background-image: linear-gradient(top,#2C3E50,#ECF0F1);  color:#fff;  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2C3E50', endColorstr='#ECF0F1'); 
+" id="top">
+<% else %>
 <div class="coursedetailtop" style="background-image: url('<%= url_for(:controller=>"courses", :action => 'background_image', :id => @course.id) %>');" id="top">
-
-
+<% end %>
 
   <div class="container">
     <div class="row">
       <div class="span4">
         <div class="coursevideo">
-          <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => @course.id), width: "200", height: "200" %>
+          
+         
         </div>
       </div>
       <div class="span7">
@@ -96,9 +99,9 @@
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
             <br align = "center">
             <% end %>
-            <%= rating_for @course, "rate" %><div id="rating" ><%= @qty%> Ratings</div>
+            <%= rating_for @course, "rate" %><div id="rating" style="color:#fff;"><%= @qty%> Ratings</div>
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-            <div class = "rated" %>
+            <div class = "rated" style="color:#fff;">
               <% if @rated == nil  %>
               Rate This Course
               <% else  %>
