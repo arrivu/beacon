@@ -16,4 +16,5 @@ rerun.txt
 pickle-email-*.html
 .rvmrc
 tags
-/public/*
+/public/background_image/*
+/public/show_image/*
