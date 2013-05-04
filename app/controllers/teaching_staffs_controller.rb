@@ -54,7 +54,9 @@ class TeachingStaffsController < ApplicationController
 
 	def update
 		@teachingstaff=TeachingStaff.find(params[:id])
-		
+		if params[:teaching_staff][:user][:attachment]!=nil
+	  								
+									
 		if @teachingstaff.user.update_attributes(:email => params[:teaching_staff][:user][:email],
 									password: params[:teaching_staff][:user][:password],
 									password_confirmation: params[:teaching_staff][:user][:password_confirmation],
@@ -70,6 +72,24 @@ class TeachingStaffsController < ApplicationController
 		else
 			render 'edit'
 		end
+	else
+   
+		if @teachingstaff.user.update_attributes(:email => params[:teaching_staff][:user][:email],
+									password: params[:teaching_staff][:user][:password],
+									password_confirmation: params[:teaching_staff][:user][:password_confirmation],
+  								name:params[:teaching_staff][:user][:name]) && @teachingstaff.update_attributes(
+									description:params[:teaching_staff][:description],
+									qualification:params[:teaching_staff][:qualification],
+									name:params[:teaching_staff][:user][:name]
+								)
+									
+			flash[:notice]="Teaching Staff details updated successfully"
+			redirect_to teaching_staffs_path
+
+		else
+			render 'edit'
+		end
+	end
 	end
 	def index
 		@teachingstaff=TeachingStaff.paginate(page: params[:page], :per_page => 10)
