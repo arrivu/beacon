@@ -8,6 +8,10 @@ module LmsHelper
 	def lms_course_url(lms_id)
 		"#{Settings.lms.root_url}#{Settings.lms.course_url_path}#{lms_id}"
 	end
+	
+	def lms_logout
+		"#{Settings.lms.root_url_logout}"
+	end
 
 	def lms_create_user(current_user)
 		if lms_enable? and current_user != nil

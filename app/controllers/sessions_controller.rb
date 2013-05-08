@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   include CasHelper
-
+  include LmsHelper
 
   
   # POST /resource/sign_in
@@ -36,6 +36,8 @@ class SessionsController < Devise::SessionsController
 
     super
     cas_sign_out
+    lms_logout
+    
   end
 
   private 
