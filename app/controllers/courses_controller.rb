@@ -7,7 +7,7 @@ ActiveMerchant::Billing::Integrations
 #before_filter :initialize, :only => [:create, :edit,:update,:delete]
 before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses,:course_status_search,
   :completed_courses,:updatecompleted_details,:conclude_course,:concluded_course_update]
-
+  before_filter :signed_in_user, :only=>[:my_courses]
   caches_page :show_image,:background_image
   def show_image    
     @course = Course.find(params[:id])
@@ -19,7 +19,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     send_data @course.background_image, :type => @course.background_image_type, :disposition => 'inline'
   end
 
- def index
+  def index
    @total_course_count = Course.where(ispublished: 1,isconcluded: "f").all.count
    @countCoursesPerPage = 6
 
@@ -170,34 +170,26 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
       @enrolled_courses= @student.course_enroll
       @completed_courses=@student.course_complete    
     end
+    
     def completed_courses
       @coursesstauts=StudentCourse.find(params[:id])
-
-
     end
+
     def updatecompleted_details
-
-
       @coursesstauts=StudentCourse.find(params[:id])
-
       if @coursesstauts.update_attributes(status:params[:status])
-
         flash[:notice] = "Successfully Updated"
         lms_conclude_enrollment(@coursesstauts.course.lms_id,@coursesstauts.student.user.lms_id)
-
         redirect_to course_status_search_path
       else
         render course_status_search
       end
-
-
     end
+#dont remove this method, this is for the page conclude_courses.html.erbs
+  def conclude_course
+  end
 
-    def conclude_course
-
-    end
-
-    def concluded_course_update
+  def concluded_course_update
     #@course_id=params[:id]
     if params[:search]==""
       flash[:notice] = "Please choose a course"
@@ -209,11 +201,9 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
       @course_id=Course.find(params[:search])
       if StudentCourse.find_by_course_id(@course_id)!=nil
         @student_course_status=StudentCourse.find_by_course_id(@course_id)
-
         if @student_course_status.status=="enroll"
           flash[:notice] = "This course is already enrolled by User"
           render :conclude_course
-
         else
           if @course_id.update_attributes(isconcluded:params[:isconcluded],concluded_review:params[:concluded_review])
             flash[:notice] = "Course Successfully Concluded..."
@@ -231,16 +221,18 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
         else
           render :conclude_course
         end
-
       end
     end
   end
+
   def concluded_courses
     @all_concluded_courses=Course.where("isconcluded=?","t")
   end
+
   def edit_concluded_course
     @course=Course.find(params[:id])
   end
+
   def update_un_concluded_course
     @course=Course.find(params[:id])
     if params[:isconcluded]==nil 
@@ -254,6 +246,5 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     else
       render :conclude_course
     end
-
   end
 end

@@ -1,7 +1,7 @@
 class CouponsController < ApplicationController
 	require 'csv'
   require 'errors'
-  before_filter  :only => [:new,:create, :edit, :destroy,:apply,:redeem]
+  before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:apply,:redeem,:index]
   def apply
     no_coupon = Coupon.no_coupon(params[:product_bag])
     respond_to do |wants|
