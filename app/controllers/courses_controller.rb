@@ -8,6 +8,7 @@ ActiveMerchant::Billing::Integrations
 before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses,:course_status_search,
   :completed_courses,:updatecompleted_details,:conclude_course,:concluded_course_update]
   before_filter :signed_in_user, :only=>[:my_courses]
+  before_filter :no_admin_user_allow, :only=>[:my_courses]
   caches_page :show_image,:background_image
   def show_image    
     @course = Course.find(params[:id])

@@ -1,6 +1,6 @@
 class PaymentsController < ApplicationController
 	before_filter :signed_in_user
-  before_filter :no_admin_user_allow_to_payment
+  before_filter :no_admin_user_allow
   
 	include InvoicesHelper
   include LmsHelper
