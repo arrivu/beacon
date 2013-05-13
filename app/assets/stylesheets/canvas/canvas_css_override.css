@@ -1,0 +1,82 @@
+
+#header { 
+  background: url("../canvas/header_beacon_bg.png?v1") repeat-x scroll center transparent;
+  /* OR background-image: none; 
+  background-color: #EBF5FA;*/
+}
+
+/*replace the canvas logo with your logo*/
+#header-logo, #header.no-user #header-logo {
+
+ background: url("../canvas/header_beacon_logo1.png?v1") no-repeat scroll 0 0 transparent;
+  bottom: 11px;
+  height: 40px;
+  left: 12px;
+  width: 160px;
+  position: absolute
+  text-indent: -9999px
+  
+}
+
+#header-logo:hover, #header.no-user #header-logo:hover {
+
+ background: url("../canvas/header_beacon_logo.png?v1") no-repeat scroll 0 0 transparent;
+  bottom: 11px;
+  height: 40px;
+  left: 12px;
+  width: 160px;
+  position: absolute
+  text-indent: -9999px
+  
+}
+
+/*if you replace the left canvas logo, move a smaller one to the right side of the header--I made the image gray first*/
+#header-logo-secondary {
+ display: none;
+background: url("../canvas/header_beacon_logo.png") no-repeat;
+width: 135px;
+height: 26px;
+right: 26px;
+bottom: 6px;
+position: absolute;
+ 
+}
+
+#menu { margin-left; 200px; }
+
+/*change the color of the menu items (courses & groups etc.). If the text looks fuzzy, remove the text shadow.*/
+.menu-item .menu-item-title, .menu-item .menu-item-no-drop {
+  color: #1e5a83;
+  text-shadow: none;
+}
+
+#header-logo.original, #header.no-user #header-logo.original
+{
+  bottom: 12px
+}
+#header-inner
+{
+  padding-top: 26px
+  max-width: $max_main_width
+  position: relative
+}
+/*change the identity bar (the area that says "Hilary Scharton Inbox Settings Logout Help)*/
+#identity {
+  margin: 0;
+padding: 0;
+list-style: none;
+float: right;
+font-size: 12px;
+margin-right: 13px;
+margin-bottom: 4px;
+padding: 0 11px;
+background: transparent url("../canvas/top_bar_beacon_bg.png") repeat-x;
+box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 1px;
+border-bottom-left-radius: 6px;
+border-bottom-right-radius: 5px;
+border: 1px solid rgba(0, 0, 0, 0.3);
+border-top: 0;
+}
+
+
+
