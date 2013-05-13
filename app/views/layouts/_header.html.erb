@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<%= javascript_tag do %>
 // Pre load images for rollover
 if (document.images) {
   smile = new Image;
@@ -15,7 +15,7 @@ function swapImage(thisImage,newImage) {
 function logout_lms()
 { myWindow =window.open("https://lms.arrivu.corecloud.com/logout","_blank")
  $.ajax({
-  url: "https://beacon.arrivu.corecloud.com/sign_out",
+  url: '<%= destroy_user_session_path %>',
       type: "GET",
       crossDomain: true,
       async:false,
@@ -27,7 +27,7 @@ myWindow.close();
 
 }
 
-</script> 
+<% end %>  
 
   <header class="navbar navbar-fixed-top" >
   <div style="width:1275px;margin:0px auto;">
