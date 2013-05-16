@@ -16,11 +16,14 @@
        
        <th style="background:#2A488E;color:white;">Created At</th>
 
-       <th style="background:#2A488E;color:white;"><%=t '.actions', :default => t("helpers.actions") %></th>
+       <th style="background:#2A488E;color:white;width:100px;">Action</th>
      </tr>
 <% @teachingstaff.each do |teachingstaff| %>
 <tr><td>
-<%= image_tag url_for(:controller=>"registrations",:action => 'user_image', :id => teachingstaff.user.id), :size => "30x30" %> </td>
+<% if teachingstaff.user.image_blob != nil %>
+<%= image_tag url_for(:controller=>"registrations",:action => 'user_image', :id => teachingstaff.user.id), :size => "30x30" %>
+<% end  %>
+ </td>
 <td><%= teachingstaff.user.email %></td><td>
   <%= teachingstaff.name %></td><td>
 <%= teachingstaff.qualification %></td><td>
