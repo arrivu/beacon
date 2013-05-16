@@ -1,7 +1,6 @@
 Myapp::Application.routes.draw do
 
-  match 'teaching_staffs/new',:to=>'teaching_staffs#new'
-  
+  match 'teaching_staffs/new',:to=>'teaching_staffs#new'  
   resources :course_pricings
   resources :teaching_staffs
   resources :tax_rates
@@ -72,5 +71,7 @@ Myapp::Application.routes.draw do
   match '/my_courses', :to => 'courses#my_courses'  
   match '/show_image/:id', :to => 'courses#show_image' 
   match '/background_image/:id', :to => 'courses#background_image' 
+
+  match '*a', :to => 'home#routing_error'
 end
 

@@ -64,11 +64,11 @@ Myapp::Application.configure do
   config.action_mailer.default_url_options = { :host => "#{Settings.mailserver.domain}" }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
+  
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
-
   config.action_mailer.smtp_settings = {
     address: "#{Settings.mailserver.address}",
     port: "#{Settings.mailserver.port}",
@@ -79,9 +79,10 @@ Myapp::Application.configure do
     password: "#{Settings.mailserver.password}"
   }
 
-
-
-  # Log the query plan for queries taking more than this (works
-  # with SQLite, MySQL, and PostgreSQL)
-  # config.active_record.auto_explain_threshold_in_seconds = 0.5
+   config.middleware.use ExceptionNotifier,
+    :email_prefix => "#{Settings.exception_notifer.email_prefix}",
+     :sender_address => "#{Settings.exception_notifer.sender_address}",
+    :exception_recipients => "#{Settings.exception_notifer.exception_recipients}"
 end
+
+

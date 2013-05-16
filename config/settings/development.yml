@@ -27,3 +27,7 @@ payment_gateway:
   ccavenue_account: "test123"
 invoices:
   notes: "Thank you for your enrollment!"
+exception_notifer:
+  email_prefix: "[Beacon Exception Notifier]"
+  sender_address: "beaconlms@gmail.com"
+  exception_recipients: "beaconlms@gmail.com"

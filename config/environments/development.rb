@@ -16,11 +16,10 @@ Myapp::Application.configure do
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => "#{Settings.mailserver.domain}" }
   config.action_mailer.delivery_method = :smtp
-  # change to true to allow email to be sent during development
+  # # change to true to allow email to be sent during development
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
-
   config.action_mailer.smtp_settings = {
     address: "#{Settings.mailserver.address}",
     port: "#{Settings.mailserver.port}",
@@ -30,8 +29,6 @@ Myapp::Application.configure do
     user_name: "#{Settings.mailserver.user_name}",
     password: "#{Settings.mailserver.password}"
   }
-  
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
@@ -50,5 +47,12 @@ Myapp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
+  
+  #exception notifier
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "#{Settings.exception_notifer.email_prefix}",
+    :sender_address => "#{Settings.exception_notifer.sender_address}",
+    :exception_recipients =>  "#{Settings.exception_notifer.exception_recipients}"
+      
+  
 end

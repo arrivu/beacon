@@ -13,8 +13,8 @@
   height: 40px;
   left: 12px;
   width: 160px;
-  position: absolute
-  text-indent: -9999px
+  position: absolute;
+  text-indent: -9999px;
   
 }
 
@@ -25,8 +25,8 @@
   height: 40px;
   left: 12px;
   width: 160px;
-  position: absolute
-  text-indent: -9999px
+  position: absolute;
+  text-indent: -9999px;
   
 }
 
@@ -42,7 +42,7 @@ position: absolute;
  
 }
 
-#menu { margin-left; 200px; }
+#menu { margin-left: 200px; }
 
 /*change the color of the menu items (courses & groups etc.). If the text looks fuzzy, remove the text shadow.*/
 .menu-item .menu-item-title, .menu-item .menu-item-no-drop {
@@ -56,9 +56,9 @@ position: absolute;
 }
 #header-inner
 {
-  padding-top: 26px
-  max-width: $max_main_width
-  position: relative
+  padding-top: 26px;
+  /*max-width: $max_main_width;*/
+  position: relative;
 }
 /*change the identity bar (the area that says "Hilary Scharton Inbox Settings Logout Help)*/
 #identity {

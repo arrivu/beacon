@@ -30,7 +30,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
      @courses = Course.where(ispublished: 1,isconcluded: "f").paginate(page: params[:page], :per_page => 6)
    end
    @topics = Topic.all
-   
+ 
  end
 
  def new
@@ -67,11 +67,10 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
    else
      render :edit
    end
-
  end
 
  def show
-   @course = Course.find(params[:id])
+   @course = Course.find(params[:id])   
    @price = Course.course_price(@course)
    @authors=[]
    @course.teaching_staffs.each do |teaching_staff|
