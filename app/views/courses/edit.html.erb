@@ -47,12 +47,21 @@
 						<tr><td><%= f.label :desc, "Course Description" %></td>
 							<td><%= f.text_area :desc ,:cols => "30", :rows => "10"%></td></tr>
 
-							<tr><td>  </td><td><%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id =>      @course.id), :size => "100x100" %></td></tr>
+							<tr><td>  </td><td>
+								<% if @course.data!=nil %>
+								<%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id =>      @course.id), :size => "100x100" %>
+								<% end %>
+							</td></tr>
 
 							<tr><td><%= f.label 'attachment', "Image" %></td>
 								<td><%= f.file_field 'attachment' %></td></tr>
 
-							<tr><td>  </td><td><%= image_tag url_for(:controller=>"courses", :action => 'background_image', :id =>  @course.id), :size => "450x103" %></td></tr>
+							<tr><td>  </td><td>
+								<% if @course.background_image != nil %>
+
+								<%= image_tag url_for(:controller=>"courses", :action => 'background_image', :id =>  @course.id), :size => "450x103" %>
+							<% end %>
+							</td></tr>
 
 									<tr><td><%= f.label 'background', "Background Image (1350x310)" %></td>
 									<td><%= f.file_field 'background' %></td></tr>

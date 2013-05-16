@@ -7,7 +7,11 @@
                  <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
           <div class="card-a course-inner">
             <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+            <% if course.data!=nil %>
             <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
+            <% else %>
+            <%= image_tag "test.png", width: "130", height: "130",:class=>"course-badge img-circle" %>
+            <% end %>
             <% if course.is_coming_soon %>
               <div class="coming_soon"><%= image_tag("coming_soon.png") %></div>
             <% elsif price_of_course_according_to_date(course).to_i ==0 %>
