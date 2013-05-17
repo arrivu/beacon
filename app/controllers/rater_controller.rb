@@ -1,7 +1,5 @@
 class RaterController < ApplicationController 
-  def show
-    @x=100
-  end
+  
   def create
     if current_user.present?
       obj = eval "#{params[:klass]}.find(#{params[:id]})"     

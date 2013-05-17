@@ -35,9 +35,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @student=Student.where(user_id: @user.id).first
-    @enrolled_courses= @student.course_enroll
-    @completed_courses=@student.course_complete        
+    if @user.has_role? :student
+      @student=Student.where(user_id: @user.id).first
+      @enrolled_courses= @student.course_enroll
+      @completed_courses=@student.course_complete        
+    end
   end
   
   def update

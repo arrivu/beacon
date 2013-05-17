@@ -19,7 +19,7 @@
 
         	<p> <%= @user.name %></p>
 <p><%= @user.email if @user.email %></p></td></tr></table><br/>
-
+<% if @user.has_role? :student %>
           <ul class="nav nav-tabs">
             <li class="active">
               <a href="#currentcourses" data-toggle="tab">Enrolled Courses (<%= @enrolled_courses.count %>)</a>
@@ -118,5 +118,6 @@
 
 
           </div>
+          <% end %>
         </div><!-- End of span8 --> 
       </div>
