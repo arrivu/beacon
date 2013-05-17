@@ -81,7 +81,7 @@ Myapp::Application.configure do
 
    config.middleware.use ExceptionNotifier,
     :email_prefix => "#{Settings.exception_notifer.email_prefix}",
-     :sender_address => "#{Settings.exception_notifer.sender_address}",
+    :sender_address => "#{Settings.exception_notifer.sender_address}",
     :exception_recipients => "#{Settings.exception_notifer.exception_recipients}"
 end
 

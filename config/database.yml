@@ -36,12 +36,9 @@ test: &test
   timeout: 5000
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  database: beacon_production
-  host: 192.168.1.51
-  username: beacon
-  password: beacon
+  adapter: sqlite3
+  database: db/production.sqlite3
+  pool: 5
   timeout: 5000
 
 staging:
