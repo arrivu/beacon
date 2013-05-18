@@ -1,33 +1,6 @@
-<%= javascript_tag do %>
-// Pre load images for rollover
-if (document.images) {
-  smile = new Image;
-  nosmile = new Image;
 
-  smile.src = "/assets/beaconslogop.png";
-  nosmile.src = "/assets/zbeaconslogo.png";
-}
-function swapImage(thisImage,newImage) {
-  if (document.images) {
-    document[thisImage].src = eval(newImage + ".src");
-  }
-}
-function logout_lms()
-{ myWindow =window.open("https://lms.arrivu.corecloud.com/logout","_blank")
- $.ajax({
-  url: '<%= destroy_user_session_path %>',
-      type: "GET",
-      crossDomain: true,
-      async:false,
-    success: function(){
-
- }
-   });
-myWindow.close();
-
-}
-
-<% end %>  
+<%= Settings.lms.root_url %>
+<%= "logout_lms(#{"'"}#{Settings.lms.root_url}#{"'"});" %>
 
   <header class="navbar navbar-fixed-top" >
   <div style="width:1275px;margin:0px auto;">
@@ -70,7 +43,8 @@ myWindow.close();
             <ul class="dropdown-menu">
               
               <li><%= link_to "My Profile", edit_user_registration_path %></li>
-              <li><%= link_to "Log out", destroy_user_session_path, method: "delete" ,  :onclick=> "logout_lms();" %></li>
+              <li><%= link_to "Log out", destroy_user_session_path, method: "delete" ,  :onclick=> "logout_lms(#{"'"}#{Settings.lms.root_url}#{"'"});" %> </li>
+
              
             </ul>
           </li>
@@ -79,6 +53,7 @@ myWindow.close();
           <li ><a href="#sign_up_Modal" role="button" data-toggle="modal" >Create Account</a></li>
 
           <% end %>
+          
         </ul>
       </nav>
     </div>
