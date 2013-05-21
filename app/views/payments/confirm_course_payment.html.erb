@@ -38,8 +38,10 @@
   <td style="font-size: 15px;font-weight:bold;text-align: left;"></td>
   <td style="text-align: right;"> You can download your invoice <span style='font-size:20px;'><%= link_to "here", invoice_pdf_path(:id=>@course) %></span></td>
   </tr>
- <div class="span12" style="background:white; height: 24px;line-height: 22px;margin-bottom: 20px; margin-top: 47px;text-align: center; width:1000px;font-family: arial;font-size: 19px;margin-left:0px;">
+ <div class="span12" style="background:white; height: 24px;line-height: 22px;margin-bottom: 40px; margin-top: 47px;text-align: center; width:1000px;font-family: arial;font-size: 19px;margin-left:0px;">
 Your payment is confirmed and Amount Paid is Rs. <%=  @tax.to_f + @subtotal.to_f  %>
+<br>You have enrolled the course
+
 
 </div>
 

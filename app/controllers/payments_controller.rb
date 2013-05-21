@@ -2,46 +2,52 @@ class PaymentsController < ApplicationController
 	before_filter :signed_in_user
   before_filter :no_admin_user_allow
   
-	include InvoicesHelper
+  include InvoicesHelper
   include LmsHelper
 
   # called this when we click on enroll button
   def course_payment
-   
+
     session[:payment_completed]=nil
     @user = current_user
     @course = Course.find(params[:id]) 
-    @price = Course.course_price(@course)
-    @tax = Course.tax_calculation(@course,@price)
-    if @price.to_i == 0     
-     enroll_student(@course, current_user)
-     redirect_to :back
-   end
- end
-
- def follow_course
-
-  if current_user.student != nil
-    @course = Course.find(params[:id])
-
-    @status_check = StudentCourse.find_by_student_id_and_course_id(current_user.student.id,@course.id)
-    if @status_check==nil
-      student_course=StudentCourse.new
-      student_course.course_id=@course.id
-      student_course.status="follow"
-      student_course.student_id=current_user.student.id
-      student_course.save 
+    @price_detail = CoursePricing.find_by_course_id(@course.id)
+    if @price_detail==nil || @price_detail.price==0
+      @price=0.0
+      @discount=0.0
+      @subtotal=0.0
+      @tax = Course.tax_calculation(@course,@price)
+      #enroll_student(@course, current_user)
+      #path="/payments/confirm_course_payment?id="+@course.id.to_s
+      #redirect_to path
+      redirect_to :action=>"confirm_course_payment",:id=>@course.id
     else
-      if @status_check.status!="follow"
+       @price=@price_detail.price
+      @tax = Course.tax_calculation(@course,@price)
+    end
+  end
+
+  def follow_course
+    if current_user.student != nil
+      @course = Course.find(params[:id])
+      @status_check = StudentCourse.find_by_student_id_and_course_id(current_user.student.id,@course.id)
+      if @status_check==nil
         student_course=StudentCourse.new
         student_course.course_id=@course.id
         student_course.status="follow"
         student_course.student_id=current_user.student.id
-        student_course.save
+        student_course.save 
+      else
+        if @status_check.status!="follow"
+          student_course=StudentCourse.new
+          student_course.course_id=@course.id
+          student_course.status="follow"
+          student_course.student_id=current_user.student.id
+          student_course.save
+        end
       end
+
     end
-    
-  end
     #redirect_to :back    
   end
 
@@ -49,35 +55,35 @@ class PaymentsController < ApplicationController
   # called after course_payment and in this logic for  coupon code calculation, tax calculation, and final price display for user   
   def course_payment_gateway
     @course = Course.find(params[:id])
-   
-  
- if  StudentCourse.where("student_id=? and course_id=? and status=?",current_user.student.id,@course.id,"enroll").empty?
-  	
 
-    @price = price_of_course_according_to_date(@course)
-  	@user = current_user
-  	@coupon_code = params[:coupon_code] if !params[:coupon_code].blank?
-  	coupon_calc = {}
-  	redirect_req = false
-  	if @coupon_code && ! @coupon_code.empty?		
-  		begin					
-  			coupon_calc = Coupon.apply(@coupon_code, @price, current_user.id, @course.id)
-  		rescue CouponNotFound
-  			flash[:error] =  "Coupon not found" 
-  			redirect_req =true
-  		rescue CouponNotApplicable
-  			flash[:error] = "Coupon does not apply"
-  			redirect_req =true
-  		rescue CouponRanOut
-  			flash[:error] =  "Coupon has run out"
-  			redirect_req =true
-  		rescue CouponExpired
-  			flash[:error] = "Coupon has expired"
-  			redirect_req =true			
-  		rescue CouponAlreadyRedeemedByUser
-  			flash[:error] = "Coupon already used"
-  			redirect_req =true 
-      rescue CouponNotValid
+
+    if  StudentCourse.where("student_id=? and course_id=? and status=?",current_user.student.id,@course.id,"enroll").empty?
+
+
+      @price = price_of_course_according_to_date(@course)
+      @user = current_user
+      @coupon_code = params[:coupon_code] if !params[:coupon_code].blank?
+      coupon_calc = {}
+      redirect_req = false
+      if @coupon_code && ! @coupon_code.empty?		
+        begin					
+         coupon_calc = Coupon.apply(@coupon_code, @price, current_user.id, @course.id)
+       rescue CouponNotFound
+         flash[:error] =  "Coupon not found" 
+         redirect_req =true
+       rescue CouponNotApplicable
+         flash[:error] = "Coupon does not apply"
+         redirect_req =true
+       rescue CouponRanOut
+         flash[:error] =  "Coupon has run out"
+         redirect_req =true
+       rescue CouponExpired
+         flash[:error] = "Coupon has expired"
+         redirect_req =true			
+       rescue CouponAlreadyRedeemedByUser
+         flash[:error] = "Coupon already used"
+         redirect_req =true 
+       rescue CouponNotValid
         flash[:error] = "Coupon not Valid"
         redirect_req =true 
       end		
@@ -109,22 +115,26 @@ class PaymentsController < ApplicationController
    end
 
  end
- else
+else
  flash[:notice] = "You have already enrolled for this course " 
  redirect_to course_path(@course)
 end
- 
-     
 end
 
   # called after payment_getway method in this save invoice data and generate pdf using payday and  enter the coupon code
   # entry on redeem table if coupon present
   def confirm_course_payment
-   
-    
+
+
     tx_id = 123456789 # default tax_id we need to changes after latter
     @course = Course.find(params[:id])
-    @price = Course.course_price(@course)
+
+    @price_detail = CoursePricing.find_by_course_id(@course.id)
+    if @price_detail!=nil
+      @price =@price_detail.price
+    else
+      @price=0.0
+    end
     @discount=session[:coupon_price].to_f
     @subtotal=@price - @discount
     @tax = Course.tax_calculation(@course,@subtotal)
@@ -133,27 +143,23 @@ end
       if params[:coupon_code].present?
        @coupon = Coupon.find_coupon(params[:coupon_code], user_id = current_user.id, metadata=@course.id)
        Coupon.redeem(params[:coupon_code], @user.id, tx_id, @coupon.metadata)
-     end
+      end
 
      enroll_student(@course, current_user)
      invoice = invoices_data(@course, params)
      invoice_generate_pdf(@course, params)			
      session[:payment_completed]=true
    end
-
  end
 
 
   # call this method for when some one click on download invoice link  
   def invoice_pdf
-   
     @course = Course.find(params[:id])
     @user = current_user
     path = "#{Rails.root}/tmp/invoice_course_id_#{@course.id}_user_id_#{@user.id}.pdf"
     send_data File.read(path),:filename => "invoice.pdf",:type => "application/pdf"
     UserMailer.delay(:queue => 'tracking').course_payment(@user, @course, @price)
-  
-  
   end 
 
 	# it is dummy method it contain the logic after return ccavanue 
