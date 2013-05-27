@@ -1,4 +1,9 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
+
+  provider :facebook, "#{Settings.omniauth.facebook_key}", "#{Settings.omniauth.facebook_secret}"
+  provider :linkedin, "#{Settings.omniauth.linkedin_key}", "#{Settings.omniauth.linkedin_secret}"
+  provider :google_oauth2, "#{Settings.omniauth.google_oauth2_key}", "#{Settings.omniauth.google_oauth2_secret}"
+
   if Rails.env.production?
     provider :facebook, '153576101469926', '302358063a941b9e0d9c8ec9cb77b6ad'
     provider :linkedin, 'z1zu2sg48rvp', "8kpRB8V5EBsiXcbx"
