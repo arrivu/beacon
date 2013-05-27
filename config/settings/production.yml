@@ -32,8 +32,8 @@ exception_notifer:
   sender_address: "beaconlms@gmail.com"
   exception_recipients: "beaconlms@gmail.com"
 omniauth:
-  facebook_key: "540660952639319"
-  facebook_secret: "84ff5170c68fb773c354b9a9e7b68a4d"
+  facebook_key: "631186620244012"
+  facebook_secret: "48339c2352a9579bcc7dc5ee215b1a7f"
   linkedin_key: "z1zu2sg48rvp"
   linkedin_secret: "8kpRB8V5EBsiXcbx"
   google_oauth2_key: "928801233183-phpisd2fada5c2d5n5heosha9h8jisla.apps.googleusercontent.com"
