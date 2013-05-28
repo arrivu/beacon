@@ -20,3 +20,4 @@ tags
 /public/show_image/*
 /public/background_image/*
 /.idea/*
+/config/database.yml
