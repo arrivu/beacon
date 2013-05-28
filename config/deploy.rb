@@ -41,4 +41,4 @@ namespace :deploy do
   before "deploy", "deploy:check_revision"
 end
 
-after 'deploy:update_code', 'deploy:migrate'
+after 'deploy:update_code', 'deploy:migrate', 'deploy:restart'
