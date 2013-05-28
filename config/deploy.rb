@@ -2,12 +2,9 @@ require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
 
 set :application, "Myapp"
-
 set :scm, :git
 set :repository, "git@github.com:m-narayan/beacon.git"
-set :branch, "capistrano"
 set :deploy_via, :remote_cache
-set :scm_passphrase, "deployadmin123$"
 
 set :user, "sysadmin"
 set :use_sudo, false
@@ -35,8 +32,8 @@ namespace :deploy do
 
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/master`
-      puts "WARNING: HEAD is not the same as origin/master"
+    unless `git rev-parse HEAD` == `git rev-parse origin/#{branch}`
+      puts "WARNING: HEAD is not the same as origin/#{branch}"
       puts "Run `git push` to sync changes."
       exit
     end
