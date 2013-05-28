@@ -27,8 +27,7 @@ namespace :deploy do
   
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-  end
-  after "deploy:finalize_update", "deploy:symlink_config"
+  end  
 
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
@@ -37,8 +36,12 @@ namespace :deploy do
       puts "Run `git push` to sync changes."
       exit
     end
-  end
-  before "deploy", "deploy:check_revision"
+  end  
 end
-after(:deploy, 'deploy:restart')
+
+before "deploy", "deploy:check_revision"
+after "deploy:finalize_update", "deploy:symlink_config"
 after 'deploy:update_code', 'deploy:migrate'
+before("deploy:restart", "deploy:create_symlink")
+before("deploy:restart", "deploy:migrate")
+
