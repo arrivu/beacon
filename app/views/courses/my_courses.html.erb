@@ -1,44 +1,30 @@
 <% provide(:title, 'A Smarter Way to Learn') %>
 <% provide(:effectingHeader) %>
-<div class="mycourseheader">
-  <div class="container">
-    <div class="row">
-      <div class="span2">          
-        <% if current_user.image_blob == nil %>
+<div class="span12" style=" border-radius: 10px;background: white;margin-left: 90px;width: 1155px;">
+<div style="width:100%;margin-left:65px;margin-top:20px;">
+<div style="margin-top:20px;float:left;">
+<% if current_user.image_blob == nil %>
         <% if current_user.omni_image_url == nil %>
-        <%= gravatar_for_with_size current_user, "100x100" %>
+        <%= gravatar_for_with_size current_user, "120x90" %>
         <% else  %>
-        <%= image_tag(current_user.omni_image_url,size: "100x100", alt: "")%> 
+        <%= image_tag(current_user.omni_image_url,size: "120x90",:class=>"img-polaroid")%> 
         <% end  %>
         <% else  %>
-        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => current_user.id), :size => "100x100" %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => current_user.id),:class=>"img-polaroid", :size => "120x90" %>
         <% end  %>
-      </div>
-      <div class="span10 userdetailsection">
-        <h3><%= current_user.name %></h3> <%= link_to "Edit Profile", edit_user_registration_path %>
-        <br/>
-        <span class="mycoursecurrentdnumber">
-          <strong><%= @enrolled_courses.count %></strong> Courses Ongoing
-        </span>
-        <br/>
-        <span class="mycoursecompletednumber">
-          <strong><%= @completed_courses.count %></strong> Courses Completed
-        </span>
-          <!-- <br/>
-          <span class="mycourseshortlistednumber">
-            <strong>1</strong> Courses Shortlisted
-          </span> -->
-        </div>
+ </div>
+<div style="padding:0px;margin-left:20px;float:left;"><h2 style="font-size:20px;color:#576b00;font-weignt:bold;"><%= current_user.name %> </h2>
+<span><%= link_to "Edit Profile", edit_user_registration_path %></span><br>
+<span><%= @enrolled_courses.count %></strong> Courses Ongoing</span><br>
+<span><%= @completed_courses.count %></strong> Courses Completed</span>
+</div>
+</div>    
+<div class="cbox_3b fp_box" style="width:100%;"><span class="b1"></span>
+                                </div> 
 
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div>
 
-  <div class="mycoursebody">
-    <div class="container">
-      <div class="row">
-        <div class="span8">
+ <div class="cbox_3b fp_box">
+    <div style="width:60%;float:left;margin:10px ; text-align:left;">
           <ul class="nav nav-tabs">
             <li class="active">
               <a href="#currentcourses" data-toggle="tab">My Current Courses (<%= @enrolled_courses.count %>)</a>
@@ -57,35 +43,46 @@
               <div class="mycurrentcoursesection">
 
                 <div class="row">
-
-
-
-
-                  <% @enrolled_courses.each do |course|%>
-                  <div class="span8" style="margin-bottom: 30px;">
-                    <div class="courses" style="margin-top:0px;">
-                      <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                        <div class="card-a course-inner">
-                          <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-
-                          <% if course.data!=nil %>
-                          <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
+                  
+                  <div class="span8" >
+                   <div class="inx_wrap" >
+    <ul>
+           <% @enrolled_courses.each do |course|%> <li>
+        <div class="mod_pen">
+          <div class="mod_pen_top"></div>
+          <div class="mod_pen_center">
+            <div class="mod_imag">                   
+              
+             <% if course.data!=nil %>
+                          <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => course.id), width: "180", height: "100" , :style=>"top:0px;"%>
                           <% else %>
-                          <%= image_tag "test.png", width: "130", height: "130",:class=>"course-badge img-circle" %>
+                          <%= image_tag "test.png", width: "180", height: "100", :style=>"top:0px;" %>
                           <% end %>
-                          <div class="course-content">
-                            <em class="label-a label-offset green" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."><b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>
-                            <!-- <em class="label-b">Free Course</em> -->
-
-                            <a href="<%= lms_course_url("#{course.lms_id}modules")%>">
-                             <h3 class="course-name"><%= course.title %></h3>
-                             <p class="course-desc"><%= course.short_desc %></p>
-                           </a></div>
-                         </div>
-                       </article>
-                     </div>
+             </div>
+            <div class="clr"></div>
+            <h2>
+              <%= course.title %>  </h2>
+            <p>
+              <%= course.short_desc %>          </p>
+            <div class="mod_com">
+              <div class="pr_left">Price</div>
+              <div class="pr_right">
+                Rs.890              </div>
+            </div>
+            <div class="mod_com">
+              <div class="pr_left gree">Duration</div>
+              <div class="pr_right gree">
+                1 Months
+              </div>
+            </div>
+          </div>
+          <div class="mod_pen_bottom"><a href="">
+            <div class="mod_view">View Details</div>
+            </a>  </div>
+        </div>
+      </li><% end %></ul></div>
                    </div>
-                   <% end %>
+                   
 
 
 
@@ -96,80 +93,58 @@
              <div class="tab-pane" id="completedcourses">
               <div class="mycompletedcoursesesection">
                <div class="row">
-                <% @completed_courses.each do |course|%>
+                
 
-                <div class="span8" style="margin-bottom: 30px;">  
-                  <div class="courses" style="margin-top:0px;">
-                    <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                      <div class="card-a course-inner">
-                        <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                        <% if course.data!=nil %>
-                        <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
-                        <% else %>
-                        <%= image_tag "test.png", width: "130", height: "130",:class=>"course-badge img-circle" %>
-                        <% end %>
-                        <div class="course-content">
-                          <em class="label-a label-offset orange" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">Operations</em>
-
-                          <!-- <em class="label-b">Free Course</em> -->
-                          <%=link_to(course) do %><h3 class="course-name"><%= course.title %></h3>
-                          <p class="course-desc"><%= course.short_desc %></p>
-                          <% end %></div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-                  <% end %>
-
-
-                  
+                <div class="span8" >  
+                  <div class="inx_wrap" >
+    <ul>
+           <% @completed_courses.each do |course|%> <li>
+        <div class="mod_pen">
+          <div class="mod_pen_top"></div>
+          <div class="mod_pen_center">
+            <div class="mod_imag">                   
+              
+             <% if course.data!=nil %>
+                          <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => course.id), width: "180", height: "100", :style=>"top:0px;" %>
+                          <% else %>
+                          <%= image_tag "test.png", width: "180", height: "100", :style=>"top:0px;" %>
+                          <% end %>
+             </div>
+            <div class="clr"></div>
+            <h2>
+              <%= course.title %>  </h2>
+            <p>
+              <%= course.short_desc %>          </p>
+            <div class="mod_com">
+              <div class="pr_left">Price</div>
+              <div class="pr_right">
+                Rs.890              </div>
+            </div>
+            <div class="mod_com">
+              <div class="pr_left gree">Duration</div>
+              <div class="pr_right gree">
+                1 Months
+              </div>
+            </div>
+          </div>
+          <div class="mod_pen_bottom"><a href="">
+            <div class="mod_view">View Details</div>
+            </a>  </div>
+        </div>
+      </li><% end %></ul></div>
+                  </div>          
                   
                 </div>
               </div>
-            </div><!-- <div class="tab-pane active" id="completedcourses"> -->
-
-
-            <div class="tab-pane" id="shortlistedcourses">
-              <div class="mysubscribedcoursesesection">
-                <h3>My Subscribed Courses</h3>
-                <div class="row">
-
-                  <div class="span8">
-                    <div class="courses">
-                      <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-                        <div class="card-a course-inner">
-                          <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-                          <img alt="Try Ruby" class="course-badge img-circle" height="130" src="http://placehold.it/130x130&text=Course" width="130">
-                          <div class="course-content">
-                            <em class="label-a label-offset violate" rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths.">New</em>
-                            <!-- <em class="label-b">Free Course</em> -->
-                            <%=link_to(@course) do %><h3 class="course-name">New Course</h3>
-                            <p class="course-desc">Learn the basic building blocks of New Course in your browser.</p>
-                            <% end %></div>
-                          </div>
-                        </article>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div><!-- <div class="tab-pane active" id="shortlistedcourses"> -->
-
-
             </div>
-          </div><!-- End of span8 -->
-          <div class="span4">
-            <div class="youmaylikecourse" align="center">
-              <h3>Explore More Courses</h3>
-              <!-- <a href="courselibrary.php"><span class="btn btn-info btn-large exploremore">Explore More Courses</span></a> -->
-              <div align="center">
-                <span align="center">
-                 <%= link_to "", courses_path,class:"browsemore2" %>
-                 <!-- <h6 style="margin:0px;color:steelblue;">Discover More Courses</h6> -->
-               </span>
-             </div>
+         </div>
+          </div>
+        <div style="width:30%;float:left;margin:10px ; text-align:left;">
+           <div class="youmaylikecourse" >
+              <h4 style="padding:9px 0px;border-bottom: 1px solid #ddd;color: #2980B9 ;">Explore More Courses</h4>
+                        
+                 
+                 <%= render 'shared/my_courses' %>
            </div>
-
-         </div><!-- End of span4 -->
-       </div>
-     </div>
-   </div><!-- End of container -->
+         </div>
+      </div>      </div>

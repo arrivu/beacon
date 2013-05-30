@@ -171,7 +171,8 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     def my_courses
       @student=Student.where(user_id: current_user.id).first
       @enrolled_courses= @student.course_enroll
-      @completed_courses=@student.course_complete    
+      @completed_courses=@student.course_complete
+      @courses=Course.where("ispopular=1")    
     end
     
     def completed_courses

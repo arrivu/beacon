@@ -1,0 +1,18 @@
+
+<table cellpadding="5" style="margin-top:50px;">
+      <% @courses.each do |course|%>
+<tr><td> <!-- <img src="assets/images/sqlessentials.png" class="img-polaroid" style="width:50px;height:50px;"> -->
+<% if course.data!=nil %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "50", height: "50",:class=>"img-polaroid" %>
+            <% else %>
+            <%= image_tag "test.png", width: "50", height: "50",:class=>"img-polaroid" %>
+            <% end %> </td>
+<td><a href=""><%= course.title.split(' ').map(&:capitalize).join(' ') %></a><br><%= course.short_desc  %></td></tr>
+ <%end%>
+<tr><td> </td>
+<td><a href="/courses">More Courses</a></td></tr>
+</table>
+           
+      
+      
+  

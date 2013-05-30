@@ -1,3 +1,4 @@
+ <div class="span12" style=" border-radius: 10px;background: white;margin-left: 100px;width: 1155px;margin-top:20px;">
 <%= render 'shared/course_detial' %>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -9,7 +10,7 @@ $(document).ready(function(){
 
 });
 </script>
-
+<!--
 <div class="coursesyllabus">
   <div class="container">
     <div class="row">
@@ -152,11 +153,7 @@ $(document).ready(function(){
     </div>
   </div>
 </div>
-<!-- 
-<%= render 'shared/author_info' %>
-<%= render 'shared/course_preview' %>
-<%= render 'shared/course_reviews' %>
- -->
+
 <div align="center">
   <a href="<%= courses_path %>"><span class="browsemore" align="center">
     
@@ -249,5 +246,80 @@ $(".close").click(function(){
     }
   
   });
- </script>
+ </script>-->
 
+
+ <div class="cbox_3b fp_box">
+                                      <div style="width:45%;height:200px;float:left;margin:10px ; text-align:left;">
+<h4><a href="#">Course Module</a></h4>
+<table cellpadding="5" ><tr>
+<% @modules.each do |m| %>
+<td> <%= image_tag "100-netprogramming.png", :class=>"img-circle",width:"80",height:"70" %></td><td><h2><a href=""><%= m.name %></a></h2><p>Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit</p></td> <% end %></tr>
+
+</table></div>
+                <div style="width:45%;float:right;margin:10px ; text-align:left;">
+                 
+                    <h4><a href="#">About Author</a></h4>
+                 <table cellpadding="5"><tr><td> 
+                   <% @authors.each do |author|%>
+        <% if author.image_blob == nil %>
+        <% if author.omni_image_url == nil %>
+        <%= gravatar_for_with_size author, "100x100" %>
+        <% else  %>
+        <%= image_tag(author.omni_image_url,size: "100x100", alt: "")%> 
+        <% end  %>
+        <% else  %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100" %>
+        <% end  %>
+        
+      </td><td><p>
+      <h6 style="font-weight:bold;"><a href=""><%= author.name %></a></h6>
+        <%= author.teaching_staff.description %></p></td></tr>
+               <% end %> </table></div>
+</div>
+<div class="cbox_3b fp_box">
+<div style="width:45%;float:left;margin:10px ; text-align:left;">
+<h4><a href="#">Course Preview</a></h4>
+      
+       <table cellpadding="20" style="text-align:center;"> <tr>
+         <% a=0 %>
+      <% @course.course_previews.where(enable: 1).order(:sequence).each do |p| %>
+      <% a +=1  %>
+         <td>
+           
+            <% h = p.video_url %>
+            <% url = h[38..h.length-44].split('/')  %>
+
+
+            <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
+      <div id="preview_model<%= a %>" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+
+                <%=image_tag("close.png", alt: "")%></a>
+               </a></button>
+
+              <div class="modal-header">
+                <h3 id="myModalLabel">Preview Video</h3>
+              </div>
+
+              <div class="modal-body" style="margin-left:0px;">
+
+               <%= raw(p.video_url) %>
+
+             </div>
+           </div>
+         <a href="#preview_model<%= a %>" data-toggle="modal" >  <h6 class="prevtxt"><%= p.name %></h6></a>
+           
+         </td> <% end %>
+     </tr>
+   </table>
+
+
+</div>
+<div style="width:45%;float:right;margin:10px ; text-align:left;">
+                    <h4><a href="#">Reviews</a></h4>
+                 <table cellpadding="10"><tr><td><h2 style=""></h2><p><%= render "comments" %></p></td></tr>
+                
+                              </table></div>
+</div>
+</div> 

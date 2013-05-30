@@ -13,4 +13,30 @@ module CoursesHelper
 			end
 		end
 	end	
+
+	def durationcalculation(course)
+		
+		   x=(course.end_date-course.start_date).to_i
+       if x>30
+       	y=x/30
+       	z=x%30
+       	day=pluralize(z,"day") 
+       duration = pluralize(y,"month") 
+         return duration
+       else
+		   y=x/7
+		   z=x%7
+		   day=pluralize(z,"day") 
+       duration = pluralize(y,"week") 
+         return duration
+		    
+		 	end
+
+		    
+		end
+
+	
+
+
+
 end

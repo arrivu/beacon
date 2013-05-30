@@ -405,9 +405,9 @@ width: 100%;
 
 .bubble-content {
    position:relative;
-   float:left;
+ 
    padding: 10px;
-   margin-left: 12px;
+   margin-left: 52px;
    border-radius:10px;
    background-color:#fff;
    color: #333;
