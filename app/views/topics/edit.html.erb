@@ -3,11 +3,16 @@
 </div>
 <br>
 <div class="row">
-  <div class="span8 offset3"  style="min-height:500px;">
-    	<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+  <div class="span12" style="min-height:550px;margin-top:20px;background: white;border-radius: 5px;padding: 10px;width:1050px;margin-left:155px;">
+          <div style="text-align: center;width: 200px;height: 45px;float: left;
+line-height: 40px;margin-left: -36px;background-image: url('../assets/ribbonr.jpg');background-size: 200px 100%; color:white;font-weight:bold;">
+Edit Category
+  </div>
+          <div class = "hero-unit" style="border-radius:5px;margin-top:50px;">
+    	
 <%- model_class = Topic -%>
 
-  <h3 align = "center">Edit Category</h3>
+  
 
  <%= simple_form_for @topic, :html => { :class => 'form-horizontal' } do |f| %>
       <%= render 'shared/error_messages', object: f.object %>

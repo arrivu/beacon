@@ -4,16 +4,18 @@
 
 <br>
 <div class="row">
-	<div class="span12 offset3">
+	<div class="span12" style="margin-top:20px;background: white;border-radius: 5px;padding: 10px;width:1050px;margin-left:155px;">
 		
 
 		<div class="row">
 			<div class="span10 ">
-				<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+				 <div style="text-align: center;width: 200px;height: 45px;float: left;
+line-height: 40px;margin-left: -36px;background-image: url('../assets/ribbonr.jpg');background-size: 200px 100%; color:white;font-weight:bold;">
+New Preview
+  </div>
+       
+				<div class = "hero-unit" style="border-radius:5px;margin-top:50px;">
 					<table class="table table-hover ">
-						<tr>
-							<h3 align = "center">New Preview</h3>
-						</tr>
 						<%= form_for @preview do |f| %>
 						<%= render 'shared/error_messages', object: f.object %>
 						<tr><td><%= f.label :course_id, "Courses" %></td>

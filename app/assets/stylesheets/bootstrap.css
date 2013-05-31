@@ -5795,7 +5795,7 @@ a.badge:hover {
 
 .label-info,
 .badge-info {
-  background-color: #2a488e;
+  background-color: rgb(89, 112, 95);
 }
 
 .label-info[href],
@@ -6186,12 +6186,12 @@ a.badge:hover {
 }
 
 .hero-unit {
-  padding-left: 60px;
-  margin-bottom: 30px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  color: inherit;
+margin: 30px auto;
+font-size: 18px;
+font-weight: 200;
+line-height: 30px;
+color: inherit;
+width: 500px;
 
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
