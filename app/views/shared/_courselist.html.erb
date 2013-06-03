@@ -5,23 +5,23 @@
           <div class="mod_pen_top"></div>
           <div class="mod_pen_center">
             <div class="mod_imag">
-              <%=link_to(course) do %>
+            <table><tr><td>  <%=link_to(course) do %>
                       <% if course.is_coming_soon %>
-                          <div class="mod_labal_launching"></div>
+                        <!--   <div class="mod_labal_launching"></div> -->
                           <% else %>
-                          <div class="mod_labal"></div>
+                          <!-- <div class="mod_labal"></div> -->
                           <% end  %>
                     <% if course.data!=nil %>
-            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "180", height: "100",:class=>" " %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "150", height: "150",:class=>"img-circle " %>
             <% else %>
-            <%= image_tag "test.png", width: "180", height: "100",:class=>"" %>
-            <% end %>      
+            <%= image_tag "test.png", width: "150", height: "150",:class=>"img-circle" %>
+            <% end %>     </td><td> <%=link_to(course) do %><h2><%= course.title.split(' ').map(&:capitalize).join(' ') %>   </h2><%end%></td></tr></table> 
               
               
              </div>
             <div class="clr"></div>
             
-              <%=link_to(course) do %><h2><%= course.title.split(' ').map(&:capitalize).join(' ') %>   </h2><%end%>
+             
             <p>
               <%= course.short_desc  %>           </p>
             <div class="mod_com">
@@ -38,18 +38,9 @@
           </div>
           <div class="mod_pen_bottom">
             <%=link_to(course) do %>
-            <div class="mod_view">View Details</div>
+            <div class="btn btn-large btn-success" style="float:right;margin:10px;">View Details</div>
      <% end %>
-      <%=link_to(course) do %>
-      <% if course.is_coming_soon %>
-                         <div class="mod_buy">follow</div>
-      <% elsif price_of_course_according_to_date(course).to_i ==0 %>
-                        <div class="mod_buy">free</div>
-                         
-                        <% else %>
-                         <div class="mod_buy">enroll</div>
-                        <% end %>
-                        <% end %>
+      
                         
              </div>
         </div> 

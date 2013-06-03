@@ -13,6 +13,258 @@
  *= require jquery-minicolors
 */
 
+#mask {
+  display: none;
+  background: #000; 
+  position: fixed; left: 0; top: 0; 
+  z-index: 10;
+  width: 100%; height: 100%;
+  opacity: 0.8;
+  z-index: 999;
+}
+
+.login-popup{
+  display:none;
+  background: #333;
+  padding: 10px;  
+  border: 2px solid #ddd;
+  float: left;
+  font-size: 1.2em;
+  position: fixed;
+  top: 50%; left: 50%;
+  z-index: 99999;
+  box-shadow: 0px 0px 20px #999;
+  -moz-box-shadow: 0px 0px 20px #999; /* Firefox */
+    -webkit-box-shadow: 0px 0px 20px #999; /* Safari, Chrome */
+  border-radius:3px 3px 3px 3px;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari, Chrome */
+}
+
+img.btn_close {
+  float: right; 
+  margin: -28px -28px 0 0;
+}
+
+fieldset { 
+  border:none; 
+}
+
+form.signin .textbox label { 
+  display:block; 
+  padding-bottom:7px; 
+}
+
+form.signin .textbox span { 
+  display:block;
+}
+
+form.signin p, form.signin span { 
+  color:#999; 
+  font-size:11px; 
+  line-height:18px;
+} 
+
+form.signin .textbox input { 
+  background:#666666; 
+  border-bottom:1px solid #333;
+  border-left:1px solid #000;
+  border-right:1px solid #333;
+  border-top:1px solid #000;
+  color:#fff; 
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+  font:13px Arial, Helvetica, sans-serif;
+  padding:6px 6px 4px;
+  width:200px;
+}
+
+form.signin input:-moz-placeholder { color:#bbb; text-shadow:0 0 2px #000; }
+form.signin input::-webkit-input-placeholder { color:#bbb; text-shadow:0 0 2px #000;  }
+
+.button { 
+  background: -moz-linear-gradient(center top, #f3f3f3, #dddddd);
+  background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#dddddd));
+  background:  -o-linear-gradient(top, #f3f3f3, #dddddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f3f3f3', EndColorStr='#dddddd');
+  border-color:#000; 
+  border-width:1px;
+  border-radius:4px 4px 4px 4px;
+  -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+  color:#333;
+  cursor:pointer;
+  display:inline-block;
+  padding:6px 6px 4px;
+  margin-top:10px;
+  font:12px; 
+  width:214px;
+}
+
+.button:hover { background:#ddd; }
+
+
+
+#loginContainer {
+    position:relative;
+    float:right;
+    font-size:12px;
+}
+
+/* Login Button */
+#loginButton { 
+    display:inline-block;
+    float:left;
+    background:#d2e0ea url(buttonbg.png) repeat-x; 
+    border:1px solid #899caa; 
+    border-radius:3px;
+    -moz-border-radius:3px;
+    position:relative;
+    z-index:30;
+    margin:0px 4px;
+    cursor:pointer;
+}
+
+/* Login Button Text */
+#loginButton span {
+    color:#445058; 
+    font-size:14px; 
+    font-weight:bold; 
+    text-shadow:1px 1px #fff; 
+    padding:7px 29px 9px 10px;
+    background:url(loginArrow.png) no-repeat 53px 7px;
+    display:block
+}
+
+#loginButton:hover {
+    background:url(buttonbgHover.png) repeat-x;
+}
+
+/* Login Box */
+#loginBox {
+    position:absolute;
+    top:34px;
+    right:0;
+    display:none;
+    z-index:29;
+}
+
+/* If the Login Button has been clicked */    
+#loginButton.active {
+    border-radius:3px 3px 0 0;
+}
+
+#loginButton.active span {
+    background-position:53px -76px;
+}
+
+/* A Line added to overlap the border */
+#loginButton.active em {
+    position:absolute;
+    width:100%;
+    height:1px;
+    background:#d2e0ea;
+    bottom:-1px;
+}
+
+/* Login Form */
+#loginForm {
+    width:290px; 
+    border:1px solid #899caa;
+    border-radius:3px 0 3px 3px;
+    -moz-border-radius:3px 0 3px 3px;
+    margin-top:-1px;
+    background:#d2e0ea;
+    padding:6px;
+}
+
+#loginForm fieldset {
+    margin:0 0 12px 0;
+    display:block;
+    border:0;
+    padding:0;
+}
+
+fieldset#body {
+    background:#fff;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    padding:10px 13px;
+    margin:0;
+}
+
+#loginForm #checkbox {
+    width:auto;
+    margin:1px 9px 0 0;
+    float:left;
+    padding:0;
+    border:0;
+    *margin:-3px 9px 0 0; /* IE7 Fix */
+}
+
+#body label {
+    color:#3a454d;
+    margin:9px 0 0 0;
+    display:block;
+    float:left;
+}
+
+#loginForm #body fieldset label {
+    display:block;
+    float:none;
+    margin:0 0 6px 0;
+}
+
+/* Default Input */
+#loginForm input {
+    width:92%;
+    border:1px solid #899caa;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    color:#3a454d;
+    font-weight:bold;
+    padding:8px 8px;
+    box-shadow:inset 0px 1px 3px #bbb;
+    -webkit-box-shadow:inset 0px 1px 3px #bbb;
+    -moz-box-shadow:inset 0px 1px 3px #bbb;
+    font-size:12px;
+}
+
+/* Sign In Button */
+#loginForm #login {
+    width:auto;
+    float:left;
+    background:#339cdf url(loginbuttonbg.png) repeat-x;
+    color:#fff;
+    padding:7px 10px 8px 10px;
+    text-shadow:0px -1px #278db8;
+    border:1px solid #339cdf;
+    box-shadow:none;
+    -moz-box-shadow:none;
+    -webkit-box-shadow:none;
+    margin:0 12px 0 0;
+    cursor:pointer;
+    *padding:7px 2px 8px 2px; /* IE7 Fix */
+}
+
+/* Forgot your password */
+#bar { width:100%; height:35px; padding:15px 0; background:url(bar.png) repeat-x; }
+#loginForm span {
+    text-align:center;
+    display:block;
+    padding:7px 0 4px 0;
+}
+
+#loginForm span a {
+    color:#3a454d;
+    text-shadow:1px 1px #fff;
+    font-size:12px;
+}
+
+input:focus {
+    outline:none;
+}
 .index_right_penal ul li {
   padding:8px 8px;
   margin:0px 0px;
@@ -1939,16 +2191,27 @@
   float:left;
 }
 .mod_pen {
-  width:225px;
+  width:470px;
   float:left; 
-  height:358px;
-  background:#efefef;
+
+  height:380px;
+ background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+
   border-radius:5px;
   margin: 20px;
 }
 
 .mod_pen:hover{
-background:#E0FBDB;
+-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;
 }
 .mod_pen_top {
   width:100%;
@@ -1959,7 +2222,7 @@ background:#E0FBDB;
 }
 
 .mod_pen_center {
-  width:199px;
+  width:440px;
   padding:0px 13px 13px 13px;
   float:left;
   height: 300px;
@@ -1986,30 +2249,31 @@ background:#E0FBDB;
   border-radius: 5px;
   behavior: url(ie-css3.htc);
 /*  background:#5f9fcb;*/
-  border:1px solid #1b679b;
-  height:120px;
+ 
+  height:auto;
   
 }
 
 .mod_pen_center h2 {
-  font-size:14px;
+  font-size:25px;
   font-weight:bold;
   color:#576b00;
   padding:10px 0px;
-  height:30px;
+
 }
 .mod_pen_center p {
-  font-size:14px;
+  font-size:18px;
   line-height:16px;
-  color:#6a6a6a;
-  padding:0px 0px 10px 0px;
+  color:rgb(75, 71, 71);;
+  padding:0px 0px 10px 10px;
   text-align:justify;
+  height:130px
 }
 .mod_com {
-  width:100%;
+  width:51%;
   padding-bottom:3px;
-  float:left
-}
+ font-size:16px;margin:0px auto;float:left;
+ }
 .pr_left {
   width:70px;
   color:#052b6e;
@@ -2027,7 +2291,7 @@ background:#E0FBDB;
 .mod_imag img {
   padding:10px 10px;
   position:relative;
-  top:-80px;
+
 }
 .mod_labal {
   width: 189px;

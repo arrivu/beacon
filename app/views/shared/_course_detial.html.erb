@@ -1,3 +1,40 @@
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('a.login-window').click(function() {
+    
+    // Getting the variable's value from a link 
+    var loginBox = $(this).attr('href');
+
+    //Fade in the Popup and add close button
+    $(loginBox).fadeIn(300);
+    
+    //Set the center alignment padding + border
+    var popMargTop = ($(loginBox).height() + 24) / 2; 
+    var popMargLeft = ($(loginBox).width() + 24) / 2; 
+    
+    $(loginBox).css({ 
+      'margin-top' : -popMargTop,
+      'margin-left' : -popMargLeft
+    });
+    
+    // Add the mask to body
+    $('body').append('<div id="mask"></div>');
+    $('#mask').fadeIn(300);
+    
+    return false;
+  });
+  
+  // When clicking on the button close or the mask layer the popup closed
+  $('a.close, #mask').live('click', function() { 
+    $('#mask , .login-popup').fadeOut(300 , function() {
+    $('#mask').remove();  
+  }); 
+  return false;
+  });
+});
+</script>
+
 <!--  
 <% if @course.background_image ==nil %>
 <div class="coursedetailtop" style="background-color: #d14836;background-image: -webkit-linear-gradient(top,#2C3E50,#ECF0F1); background-image: -moz-linear-gradient(top,#2C3E50,#ECF0F1);  background-image: -ms-linear-gradient(top,#2C3E50,#ECF0F1);  background-image: -o-linear-gradient(top,#2C3E50,#ECF0F1);  background-image: linear-gradient(top,#2C3E50,#ECF0F1);  color:#fff;  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2C3E50', endColorstr='#ECF0F1'); 
@@ -126,7 +163,11 @@
 </div> -->
 <div style="width:100%;margin-left:65px;margin-top:20px;">
 <div style="margin-top:20px;float:left;" id="top">
-<%= image_tag "nodejs.jpg", :class=>"img-polaroid",:width=>"175px",height:"145",padding:"10"%><br>
+ <% if @course.data!=nil %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @course.id), width: "180", height: "100",:class=>"img-polaroid" %>
+            <% else %>
+            <%= image_tag "test.png", width: "180", height: "100",:class=>"img-polaroid" %>
+            <% end %> <br>
 
 </div>
 <div style="padding:20px;margin-left:20px;float:left;"><h2 style="font-size:20px;color:#576b00;font-weignt:bold;"><%= @course.title %> </h2>
@@ -165,7 +206,8 @@
                 <% if @course.is_coming_soon %>
                 <% if @status!="follow" %>
 
-                  <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),  :class=>"enroll" %>
+                  <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),:id=>"login-box" %>
+                   
                   <% end %>
                 <% elsif @status=="enroll" %>
                 <a href="<%= lms_course_url("#{@course.lms_id}modules")%>"><div class="enroll">Go To Class
