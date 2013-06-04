@@ -2209,9 +2209,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', end
 }
 
 .mod_pen:hover{
--moz-box-shadow: 0 0 5px 5px #888;
--webkit-box-shadow: 0 0 5px 5px#888;
-box-shadow: 0 0 5px 5px #888;
+-moz-box-shadow: 0 0 5px 5px #c4decf;
+-webkit-box-shadow: 0 0 5px 5px#c4decf;
+box-shadow: 0 0 5px 5px #c4decf;
 }
 .mod_pen_top {
   width:100%;
@@ -2261,13 +2261,20 @@ box-shadow: 0 0 5px 5px #888;
   padding:10px 0px;
 
 }
+.admin{min-height:530px;
+  margin-top:20px;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  width:76%;
+  margin-left:11%;}
 .mod_pen_center p {
   font-size:18px;
   line-height:16px;
   color:rgb(75, 71, 71);;
   padding:0px 0px 10px 10px;
   text-align:justify;
-  height:130px
+  min-height:130px
 }
 .mod_com {
   width:51%;

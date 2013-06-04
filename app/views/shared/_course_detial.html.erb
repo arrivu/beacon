@@ -164,14 +164,14 @@ $(document).ready(function() {
 <div style="width:100%;margin-left:65px;margin-top:20px;">
 <div style="margin-top:20px;float:left;" id="top">
  <% if @course.data!=nil %>
-            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @course.id), width: "180", height: "100",:class=>"img-polaroid" %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @course.id), width: "150", height: "150",:class=>"img-circle" %>
             <% else %>
-            <%= image_tag "test.png", width: "180", height: "100",:class=>"img-polaroid" %>
+            <%= image_tag "test.png", width: "150", height: "150",:class=>"img-circle" %>
             <% end %> <br>
 
 </div>
-<div style="padding:20px;margin-left:20px;float:left;"><h2 style="font-size:20px;color:#576b00;font-weignt:bold;"><%= @course.title %> </h2>
-<span> <% if @course.is_coming_soon %>
+<div style="padding:20px;margin-left:20px;float:left;"><h3><%= @course.title %> </h3>
+<span> <h5><% if @course.is_coming_soon %>
             Date to be announced
             <% else %>
             <% start=""
@@ -196,10 +196,10 @@ $(document).ready(function() {
               end
              %>
             <%= next_session %>
-            <% end %></span><br>
-<span>Price: <% if @price.to_i != 0 %>
+            <% end %></h5></span>
+<span><h5>Price: <% if @price.to_i != 0 %>
             Rs&nbsp;<%= @price.to_i %>
-            <% end %></span><br><br>
+            <% end %></h5></span><br><br>
 <span> <% if (current_user.present? ) %>
               <% if !(current_user.has_role? :admin) %>
 
@@ -272,6 +272,6 @@ $(document).ready(function() {
       </table></div>
 </div>               
 <div class="cbox_3b fp_box" style="width:100%;"><span class="b1"></span>
-                    <h4><a href="#">Course Description</a></h4>
+                    <h3><a href="#">Course Description</a></h3>
                     <p><%= @course.desc  %> </p>
                 </div> 

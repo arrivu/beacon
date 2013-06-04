@@ -251,7 +251,7 @@ $(".close").click(function(){
 
  <div class="cbox_3b fp_box">
                                       <div style="width:45%;height:200px;float:left;margin:10px ; text-align:left;">
-<h4><a href="#">Course Module</a></h4>
+<h3><a href="#">Course Module</a></h3>
 <table cellpadding="5" ><tr>
 <% @modules.each do |m| %>
 <td> <%= image_tag "100-netprogramming.png", :class=>"img-circle",width:"80",height:"70" %></td><td><h2><a href=""><%= m.name %></a></h2><p>Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit</p></td> <% end %></tr>
@@ -259,7 +259,7 @@ $(".close").click(function(){
 </table></div>
                 <div style="width:45%;float:right;margin:10px ; text-align:left;">
                  
-                    <h4><a href="#">About Author</a></h4>
+                    <h3><a href="#">About Author</a></h3>
                  <table cellpadding="5"><tr><td> 
                    <% @authors.each do |author|%>
         <% if author.image_blob == nil %>
@@ -280,7 +280,7 @@ $(".close").click(function(){
 <div class="cbox_3b fp_box">
 <div style="width:45%;float:left;margin:10px ; text-align:left;">
 <div class="previewcourse" id="previewcourse">
-<h4><a href="#">Course Preview</a></h4>
+<h3><a href="#">Course Preview</a></h3>
       
        <table cellpadding="20" style="text-align:center;"> <tr>
          <% a=0 %>
@@ -319,7 +319,7 @@ $(".close").click(function(){
 </div>
 </div>
 <div style="width:45%;float:right;margin:10px ; text-align:left;">
-                    <h4><a href="#">Reviews</a></h4>
+                    <h3><a href="#">Reviews</a></h3>
                  <table cellpadding="10"><tr><td><h2 style=""></h2><p><%= render "comments" %></p></td></tr>
                 
                               </table></div>

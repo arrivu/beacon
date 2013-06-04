@@ -13,10 +13,10 @@
         <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => current_user.id),:class=>"img-polaroid", :size => "120x90" %>
         <% end  %>
  </div>
-<div style="padding:0px;margin-left:20px;float:left;"><h2 style="font-size:20px;color:#576b00;font-weignt:bold;"><%= current_user.name %> </h2>
+<div style="padding:0px;margin-left:20px;float:left;"><h2 style="font-size:25px;color:#576b00;font-weignt:bold;"><%= current_user.name %> </h2>
 <span><%= link_to "Edit Profile", edit_user_registration_path %></span><br>
 <span><%= @enrolled_courses.count %></strong> Courses Ongoing</span><br>
-<span><%= @completed_courses.count %></strong> Courses Completed</span>
+<span><%= @completed_courses.count %></strong> Courses Completed</span><br>
 </div>
 </div>    
 <div class="cbox_3b fp_box" style="width:100%;"><span class="b1"></span>
@@ -53,15 +53,16 @@
           <div class="mod_pen_center">
             <div class="mod_imag">                   
               <%=link_to(course) do %>
-             <% if course.data!=nil %>
-                          <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => course.id), width: "180", height: "100" , :style=>"top:0px;"%>
+            <table><tr><td>   <% if course.data!=nil %>
+                        <%= image_tag url_for(:controller=>"courses", :action => 'show_image', :id => course.id), width: "150", height: "150" , :style=>"top:0px;", :class=>"img-circle" %>
                           <% else %>
-                          <%= image_tag "test.png", width: "180", height: "100", :style=>"top:0px;" %>
-                          <% end %>
+                          <%= image_tag "test.png", width: "150", height: "150", :style=>"top:0px;", :class=>"img-circle" %>
+                          <% end %></td><td>
+
+                             <h2> <%= course.title %> </h2></td></tr></table>
              </div>
             <div class="clr"></div>
-            <h2>
-              <%= course.title %>  </h2><% end %>
+            <% end %>
             <p>
               <%= course.short_desc %>          </p>
             <div class="mod_com">
@@ -76,8 +77,8 @@
               </div>
             </div>
           </div>
-          <div class="mod_pen_bottom"><%=link_to(course) do %>
-            <div class="mod_view">View Details</div>
+          <div class="mod_pen_bottom" ><%=link_to(course) do %>
+            <div class="btn btn-large btn-success" style="float:right;margin:10px;">View Details</div>
             <% end %> </div>
         </div>
       </li><% end %></ul></div>
@@ -142,10 +143,8 @@
           </div>
         <div style="width:30%;float:left;margin:10px ; text-align:left;">
            <div class="youmaylikecourse" >
-              <h4 style="padding:9px 0px;border-bottom: 1px solid #ddd;color: #2980B9 ;">Explore More Courses</h4>
-                        
-                 
-                 <%= render 'shared/my_courses' %>
+              <h4 style="padding:9px 0px;border-bottom: 1px solid #ddd;color: #2980B9 ;font-weight:700;">Explore More Courses</h4>
+                   <%= render 'shared/my_courses' %>
            </div>
          </div>
       </div>      </div>

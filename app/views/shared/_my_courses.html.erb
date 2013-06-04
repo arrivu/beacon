@@ -8,7 +8,7 @@
             <% else %>
             <%= image_tag "test.png", width: "50", height: "50",:class=>"img-polaroid" %><% end %>
             <% end %> </td>
-<td><%=link_to(course) do %><%= course.title.split(' ').map(&:capitalize).join(' ') %><%end%><br><%= course.short_desc  %></td></tr>
+<td style="font-size: 18px;"><%=link_to(course) do %><%= course.title.split(' ').map(&:capitalize).join(' ') %><%end%><br><p style="font-size: 15px;"><%= course.short_desc  %></p></td></tr>
  
  <% end %>
 <tr><td> </td>
