@@ -65,6 +65,7 @@ end
     render :template => "/errors/500.html.erb",
            :layout => 'application.html.erb'
   end
+  
   def routing_error
   render_not_found(nil)
   end

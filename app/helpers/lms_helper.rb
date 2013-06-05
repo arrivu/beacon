@@ -13,6 +13,10 @@ module LmsHelper
 		"#{Settings.lms.root_url_logout}"
 	end
 
+	def lms_logout_url()
+		"#{Settings.lms.root_url}#{Settings.lms.logout_path}"
+	end
+
 	def lms_create_user(current_user)
 		if lms_enable? and current_user != nil
 			lmsuser=CanvasREST::User.new

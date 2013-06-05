@@ -12,6 +12,7 @@ lms:
   root_url: https://lms.arrivu.corecloud.com/
   course_url_path: courses/
   api_root_url: https://lms.arrivu.corecloud.com/api/v1
+  logout_path: logout
 mailserver:
   address: smtp.gmail.com
   port: 587
@@ -27,3 +28,10 @@ payment_gateway:
   ccavenue_account: "test123"
 invoices:
   notes: "Thank you for your enrollment!"
+omniauth:
+  facebook_key: 
+  facebook_secret: 
+  linkedin_key: 
+  linkedin_secret: 
+  google_oauth2_key: 
+  google_oauth2_secret: 
