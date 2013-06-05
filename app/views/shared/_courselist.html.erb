@@ -55,6 +55,7 @@
         <% else  %>
         <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "65x65",:class=>"img-polaroid" %>
         <% end  %>
+
         <% end %></td><td>Author Name<br><p>Author Description</p></td></tr></</table>
         <table cellpadding="2" style="margin-left: 10px;"><tr><td><% if !course.course_previews.empty? %><%= image_tag "video.jpg", :width=>"25",:height=>"25"%><% end %></td>
         <td><% if !course.comments.empty? %><%= image_tag "discussin.png", :width=>"25",:height=>"25"%><% end %></td></tr>
@@ -64,7 +65,7 @@
             <div class="btn btn-large btn-success" style="float:right;margin-right:10px;">View Details</div>
      <% end %>   
              
-               
+
         </div> 
       </li><%end%>
       <% end %>
