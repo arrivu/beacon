@@ -65,15 +65,40 @@ text-align: justify;
 </script>
 
 
-        <div class="span12" style=" border-radius: 10px;margin-left: 35px;width: 1282px;position:relative;margin-top: 20px;">
+        <div class="span12" style=" border-radius: 10px;width: 85%;position:relative;margin: 20px 150px;">
+<h2 style="font-size: 26px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;width:87%;text-align:center;">Popular Courses</h2>
 
-<h2 style="font-size: 26px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Popular Courses</h2>
+
+    
+
                <div style="width:85%;margin:0px auto;">   
               <%= render 'shared/courselist' %>
             </div>
-     <div class="span12" style="margin-left: 52px;width:85%;">
-<div class="span5" style="padding:0px 65px; border-right:0px solid #ddd; height:300px;">
-<h2 style="font-size: 18px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Our Knowledge Partners</h2>
+     <div class="span12" style="margin:0px auto;width:85%;">
+
+
+<!-- <div class="span1" style="background-image:url('assets/vertical.png');height:380px; background-repeat:no-repeat;width:5px;margin-left: 10px;
+margin-top: 50px;background-size: 5px 420px;" ></div> -->
+<div class="span4" style="width:100%; float:left;">
+<h2 style="font-size: 18px25px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Learners Speak</h2>
+<table cellpadding="10" style="font-size:18px;">
+<tr><td>
+  <%= image_tag "learner.jpg" ,:class=>"img-circle" ,:style=>"width:95px;height:90px" %><span style="font-size:15px;width:225px;float:right;margin-top:15px;">- <strong>Ankit Gupta,<br>
+Mangalayatan University</strong></span><br><!-- <img src="assets/img/learner.jpg" class="img-circle" style="width:95px;height:90px;">  -->"Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+</td>
+<td><%= image_tag "learner.jpg" ,:class=>"img-circle" ,:style=>"width:95px;height:90px" %><span style="font-size:15px;width:225px;float:right;margin-top:15px;">- <strong>Ankit Gupta,<br>
+Mangalayatan University</strong></span><br>
+  "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+</td>
+
+<td><%= image_tag "learner.jpg" ,:class=>"img-circle" ,:style=>"width:95px;height:90px" %><span style="font-size:15px;width:225px;float:right;margin-top:15px;">- <strong>Ankit Gupta,<br>
+Mangalayatan University</strong></span><br>  "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+</td></tr>
+</table>
+</div>
+<div class="span5" style="width:100%; border-right:0px solid #ddd; 
+">
+<h2 style="font-size: 25px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Our Knowledge Partners</h2>
 
 <table cellpadding="10">
 <tr><td>
@@ -81,37 +106,19 @@ text-align: justify;
 
   </td><td>
    <%= image_tag "greatlakeslogoimr.jpg" ,:class=>"img-polaroid", :width=>"160", :height=>"90" %>
-   </td></tr>
+   </td>
 
-<tr><td><%= image_tag "nanyang.png", :class=>"img-polaroid", :width=>"160", :height=>"90" %>
+<td><%= image_tag "nanyang.png", :class=>"img-polaroid", :width=>"160", :height=>"90" %>
   </td><td>
   <%= image_tag "yale.png" ,:class=>"img-polaroid", :width=>"160", :height=>"90" %>
-  </td></tr>
-<tr><td>
+  </td>
+<td>
   <%= image_tag "cuoa.png", :class=>"img-polaroid", :width=>"160", :height=>"90" %>
   </td><td>
   <%= image_tag "yale.png" ,:class=>"img-polaroid", :width=>"160", :height=>"90" %>
   </td></tr>
 </table>
 
-</div>
-
-<div class="span1" style="background-image:url('assets/vertical.png');height:380px; background-repeat:no-repeat;width:5px;margin-left: 10px;
-margin-top: 50px;background-size: 5px 420px;" ></div>
-<div class="span4" style="padding:0px 35px;float:right;">
-<h2 style="font-size: 18px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Learners Speak</h2>
-<table cellpadding="10">
-<tr><td>
-  <%= image_tag "learner.jpg" ,:class=>"img-polaroid" ,:style=>"width:95px;height:90px" %><!-- <img src="assets/img/learner.jpg" class="img-polaroid" style="width:95px;height:90px;">  --></td><td>"Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”<br>
-<span style="float:right;">- <strong>Ankit Gupta,
-Mangalayatan University</strong></span></td></tr>
-<tr><td><%= image_tag "learner.jpg" ,:class=>"img-polaroid" ,:style=>"width:95px;height:90px" %></td><td>"Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”<br>
-<span style="float:right;">- <strong>Ankit Gupta,
-Mangalayatan University</strong></span></td></tr>
-<tr><td><%= image_tag "learner.jpg" ,:class=>"img-polaroid" ,:style=>"width:95px;height:90px" %></td><td>"Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”<br>
-<span style="float:right;">- <strong>Ankit Gupta,
-Mangalayatan University</strong></span></td></tr>
-</table>
 </div>
 </div>
 </div>
