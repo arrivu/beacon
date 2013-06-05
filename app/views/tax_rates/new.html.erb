@@ -5,15 +5,21 @@
 	</div>
 
 	<div class="row">
-		<div class="span10 offset3" style="min-height:600px">
+		<div class="admin">
+			<div style="text-align: center;width: 200px;height: 45px;float: left;
+line-height: 40px;margin-left: -36px;background-image: url('../assets/ribbonr.jpg');background-size: 200px 100%; color:white;font-weight:bold;">
+Create Tax Rates
+  </div>
 			<div  style="">
 				<div class="divcontainer">
+					
 
 					<%= simple_form_for(@tax_rate) do |f| %>
 					<%= render 'shared/error_messages', object: f.object %>
+					<div class="hero-unit">
 
 					<div class="divrow">
-						<div><h3 align="center">Create Tax</h3></div>
+				
 						<div class="divleft">
 							Description
 						</div>
@@ -71,6 +77,7 @@
 					</div>
 					<br>
 					<% end %>
+				</div>
 				</div>
 			</div>
 		</div>

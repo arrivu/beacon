@@ -1,7 +1,9 @@
  <br>
  <% provide(:title, 'A Smarter Way to Learn') %>
  <% provide(:effectingHeader) %>
- <%= render 'shared/course_header' %>
+ 
+ <div class="span12" style=" border-radius: 10px;background: white;margin-left: 9%;width: 80%;">
+  <%= render 'shared/course_header' %>
  <%= render 'shared/courselist' %>
 </div>
 </div>
@@ -9,4 +11,4 @@
 <div class='apple_pagination' align="center" style="margin-left:447px;">
  <%= will_paginate @courses, :container => false %>
 </div> 
-</div>
+</div></div>

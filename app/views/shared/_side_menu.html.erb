@@ -1,22 +1,70 @@
-   <script type="text/javascript">
 
-   $(function(){
-    // this will get the full URL at the address bar
-    var url = window.location.href; 
-
-    // passes on every "a" tag 
-    $("#side_menu a").each(function() {
-            // checks if its the same on the address bar
-            if(url == (this.href)) { 
-            	$(this).closest("a").addClass("active");
-            }
-          });
-  });
-   </script>
 
    <div>
-   	<ul id="side_menu">
-   		<li><%= link_to "Users", users_path %></li>   		 		
+
+<ul id="nav1" style="margin-left: 140px;">
+  <li class="top"><a href="/users" class="top_link"><span class="down">Users</span></a> <ul class="sub" >
+      <li ><a href="<%= interested_users_path %>" id="privacy" >Interested users</a></li>
+      </ul
+  </li>
+    <li class="top"><a href="<%= new_course_path %>" id="services" class="top_link"><span class="down">Course Library</span></a>
+    <ul class="sub" >
+      <li><a href="<%= new_course_path %>">New Course Library </a></li>
+      <li><a href="<%= manage_courses_path %>">Manage Course Library</a></li>        
+       <li ><a href="<%= course_status_search_path %>"><span>Course Status Search</span></a></li>
+       <li ><a href="<%= conclude_course_path %>" id="privacy"><span>Conclude Course</span></a></li>
+  
+      </ul>
+  </li>
+      <li class="top"><a href="<%= new_topic_path %>" id="services" class="top_link"><span class="down">Category</span></a>
+    <ul class="sub">
+      <li><a href="<%= new_topic_path %>">New Category</a></li>
+      <li><a href="<%= topics_path %>">Manage Category</a></li>
+    
+    </ul>
+  </li>
+  <li class="top"><a href="<%= new_coupon_path %>" id="services" class="top_link"><span class="down">Coupon</span></a>
+    <ul class="sub">
+      <li><a href="<%= new_coupon_path %>">New Coupon</a></li>
+      <li><a href="<%= coupons_path %>">Manage Coupon</a></li>
+    
+    </ul>
+  </li>
+    
+  <li class="top"><a href="<%= new_course_preview_path %>" id="services" class="top_link"><span class="down">Preview</span></a>
+    <ul class="sub">
+      <li><a href="<%= new_course_preview_path %>">New Preview</a></li>
+      <li><a href="<%= course_previews_path %>">Manage Preview</a></li>
+    
+    </ul>
+  </li>
+    <li class="top"><a href="<%= new_course_pricing_path %>" id="services" class="top_link"><span class="down">Coure Price</span></a>
+    <ul class="sub">
+      <li><a href="<%= new_course_pricing_path %>">New Coure Price</a></li>
+      <li><a href="<%= course_pricings_path %>">Manage Coure Price</a></li>
+    
+    </ul>
+  </li>
+    <li class="top"><a href="<%= new_tax_rate_path %>" id="services" class="top_link"><span class="down">Tax</span></a>
+    <ul class="sub">
+      <li><a href="<%= new_tax_rate_path %>">Create Tax</a></li>
+      <li><a href="<%= tax_rates_path %>">Manage Tax</a></li>
+    
+    </ul>
+  </li>
+     <li class="top"><a href="<%= new_teaching_staff_path %>" id="services" class="top_link"><span class="down">Teacher</span></a>
+    <ul class="sub">
+      <li><a href="<%= new_teaching_staff_path %>">New Teacher</a></li>
+      <li><a href="<%= teaching_staffs_path %>">Manage Teaching Staffs</a></li>
+    
+    </ul>
+  </li>
+
+  
+</ul>
+
+<!--    	<ul id="side_menu">
+   		<li></li>   		 		
    		<li><%= link_to "New Course Library", new_course_path %></li>
    		<li><%= link_to "Manage Course Library", manage_courses_path %></li>
    		<li><%= link_to "New Category",new_topic_path %> </li>
@@ -35,7 +83,7 @@
       <li><%= link_to "Course Status Search",course_status_search_path %></li>  
       <li><%= link_to "Conclude Course", conclude_course_path %></li>
       <li><%= link_to "Interested Users", interested_users_path %></li>
-   	</ul>   	
+   	</ul>   	 -->
    </div>
 
 

@@ -1,3 +1,4 @@
+ <div class="span12" style=" border-radius: 10px;background: white;margin-left: 100px;width: 1155px;margin-top:20px;">
 <%= render 'shared/course_detial' %>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -9,7 +10,7 @@ $(document).ready(function(){
 
 });
 </script>
-
+<!--
 <div class="coursesyllabus">
   <div class="container">
     <div class="row">
@@ -152,11 +153,7 @@ $(document).ready(function(){
     </div>
   </div>
 </div>
-<!-- 
-<%= render 'shared/author_info' %>
-<%= render 'shared/course_preview' %>
-<%= render 'shared/course_reviews' %>
- -->
+
 <div align="center">
   <a href="<%= courses_path %>"><span class="browsemore" align="center">
     
@@ -183,6 +180,156 @@ $(".close").click(function(){
 
 
  <script>
+  $(function() {
+  
+    function filterPath(string) {
+      return string
+      .replace(/^\//,'')
+      .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+      .replace(/\/$/,'');
+    }
+  
+    var locationPath = filterPath(location.pathname);
+    var scrollElem = scrollableElement('html', 'body');
+  
+    // Any links with hash tags in them (can't do ^= because of fully qualified URL potential)
+    $('a[href*=#]').each(function() {
+  
+      // Ensure it's a same-page link
+      var thisPath = filterPath(this.pathname) || locationPath;
+      if (  locationPath == thisPath
+        && (location.hostname == this.hostname || !this.hostname)
+        && this.hash.replace(/#/,'') ) {
+  
+          // Ensure target exists
+          var $target = $(this.hash), target = this.hash;
+          if (target) {
+  
+            // Find location of target
+            var targetOffset = $target.offset().top;
+            $(this).click(function(event) {
+  
+              // Prevent jump-down
+              event.preventDefault();
+                //alert(target);
+                if(target!="#previewcourse" && target!="#top" ) return;
+              // Animate to target
+              $(scrollElem).animate({scrollTop: targetOffset}, 900, function() {
+  
+                // Set hash in URL after animation successful
+                location.hash = target;
+  
+              });
+            });
+          }
+      }
+  
+    });
+  
+    // Use the first element that is "scrollable"  (cross-browser fix?)
+    function scrollableElement(els) {
+      for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+        var el = arguments[i],
+        $scrollElement = $(el);
+        if ($scrollElement.scrollTop()> 0) {
+          return el;
+        } else {
+          $scrollElement.scrollTop(1);
+          var isScrollable = $scrollElement.scrollTop()> 0;
+          $scrollElement.scrollTop(0);
+          if (isScrollable) {
+            return el;
+          }
+        }
+      }
+      return [];
+    }
+  
+  });
+ </script>-->
+
+
+ <div class="cbox_3b fp_box">
+                                      <div style="width:45%;height:200px;float:left;margin:10px ; text-align:left;">
+<h3><a href="#">Course Module</a></h3>
+<table cellpadding="5" ><tr>
+<% @modules.each do |m| %>
+<td> <%= image_tag "100-netprogramming.png", :class=>"img-circle",width:"80",height:"70" %></td><td><h2><a href=""><%= m.name %></a></h2><p>Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit</p></td> <% end %></tr>
+
+</table></div>
+                <div style="width:45%;float:right;margin:10px ; text-align:left;">
+                 
+                    <h3><a href="#">About Author</a></h3>
+                 <table cellpadding="5"><tr><td> 
+                   <% @authors.each do |author|%>
+        <% if author.image_blob == nil %>
+        <% if author.omni_image_url == nil %>
+        <%= gravatar_for_with_size author, "100x100" %>
+        <% else  %>
+        <%= image_tag(author.omni_image_url,size: "100x100", alt: "")%> 
+        <% end  %>
+        <% else  %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100" %>
+        <% end  %>
+        
+      </td><td><p>
+      <h6 style="font-weight:bold;"><a href=""><%= author.name %></a></h6>
+        <%= author.teaching_staff.description %></p></td></tr>
+               <% end %> </table></div>
+</div>
+<div class="cbox_3b fp_box">
+<div style="width:45%;float:left;margin:10px ; text-align:left;">
+<div class="previewcourse" id="previewcourse">
+<h3><a href="#">Course Preview</a></h3>
+      
+       <table cellpadding="20" style="text-align:center;"> <tr>
+         <% a=0 %>
+      <% @course.course_previews.where(enable: 1).order(:sequence).each do |p| %>
+      <% a +=1  %>
+         <td>
+           
+            <% h = p.video_url %>
+            <% url = h[38..h.length-44].split('/')  %>
+
+
+            <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
+      <div id="preview_model<%= a %>" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+
+                <%=image_tag("close.png", alt: "")%></a>
+               </a></button>
+
+              <div class="modal-header">
+                <h3 id="myModalLabel">Preview Video</h3>
+              </div>
+
+              <div class="modal-body" style="margin-left:0px;">
+
+               <%= raw(p.video_url) %>
+
+             </div>
+           </div>
+         <a href="#preview_model<%= a %>" data-toggle="modal" >  <h6 class="prevtxt"><%= p.name %></h6></a>
+           
+         </td> <% end %>
+     </tr>
+   </table>
+
+
+</div>
+</div>
+<div style="width:45%;float:right;margin:10px ; text-align:left;">
+                    <h3><a href="#">Reviews</a></h3>
+                 <table cellpadding="10"><tr><td><h2 style=""></h2><p><%= render "comments" %></p></td></tr>
+                
+                              </table></div>
+
+
+
+</div>
+<div style="text-align:center;float:left;width:100%;"><a href="#top" >Go to Top</a></div>
+</div> 
+<script>
   $(function() {
   
     function filterPath(string) {

@@ -4,27 +4,28 @@
 
 
 <div class="row">
-  <div class="span12 offset3" style="min-height:500px;">
-
+  <div class="span12" style="min-height:500px;margin-top:20px;background: white;border-radius: 5px;padding: 10px;width:1050px;margin-left:155px;">
+ <h3 align = "center">Manage Course Pricings</h3>
     <div  align="center" style="margin:30px 0px 0px 0px">
+     
   <%= form_tag "/course_pricings/", :method => 'get' do %>
                 Course:<%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title") , {:prompt => 'ALL'} %>
               <%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %><% end %>
-              <hr>
+             
             </div>
-    <h3 align = "center">Manage Course Pricings</h3>
+    
 
 
     <table class="table table-condensed table-hover table table-striped">
       <tr>
-       <th style="background:#2A488E;color:white;">Course Name</th>
-       <th style="background:#2A488E;color:white;"> Start Date </th>
-       <th style="background:#2A488E;color:white;">End Date</th>
-       <th style="background:#2A488E;color:white;">Price</th>
+       <th style="background:rgb(89, 112, 95);color:white;">Course Name</th>
+       <th style="background:rgb(89, 112, 95);color:white;"> Start Date </th>
+       <th style="background:rgb(89, 112, 95);color:white;">End Date</th>
+       <th style="background:rgb(89, 112, 95);color:white;">Price</th>
        
-       <th style="background:#2A488E;color:white;">Created At</th>
+       <th style="background:rgb(89, 112, 95);color:white;">Created At</th>
 
-       <th style="background:#2A488E;color:white;"><%=t '.actions', :default => t("helpers.actions") %></th>
+       <th style="background:rgb(89, 112, 95);color:white;"><%=t '.actions', :default => t("helpers.actions") %></th>
      </tr>
 
      <% @coursepricing.each do |coursepricing| %>
