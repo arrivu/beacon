@@ -36,6 +36,17 @@
               </div>
             </div>
           </div>
+         <% course.teaching_staffs.each do |author|%>
+        <% if author.user.image_blob == nil %>
+        <% if author.user.omni_image_url == nil %>
+        <%= gravatar_for_with_size author, "30x30" %>
+        <% else  %>
+        <%= image_tag(author.omni_image_url,size: "30x30", alt: "")%> 
+        <% end  %>
+        <% else  %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "30x30" %>
+        <% end  %>
+        <% end %>
           <div class="mod_pen_bottom">
             <%=link_to(course) do %>
             <div class="btn btn-large btn-success" style="float:right;margin:10px;">View Details</div>
@@ -46,6 +57,7 @@
         </div> 
       </li><%end%>
       <% end %>
+
 </ul></div>
 
 
