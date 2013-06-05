@@ -2194,7 +2194,7 @@ input:focus {
   width:470px;
   float:left; 
 
-  height:380px;
+  min-height:475px;
  background: rgb(238,238,238); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
@@ -2225,14 +2225,14 @@ box-shadow: 0 0 5px 5px #c4decf;
   width:440px;
   padding:0px 13px 13px 13px;
   float:left;
-  height: 300px;
+ min-height: 100px;
 /*  background:url(../images/mod_center_bg.png) repeat-y;*/
   background-size:100%;
 }
 .mod_pen_bottom {
   width:100%;
   float:left;
-  height:30px;
+  height:90px;
   /*background:url(../images/mod_bottom_bg.png) no-repeat;*/
     background-size:100%;
   
@@ -2269,12 +2269,13 @@ box-shadow: 0 0 5px 5px #c4decf;
   width:76%;
   margin-left:11%;}
 .mod_pen_center p {
-  font-size:18px;
-  line-height:16px;
+  font-size:16px;
+  line-height:22px;
   color:rgb(75, 71, 71);;
-  padding:0px 0px 10px 10px;
+  padding:0px 0px 5px 5px;
   text-align:justify;
-  min-height:130px
+  min-height:80px;
+
 }
 .mod_com {
   width:51%;
@@ -2296,7 +2297,7 @@ box-shadow: 0 0 5px 5px #c4decf;
   color:#586c00;
 }
 .mod_imag img {
-  padding:10px 10px;
+  
   position:relative;
 
 }
@@ -4179,7 +4180,7 @@ display: block;
   width: 300px;
   margin-right: 30px;
 }
-.fp_box  { position: relative; height: auto; width:100%; padding: 20px 20px 20px 60px;background: url('horizontal.png') no-repeat bottom;
+.fp_box  { position: relative; height: auto; width:90%; padding: 20px 20px 20px 60px;background: url('horizontal.png') no-repeat bottom;
 background-size: 1000px 1px;text-align:justify;} 
 
 
