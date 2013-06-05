@@ -199,7 +199,25 @@ $(document).ready(function() {
             <% end %></h5></span>
 <span><h5>Price: <% if @price.to_i != 0 %>
             Rs&nbsp;<%= @price.to_i %>
-            <% end %></h5></span><br><br>
+            <% end %></h5></span><br>
+<a>
+           
+            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+                     <% end %>
+            <%= rating_for @course, "rate"  %>
+            <div id="rating" ><%= @qty%> Ratings</div>
+            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
+            <div class = "rated"  >
+              <% if @rated == nil  %>
+              Rate This Course
+              <% else  %>
+              Course Rated
+              <% end %>
+            </div>
+            <% end %>
+          </a>
+          <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %>
+            <br>
 <span> <% if (current_user.present? ) %>
               <% if !(current_user.has_role? :admin) %>
 
@@ -237,24 +255,7 @@ $(document).ready(function() {
 <div style="padding:20px;margin-left:60px;float:left;">
 <table cellpadding="5"><tr><td><%= image_tag "video.jpg", :width=>"25",:height=>"25"%></td><td>Provides video lectures</td></tr>
 <tr><td><%= image_tag "discussin.png", :width=>"25",:height=>"25"%></td><td>Uses discussion forums</td></tr>
-<tr><td></td><td><a>
-           
-            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-                     <% end %>
-            <%= rating_for @course, "rate"  %>
-            <div id="rating" ><%= @qty%> Ratings</div>
-            <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-            <div class = "rated"  >
-              <% if @rated == nil  %>
-              Rate This Course
-              <% else  %>
-              Course Rated
-              <% end %>
-            </div>
-            <% end %>
-          </a>
-          <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %> </td>
-        </tr></table></div>
+</table></div>
          <!-- <div style="float: right;margin-right: 165px;">
           <table > <tr>
           <td>
@@ -271,7 +272,7 @@ $(document).ready(function() {
         </tr>
       </table></div> -->
       <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_floating_style addthis_counter_style" style="left:50px;top:50px;">
+<div class="addthis_toolbox addthis_floating_style addthis_counter_style" style="left: 1250px;top: 120px;">
 <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
 <a class="addthis_button_tweet" tw:count="vertical"></a>
 <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>

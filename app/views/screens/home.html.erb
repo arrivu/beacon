@@ -7,16 +7,16 @@ text-align: justify;
 }
 </style>
 <% provide(:title, 'A Smarter Way to Learn') %>
-<div style="width:1349px;margin:0px auto;">
-<% provide(:effectingHeader) %>
+<div style="width:100%;margin:0px auto;background-color: rgb(45, 53, 56);">
 
-                <div id="main_area" style="margin-left:36px;width:98%;">
+<% provide(:effectingHeader) %>
+                <div id="main_area" style="margin:0px auto;width:80%;">
                         <!-- Slider -->
                         <div class="row">
                                 <div class="" id="slider" >
                                         <!-- Top part of the slider -->
 <div class="row" >
- <div class="" id="carousel-bounding-box" style="width:100%;">
+ <div class="" id="carousel-bounding-box" style="width:100%; background-color: rgb(45, 53, 56);">
     <div id="myCarousel" class="carousel slide">
                                                                
      <div class="carousel-inner" style="float:left;">
@@ -35,7 +35,7 @@ text-align: justify;
                                 </div>
                         </div> <!--/Slider-->
  </div>
-                       
+                    
 <script>
   jQuery(document).ready(function($) {
  
@@ -63,7 +63,8 @@ text-align: justify;
  
 });
 </script>
-        <div class="span12" style=" border-radius: 10px;background: white;margin-left: 35px;width: 1282px;position:relative;margin-top: 20px;">
+
+        <div class="span12" style=" border-radius: 10px;margin-left: 35px;width: 1282px;position:relative;margin-top: 20px;">
 <h2 style="font-size: 26px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Popular Courses</h2>
                <div style="width:85%;margin:0px auto;">   
               <%= render 'shared/courselist' %>
