@@ -6088,7 +6088,7 @@ a.badge:hover {
 .carousel-inner > .item > img {
   display: block;
   line-height: 1;
-  width:100%;
+  width:99%;
   height:380px;
 }
 

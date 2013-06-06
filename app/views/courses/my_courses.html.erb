@@ -24,7 +24,7 @@
 
 
  <div class="cbox_3b fp_box">
-    <div style="width:60%;float:left;margin:10px ; text-align:left;">
+    <div style="width:100%;float:left;margin:10px ; text-align:left;">
           <ul class="nav nav-tabs">
             <li class="active">
               <a href="#currentcourses" data-toggle="tab">My Current Courses (<%= @enrolled_courses.count %>)</a>
@@ -44,7 +44,7 @@
 
                 <div class="row">
                   
-                  <div class="span8" >
+                  <div class="" >
                    <div class="inx_wrap" >
     <ul>
            <% @enrolled_courses.each do |course|%> <li>
@@ -64,7 +64,7 @@
             <div class="clr"></div>
             <% end %>
             <p>
-              <%= course.short_desc %>          </p>
+              <%= course.desc %>          </p>
             <div class="mod_com">
               <div class="pr_left">Price</div>
               <div class="pr_right">
@@ -77,9 +77,27 @@
               </div>
             </div>
           </div>
-          <div class="mod_pen_bottom" ><%=link_to(course) do %>
-            <div class="btn btn-large btn-success" style="float:right;margin:10px;">View Details</div>
-            <% end %> </div>
+          <div class="mod_pen_bottom" > <div style="width:100%;float:left;height: 75px;"> 
+      <table style="margin-left: 10px;"><tr><td>  <% course.teaching_staffs.each do |author|%>
+        <% if author.user.image_blob == nil %>
+
+        <% if author.user.omni_image_url == nil %>
+        <%= gravatar_for_with_size author, "65x65" %>
+        <% else  %>
+        <%= image_tag(author.omni_image_url,size: "65x65", alt: "",:class=>"img-polaroid")%> 
+        <% end  %>
+        <% else  %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "65x65",:class=>"img-polaroid" %>
+        <% end  %>
+
+        <% end %></td><td>Author Name<br><p>Author Description</p></td></tr></</table>
+        <table cellpadding="2" style="margin-left: 10px;"><tr><td><% if !course.course_previews.empty? %><%= image_tag "video.jpg", :width=>"25",:height=>"25"%><% end %></td>
+        <td><% if !course.comments.empty? %><%= image_tag "discussin.png", :width=>"25",:height=>"25"%><% end %></td></tr>
+
+</table></div></div>
+                       <%=link_to(course) do %>
+            <div class="btn btn-large btn-success" style="float:right;margin-right:10px;">View Details</div>
+     <% end %>   
         </div>
       </li><% end %></ul></div>
                    </div>
@@ -96,7 +114,7 @@
                <div class="row">
                 
 
-                <div class="span8" >  
+                <div class="" >  
                   <div class="inx_wrap" >
     <ul>
            <% @completed_courses.each do |course|%> <li>
@@ -141,10 +159,10 @@
             </div>
          </div>
           </div>
-        <div style="width:30%;float:left;margin:10px ; text-align:left;">
+     <!--    <div style="width:30%;float:left;margin:10px ; text-align:left;">
            <div class="youmaylikecourse" >
               <h4 style="padding:9px 0px;border-bottom: 1px solid #ddd;color: #2980B9 ;font-weight:700;">Explore More Courses</h4>
-                   <%= render 'shared/my_courses' %>
+                 
            </div>
-         </div>
+         </div> -->
       </div>      </div>
