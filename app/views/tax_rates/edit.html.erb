@@ -1,6 +1,6 @@
 
 <div>	
-	<div style="float:left">
+	<div style="float:left;width:100%">
 		<%= render 'shared/side_menu' %>
 	</div>
 
@@ -11,13 +11,12 @@
 line-height: 40px;margin-left: -36px;background-image: url('../../assets/ribbonr.jpg');background-size: 200px 100%; color:white;font-weight:bold;">
 Edit Tax Rate
   </div>
-			<div  style="">
+			<div  style="margin:40px;">
 				<div class="divcontainer">
 
 					<%= simple_form_for(@tax_rate) do |f| %>
 					<div class="divrow">
-						<div><h3 align="center">Tax Edit</h3></div>
-						<div class="divleft">
+								<div class="divleft">
 							Description
 						</div>
 						<div class="divright">
