@@ -36,6 +36,11 @@
               </div>
             </div>
           </div>
+          <div style="padding:20px;margin-left:60px;float:left;">
+<table cellpadding="5"><tr><td>
+  <% if course.course_previews.empty? %><%= image_tag "video.jpg", :width=>"25",:height=>"25"%>Provides video lectures<% end %></td></tr>
+<tr><td><% if course.comments.empty? %><%= image_tag "discussin.png", :width=>"25",:height=>"25"%></td><td>Uses discussion forums<% end %></td></tr>
+</table></div>
          <% course.teaching_staffs.each do |author|%>
         <% if author.user.image_blob == nil %>
         <% if author.user.omni_image_url == nil %>
@@ -49,6 +54,7 @@
         <%= author.name %></a></h6>
         <%= author.description %>
         <% end %>
+
           <div class="mod_pen_bottom">
             <%=link_to(course) do %>
             <div class="btn btn-large btn-success" style="float:right;margin:10px;">View Details</div>
