@@ -64,7 +64,7 @@
             <div class="clr"></div>
             <% end %>
             <p>
-                <%= truncate(course.desc, :length => 500)  %>                </p>
+                <%= truncate(course.desc, :length => 500)  %>      <%=link_to(course) do %>more <% end %>          </p>
             <div class="mod_com">
               <div class="pr_left">Price</div>
               <div class="pr_right">
@@ -85,18 +85,21 @@
         <table><tr><td>
         <%= gravatar_for_with_size author, "65x65" %></td>
         <td><table><tr><%= author.name %></tr><br/>
-       <tr> <%= author.description %></tr></table></td></tr></table>
+       <tr><%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
         <% else  %>
         <table><tr><td><%= image_tag(author.omni_image_url,size: "65x65", alt: "",:class=>"img-polaroid")%> </td>
         <td><table><tr><%= author.name %></tr><br/>
        <tr> 
-         <%= author.description %></tr></table></td></tr></table>
+         <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
         <% end  %>
         <% else  %>
         <table><tr><td><%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "65x65",:class=>"img-polaroid" %></td>
         <td><table><tr><%= author.name %></tr><br/>
        <tr>
-         <%= author.description %></tr></table></td></tr></table>
+         <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
         <% end  %>
 
         <% end %></td><td></td></tr></table>
@@ -143,7 +146,7 @@
             <h2>
               <%= course.title %>  </h2>
             <p>
-                 <%= truncate(course.desc, :length => 500)  %>                </p>
+                 <%= truncate(course.desc, :length => 500)  %>    <%=link_to(course) do %>more <% end %>             </p>
             <div class="mod_com">
               <div class="pr_left">Price</div>
               <div class="pr_right">
@@ -164,18 +167,21 @@
         <table><tr><td>
         <%= gravatar_for_with_size author, "65x65" %></td>
         <td><table><tr><%= author.name %></tr><br/>
-       <tr> <%= author.description %></tr></table></td></tr></table>
+       <tr> <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
         <% else  %>
         <table><tr><td><%= image_tag(author.omni_image_url,size: "65x65", alt: "",:class=>"img-polaroid")%> </td>
         <td><table><tr><%= author.name %></tr><br/>
        <tr> 
-         <%= author.description %></tr></table></td></tr></table>
+         <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
         <% end  %>
         <% else  %>
         <table><tr><td><%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "65x65",:class=>"img-polaroid" %></td>
         <td><table><tr><%= author.name %></tr><br/>
        <tr>
-         <%= author.description %></tr></table></td></tr></table>
+        <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
         <% end  %>
 
         <% end %></td><td></td></tr></table>
