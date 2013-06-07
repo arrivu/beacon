@@ -19,7 +19,7 @@ z-index: 90;
 }
 
 .ribbon-green {
-  font-size: 11px;
+  font-size: 14px;
 font-weight: 600;
   
   text-align: center;
@@ -33,12 +33,12 @@ font-weight: 600;
   left: -5px;
   top: 15px;
   width: 120px;
- /* background-color: #BFDC7A;
+  background-color: #BFDC7A;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
   background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
   background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
   background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
-  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); */
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); 
   color: whitesmoke;
   -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
   -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
@@ -60,16 +60,100 @@ font-weight: 600;
 .ribbon-green:after {
   right: 0;
 }
+
+.ribbon-blue {
+  font-size: 14px;
+font-weight: 600;
+  
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -5px;
+  top: 15px;
+  width: 120px;
+  background-color: #116CA8;
+ /* background-image: -webkit-gradient(linear, left top, left bottom, from(#BFDC7A), to(#8EBF45)); 
+  background-image: -webkit-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:    -moz-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:     -ms-linear-gradient(top, #BFDC7A, #8EBF45); 
+  background-image:      -o-linear-gradient(top, #BFDC7A, #8EBF45); */
+  color: whitesmoke;
+  -webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow:    0px 0px 3px rgba(0,0,0,0.3);
+  box-shadow:         0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.ribbon-blue:before, .ribbon-blue:after {
+  content: "";
+  border-top:   3px solid #6e8900;   
+  border-left:  3px solid transparent;
+  border-right: 3px solid transparent;
+  position:absolute;
+  bottom: -3px;
+}
+
+.ribbon-blue:before {
+  left: 0;
+}
+.ribbon-blue:after {
+  right: 0;
+}
+
+ h1 {
+  position: relative;
+padding: 5px 5px;
+margin: -4px -22px 20px;
+font-size: 18px;
+line-height: 25px;
+font-weight: bold;
+text-align: center;
+color: white;
+background: #87A800;
+text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+zoom: 1;
+z-index: 1;
+}
+
+ h1:before,
+ h1:after {
+    content:"";
+    position:absolute;
+    /* See "NOTE 2" */
+    z-index:-1;
+    top:100%;
+    left:0;
+    border-width:0 10px 10px 0;
+    border-style:solid;
+    border-color:transparent #647D01;
+}
+
+/* h1:after {
+    left:auto;
+    right:0;
+    border-width:0 0 10px 10px;
+}*/
 </style>
 <div class="inx_wrap" >
     <ul><% @courses.each do |course|%>
             <li>
         <div class="mod_pen">
-          <div class="mod_pen_top"><div class="wrapper">
-       <div class="ribbon-wrapper-green"><div  class="ribbon-green" <%= course.topic.color==nil ? "style=background-color:#2b6341" : "style=background-color:#{course.topic.color}" %>><%= course.topic.name %></div></div>
-
-
-</div></div>
+         
+          <div class="mod_pen_top">
+              <% if course.is_coming_soon %>
+         <div class="wrapper">
+       <div class="ribbon-wrapper-green"><div  class="ribbon-green">Coming Soon</div></div></div>
+           <% elsif price_of_course_according_to_date(course).to_i ==0 %>
+        <div class="wrapper">
+       <div class="ribbon-wrapper-green"><div  class="ribbon-blue" >Free</div></div></div>
+           <% end %></div> 
           <div class="mod_pen_center">
             <div class="mod_imag">
             <table><tr><td>  <%=link_to(course) do %>
@@ -84,13 +168,14 @@ font-weight: 600;
             <%= image_tag "test.png", width: "150", height: "150",:class=>"img-circle" %>
             <% end %>     </td><td> <%=link_to(course) do %><h2><%= course.title.split(' ').map(&:capitalize).join(' ') %>   </h2><%end%></td></tr></table> 
               
-              
+              <div style="height:35px;width:auto;float:left;"><h1 <%= course.topic.color==nil ? "style=background-color:#2b6341" : "style=background-color:#{course.topic.color}" %>><%= course.topic.name %></h1></div>
              </div>
+
             <div class="clr"></div>
             
 
             <p>
-              <%= truncate(course.desc, :length => 500)  %>           </p>
+              <%= truncate(course.desc, :length => 500)  %> <%=link_to(course) do %>more <% end %>        </p>
 
           
             <div class="mod_com">
