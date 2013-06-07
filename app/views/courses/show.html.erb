@@ -45,7 +45,7 @@ $(document).ready(function(){
                <% end %> </table></div>
 </div>
 <div class="cbox_3b fp_box">
-<div style="width:45%;float:left;margin:10px ; text-align:left;">
+<div style="width:100%;float:left;margin:10px ; text-align:left;">
 <div class="previewcourse" id="previewcourse">
 <h3><a href="#">Course Preview</a></h3>
       
@@ -85,7 +85,9 @@ $(document).ready(function(){
 
 </div>
 </div>
-<div style="width:45%;float:right;margin:10px ; text-align:left;">
+</div>
+<div class="cbox_3b fp_box">
+<div style="width:100%;float:right;margin:10px ; text-align:left;">
                     <h3><a href="#">Reviews</a></h3>
 <table cellpadding="10"><tr><td><h2 style=""></h2><p><%= render "comments" %></p></td></tr>  
 </table><h6 style="color:steelblue;"> <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %></h6></div>
