@@ -189,7 +189,7 @@
                 <% if @course.is_coming_soon %>
                 <% if @status!="follow" %>
 
-                  <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),:id=>"login-box" %>
+                  <%= link_to "Follow",payments_follow_course_path(:id=>@course.id),:id=>"login-box", :class=>"enroll" %>
                    
                   <% end %>
                 <% elsif @status=="enroll" %>
@@ -219,8 +219,8 @@
             </div></a> </div>
 <div style="padding:20px;margin-left:60px;float:left;">
 <table cellpadding="5"><tr><td>
-  <% if @course.course_previews.empty? %><%= image_tag "video.jpg", :width=>"25",:height=>"25"%></td><td>Provides video lectures<% end %></td></tr>
-<tr><td><%= image_tag "discussin.png", :width=>"25",:height=>"25"%></td><td>Uses discussion forums</td></tr>
+  <% if !@course.course_previews.empty? %><%= image_tag "video.jpg", :width=>"25",:height=>"25"%></td><td>Provides video lectures<% end %></td></tr>
+<tr><td><% if !@course.comments.empty? %><%= image_tag "discussin.png", :width=>"25",:height=>"25"%></td><td>Uses discussion forums<% end %></td></tr>
 </table></div>
          <!-- <div style="float: right;margin-right: 165px;">
           <table > <tr>
