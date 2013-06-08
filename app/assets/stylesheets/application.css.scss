@@ -2235,8 +2235,8 @@ box-shadow: 0 0 5px 5px #c4decf;
   padding:0px 13px 13px 13px;
   float:left;
  min-height: 100px;
-/*  background:url(../images/mod_center_bg.png) repeat-y;*/
-  background-size:100%;
+background: url("horizontal.png") no-repeat bottom;
+background-size: 459px 2px;
 }
 .mod_pen_bottom {
   width:100%;
@@ -2289,7 +2289,7 @@ box-shadow: 0 0 5px 5px #c4decf;
 .mod_com {
   width:51%;
   padding-bottom:3px;
- font-size:16px;margin:0px auto;float:left;
+ font-size:16px;margin:0px 20px;float:left;
  }
 .pr_left {
   width:70px;

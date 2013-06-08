@@ -34,12 +34,12 @@ $(function() {
                    <% @authors.each do |author|%>
         <% if author.image_blob == nil %>
         <% if author.omni_image_url == nil %>
-        <%= gravatar_for_with_size author, "100x100" %>
+        <%= gravatar_for_with_size author, "100x100", "img-polaroid" %>
         <% else  %>
-        <%= image_tag(author.omni_image_url,size: "100x100", alt: "")%> 
+        <%= image_tag(author.omni_image_url,size: "100x100", alt: "", :class=>"img-polaroid")%> 
         <% end  %>
         <% else  %>
-        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100" %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100", :class=>"img-polaroid", :class=>"img-polaroid" %>
         <% end  %>
         
       </td><td><p>
