@@ -38,11 +38,11 @@ way to fit your requirements.
 {position:absolute; left:-9999px; top:-9999px; width:0; height:0; margin:0; padding:0; list-style:none;}
 
 #nav1 li:hover ul.sub
-{left:0; top:31px; background: #fff; padding:3px; border:1px solid green; white-space:nowrap; width:135px; height:auto; z-index:300;}
+{left:0; top:31px; background: #fff; padding:3px; border:1px solid green; white-space:nowrap; width:160px; height:auto; z-index:300;}
 #nav1 li:hover ul.sub li
 {display:block; height:20px; position:relative; float:left; width:auto; font-weight:normal;}
 #nav1 li:hover ul.sub li a
-{display:block; font-size:13px; height:20px; width:135px; line-height:20px; text-indent:5px; color:#000; text-decoration:none;}
+{display:block; font-size:13px; height:20px; width:160px; line-height:20px; text-indent:5px; color:#000; text-decoration:none;}
 #nav1 li ul.sub li a.fly
 {background:#fff url(arrow.gif) 80px 7px no-repeat;}
 #nav1 li:hover ul.sub li a:hover 
