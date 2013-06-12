@@ -9,7 +9,7 @@ driver.get "http://localhost:3000"
 element=driver.find_element(:link_text, "Log In")
 element.click
 
-#wait.until { driver.find_element :id => "user_email" }
+wait.until { driver.find_element :id => "user_email" }
 element = driver.find_element :id => "user_email"
 element.send_keys "testdata@gmail.com"
 
