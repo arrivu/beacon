@@ -2187,7 +2187,7 @@ input:focus {
 }
 .inx_wrap ul li {
   margin:5px;
-  padding:0px 5px;
+  padding:0px 30px;
   float:left;
 }
 .mod_pen {
@@ -2300,7 +2300,7 @@ background-size: 459px 2px;
   width:70px;
   float:right;
   color:#052b6e;
-  text-align:right;
+  text-align:left;
 }
 .gree {
   color:#586c00;
@@ -3992,7 +3992,8 @@ button:focus {
 
 padding-top: 10px;
 position: relative;
-width: 100%;
+width: 80%;
+margin: 0px 20%;
 
 
 }
