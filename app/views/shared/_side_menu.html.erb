@@ -1,4 +1,4 @@
-
+<!-- 
 
    <div>
 
@@ -83,7 +83,174 @@
       <li><%= link_to "Course Status Search",course_status_search_path %></li>  
       <li><%= link_to "Conclude Course", conclude_course_path %></li>
       <li><%= link_to "Interested Users", interested_users_path %></li>
-   	</ul>   	 -->
+   	</ul>   	
    </div>
 
 
+ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="menu.css" type="text/css" media="screen" />
+
+<title>Mega Drop Down Menu</title>
+<!--[if IE 6]>
+<style>
+body {behavior: url("csshover3.htc");}
+#menu li .drop {background:url("img/drop.gif") no-repeat right 8px; 
+</style>
+<![endif]-->
+
+</head>
+
+<body>
+
+<ul id="menu">
+    
+    <li><a href="<%=users_path %>" class="drop">User</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%=users_path %>">Registered User</a></li>
+                    <li><a href="<%= interested_users_path %>">Interested Users</a></li>
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+ <li><a href="<%= new_course_path %>" class="drop">Course</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%= new_course_path %>">New Course</a></li>
+                    <li><a href="<%= manage_courses_path %>">Manage Course</a></li>
+                    <li><a href="<%= course_status_search_path %>">Course Status Search</a></li>
+      <li><a href="<%= conclude_course_path %>">Conclude Courses</a></li>
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+<li><a href="<%= new_topic_path %>" class="drop">Category</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%= new_topic_path %>">New Category</a></li>
+                    <li><a href="<%= topics_path %>">Manage Category</a></li>
+                    
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+<li><a href="<%= new_coupon_path %>" class="drop">Coupons</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%= new_coupon_path %>">New Coupon</a></li>
+                    <li><a href="<%= coupons_path %>">Manage Coupons</a></li>
+                    
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+<li><a href="<%= new_course_preview_path %>" class="drop">Preview</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%= new_course_preview_path %>">Course Preview</a></li>
+                    <li><a href="<%= course_previews_path %>">Manage Course Preview</a></li>
+                    
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+<li><a href="#" class="drop">Course Price</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%= new_course_pricing_path %>">New Course Price</a></li>
+                    <li><a href="<%= course_pricings_path %>">Manage Course Price</a></li>
+                    
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+<li><a href="<%= new_tax_rate_path %>" class="drop">Tax</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%= new_tax_rate_path %>">New Tax</a></li>
+                    <li><a href="<%= tax_rates_path %>">Manage Tax</a></li>
+                   
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+<li><a href="<%= new_teaching_staff_path %>" class="drop">Teacher</a><!-- Begin Home Item -->
+    
+        <div class="dropdown_2columns"><!-- Begin 2 columns container -->
+    
+            <div class="col_2">
+              <ul>
+                    <li><a href="<%= new_teaching_staff_path %>" >New Teacher</a></li>
+                    <li><a href="<%= teaching_staffs_path %>" >Manage Teachers</a></li>
+                    
+                   
+                </ul>   
+            </div>
+    
+            
+        </div><!-- End 2 columns container -->
+    
+    </li><!-- End Home Item -->
+
+    
+
+</ul>
+
+</body>
+
+</html>
