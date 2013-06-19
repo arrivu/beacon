@@ -29,3 +29,10 @@ payment_gateway:
   ccavenue_account: "test123"
 invoices:
   notes: "Thank you for your enroll!"
+omniauth:
+  facebook_key: "512117358852772"
+  facebook_secret: "f4525c34c46f03fa82698ba7497b8137"
+  linkedin_key: "0hwyrty0bou0"
+  linkedin_secret: "yUWZjK8mGidVFy5M"
+  google_oauth2_key: "1024217888502-17r77af1993bpn2g8vuqgi1i7pvq9j1s.apps.googleusercontent.com"
+  google_oauth2_secret: "f-6_TcWjSwIsjQmHsjTNdddO"
