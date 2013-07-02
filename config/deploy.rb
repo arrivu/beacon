@@ -17,6 +17,8 @@ ssh_options[:forward_agent] = true
 
 #set :bundle_flags, "--quiet"
 
+set :rake, "#{rake} --trace"
+
 namespace :deploy do
   task :start do; end
   task :stop do; end
@@ -38,6 +40,20 @@ namespace :deploy do
     end
   end  
 end
+
+# Monit tasks
+# namespace :monit do
+#   task :start do
+#     run 'monit'
+#   end
+#   task :stop do
+#     run 'monit quit'
+#   end
+# end
+
+# # Stop Monit during restart
+# before 'deploy:restart', 'monit:stop'
+# after 'deploy:restart', 'monit:start'
 
 before "deploy", "deploy:check_revision"
 after "deploy:finalize_update", "deploy:symlink_config"
