@@ -68,4 +68,4 @@ gem 'canvas',:git => 'git://github.com/m-narayan/canvas', :branch => 'beacon-dep
 gem 'annotate', '2.4.1.beta1'
 #gem 'couponsgem',:git => 'git://github.com/m-narayan/couponsgem'
 gem 'jquery-minicolors-rails', '0.0.3'
-gem 'exception_notification', '3.0.1'
+#gem 'exception_notification', '3.0.1'

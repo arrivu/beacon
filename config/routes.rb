@@ -72,7 +72,7 @@ Myapp::Application.routes.draw do
   match '/show_image/:id', :to => 'courses#show_image' 
   match '/background_image/:id', :to => 'courses#background_image' 
   
-  match '*a', :to => 'home#routing_error'
+#  match '*a', :to => 'home#routing_error'
 
   devise_scope :user do
     match '/sign_out', :to => 'sessions#destroy'

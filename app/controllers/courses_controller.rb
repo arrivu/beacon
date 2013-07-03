@@ -75,10 +75,10 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
    if @price_detail!=nil
       @price=@price_detail.price
    end
-   @authors=[]
-   @course.teaching_staffs.each do |teaching_staff|
-     @authors << User.where(id: teaching_staff.user_id).first
-   end
+   @authors= @course.teaching_staffs
+   #@course.teaching_staffs.each do |teaching_staff|
+   #  @authors << User.where(id: teaching_staff.user_id).first
+   #end
 
    if(current_user!=nil)
     student=Student.where(user_id: current_user.id).first

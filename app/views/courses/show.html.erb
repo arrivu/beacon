@@ -64,19 +64,19 @@ $(document).ready(function(){
     <% @authors.each do |author|%>
     <div class="row" style="width:30%; display:inline-block; clear:left; margin:15px">
       <div class="authorimage">
-        <% if author.image_blob == nil %>
-        <% if author.omni_image_url == nil %>
-        <%= gravatar_for_with_size author, "100x100" %>
+        <% if author.user.image_blob == nil %>
+        <% if author.user.omni_image_url == nil %>
+        <%= gravatar_for_with_size author.user, "100x100" %>
         <% else  %>
-        <%= image_tag(author.omni_image_url,size: "100x100", alt: "")%> 
+        <%= image_tag(author.user.omni_image_url,size: "100x100", alt: "")%>
         <% end  %>
         <% else  %>
-        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100" %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "100x100" %>
         <% end  %>
       </div>
       <div class="authorinfo">
         <h4><%= author.name %></h4>
-        <p><%= author.user_desc %></p>
+        <p><%= author.description%></p>
       </div>
       <div class="container clearfix"></div>
     </div>
@@ -125,7 +125,7 @@ $(document).ready(function(){
      </tr>
    </table>
  </div>
- <% end %>      
+ <% end %>
 </div>
 </div>
 </div>
@@ -148,15 +148,11 @@ $(document).ready(function(){
  <div class="row">
   <div align="center">
     <div >
-      <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course},class:"browsemore1" %>      
+      <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course},class:"browsemore1" %>
     </div>
   </div>
 </div>
-<!-- 
-<%= render 'shared/author_info' %>
-<%= render 'shared/course_preview' %>
-<%= render 'shared/course_reviews' %>
- -->
+
 <div align="center">
   <a href="<%= courses_path %>"><span class="browsemore" align="center">
     
