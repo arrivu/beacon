@@ -308,9 +308,9 @@ width: 100%;
 
 	padding:20px;
 }
-
-.aboutauthor .authorimage{
-
+.aboutauthor .authorimage{height: 100px;}
+.aboutauthor .authorimage p{
+   float: right; width: 80%;text-align: justify;
 }
 
 .aboutauthor .authorinfo{

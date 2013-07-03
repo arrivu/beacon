@@ -23,10 +23,12 @@
 			            <td> 
 			            <%= user_form.text_field :email, :required => true %>
 			              </td> 
-			        </tr> 
+			        </tr>
+
+                    
 
 
-			        <tr><td>  </td><td>
+                    <tr><td>  </td><td>
 								<% if @teachingstaff.user.image_blob != nil %>
 			        	<%= image_tag url_for(:controller=>"registrations",:action => 'user_image', :id => @teachingstaff.user.id), :size => "100x100" %>
 								<% end  %>
@@ -40,10 +42,14 @@
 			        <%end %>
 
 
-			        <tr><th>Description</th><td><%= f.text_area :description ,:cols => "30", :rows => "10",:maxlength => 1000 %></td></tr>
+			        <tr><th>Description</th><td><%= f.text_area :description ,:cols => "30", :rows => "10",:maxlength => 300 %></td></tr>
 			 		 
 					   <tr><th>Qualification</th><td> <%= f.text_field :qualification %></td></tr>
-			        
+			        <tr> <th>Linkedin Profile Url</th>
+                      <td>
+                        <%= f.text_field :linkedin_profile_url  %>
+                      </td>
+                    </tr>
 
 
 			  	<tr><td></td><td><%= f.submit "Update", class: "btn btn-primary" %>

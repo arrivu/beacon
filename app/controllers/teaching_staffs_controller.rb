@@ -1,6 +1,7 @@
 
 class TeachingStaffsController < ApplicationController
-	before_filter :admin_user?, :only => [:new, :create]	
+  before_filter :authenticate_user!
+  before_filter :check_admin_user
 	protect_from_forgery :except => :create
 
 
@@ -16,6 +17,7 @@ class TeachingStaffsController < ApplicationController
 		@teachingstaff.name =  params[:teaching_staff][:teaching_staff_user][:name]
 		@teachingstaff.description =  params[:teaching_staff][:description]
 		@teachingstaff.qualification =  params[:teaching_staff][:qualification]
+    @teachingstaff.linkedin_profile_url =  params[:teaching_staff][:linkedin_profile_url]
 		@teachingstaff.build_user(name: params[:teaching_staff][:teaching_staff_user][:name],
 								email: params[:teaching_staff][:teaching_staff_user][:email],
 								user_type: 3,
@@ -64,6 +66,7 @@ class TeachingStaffsController < ApplicationController
 	  							attachment: params[:teaching_staff][:user][:attachment],
 									name:params[:teaching_staff][:user][:name]) && @teachingstaff.update_attributes(
 									description:params[:teaching_staff][:description],
+                  linkedin_profile_url:params[:teaching_staff][:linkedin_profile_url],
 									qualification:params[:teaching_staff][:qualification],
 									name:params[:teaching_staff][:user][:name])
 			flash[:notice]="Teaching Staff details updated successfully"
@@ -80,6 +83,7 @@ class TeachingStaffsController < ApplicationController
   								name:params[:teaching_staff][:user][:name]) && @teachingstaff.update_attributes(
 									description:params[:teaching_staff][:description],
 									qualification:params[:teaching_staff][:qualification],
+                  linkedin_profile_url:params[:teaching_staff][:linkedin_profile_url],
 									name:params[:teaching_staff][:user][:name]
 								)
 									

@@ -22,7 +22,8 @@
 								<td> 
 									<%= user_form.text_field :email, :required => true %>
 								</td> 
-							</tr> 
+							</tr>
+
 							<tr> 
 								<th>Password</th>
 								<td> 
@@ -44,9 +45,14 @@
 
 							<%end %>
 
-							<tr><th>Description</th><td><%= f.text_area :description, :cols => "30", :rows => "10",:maxlength => 1000 %></td></tr>
+							<tr><th>Description</th><td><%= f.text_area :description, :cols => "30", :rows => "10",:maxlength => 300 %></td></tr>
 
 							<tr><th>Qualification</th><td> <%= f.text_field :qualification %></td></tr>
+                          <tr> <th>Linkedin Profile URL</th>
+                            <td>
+                              <%= f.text_field :linkedin_profile_url%>
+                            </td>
+                          </tr>
 
 
 

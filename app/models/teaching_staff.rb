@@ -1,6 +1,6 @@
 
 class TeachingStaff  < ActiveRecord::Base
-  attr_accessible :description, :name, :qualification,:user_attributes, :user_id
+  attr_accessible :description, :name, :qualification,:user_attributes, :user_id, :linkedin_profile_url
   scope :teachers, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher")
   scope :teacher_assistants, joins(:teaching_staff_courses).where('teaching_staff_courses.teaching_staff_type = ?', "teacher_assitant")
   scope :teacher
@@ -10,7 +10,7 @@ class TeachingStaff  < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
   accepts_nested_attributes_for :user
   validates :name, presence: true
-  validates :description, presence: true
+  validates :description, presence: true, length: { maximum: 300}
   validates :qualification, presence: true
  
   def teacher

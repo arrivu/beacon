@@ -334,8 +334,9 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "description"
     t.string   "qualification"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "linkedin_profile_url"
   end
 
   create_table "topics", :force => true do |t|

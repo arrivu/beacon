@@ -62,7 +62,7 @@ $(document).ready(function(){
   <div class="container ">
     <h1>About the Author</h1>
     <% @authors.each do |author|%>
-    <div class="row" style="width:30%; display:inline-block; clear:left; margin:15px">
+    <div class="row" style="width:61%; display:inline-block; clear:left; margin:15px">
       <div class="authorimage">
         <% if author.user.image_blob == nil %>
         <% if author.user.omni_image_url == nil %>
@@ -73,11 +73,16 @@ $(document).ready(function(){
         <% else  %>
         <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "100x100" %>
         <% end  %>
+        <p ><%= truncate(author.description, :length => 300)%></p>
       </div>
       <div class="authorinfo">
         <h4><%= author.name %></h4>
-        <p><%= author.description%></p>
+        <% if !!author.linkedin_profile_url %>
+              <%= link_to image_tag("linkedin_badge.png", :alt => author.name ), "http://" + author.linkedin_profile_url, :target => "_blank" %>
+        <% end  %>
+
       </div>
+
       <div class="container clearfix"></div>
     </div>
     <% end %>
