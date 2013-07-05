@@ -24,7 +24,9 @@
               </tr>
             <% @coursesstauts.each do |course| %>
             <tr><td ><%= course.course.title %></td>
+              <% if !!course.student.user  %>
             <td ><%= course.student.user.name %></td>
+              <%end  %>
             <td><%= course.status %></td>
            <td> <%= link_to t('.edit', :default => t("helpers.links.edit")),
       			completed_courses_path(:id=>course.id), :class => 'btn btn-mini' %></td></tr>
