@@ -71,7 +71,7 @@
 	float:left;
 	margin-right: 0px;
 	margin-bottom: 15px;
-	padding: 5px 5px 0px 0px;
+	padding: 8px 5px 0px 0px;
 	/*text-transform: uppercase;*/
 	border-radius: 1px;
 	/*border-right:1px solid white;*/
@@ -81,7 +81,7 @@
 .learnheading{
 	float:left;
 	margin-right: 10px;
-	padding: 5px;
+	padding: 7px;
 	text-transform: uppercase;
 	position: relative;
 	top:-10px;
