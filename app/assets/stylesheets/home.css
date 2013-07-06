@@ -404,7 +404,7 @@ border: none;
 	font-weight: 100;
 	z-index: 0;
 	text-align: justify;
-
+    min-height: 200px;
 	line-height: 1.5;
 	color: #6f6f6f;
 	border-left: none;
@@ -512,6 +512,7 @@ border: none;
 
 .listofkp .firstkp img{width:165px;height:85px;}
 .listofkp .kp img{width:165px;height:85px;}
+.listofkp .lastkp img{width:165px;height:85px;}
 /*browsemore customize for home page*/
 
 .browsemore-home {
