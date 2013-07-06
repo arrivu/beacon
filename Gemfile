@@ -38,7 +38,7 @@ group :development do
 # gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
 # gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
 # gem 'ruby-debug19'
- gem "debugger",'1.5.0'
+# gem "debugger",'1.5.0'
  #gem "mysql2"
 end
 gem 'sqlite3', '1.3.7', :group => :development
