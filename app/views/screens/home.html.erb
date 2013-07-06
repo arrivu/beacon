@@ -4,34 +4,136 @@
 <% provide(:effectingHeader) %>
  <div class="homebanner" style="background-image:url(assets/homebanner1.png);background-repeat:no-repeat;background-size:100% 100%;color:white;">
     <div class="container">
-      <div class="row">
-        <div class="span12" align="center" >
-            <div class="bannertext">
-              <h3 style="color:white;">Learning is fun</h3>
-            </div>
-<!--             <div class="bannersubtitle">
-              No Set up , No hassle, Just learning and only learning with fun
-            </div>
- -->        </div>
-        <div class="clearfix"></div>
-        <div class="span5" align="center" >
-            <div class="bannervideo" >
-              <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="350" height="230" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-            </div>
-        </div>
-        <div class="span7" align="justify">
-            <div class="bannerinfo">
-              <p>Beacon Online teaches management subjects in the comfort of your browser with video lessons, quizzes and screnshots.We specialize in teaching of latest technologies in
-                <a href="/about" style="color:white;text-decoration:underline;">more</a></p>
 
-              <!-- <a href="courselibrary.php"><span class="browseourcourses">Browse Our Courses</span>
-            </a> -->
-            </div>
+
+
+        <div class="row">
+          <div class="span12" id="slider">
+            <!-- Top part of the slider -->
+            <div class="row">
+              <div class="" id="carousel-bounding-box">
+                <div id="myCarousel" class="carousel slide">
+                  <!-- Carousel items -->
+                  <div class="carousel-inner">
+                    <div class="active item" data-slide-number="0">      <div class="row">
+                      <div class="span12" align="center" >
+                        <div class="bannertext">
+                          <h3 style="color:white;">Learning is fun</h3>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="span5" align="center" >
+                        <div class="bannervideo" >
+                          <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="350" height="230" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                        </div>
+                     </div>
+                      <div class="span7" align="justify">
+                        <div class="bannerinfo">
+                          <p>Academic courses, certifications and curated wisdom to make your learning seamless,
+                            progressive and impactful.
+                            <a href="/about" style="color:white;text-decoration:underline;">more</a></p>
+                        </div>
                         <%= render 'show_topics' %>
-        </div>
-        <div class="clearfix"></div>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div></div>
+                    <div class="item" data-slide-number="1"><div class="row">
+                      <div class="span12" align="center" >
+                        <div class="bannertext">
+                          <h3 style="color:white;">Learning is Life</h3>
+                        </div>
+                      </div>
+                      <div class="clearfix"></div>
+                      <div class="span5" align="center" >
+                        <div class="bannervideo" >
+                          <img src="assets/greatlakeslogo.jpg" width="250" height="150"/>
+                        </div>
+                      </div>
+                      <div class="span7" align="justify">
+                        <div class="bannerinfo">
+                          <p>Enroll for Holistic, Rigorous and industry relevant  programs
+                            by Great Lakes and get Certified!
+                            <a href="/about" style="color:white;text-decoration:underline;">more</a></p>
+                        </div>
+                        <%= render 'show_topics' %>
+                      </div>
+                      <div class="clearfix"></div>
+                    </div></div>
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="span4" id="carousel-text"></div>
+
+                    </div>
+
+          </div>
+
+        </div> <!--/Slider-->
+      <div class="carousel-nav">
+        <a href="#" data-to="0" class="active">1</a>
+        <a href="#" data-to="1">2</a>
+
       </div>
-      <div class="clearfix"></div>
+
+
+    </div>
+
+
+      <script>
+          jQuery(document).ready(function($) {
+
+              $('#myCarousel').carousel({
+                  interval: 5000
+              });
+
+              $('#carousel-text').html($('#slide-content-0').html());
+
+              //Handles the carousel thumbnails
+              $('[id^=carousel-selector-]').click( function(){
+                  var id_selector = $(this).attr("id");
+                  var id = id_selector.substr(id_selector.length -1);
+                  var id = parseInt(id);
+                  $('#myCarousel').carousel(id);
+              });
+
+
+              // When the carousel slides, auto update the text
+              $('#myCarousel').on('slid', function (e) {
+                  var id = $('.item.active').data('slide-number');
+                  $('#carousel-text').html($('#slide-content-'+id).html());
+              });
+
+
+          });
+      </script>
+   <script type="text/javascript">
+       $(window).load(function() {
+           $('#myCarousel').carousel();
+
+           $(".carousel-nav a").click(function(e){
+               e.preventDefault();
+               var index = parseInt($(this).attr('data-to'));
+               $('#myCarousel').carousel(index);
+               var nav = $('.carousel-nav');
+               var item = nav.find('a').get(index);
+               nav.find('a.active').removeClass('active');
+               $(item).addClass('active');
+           });
+
+           $("#myCarousel").bind('slide', function(e) {
+               var elements = 2; // change to the number of elements in your nav
+               var nav = $('.carousel-nav');
+               var index = $('#myCarousel').find('.item.active').index();
+               index = (index == elements - 1) ? 0 : index + 1;
+               var item = nav.find('a').get(index);
+               nav.find('a.active').removeClass('active');
+               $(item).addClass('active');
+           });
+       });
+   </script>
+
     </div>
   </div>
 <div class="homecourse">
@@ -41,7 +143,7 @@
         <!-- <h2 class="ribbon">
           <span class="title">Our Courses</span>
         </h2> -->
-        <h2>Popular Courses</h2>
+        <h2 style="margin-left:-30px;"> Popular Courses</h2>
       </div>
     </div>
   </div>
@@ -76,44 +178,45 @@
         <!-- <h2 class="ribbon">
           <span class="title">Our Customers</span>
         </h2> -->
-        <h2>Learners Speak</h2>
+        <h2 style="margin-left:-32px;">Learners <span style="color:red;font-size: 35px;">
+          ♥</span> Beacon</h2>
         <hr style="margin:5px 0px;">
-        <div class="span4" style="margin-left:55px;">
+        <div class="span4" style="margin-left:25px;width: 30%;">
           <div class="verticalcustomerbox testimonial-one" align="center">
-            <div class="customerimage">
-              <img src="assets/learner.jpg" />
-            </div>
+            <!--<div class="customerimage">-->
+              <!--<img src="assets/learner.jpg" />-->
+            <!--</div>-->
             <div class="testimonialtext">
-              "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+              "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." 
             </div>
             <div class="testimonialauthor">
-              - Ankit Gupta,<br/>Mangalayatan University
+              - Mayank,<br/>Analytics Professional
             </div>
           </div>
         </div>
-        <div class="span4" style="margin-left:55px;">
+        <div class="span4" style="margin-left:25px;width: 30%;">
           <div class="verticalcustomerbox testimonial-two">
-            <div class="customerimage">
-              <img src="assets/learner.jpg" />
-            </div>
+            <!--<div class="customerimage">-->
+              <!--<img src="assets/learner.jpg" />-->
+            <!--</div>-->
             <div class="testimonialtext">
-              “Beacon has a library of lessons that goes far beyond the surface, touching on nearly every aspect of Finance Marketing.”
+              "I love Beacon for the quality of content and the teaching methodology. The video lectures are very interesting and one can learn at their own pace. Learning becomes so much more enjoyable when you can see the results for yourself."
             </div>
             <div class="testimonialauthor">
-              - Sumit Saxena,<br/>Great Lakes Institute of Management
+              -Kate,<br/>Business Manager
             </div>
           </div>
         </div>
-        <div class="span4" style="margin-left:55px;">
+        <div class="span4" style="margin-left:25px;width: 30%;">
           <div class="verticalcustomerbox testimonial-three">
-            <div class="customerimage">
-              <img src="assets/learner.jpg" />
-            </div>
+            <!--<div class="customerimage">-->
+              <!--<img src="assets/learner.jpg" />-->
+            <!--</div>-->
             <div class="testimonialtext">
-              "Beacon offers tremendous coverage on a wide range of topics and they do a great job of providing education and support.”
+              "Being in sales for five years, I have been negotiating deals for a living. But I must confess, the Negotiations course really blew me off. There was so much to learn - concepts I'd never thought of explained in wonderfully simple and practical ways. I loved the course for it gave me a skill that is so tangible that I use it every day. Thumbs up Beacon ! "
             </div>
             <div class="testimonialauthor">
-              - Preeti Mishra,<br/>Great Lakes Institute of Energy Management and Research
+              - Arun,<br/>Sales Executive
             </div>
           </div>
         </div>
@@ -127,23 +230,17 @@
         <!-- <h2 class="ribbon">
           <span class="title">Our Customers</span>
         </h2> -->
-        <h2>Our Knowledge Partners</h2>
+        <h2>Knowledge Partners</h2>
 
-        <div class="listofkp" style="margin-left:100px;">
+        <div class="listofkp" >
           <div class="firstkp">
-            <img src="assets/yale.png" />
+           <a href="<%= knowledge_partners_path %>"> <img src="assets/jigsaw.jpg" /></a>
           </div>
           <div class="kp">
-            <img src="assets/cuoa.png" />
-          </div>
-          <div class="kp">
-            <img src="assets/bauer.png" />
-          </div>
-          <div class="kp">
-            <img src="assets/illinois.png" />
+            <a href="<%= knowledge_partners_path %>"> <img src="assets/greatlakeslogo.jpg" />   </a>
           </div>
           <div class="lastkp">
-            <img src="assets/nanyang.png" />
+            <a href="<%= knowledge_partners_path %>"> <img src="assets/nanyang.png" />  </a>
           </div>
         </div>
         
@@ -154,8 +251,8 @@
   <div class="bottomadsection">
     <div class="container">
       <div class="row">
-        <div class="span12" align="center" style="margin-left:65px;">
-          <h3>Ready to start your learning adventure?</h2>
+        <div class="span12" align="center" style="width: 95%;">
+          <h3>Step up Your Learning Curve!</h2>
           <!-- <a href="courselibrary.php"><span class="browseourcoursessmall">Browse Our Courses</span></a> -->
           <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
 

@@ -404,13 +404,14 @@ border: none;
 	font-weight: 100;
 	z-index: 0;
 	text-align: justify;
+
 	line-height: 1.5;
 	color: #6f6f6f;
 	border-left: none;
 	color: rgba(0,0,0,0.6);
 	font-size: 15px;
 	margin-bottom: 13px;
-	text-align: center;
+
 	margin: 0 0 17px;
 	padding: 9px 20px 0 19px;
 	font-family: verdana ;
@@ -486,33 +487,31 @@ border: none;
 	border-top: 1px solid #eee;
 	position: relative;
 	margin-top: 20px;
+    padding:10px 70px;
 }
 
 .listofkp .kp{
 	float: left;
 	/*margin-left: 10px;*/
-	border-right: 1px solid #eee;
-	padding-right: 10px;
-	padding-left:10px;
+	/*border-right: 1px solid #eee;*/
+    padding:0px 70px;
 }
 
 .listofkp .lastkp{
 	float: left;
-	padding-right: 10px;
-	padding-left:10px;
+    padding:0px 70px;
 }
 
 .listofkp .firstkp{
 	float: left;
 	margin-left: 20px;
 	/*margin-left: 10px;*/
-	border-right: 1px solid #eee;
-	padding-right: 10px;
-	padding-left:10px;
+	/*border-right: 1px solid #eee;*/
+	padding:0px 70px;
 }
 
-
-
+.listofkp .firstkp img{width:165px;height:85px;}
+.listofkp .kp img{width:165px;height:85px;}
 /*browsemore customize for home page*/
 
 .browsemore-home {

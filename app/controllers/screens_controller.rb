@@ -18,6 +18,9 @@ class ScreensController < ApplicationController
   def terms
   end
 
+  def knowledge_partners
+  end
+
   def construction
   end 
 
