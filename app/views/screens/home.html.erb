@@ -4,9 +4,6 @@
 <% provide(:effectingHeader) %>
  <div class="homebanner" style="background-image:url(assets/homebanner1.png);background-repeat:no-repeat;background-size:100% 100%;color:white;">
     <div class="container">
-
-
-
         <div class="row">
           <div class="span12" id="slider">
             <!-- Top part of the slider -->
@@ -55,7 +52,32 @@
                             by Great Lakes and get Certified!
                             </p>
                         </div>
-                        <%= render 'show_topics' %>
+
+
+                        <div class="bannerlearn">
+                          <span class="learnheading" style="color:white;">Explore: </span>
+                               <% topic = Topic.find_by_name("Finance Programs") rescue nil? %>
+                              <% if !!topic %>
+                                  <span class="badge1 leartopic"><%= link_to "Finance Programs", topic, class: "badge1" %>
+                                   |
+                                  </span>
+                              <% else %>
+                                  <span class="badge1 leartopic"><%= link_to "Finance Programs", courses_path, class: "badge1" %>
+                                    |
+                                  </span>
+                              <% end %>
+                               <% topic = Topic.find_by_name("Analytics Programs") rescue nil? %>
+                              <% if !!topic %>
+                                  <span class="badge1 leartopic"><%= link_to "Analytics Programs", topic, class: "badge1" %>
+                                  </span>
+                              <% else %>
+                                  <span class="badge1 leartopic"><%= link_to "Analytics Programs", courses_path, class: "badge1" %>
+                                  </span>
+                             <% end %>
+
+
+                        </div>
+
                       </div>
                       <div class="clearfix"></div>
                     </div></div>
@@ -66,7 +88,7 @@
               </div>
               <div class="span4" id="carousel-text"></div>
 
-                    </div>
+            </div>
 
           </div>
 

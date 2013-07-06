@@ -70,7 +70,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
  end
 
  def show
-   @course = Course.find(params[:id])   
+   @course = Course.find(params[:id])
    @price_detail = CoursePricing.find_by_course_id(@course.id)
    if @price_detail!=nil
       @price=@price_detail.price
@@ -100,6 +100,8 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
 
       @rated = Rate.find_by_rater_id(current_user.id)
     end
+
+   @subscribers_count = @course.student_courses.where(status== "enroll").count
   end
 
 

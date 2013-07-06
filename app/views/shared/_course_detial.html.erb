@@ -100,16 +100,12 @@
             <br align = "center">
             <% end %>
             <%= rating_for @course, "rate"  %>
-            <div id="rating" style="color:#fff;"><%= @qty%> Ratings</div>
+            <div id="rating" style="color:#fff;"><%= pluralize(@qty,"Rate") if !!@qty%></div>
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
-            <div class = "rated" style="color:#fff;" >
-              <% if @rated == nil  %>
-              Rate This Course
-              <% else  %>
-              Course Rated
-              <% end %>
-            </div>
-            <% end %>
+           </a>
+            <div style="height:40px;"><%= image_tag "group.png" if @subscribers_count >= 1 %><b class="learners_count"><%= pluralize(@subscribers_count, "Learner") if @subscribers_count >= 1%> </b> </div>
+
+           <% end %>
           </a>
         </div>
       </div>

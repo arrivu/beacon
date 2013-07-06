@@ -32,7 +32,7 @@
         <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
         <br align = "center">Has <%= pluralize(@qty, "Ratings") %>
         <% end %>
-        <%= rating_for course, "rate" %> 
+        <%= rating_for course, "rate" %>
         <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
         <% if @rated == nil  %>
         Rate This Course
