@@ -238,3 +238,10 @@ font:"Lato",sans-serif;
 .violate{
   background-color: #8E44AD ;
 }
+
+.learners_count{
+    line-height: 50px;
+    vertical-align: top;
+    padding: 0px 10px;
+    color:#f89406;
+}
