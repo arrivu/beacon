@@ -1,5 +1,6 @@
-server "beacon.arrivu.corecloud.com", :app, :web, :db, :primary => true
-set :deploy_to, "/var/capistrano/beacon/portal_staging"
+server "192.168.1.54", :app, :web, :db, :primary => true
+set :deploy_to, "/var/deploy/beacon/portal"
 set :rails_env, "staging" 
-set :scm_passphrase, "deployadmin123$"
-set :branch, "capistrano"
+set :scm_passphrase, ""
+set :branch, "deploy"
+set :port, 22

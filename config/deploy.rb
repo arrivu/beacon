@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
 
-set :application, "Myapp"
+set :application, "beacon portal"
 set :scm, :git
 set :repository, "git@github.com:m-narayan/beacon.git"
 set :deploy_via, :remote_cache
@@ -9,11 +9,12 @@ set :deploy_via, :remote_cache
 set :user, "sysadmin"
 set :use_sudo, false
 
-set :stages, ["staging", "production"]
+set :stages, ["testing", "staging", "production"]
 set :default_stage, "staging"
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
+ssh_options[:port] = 2222
 
 #set :bundle_flags, "--quiet"
 
