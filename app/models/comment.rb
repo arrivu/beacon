@@ -37,7 +37,7 @@ include ActsAsCommentable::Comment
   #acts_as_voteable
 
   # NOTE: Comments belong to a user
-  belongs_to :course
+  belongs_to :course , touch: true
   belongs_to :user
 
   validates :title, presence: true, length: { maximum: 25 }
