@@ -11,8 +11,7 @@
     <div class="row">
       <div class="four columns mission">
         <p class="headinglike" style="font-size: 20px; font-weight:300;">Beacon learning</p>
-        <p>Our mission is to provide the high quality professional tertiary education including undergraduate, post graduate, executive and continuing education.
-        </p>
+       
         <ul class="social">
           <li>
             <a href="https://twitter.com/BeaconeLearning" target="_blank" title="Twitter">
@@ -59,22 +58,46 @@
       <div class="two columns">
         <ul class="link-list library-nav right">
           <li class="heading">Browse full library →</li>
-          <% @topics = Topic.all  %>
+         <!--  <% @topics = Topic.all  %>
           <% @topics.each do |topic|%>  
           <% @topicStructure = topic.name %>
-          <li><%= link_to @topicStructure, topic %></li>
-          <%end%>    
+          <li><%= link_to @topicStructure, topic %></li>  <%end%>  -->
+
+               
+         
+           <li><a href="">Online program in Finance</a><li>
+            <li><a href="">Online program in Marketing</a><li>
+               <li><a href="">Online program in Analytics</a><li>
+              <li><a href="">Online certification programs</a><li>
+                 <li><a href="">and other SEO strings</a><li>  
         </ul>
       </div>
-      <div class="two columns end">
+       <div class="two columns">
+        <ul class="link-list library-nav right">
+          <li class="heading">Browse full library →</li>
+         <!--  <% @topics = Topic.all  %>
+          <% @topics.each do |topic|%>  
+          <% @topicStructure = topic.name %>
+          <li><%= link_to @topicStructure, topic %></li>  <%end%>  -->
+
+               
+         
+           <li><a href="">Online program in Finance</a><li>
+            <li><a href="">Online program in Marketing</a><li>
+               <li><a href="">Online program in Analytics</a><li>
+              <li><a href="">Online certification programs</a><li>
+                 <li><a href="">and other SEO strings</a><li>  
+        </ul>
+      </div>
+   <!--    <div class="two columns end">
         <ul class="link-list contact-nav right">
           <li class="heading">
             Get in touch →
           </li>
           <li><%= link_to "Write Us", new_contact_path %></li>
-          <li><a href="mailto:info@beaconlearning.in">Email Us</a></li>
+          <li><a href="mailto:support@beaconlearning.in">Email Us</a></li>
         </ul>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
