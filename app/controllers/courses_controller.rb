@@ -13,11 +13,13 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
   def show_image    
     @course = Course.find(params[:id])
     send_data @course.data, :type => @course.content_type, :disposition => 'inline'
+    http_cache(@course)
   end
 
   def background_image    
     @course = Course.find(params[:id])
     send_data @course.background_image, :type => @course.background_image_type, :disposition => 'inline'
+    http_cache(@course)
   end
 
   def index
@@ -30,7 +32,7 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
      @courses = Course.where(ispublished: 1,isconcluded: "f").paginate(page: params[:page], :per_page => 6)
    end
    @topics = Topic.all
- 
+
  end
 
  def new
