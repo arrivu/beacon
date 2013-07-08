@@ -81,7 +81,7 @@
 .learnheading{
 	float:left;
 	margin-right: 10px;
-	padding: 7px;
+	padding: 7px 0px;
 	text-transform: uppercase;
 	position: relative;
 	top:-10px;
@@ -132,6 +132,29 @@ font-weight: bold;
 /*background-color:  	#2a488e;*/
 background-image:url('../assets/plus.png');
 background-size: 65px 65px;
+color: #fff !important;
+line-height: 1 !important;
+font-size: 16px !important;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+white-space: nowrap;
+border: none;
+cursor: pointer;
+display: -moz-inline-stack;
+display: inline-block;
+vertical-align: middle;
+zoom: 1;
+text-align: right;
+}
+
+.browselist {
+width: 45px;
+height:45px;
+
+margin-top: 30px;
+margin-right: 14px;
+font-weight: bold;
+background-image:url('../assets/greyplus.png');
+background-size: 45px 45px;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 16px !important;
