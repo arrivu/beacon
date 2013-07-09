@@ -78,5 +78,8 @@ border: 1px solid rgba(0, 0, 0, 0.3);
 border-top: 0;
 }
 
-
-
+body.modal #modal-box.login-box
+{background-color: #f2e1ac;
+}
+body.modal #modal-box
+{background-color: #f2e1ac;}

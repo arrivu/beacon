@@ -16,7 +16,11 @@ Role.create([
 	{ :name => 'designer' }
 	], :without_protection => true)
 puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'Administrator', :email => 'beacon@arrivusystems.com', :password => 'Admin123$', :password_confirmation => 'Admin123$', :provider=>"admin"
+if Rails.env.development?
+  user = User.create! :name => 'Administrator', :email => 'beacon@arrivusystems.com', :password => 'Admin123$', :password_confirmation => 'Admin123$', :provider=>"admin"
+else
+  user = User.create! :name => 'Administrator', :email => 'portal.admin@beaconlearning.in', :password => 'Admin123$', :password_confirmation => 'Admin123$', :provider=>"admin"
+end
 puts 'User created: ' << user.name
 
 user.add_role :admin
