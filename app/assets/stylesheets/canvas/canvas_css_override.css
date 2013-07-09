@@ -100,12 +100,12 @@ color: #2784A0;
 body.modal #modal-box.login-box a { color: #2784A0 !important; }
 /*change the color of the login button*/
 body.modal #modal-box .button, body.modal #login-box .button {
-background-color: #EBF5FA !important;
+background-color: #2a488e !important;
 background-image: none !important;
-border-color: #668F78;
+border-color: #2a488e;
 }
 #login_form .btn-primary, #login_form .btn-primary:hover {
-background-color: #ae5321;
+background-color: #4183c4;
 background-image: none;
 border: none !important;
 }
