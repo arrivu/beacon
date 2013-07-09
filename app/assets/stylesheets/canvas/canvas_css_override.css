@@ -82,7 +82,7 @@ body.modal #modal-box.login-box
 {
 }
 body.modal #modal-box
-{background-color: #f2e1ac;}
+{background-color: #f2e1ac !important;}
 
 #modal-box.login-box { background-color: #f2e1ac !important;}
 /*this will remove the extra canvas logo*/
@@ -95,6 +95,7 @@ body.modal #modal-box.login-box {
 height: 435px;
 width: 610px;
 color: #2784A0;
+background: #f2e1ac !important;
 }
 /*change the color of 'don't know your password'*/
 body.modal #modal-box.login-box a { color: #2784A0 !important; }
