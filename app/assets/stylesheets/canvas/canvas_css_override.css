@@ -86,10 +86,10 @@ body.modal #modal-box
 
 #modal-box.login-box { background-color: #f2e1ac !important;}
 /*this will remove the extra canvas logo*/
-body.modal #modal-box.login-box h1 {
+/*body.modal #modal-box.login-box h1 {
 background: none;
 height: 235px;
-}
+}*/
 /*resize the login box to fit my image and change the color of 'stay signed in'*/
 body.modal #modal-box.login-box {
 height: 435px;
