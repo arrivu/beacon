@@ -40,6 +40,7 @@ Myapp::Application.routes.draw do
   match '/privacy', :to => 'screens#privacy'
   match '/terms', :to => 'screens#terms'
   match '/knowledge_partners', :to => 'screens#knowledge_partners'
+  match '/user_reviews', :to => 'screens#user_reviews'
 
   #match '/contact', :to => 'screens#contact'
   #match '/faq', :to => 'screens#faq'

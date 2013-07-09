@@ -21,6 +21,9 @@ class ScreensController < ApplicationController
   def knowledge_partners
   end
 
+  def user_reviews
+  end
+  
   def construction
   end 
 

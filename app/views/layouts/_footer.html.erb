@@ -65,30 +65,50 @@
 
                
          
-           <li><a href="">Online program in Finance</a><li>
-            <li><a href="">Online program in Marketing</a><li>
-               <li><a href="">Online program in Analytics</a><li>
-              <li><a href="">Online certification programs</a><li>
-                 <li><a href="">and other SEO strings</a><li>  
-        </ul>
+            
+               <% topic = Topic.find_by_name("Online program in Finance") rescue nil? %>
+                              <% if !!topic %>
+                                  <li ><%= link_to "Online program in Finance", topic %>
+                                  </li>
+                              <% else %>
+                                  <li ><%= link_to "Online program in Finance", courses_path %>
+                                  </li>
+                             <% end %>
+                                   <% topic = Topic.find_by_name("Online program in Marketing") rescue nil? %>
+                              <% if !!topic %>
+                                  <li ><%= link_to "Online program in Marketing", topic %>
+                                  </li>
+                              <% else %>
+                                  <li ><%= link_to "Online program in Marketing", courses_path %>
+                                  </li>
+                             <% end %>
+                                   <% topic = Topic.find_by_name("Online program in Analytics") rescue nil? %>
+                              <% if !!topic %>
+                                  <li ><%= link_to "Online program in Analytics", topic %>
+                                  </li>
+                              <% else %>
+                                  <li ><%= link_to "Online program in Analytics", courses_path %>
+                                  </li>
+                             <% end %>
+                                   <% topic = Topic.find_by_name("Online certification programs") rescue nil? %>
+                              <% if !!topic %>
+                                  <li ><%= link_to "Online certification programs", topic %>
+                                  </li>
+                              <% else %>
+                                  <li ><%= link_to "Online certification programs", courses_path %>
+                                  </li>
+                             <% end %>
+                                   <% topic = Topic.find_by_name("and other SEO strings") rescue nil? %>
+                              <% if !!topic %>
+                                  <li ><%= link_to "and other SEO strings", topic %>
+                                  </li>
+                              <% else %>
+                                  <li ><%= link_to "and other SEO strings", courses_path %>
+                                  </li>
+                             <% end %>
+       </ul>
       </div>
-       <div class="two columns">
-        <ul class="link-list library-nav right">
-          <li class="heading">Browse full library →</li>
-         <!--  <% @topics = Topic.all  %>
-          <% @topics.each do |topic|%>  
-          <% @topicStructure = topic.name %>
-          <li><%= link_to @topicStructure, topic %></li>  <%end%>  -->
-
-               
-         
-           <li><a href="">Online program in Finance</a><li>
-            <li><a href="">Online program in Marketing</a><li>
-               <li><a href="">Online program in Analytics</a><li>
-              <li><a href="">Online certification programs</a><li>
-                 <li><a href="">and other SEO strings</a><li>  
-        </ul>
-      </div>
+      
    <!--    <div class="two columns end">
         <ul class="link-list contact-nav right">
           <li class="heading">

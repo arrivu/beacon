@@ -53,7 +53,7 @@
 
 
                         <div class="bannerlearn">
-                          <span class="learnheading" style="color:white;">Explore certification programs in </span>
+                          <span class="learnheading" style="color:white;">Explore:</span>
                                <% topic = Topic.find_by_name("Finance Programs") rescue nil? %>
                               <% if !!topic %>
                                   <span class="badge1 leartopic"><%= link_to "Finance", topic, class: "badge1" %>
@@ -76,22 +76,25 @@
                              <% end %>
                               <% topic = Topic.find_by_name("Marketing") rescue nil? %>
                               <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Marketing <all>", topic, class: "badge1" %>
+                                  <span class="badge1 leartopic"><%= link_to "Marketing ", topic, class: "badge1" %>
                                      |
                                   </span>
                               <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Marketing <all>", courses_path, class: "badge1" %>
+                                  <span class="badge1 leartopic"><%= link_to "Marketing ", courses_path, class: "badge1" %>
                                      |
                                   </span>
                              <% end %>
-                              <% topic = Topic.find_by_name("Media Spotlight") rescue nil? %>
+                                   <% topic = Topic.find_by_name("all") rescue nil? %>
                               <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Media Spotlight <Media reporting and citations on Beacon>", topic, class: "badge1" %>
+                                  <span class="badge1 leartopic"><%= link_to "<all>", topic, class: "badge1" %>
+                                     |
                                   </span>
                               <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Media Spotlight <Media reporting and citations on Beacon>", courses_path, class: "badge1" %>
+                                  <span class="badge1 leartopic"><%= link_to "<all>", courses_path, class: "badge1" %>
+                                     
                                   </span>
                              <% end %>
+                           
 
 
 
@@ -226,13 +229,13 @@
             <a href="<%= knowledge_partners_path %>"> <img src="assets/GREAT LAKES LOGO.jpg" />   </a>
           </div>
           <div class="lastkp">
-            <a href="<%= knowledge_partners_path %>"> <img src="assets/edu.png" />  </a>
+            <a href="<%= knowledge_partners_path %>"> <img src="assets/eduPristineLogo.jpg" />  </a>
           </div>
         </div>
         <div align="center">
          
               <%= link_to "", knowledge_partners_path, :class => "browselist" %>
-                <h6 style="color:black;margin:0px;font-size:22px;"> Know more about out Partners</h6>               
+                <h6 style="color:steelblue;margin:0px;"> Know more about out Partners</h6>               
               </div>
       </div>
     </div>
@@ -287,18 +290,18 @@
       </div>
       <div align="center">
          
-              <%= link_to "", '#', :class => "browselist" %>
-                <h6 style="color:black;margin:0px;font-size:22px;"> Read More Reviews</h6>               
+              <%= link_to "", user_reviews_path, :class => "browselist" %>
+                <h6 style="style="color:steelblue;margin:0px;""> Read More Reviews</h6>               
               </div>
     </div>
   </div>
-
+<%= render 'shared/media_reviews' %>
   <div class="bottomadsection">
     <div class="container">
       <div class="row">
         <div class="span12" align="center" style="width: 95%;">
           <h3>Step up Your Learning Curve!</h2>
-          <!-- <a href="courselibrary.php"><span class="browseourcoursessmall">Browse Our Courses</span></a> -->
+          
           <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
 
           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -306,22 +309,9 @@
           <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">Create Account</a>
           <% end %>
         </div>
-        <!-- <div class="span4">
-          <img src="http://placehold.it/400x200/f1f1f1/000&text=Courses" class="img-polaroid"/>
-        </div> -->
+       
       </div>
     </div>
   </div>
-<!--<div class="ourknowledgepartners secondary-content">-->
-  <!--<div class="container" align="center">-->
-    <!--<div class="row testimonial">-->
-      <!--<h2 style="color: #757474;">Featured In</h2>-->
 
-      <!--<div class="listofkp" >-->
-        <!--<img src="assets/featured.png" />-->
-      <!--</div>-->
-
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
  </div>
