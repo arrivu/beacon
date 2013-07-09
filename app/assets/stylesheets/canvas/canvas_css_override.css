@@ -79,7 +79,33 @@ border-top: 0;
 }
 
 body.modal #modal-box.login-box
-{background-color: #f2e1ac;
+{
 }
 body.modal #modal-box
 {background-color: #f2e1ac;}
+
+#modal-box.login-box { background-color: #f2e1ac; !important }
+/*this will remove the extra canvas logo*/
+body.modal #modal-box.login-box h1 {
+background: none;
+height: 235px;
+}
+/*resize the login box to fit my image and change the color of 'stay signed in'*/
+body.modal #modal-box.login-box {
+height: 435px;
+width: 610px;
+color: #2784A0;
+}
+/*change the color of 'don't know your password'*/
+body.modal #modal-box.login-box a { color: #2784A0 !important; }
+/*change the color of the login button*/
+body.modal #modal-box .button, body.modal #login-box .button {
+background-color: #EBF5FA !important;
+background-image: none !important;
+border-color: #668F78;
+}
+#login_form .btn-primary, #login_form .btn-primary:hover {
+background-color: #ae5321;
+background-image: none;
+border: none !important;
+}
