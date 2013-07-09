@@ -39,12 +39,12 @@ module ApplicationHelper
    end
     end
 
-  #def http_cache(instant_variable,scope=true,expires=5)
-  #  expires_in expires.minutes
-  #  fresh_when instant_variable, public: scope
-  #end
-    def http_cache(instant_variable,scope=true)
-      fresh_when instant_variable, public: scope
-    end
+  def http_cache(instant_variable,scope=true,expires=15)
+    expires_in expires.minutes
+    fresh_when instant_variable, public: scope
+  end
+  #  def http_cache(instant_variable,scope=true)
+  #    fresh_when instant_variable, public: scope
+  #  end
  
 end
