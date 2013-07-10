@@ -112,7 +112,7 @@ border: none !important;
 }
 body.modal #modal-box.login-box h1, body.modal #modal-box.login-box .h1 {
 height: 107px;
-margin: 0 0 50px;
+margin: 0 0 105px;
 background-color: transparent;
 background-image: url('../canvas/canvas.png?v1');
 background-repeat: no-repeat;
