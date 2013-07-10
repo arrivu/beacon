@@ -110,3 +110,12 @@ background-color: #4183c4;
 background-image: none;
 border: none !important;
 }
+body.modal #modal-box.login-box h1, body.modal #modal-box.login-box .h1 {
+height: 107px;
+margin: 0 0 50px;
+background-color: transparent;
+background-image: url('../canvas/canvas.png?v1');
+background-repeat: no-repeat;
+background-position: 68px 46px;
+text-indent: -999em;
+}
