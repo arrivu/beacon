@@ -86,10 +86,10 @@ body.modal #modal-box
 
 #modal-box.login-box { background-color: #f2e1ac !important;}
 /*this will remove the extra canvas logo*/
-body.modal #modal-box.login-box h1 {
+/*body.modal #modal-box.login-box h1 {
 background: none;
 height: 235px;
-}
+}*/
 /*resize the login box to fit my image and change the color of 'stay signed in'*/
 body.modal #modal-box.login-box {
 height: 435px;
@@ -112,10 +112,11 @@ border: none !important;
 }
 body.modal #modal-box.login-box h1, body.modal #modal-box.login-box .h1 {
 height: 107px;
-margin: 0 0 50px;
+margin: 0 0 105px;
 background-color: transparent;
-background-image: url(/images/canvas.png?1373360190);
+background-image: url('../canvas/canvas.png?v1');
 background-repeat: no-repeat;
 background-position: 68px 46px;
 text-indent: -999em;
 }
+
