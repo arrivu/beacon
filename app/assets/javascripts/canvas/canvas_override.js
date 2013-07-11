@@ -14,10 +14,8 @@ function openWin()
       }
     });
     if(success){ //AND THIS CHANGED
-     window.open("https://online.beaconlearning.in","_self")
-    }
-
-    
+     window.open("https://online.beaconlearning.in/sign_out","_self")
+    }  
     	
 }
 $(document).ready(function(){
