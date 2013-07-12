@@ -331,7 +331,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
 
   create_table "teaching_staffs", :force => true do |t|
     t.string   "name"
-    t.text     "description",          :limit => 255
+    t.text     "description"
     t.string   "qualification"
     t.integer  "user_id"
     t.datetime "created_at",                          :null => false
