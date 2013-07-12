@@ -48,7 +48,7 @@ h3 {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 4px;
-  margin-top: 2px; }
+  margin-top: 2px;color:rgb(16, 104, 30); }
 
 h4 {
   font-size: 18px;
@@ -61,7 +61,7 @@ h5 {
   text-transform: uppercase; }
 
 h6 {
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 500;
   /*text-transform: uppercase; */
 }

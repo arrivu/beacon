@@ -1,317 +1,130 @@
-
+<style>.span4{width: 400px;}
+table{
+text-align: justify;
+}
+.span4 table td img{
+  width:160px;height:90px;
+}
+</style>
 <% provide(:title, 'A Smarter Way to Learn') %>
-<div style="width:1349px;margin:0px auto;">
+<div style="width:100%;margin:0px auto;background-color: rgb(45, 53, 56);">
+
 <% provide(:effectingHeader) %>
- <div class="homebanner" style="background-image:url(assets/homebanner1.png);background-repeat:no-repeat;background-size:100% 100%;color:white;">
-    <div class="container">
-        <div class="row">
-          <div class="span12" id="slider">
-            <!-- Top part of the slider -->
-            <div class="row">
-              <div class="" id="carousel-bounding-box">
-                <div id="myCarousel" class="carousel slide">
-                  <!-- Carousel items -->
-                  <div class="carousel-inner">
-                    <div class="active item" data-slide-number="0">      <div class="row">
-                      <div class="span12" align="center" >
-                        <div class="bannertext">
-                          <h3 style="color:white;margin-left: 50px;">Learning for Life</h3>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                      <div class="span5" align="center" >
-                        <div class="bannervideo" >
-                          <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="350" height="230" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                        </div>
-                     </div>
-                      <div class="span7" align="justify">
-                        <div class="bannerinfo">
-                          <p>Academic courses, certifications and curated wisdon from the finest academicians to make your learning seamless, progressive and impactful.
-                           </p>
-                        </div>
-                        <%= render 'show_topics' %>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div></div>
-                    <div class="item" data-slide-number="1"><div class="row">
-                      <div class="span12" align="center" >
-                        <div class="bannertext">
-                          <h3 style="color:white;margin-left: 50px;">Learning for Life</h3>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                      <div class="span4" align="center" >
-                        <div class="bannervideo" >
-                          <img src="assets/GREAT LAKES LOGO.jpg" width="250" height="150"/>
-                        </div>
-                      </div>
-                      <div class="span8" align="justify">
-                        <div class="bannerinfo">
-                          <p>Industry relevant and high impact online certifications from Great Lakes to propel your career ahead
-                            </p>
-                        </div>
-
-
-                        <div class="bannerlearn">
-                          <span class="learnheading" style="color:white;">Explore:</span>
-                               <% topic = Topic.find_by_name("Finance Programs") rescue nil? %>
-                              <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Finance", topic, class: "badge1" %>
-                                   |
-                                  </span>
-                              <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Finance", courses_path, class: "badge1" %>
-                                    |
-                                  </span>
-                              <% end %>
-                               <% topic = Topic.find_by_name("Analytics Programs") rescue nil? %>
-                              <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Analytics", topic, class: "badge1" %>
-                                     |
-                                  </span>
-                              <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Analytics", courses_path, class: "badge1" %>
-                                     |
-                                  </span>
-                             <% end %>
-                              <% topic = Topic.find_by_name("Marketing") rescue nil? %>
-                              <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Marketing ", topic, class: "badge1" %>
-                                     |
-                                  </span>
-                              <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Marketing ", courses_path, class: "badge1" %>
-                                     |
-                                  </span>
-                             <% end %>
-                                   <% topic = Topic.find_by_name("all") rescue nil? %>
-                              <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "<all>", topic, class: "badge1" %>
-                                     |
-                                  </span>
-                              <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "<all>", courses_path, class: "badge1" %>
-                                     
-                                  </span>
-                             <% end %>
-                           
-
-
-
-                        </div>
-
-                      </div>
-                      <div class="clearfix"></div>
-                    </div></div>
-
-                  </div>
-
-                </div>
-              </div>
-              <div class="span4" id="carousel-text"></div>
-
-            </div>
-
-          </div>
-
-        </div> <!--/Slider-->
-      <div class="carousel-nav">
-        <a href="#" data-to="0" class="active">1</a>
-        <a href="#" data-to="1">2</a>
-
-      </div>
-
-
-    </div>
-
-
-      <script>
-          jQuery(document).ready(function($) {
-
-              $('#myCarousel').carousel({
-                  interval: 5000
-              });
-
-              $('#carousel-text').html($('#slide-content-0').html());
-
-              //Handles the carousel thumbnails
-              $('[id^=carousel-selector-]').click( function(){
-                  var id_selector = $(this).attr("id");
-                  var id = id_selector.substr(id_selector.length -1);
-                  var id = parseInt(id);
-                  $('#myCarousel').carousel(id);
-              });
-
-
-              // When the carousel slides, auto update the text
-              $('#myCarousel').on('slid', function (e) {
-                  var id = $('.item.active').data('slide-number');
-                  $('#carousel-text').html($('#slide-content-'+id).html());
-              });
-
-
-          });
-      </script>
-   <script type="text/javascript">
-       $(window).load(function() {
-           $('#myCarousel').carousel();
-
-           $(".carousel-nav a").click(function(e){
-               e.preventDefault();
-               var index = parseInt($(this).attr('data-to'));
-               $('#myCarousel').carousel(index);
-               var nav = $('.carousel-nav');
-               var item = nav.find('a').get(index);
-               nav.find('a.active').removeClass('active');
-               $(item).addClass('active');
-           });
-
-           $("#myCarousel").bind('slide', function(e) {
-               var elements = 2; // change to the number of elements in your nav
-               var nav = $('.carousel-nav');
-               var index = $('#myCarousel').find('.item.active').index();
-               index = (index == elements - 1) ? 0 : index + 1;
-               var item = nav.find('a').get(index);
-               nav.find('a.active').removeClass('active');
-               $(item).addClass('active');
-           });
-       });
-   </script>
-
-    </div>
-  </div>
-<div class="homecourse">
-    <div class="secondary-content">
-    <div class="container" align="center">
-      <div class="row testimonial">
-        <!-- <h2 class="ribbon">
-          <span class="title">Our Courses</span>
-        </h2> -->
-        <h2 style="margin-left:-30px;"> Popular Courses</h2>
-      </div>
-    </div>
-  </div>
-    <div class="container">
-      <div class="row">
-        <!-- <div class="span12" align="center">
-          <div class="bannersubtitle">
-              Learn where to start and what to take next with our courses
-          </div> 
-        </div> -->
-            
-              <%= render 'shared/courselist' %>
-            
-              <div align="center">
-         
-
-                <%= link_to "", courses_path, :class => "browsemore" %>
-                <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
-
-               
-              </div>
-      </div>
-    </div>
-  </div>
-
-
- 
-
-  <div class="ourknowledgepartners secondary-content">
-    <div class="container" align="center">
-      <div class="row testimonial">
-               <h2>Knowledge Partners</h2>
-
-        <div class="listofkp" >
-          <div class="firstkp">
-           <a href="<%= knowledge_partners_path %>"> <img src="assets/jigsaw.png" /></a>
-          </div>
-          <div class="kp">
-            <a href="<%= knowledge_partners_path %>"> <img src="assets/GREAT LAKES LOGO.jpg" />   </a>
-          </div>
-          <div class="lastkp">
-            <a href="<%= knowledge_partners_path %>"> <img src="assets/eduPristineLogo.jpg" />  </a>
-          </div>
-        </div>
-        <div align="center">
-         
-              <%= link_to "", knowledge_partners_path, :class => "browselist" %>
-                <h6 style="color:steelblue;margin:0px;"> Know more about out Partners</h6>               
-              </div>
-      </div>
-    </div>
-  </div>
-
- <div class="ourcustomers secondary-content">
-    <div class="container" align="center">
-      <div class="row testimonial">
-
-        <h2 style="margin-left:-32px;">Learners <span style="color:#ff0000;font-size: 35px;">
-          ♥</span> Beacon</h2>
-        <hr style="margin:5px 0px;">
-        <div class="span4" style="margin-left:25px;width: 30%;">
-          <div class="verticalcustomerbox testimonial-one" align="center">
-            <!--<div class="customerimage">-->
-              <!--<img src="assets/learner.jpg" />-->
-            <!--</div>-->
-            <div class="testimonialtext">
-              "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." 
-            </div>
-            <div class="testimonialauthor">
-              - Mayank,<br/>Analytics Professional
-            </div>
-          </div>
-        </div>
-        <div class="span4" style="margin-left:25px;width: 30%;">
-          <div class="verticalcustomerbox testimonial-two">
-            <!--<div class="customerimage">-->
-              <!--<img src="assets/learner.jpg" />-->
-            <!--</div>-->
-            <div class="testimonialtext">
-              "I love Beacon for the quality of content and the teaching methodology. The video lectures are very interesting and one can learn at their own pace. Learning becomes so much more enjoyable when you can see the results for yourself."
-            </div>
-            <div class="testimonialauthor">
-              -Kate,<br/>Business Manager
-            </div>
-          </div>
-        </div>
-        <div class="span4" style="margin-left:25px;width: 30%;">
-          <div class="verticalcustomerbox testimonial-three">
-            <!--<div class="customerimage">-->
-              <!--<img src="assets/learner.jpg" />-->
-            <!--</div>-->
-            <div class="testimonialtext">
-              "Being in sales for five years, I have been negotiating deals for a living. But I must confess, the Negotiations course really blew me off. There was so much to learn - concepts I'd never thought of explained in wonderfully simple and practical ways. I loved the course for it gave me a skill that is so tangible that I use it every day. Thumbs up Beacon ! "
-            </div>
-            <div class="testimonialauthor">
-              - Arun,<br/>Sales Executive
-            </div>
-          </div>
-        </div>
-      </div>
-      <div align="center">
-         
-              <%= link_to "", user_reviews_path, :class => "browselist" %>
-                <h6 style="style="color:steelblue;margin:0px;""> Read More Reviews</h6>               
-              </div>
-    </div>
-  </div>
-<%= render 'shared/media_reviews' %>
-  <div class="bottomadsection">
-    <div class="container">
-      <div class="row">
-        <div class="span12" align="center" style="width: 95%;">
-          <h3>Step up Your Learning Curve!</h2>
-          
-          <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
-
-          &nbsp;&nbsp;&nbsp;&nbsp;
-          <% unless user_signed_in?%>
-          <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">Create Account</a>
-          <% end %>
-        </div>
-       
-      </div>
-    </div>
-  </div>
+                <div id="main_area" style="margin:0px auto;width:80%;">
+                        <!-- Slider -->
+                        <div class="row">
+                                <div class="" id="slider" >
+                                        <!-- Top part of the slider -->
+<div class="row" >
+ <div class="" id="carousel-bounding-box" style="width:100%; background-color: rgb(45, 53, 56);">
+    <div id="myCarousel" class="carousel slide">
+                                                               
+     <div class="carousel-inner" style="float:left;">
+<div class="active item" data-slide-number="0"><%= image_tag "banner1.jpg", :class=>"img-polaroid" %></div>
+<div class="item" data-slide-number="1"><%= image_tag "banner2.jpg", :class=>"img-polaroid" %></div>
+<div class="item" data-slide-number="2"><%= image_tag "banner3.jpg", :class=>"img-polaroid" %></div>
 
  </div>
+                                                        </div>
+                                                </div>
+
+ 
+                                               
+                                        </div>
+ 
+                                </div>
+                        </div> <!--/Slider-->
+ </div>
+                    
+<script>
+  jQuery(document).ready(function($) {
+ 
+        $('#myCarousel').carousel({
+                interval: 5000
+        });
+ 
+        $('#carousel-text').html($('#slide-content-0').html());
+ 
+        //Handles the carousel thumbnails
+        $('[id^=carousel-selector-]').click( function(){
+                var id_selector = $(this).attr("id");
+                var id = id_selector.substr(id_selector.length -1);
+                var id = parseInt(id);
+                $('#myCarousel').carousel(id);
+        });
+ 
+ 
+        // When the carousel slides, auto update the text
+        $('#myCarousel').on('slid', function (e) {
+                var id = $('.item.active').data('slide-number');
+                $('#carousel-text').html($('#slide-content-'+id).html());
+        });
+ 
+ 
+});
+</script>
+
+
+        <div class="span12" style=" border-radius: 10px;width: 85%;position:relative;margin: 2% 11%;">
+<h2 style="font-size: 26px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;width:87%;text-align:center;">Popular Courses</h2>
+
+
+    
+
+               <div style="width:100%;margin:0px auto;">   
+              <%= render 'shared/courselist' %>
+            </div>
+     <div class="span12" style="margin:0px auto;width:85%;">
+
+
+<!-- <div class="span1" style="background-image:url('assets/vertical.png');height:380px; background-repeat:no-repeat;width:5px;margin-left: 10px;
+margin-top: 50px;background-size: 5px 420px;" ></div> -->
+<div class="span4" style="width:100%; float:left;">
+<h2 style="font-size: 18px25px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Learners Speak</h2>
+<table cellpadding="10" style="font-size:16px;">
+<tr><td>
+  <%= image_tag "learner.jpg" ,:class=>"img-circle" ,:style=>"width:95px;height:90px" %><span style="font-size:15px;width: 190px;
+float: right;margin-top: 25px;">- <strong>Ankit Gupta,<br>
+Mangalayatan University</strong></span><br><!-- <img src="assets/img/learner.jpg" class="img-circle" style="width:95px;height:90px;">  -->"Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+</td>
+<td><%= image_tag "learner.jpg" ,:class=>"img-circle" ,:style=>"width:95px;height:90px" %><span style="font-size:15px;width: 190px;
+float: right;margin-top: 25px;">- <strong>Ankit Gupta,<br>
+Mangalayatan University</strong></span><br>
+  "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+</td>
+
+<td><%= image_tag "learner.jpg" ,:class=>"img-circle" ,:style=>"width:95px;height:90px" %><span style="font-size:15px;width: 190px;
+float: right;margin-top: 25px;">- <strong>Ankit Gupta,<br>
+Mangalayatan University</strong></span><br>  "Since signing up our team on Beacon, our developers are learning some design principles as well as beefing up on technologies they're less familiar with.”
+</td></tr>
+</table>
+</div>
+<div class="span5" style="width:100%; border-right:0px solid #ddd; 
+">
+<h2 style="font-size: 25px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Our Knowledge Partners</h2>
+
+<table cellpadding="10" style="width:50%;margin:0px auto;">
+<tr><td>
+  <%= image_tag "bauer.png", :class=>"img-polaroid", :width=>"160", :height=>"90" %>
+
+  </td><td>
+   <%= image_tag "greatlakeslogoimr.jpg" ,:class=>"img-polaroid", :width=>"160", :height=>"90" %>
+   </td>
+
+<td><%= image_tag "nanyang.png", :class=>"img-polaroid", :width=>"160", :height=>"90" %>
+  </td><td>
+  <%= image_tag "yale.png" ,:class=>"img-polaroid", :width=>"160", :height=>"90" %>
+  </td>
+<td>
+  <%= image_tag "cuoa.png", :class=>"img-polaroid", :width=>"160", :height=>"90" %>
+  </td></tr>
+</table>
+
+</div>
+</div>
+</div>
+
+
+ </div>
+</div>
+</div>

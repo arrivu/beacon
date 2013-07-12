@@ -5,7 +5,7 @@
 <br>
 
 <div class="row">
-  <div class="span8 offset3" style="min-height:500px;">
+ <div class="admin">
    <table cellpadding="10"> <% if @user.image_blob == nil %>
      <tr><td> <% if @user.omni_image_url == nil %>
       <%= gravatar_for_with_size @user, "100x100" %>

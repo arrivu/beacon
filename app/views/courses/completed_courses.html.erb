@@ -1,12 +1,15 @@
 
-<div style="float:left">
+<div style="float:left;width:100%">
 	<%= render 'shared/side_menu' %>
 </div>
 <div class="row">
-	<div class="span8 offset3" style="min-height:600px;">
-		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;margin:20px;">
-			<h3 align = "center">Update User's Course Status
-			</h3><br/>
+		<div class="span12" style="min-height:550px;margin-top:20px;background: white;border-radius: 5px;padding: 10px;width:1050px;margin-left:155px;">
+					<div style="text-align: center;width: 200px;height: 45px;float: left;
+line-height: 40px;margin-left: -36px;background-image: url('../assets/ribbonr.jpg');background-size: 200px 100%; color:white;font-weight:bold;">
+Update Course Status
+  </div>
+		<div class = "hero-unit" marigin-top:"50px">
+			
 			<%= form_tag "/updatecompleted_details", :method => 'put' do %>
 			<table class="table table-condensed table-hover "><tr><td width="200px"><label>Course Name</label></td><td><label><%= @coursesstauts.course.title %></label></td></tr>
 				<tr><td width="200px"><label>User Name</label></td><td><label><%=@coursesstauts.student.user.name %></label></td></tr>

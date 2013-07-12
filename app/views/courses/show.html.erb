@@ -1,3 +1,4 @@
+<div class="span12" style=" border-radius: 10px;background: white;width: 75%;margin: 20px 160px;">
 <%= render 'shared/course_detial' %>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -8,99 +9,58 @@ $(document).ready(function(){
       }
 
 });
+$(function() {
+    preloadCssImages();
+});
 </script>
 
-<div class="coursesyllabus">
-  <div class="container">
-    <div class="row">
-      <div class="span8">
-        <div class="head">
-          <h3>Course Modules</h3>
-        </div>
-        <div class="underlinetext">
-          <ul>
-            <% @modules.each do |m| %>
-            <li>
-              <h4 style="color:#16A085"><i class="icon-book"></i><%= m.name %></h4>
-            </li>
-            <% end %>
-          </ul>
-        </div>
+
+
+
+
+
+ <div class="cbox_3b fp_box">
+                                      <div style="width:45%;height:200px;float:left;margin:10px ; text-align:left;">
+<h3><a href="#">Course Module</a></h3>
+<table cellpadding="5" ><tr>
+<% @modules.each do |m| %>
+<td> <%= image_tag "100-netprogramming.png", :class=>"img-circle",width:"80",height:"70" %></td><td><h2><a href=""><%= m.name %></a></h2><p>Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit, sed do eiusm ode incididunt ut labore et dlore mag nostrud exerci.Adipisicing elit</p></td> <% end %></tr>
+
+</table></div>
+                <div style="width:45%;float:right;margin:10px ; text-align:left;">
+                 
+                    <h3><a href="#">About Author</a></h3>
+                 <table cellpadding="5"><tr><td> 
+                   <% @authors.each do |author|%>
+        <% if author.image_blob == nil %>
+        <% if author.omni_image_url == nil %>
+        <%= gravatar_for_with_size author, "100x100", "img-polaroid" %>
+        <% else  %>
+        <%= image_tag(author.omni_image_url,size: "100x100", alt: "", :class=>"img-polaroid")%> 
+        <% end  %>
+        <% else  %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.id), :size => "100x100", :class=>"img-polaroid", :class=>"img-polaroid" %>
+        <% end  %>
         
-      </div>
-      <div class="span6">
-        <div class="head">
-          <h3>Course Description</h3>
-        </div>
-        <div class="underlinetext" >
-          
-         <%= @course.desc  %></br> </br>
-       </div>
-       <div class="starrating">
-         <div class='spread'>  <div class='twshare left'>   </div>
-         <table> <tr>
-          <td>
-           <td><script type="text/javascript" src="http://platform.linkedin.com/in.js"></script></td>
-           <script type="in/share" data-url="<%=request.url%>" data-counter="right"></script>
-           <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>  
-           <td><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script> <fb:like href="<%=request.url%>" layout="button_count" show_faces="false" width="450" font=""></fb:like></td> 
-           <script src="https://apis.google.com/js/plusone.js"></script>
-           <td><g:plus action="share" annotation="bubble" ></g:plus></td> 
-           <td>
-            <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-            <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="<%= truncate(@course.desc, :length => 70)  %>">Tweet</a>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
+      </td><td><p>
+      <h6 style="font-weight:bold;"><a href=""><%= author.name %></a></h6>
+        <%= author.teaching_staff.description %></p></td></tr>
+               <% end %> </table></div>
 </div>
-</div>
-</div>
-</div>
-<div class="aboutauthor">
-  <div class="container ">
-    <h1>About the Author</h1>
-    <% @authors.each do |author|%>
-    <div class="row" style="width:61%; display:inline-block; clear:left; margin:15px">
-      <div class="authorimage">
-        <% if author.user.image_blob == nil %>
-        <% if author.user.omni_image_url == nil %>
-        <%= gravatar_for_with_size author.user, "100x100" %>
-        <% else  %>
-        <%= image_tag(author.user.omni_image_url,size: "100x100", alt: "")%>
-        <% end  %>
-        <% else  %>
-        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "100x100" %>
-        <% end  %>
-        <p ><%= truncate(author.description, :length => 300)%></p>
-      </div>
-      <div class="authorinfo">
-        <h4><%= author.name %></h4>
-        <% if !!author.linkedin_profile_url %>
-              <%= link_to image_tag("linkedin_badge.png", :alt => author.name ), "http://" + author.linkedin_profile_url, :target => "_blank" %>
-        <% end  %>
-
-      </div>
-
-      <div class="container clearfix"></div>
-    </div>
-    <% end %>
-  </div>
-</div>
+<div class="cbox_3b fp_box">
+<div style="width:100%;float:left;margin:10px ; text-align:left;">
 <div class="previewcourse" id="previewcourse">
-  <div class="container">
-    <div class="row">
-      <h2>Lecture Preview: A Sneak Peak into the course</h2>
-      <% a=0 %>
+<h3><a href="#">Course Preview</a></h3>
+      
+       <table cellpadding="20" style="text-align:center;"> <tr>
+         <% a=0 %>
       <% @course.course_previews.where(enable: 1).order(:sequence).each do |p| %>
       <% a +=1  %>
-      <div class="span6 prevbox">
-       <table> <tr>
          <td>
-           <div class="bannervideo">
+           
             <% h = p.video_url %>
             <% url = h[38..h.length-44].split('/')  %>
+
 
             <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
       <div id="preview_model<%= a %>" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
@@ -116,74 +76,31 @@ $(document).ready(function(){
               <div class="modal-body" style="margin-left:0px;">
 
                <%= raw(p.video_url) %>
+
              </div>
            </div>
-       </div>
-       </td>
-       <td>
-         <div class="previnfo">
-           <h3><%= p.name %></h3>
-           <p class="prevtxt"><%= p.desc %></p>
-
-         </div>
-       </td>
+         <a href="#preview_model<%= a %>" data-toggle="modal" >  <h6 class="prevtxt"><%= p.name %></h6></a>
+           
+         </td> <% end %>
      </tr>
    </table>
- </div>
- <% end %>
-</div>
-</div>
-</div>
-<div style="text-align:center"><a href="#top" >Go to Top</a></div>
-<div class="coursereviews">
-  <div class="container">
-    <div class="row">
-      <div align="center">
-        <h3><%=@course.comments.size%> Reviews</h3>
-        <br/>
-      </div>
-    </div>
-    <%= render "comments" %>
-    <div class="container clearfix"></div>
-  </div>
-  <div class='apple_pagination' >
-   <%= will_paginate @comments, :container => false %>
- </div>
- <div class="container clearfix"></div>
- <div class="row">
-  <div align="center">
-    <div >
-      <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course},class:"browsemore1" %>
-    </div>
-  </div>
-</div>
 
-<div align="center">
-  <a href="<%= courses_path %>"><span class="browsemore" align="center">
-    
-      </span></a>
-      <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
-</div>
-</div>
 
+</div>
+</div>
+</div>
+<div class="cbox_3b fp_box">
+<div style="width:100%;float:right;margin:10px ; text-align:left;">
+                    <h3><a href="#">Reviews</a></h3>
+<table cellpadding="10"><tr><td><h2 style=""></h2><p><%= render "comments" %></p></td></tr>  
+</table><h6 style="color:steelblue;"> <%= link_to "Add Reveiw",new_comment_path(:commentable=>@course,:commentable_type=>"course"), :locals => {:commentable => @course} %></h6></div>
+
+
+
+</div>
+<div style="text-align:center;float:left;width:100%;"><a href="#top" >Go to Top</a></div>
+</div> 
 <script>
-$(document).ready(function(){
-  $(".star").click(function(){
-   $(".rated").html("Course Rated")
- });
-
-$(".close").click(function(){
-  var frames = document.getElementsByTagName("iframe");
-  for (var i = 0; i < frames.length; i++) {
-    frames[i].src += "&stop";
-  }
-});
-
-});
-</script>
-
-
- <script>
   $(function() {
   
     function filterPath(string) {

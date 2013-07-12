@@ -6,6 +6,7 @@ class TeachingStaff  < ActiveRecord::Base
   scope :teacher
   scope :teacher_assistant
   has_many :teaching_staff_courses
+  belongs_to :teaching_staff
   has_many :courses, :through => :teaching_staff_courses 
   belongs_to :user, dependent: :destroy
   accepts_nested_attributes_for :user

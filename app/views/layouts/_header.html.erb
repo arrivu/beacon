@@ -28,13 +28,14 @@ myWindow.close();
 }
 
 <% end %>  
-
+<div style="width:100%;float:left;background-color: rgb(45, 53, 56);">
   <header class="navbar navbar-fixed-top" >
-  <div style="width:1275px;margin:0px auto;">
+  <div style="width:1325px;margin:0px auto;">
     <div class="logo" >
-    <a href="/" onMouseOver="swapImage('jack','smile')"  onMouseOut="swapImage('jack','nosmile')"><img src="/assets/zbeaconslogo.png" width="222" height="71" border="0" name="jack"></a>
+    <a href="/" ><%= image_tag "logo.png", :width=>"225", :height=>"61" %></a>
+<!--     <img src="http://www.logomaker.com/logo-images/a93417717ca1d959.gif"/> -->
       </div>
-    <div class="container" style= " padding-top:20px;  padding-bottom:20px;float:right; ">
+    <div class="container" style= "width: 1050px; padding-top:20px;  padding-bottom:20px; ">
       <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>
       <nav style="margin-left:30px;">
         <ul class="nav pull-right">
@@ -85,3 +86,4 @@ myWindow.close();
   </div>
   
 </header>
+</div>
