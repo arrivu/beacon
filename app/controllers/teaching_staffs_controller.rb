@@ -1,5 +1,6 @@
 
 class TeachingStaffsController < ApplicationController
+  include LmsHelper
   before_filter :authenticate_user!
   before_filter :check_admin_user
 	protect_from_forgery :except => :create
@@ -27,10 +28,12 @@ class TeachingStaffsController < ApplicationController
 								password_confirmation: params[:teaching_staff][:teaching_staff_user][:password_confirmation])
 		
 
-		if @teachingstaff.save
+      if @teachingstaff.save
 			@teachingstaff.user.add_role(:teacher)
 			flash[:notice] = "Teaching Staff add successfully"
-			redirect_to teaching_staffs_path
+      lms_create_user(@teachingstaff.user)
+      redirect_to teaching_staffs_path
+
 		else
 
 		render :new	

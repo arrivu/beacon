@@ -6,9 +6,9 @@ function openWin()
 
 	 $.ajax({
       url: "/logout",
-      type: "POST",   
+      type: "POST",
       async:false,
-      success: function(){ 
+      success: function(){
          success = true
       }
     });
@@ -16,9 +16,8 @@ function openWin()
      window.open("https://online.beaconlearning.in/sign_out","_self")
     }
 
-    
-    	
 }
+
 $(document).ready(function(){
   // Identify the logout link in the top menu
   var logout_button = $('#calendar_menu_item'); 

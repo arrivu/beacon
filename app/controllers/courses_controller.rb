@@ -173,9 +173,19 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     end
 
     def my_courses
-      @student=Student.where(user_id: current_user.id).first
-      @enrolled_courses= @student.course_enroll
-      @completed_courses=@student.course_complete    
+      @enrolled_courses  = []
+      @completed_courses = []
+      student=Student.where(user_id: current_user.id).first
+      if !!student
+        @enrolled_courses= student.course_enroll
+        @completed_courses=student.course_complete
+      else
+        teaching_staff=TeachingStaff.where(user_id: current_user.id).first
+        if !!teaching_staff
+          teaching_staff_course =  teaching_staff.courses
+          @enrolled_courses = teaching_staff_course.map { |teaching_staff_course| teaching_staff_course.course }
+        end
+      end
     end
     
     def completed_courses

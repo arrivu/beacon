@@ -13,7 +13,9 @@ function swapImage(thisImage,newImage) {
   }
 }
 function logout_lms()
-{ myWindow =window.open('<% "#{Settings.lms.root_url}#{Settings.lms.logout_url}" %>',"_blank")
+
+{ myWindow =window.open('<%= "#{Settings.lms.root_url}#{Settings.lms.logout_path}" %>',"_blank")
+
  $.ajax({
   url: '<%= destroy_user_session_path %>',
       type: "GET",
