@@ -21,7 +21,7 @@
 #header-logo:hover, #header.no-user #header-logo:hover {
 
  background: url("../canvas/header_beacon_logo.png?v1") no-repeat scroll 0 0 transparent;
-  bottom: 10px;
+  bottom: 11px;
   height: 40px;
   left: 12px;
   width: 160px;
@@ -119,3 +119,6 @@ background-repeat: no-repeat;
 background-position: 68px 46px;
 text-indent: -999em;
 }
+
+#identity .logout {cursor: pointer;} 
+#identity .logout {text-decoration: underline;}
