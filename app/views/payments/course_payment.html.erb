@@ -3,33 +3,51 @@
 
  
 <br />
-<div class="container">
-<table cellpadding="20" style="width:1000px;">
-  
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-    <td style="font-size: 15px;font-weight:bold;text-align: left;"> Course Description</td>
-    <td>
+<div class="span12" style=" border-radius: 10px;background: white;width: 75%;margin: 20px 160px;">
+<div class="span12" style="margin-left: 12px;">
+<div class="span5" style="padding:0px 35px; border-right:0px solid #ddd; height:300px;">
+<h2 style="font-size: 18px;font-weight: bold;color: #576b00;padding: 10px 43px;height: 30px;text-align:center;">Course details</h2>
+<table cellpadding="15">
+<tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+        <td>
         <div class='span4' style="font-size: 15px; font-family: Arial;  text-align: justify;">
-          <p><%= @course.short_desc%></p>
-        </div>   
-  </td>
+          <% if @course.data!=nil %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @course.id), width: "180", height: "100",:class=>" " %>
+            <% else %>
+            <%= image_tag "test.png", width: "180", height: "100",:class=>"" %>
+            <% end %> </div> 
+          </td></tr>
+          <tr><td>
+        Title:</td></tr> <tr><td> <%= @course.title %></td></tr>
+       <tr><td>Description:</td></tr>
+       <tr><td>   <p><%= @course.short_desc%></p>
+            </td>
   </tr>
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Price</td>
+</table>
+</div>
+<div  style="float:left;height:380px;width:5px;margin-left: 35px;margin-top: 30px;" >
+<%= image_tag "vertical.png", :width=>"5", :height=>"380"%>
+</div>
+<div class="span4" style="padding:0px ;float:right;text-align:center;">
+  <h2 style="font-size: 18px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Price details</h2>
+<table cellpadding="15" style="margin-left:80px;margin-top:10px;">
+<tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Price</td>
   <td style="text-align: left;"><div class="span4">Rs. <%= @price %> </div></td>
   </tr>
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Tax</td>
+  <tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Tax</td>
   <td style="text-align: left;"><div class="span4">Rs. <%= @tax%> </div></td>
   </tr>
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Total</td>
+  <tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Total</td>
   <td style="text-align: left;"><div class="span4">Rs.  <%=  @tax+@price  %> </div></td>
   </tr>
-
 </table>
+</div>
+</div>
 
-  <div  style="float:right;margin-top:10px;margin-right:85px;">
+  <div  style="float:right;height: 120px;margin-top:-85px;margin-right:120px;">
     <% if gateway_enable? %>
       <% payment_service_for 2, "dddd",
           :amount => "300",
@@ -43,7 +61,7 @@
       <% end %>
     <% else %>
       <%= form_tag(payments_course_payment_gateway_path(:id=>@course)) do %>
-      <div style="float:right; margin-right: 105px;margin-top:20px;width:100%;" >
+      <div style="float:right; margin-right: 0px;margin-top:20px;width:100%;" >
 
        <div style="float:right; " ><%= text_field_tag "coupon_code" %></div>
        <div style="float:right;padding:5px;font-size:16px;" ><%= label_tag "enter the coupon code" %></div>
@@ -55,6 +73,3 @@
 </div>
 
 </div>
-<!-- <div class="span2" > 
-      <%#= image_tag url_for(:controller => 'courses', :action => 'show_image', :id => @course.id), width: "100", height: "100" %>
-    </div> -->

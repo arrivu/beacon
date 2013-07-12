@@ -16,11 +16,12 @@
          <%= hidden_field_tag "course_id",@a %>
          <%= f.button :submit, "Sign in", :class => 'btn-primary' %> 
           <br/>
-         <div>
-           <u> <%= link_to "Forgot Password?", new_password_path(:user) %></u>
+         <div >
+          <!--  <u > <%= link_to "Forgot Password?", new_password_path(:user) %></u> -->
+          <a href="/users/password/new" style="color:blue;"><u>Forgot Password?</u></a>
          </div>
           <br/>
-         <div type="button"  data-dismiss="modal" aria-hidden="true"> <a href="#sign_up_Modal" data-toggle="modal" style="text-decoration" ><u>Don't have an account? Create one. It's Free!</u></a></a>
+         <div type="button"  data-dismiss="modal" aria-hidden="true"> <a href="#sign_up_Modal" data-toggle="modal" style="text-decoration" ><u style="color:blue;">Don't have an account? Create one. It's Free!</u></a></a>
          </div>
 
 

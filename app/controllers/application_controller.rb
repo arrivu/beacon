@@ -1,4 +1,4 @@
-  class ApplicationController < ActionController::Base
+class ApplicationController < ActionController::Base
     protect_from_forgery
     include ApplicationHelper
     include CoursesHelper
@@ -33,18 +33,18 @@
 #     return request.env['omniauth.origin'] || session[:return_to] 
 # end
 
-#unless Rails.application.config.consider_all_requests_local
-#  rescue_from Exception,
-#              :with => :render_error
-#  rescue_from ActiveRecord::RecordNotFound,
-#              :with => :render_not_found
-#  rescue_from ActionController::RoutingError,
-#              :with => :render_not_found
-#  rescue_from ActionController::UnknownController,
-#              :with => :render_not_found
-#  rescue_from ActionController::UnknownAction,
-#              :with => :render_not_found
-#end
+unless Rails.application.config.consider_all_requests_local
+  rescue_from Exception,
+              :with => :render_error
+  rescue_from ActiveRecord::RecordNotFound,
+              :with => :render_not_found
+  rescue_from ActionController::RoutingError,
+              :with => :render_not_found
+  rescue_from ActionController::UnknownController,
+              :with => :render_not_found
+  rescue_from ActionController::UnknownAction,
+              :with => :render_not_found
+end
 
   def raise_exception
    raise 'This is a test for exception.'
@@ -56,14 +56,14 @@
   end
    
   def render_error(exception)
-    #ExceptionNotifier::Notifier
-    #  .exception_notification(request.env, exception)
-    #  .deliver
+    ExceptionNotifier::Notifier
+      .exception_notification(request.env, exception)
+      .deliver
       # to use delayed_jobs to deliver the exception emails
       # ExceptionNotifier.notify_exception(exception,
       #    :data => {:worker => worker.to_s, :queue => queue, :payload => payload})
-    #render :template => "/errors/500.html.erb",
-    #       :layout => 'application.html.erb'
+    render :template => "/errors/500.html.erb",
+           :layout => 'application.html.erb'
   end
   
   def routing_error
