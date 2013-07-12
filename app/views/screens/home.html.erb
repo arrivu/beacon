@@ -54,46 +54,27 @@
 
                         <div class="bannerlearn">
                           <span class="learnheading" style="color:white;">Explore:</span>
-                               <% topic = Topic.find_by_name("Finance Programs") rescue nil? %>
+                               <% topic = Topic.find_by_name("Finance") rescue nil? %>
                               <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Finance", topic, class: "badge1" %>
+                                  <span class="badge1 leartopic"><%= link_to "Finance Programs", topic, class: "badge1" %>
                                    |
                                   </span>
                               <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Finance", courses_path, class: "badge1" %>
+                                  <span class="badge1 leartopic"><%= link_to "Finance Programs", courses_path, class: "badge1" %>
                                     |
                                   </span>
                               <% end %>
-                               <% topic = Topic.find_by_name("Analytics Programs") rescue nil? %>
+                               <% topic = Topic.find_by_name("Analytics") rescue nil? %>
                               <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Analytics", topic, class: "badge1" %>
-                                     |
+                                  <span class="badge1 leartopic"><%= link_to "Analytics Programs", topic, class: "badge1" %>
+
                                   </span>
                               <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Analytics", courses_path, class: "badge1" %>
-                                     |
+                  about                <span class="badge1 leartopic"><%= link_to "Analytics Programs", courses_path, class: "badge1" %>
+
                                   </span>
                              <% end %>
-                              <% topic = Topic.find_by_name("Marketing") rescue nil? %>
-                              <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Marketing ", topic, class: "badge1" %>
-                                     |
-                                  </span>
-                              <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Marketing ", courses_path, class: "badge1" %>
-                                     |
-                                  </span>
-                             <% end %>
-                                   <% topic = Topic.find_by_name("all") rescue nil? %>
-                              <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "<all>", topic, class: "badge1" %>
-                                     |
-                                  </span>
-                              <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "<all>", courses_path, class: "badge1" %>
-                                     
-                                  </span>
-                             <% end %>
+
                            
 
 

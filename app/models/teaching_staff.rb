@@ -20,7 +20,10 @@ class TeachingStaff  < ActiveRecord::Base
   def teacher_assistant
      self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
   end
- 
+
+  def courses
+    self.teaching_staff_courses.where(:teaching_staff_id => self.id)
+  end
 
 end
 
