@@ -121,4 +121,4 @@ text-indent: -999em;
 }
 
 #identity .logout {cursor: pointer;} 
-#identity .logout {text-decoration: underline;}
+#identity .logout:hover{text-decoration: underline;}
