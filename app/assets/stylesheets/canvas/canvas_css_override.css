@@ -120,3 +120,5 @@ background-position: 68px 46px;
 text-indent: -999em;
 }
 
+#identity .logout {cursor: pointer;} 
+#identity .logout:hover{text-decoration: underline;}
