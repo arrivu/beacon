@@ -1,57 +1,89 @@
 <br />
-<div class="container">
-<table cellpadding="10" style="width:1000px;">
-  
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-    <td style="font-size: 15px;font-weight:bold;text-align: left;"> Course Description</td>
-    <td>
-        <div class='span4' style="font-size: 15px; font-family: Arial;  text-align: justify;">
-          <p><%= @course.short_desc%></p>
-        </div>   
-  </td>
-  </tr>
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Price</td>
-  <td style="text-align: left;"><div class="span4">Rs. <%= @price %> </div></td>
-  </tr>
 
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Discount</td>
-  <td style="text-align: left;"><div class="span4">Rs. <%= @discount %> </div></td>
-  </tr>
 
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Subtotal</td>
-  <td style="text-align: left;"><div class="span4">Rs. <%= @subtotal %> </div></td>
-  </tr>
 
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Tax</td>
-  <td style="text-align: left;"><div class="span4">Rs. <%= @tax%> </div></td>
-  </tr>
-  <tr style="background:aliceblue;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;">Total</td>
-  <td style="text-align: left;"><div class="span4">Rs.  <%=  @tax.to_f + @subtotal.to_f  %> </div></td>
-  </tr>
-
-  <tr style="background:white;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;"></td>
-  <td style="text-align: right;"> You can download your invoice <span style='font-size:20px;'><%= link_to "here", invoice_pdf_path(:id=>@course) %></span></td>
-  </tr>
- <div class="span12" style="background:white; height: 24px;line-height: 22px;margin-bottom: 40px; margin-top: 47px;text-align: center; width:1000px;font-family: arial;font-size: 19px;margin-left:0px;">
+ 
+<br />
+<div class="span12" style=" border-radius: 10px;background: white;width: 85%;margin: 20px 115px;">
+<div class="span12" style="background:white; height: 24px;line-height: 22px;margin-bottom: 40px;color:green; margin-top: 47px;text-align: center; width:1000px;font-family: arial;font-size: 19px;margin-left:0px;">
 Your payment is confirmed and Amount Paid is Rs. <%=  @tax.to_f + @subtotal.to_f  %>
 <br>You have enrolled the course
+</div>
+
+<div class="span12" style="margin-left: 12px;">
+<div class="span5" style="padding:0px 35px; border-right:0px solid #ddd; height:300px;">
+<h2 style="font-size: 18px;font-weight: bold;color: #576b00;padding: 10px 43px;height: 30px;text-align:center;">Course details</h2>
+<table cellpadding="15">
+<tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+        <td>
+        <div class='span4' style="font-size: 15px; font-family: Arial;  text-align: justify;">
+          <% if @course.data!=nil %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @course.id), width: "180", height: "100",:class=>" " %>
+            <% else %>
+            <%= image_tag "test.png", width: "180", height: "100",:class=>"" %>
+            <% end %> </div> 
+          </td></tr>
+          <tr><td>
+        Title:</td></tr> <tr><td> <%= @course.title %></td></tr>
+       <tr><td>Description:</td></tr>
+       <tr><td>   <p><%= @course.short_desc%></p>
+            </td>
+  </tr>
+</table>
+</div>
+<div  style="float:left;height:380px;width:5px;margin-left: 35px;margin-top: 30px;" >
+<%= image_tag "vertical.png", :width=>"5", :height=>"380"%>
+</div>
+<div class="span4" style="padding:0px ;float:right;text-align:center;">
+  <h2 style="font-size: 18px;font-weight: bold;color: #576b00;padding: 10px 0px;height: 30px;text-align:center;">Price details</h2>
+<table cellpadding="15" style="margin-left:80px;margin-top:10px;">
+<tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Price</td>
+  <td style="text-align: left;"><div class="span4">Rs. <%= @price %> </div></td>
+  </tr>
+  <tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Discount</td>
+  <td style="text-align: left;"><div class="span4">Rs. <%= @discount%> </div></td>
+  </tr>
+  <tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Subtotal</td>
+  <td style="text-align: left;"><div class="span4">Rs.  <%=  @subtotal  %> </div></td>
+  </tr>
+   <tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Tax</td>
+  <td style="text-align: left;"><div class="span4">Rs.  <%=  @tax  %> </div></td>
+  </tr>
+   <tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;">Total</td>
+  <td style="text-align: left;"><div class="span4">Rs.  <%=  @tax.to_f + @subtotal.to_f  %> </div></td>
+  </tr>
+   <tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+  <td style="font-size: 15px;text-align: left;"></td>
+  <td style="text-align: left;"><div class="span4">You can download your invoice <span style='font-size:20px;'><%= link_to "here", invoice_pdf_path(:id=>@course) %></span> </div></td>
+  </tr>
+  
+  </tr>
+</table>
+</div>
+</div>
 
 
 </div>
 
-<div class="button-place-holder" style="float:right; margin-right: 138px;">
-    
- </div>
-</table>
+
+
+
+
+
+
+
+
+
+         
+  
   
 
+  
 
+ 
 
-
-</div>

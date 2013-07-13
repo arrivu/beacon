@@ -1,39 +1,98 @@
-<div class="container courseclub" >
-  <div class="row">
-    
-    <% @courses.each do |course|%>
-    <div class="span7">
-      <div class="courses">
-                 <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
-          <div class="card-a course-inner">
-            <div class="course-progress" data-width="0%" style="width: 0%;"></div>
-            <% if course.data!=nil %>
-            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
+
+
+<div class="inx_wrap" >
+    <ul><% @courses.each do |course|%>
+            <li>
+        <div class="mod_pen">
+         
+          <div class="mod_pen_top">
+              <% if course.is_coming_soon %>
+         <div class="wrapper">
+       <div class="ribbon-wrapper-green"><div  class="ribbon-blue">Coming Soon</div></div></div>
+           <% elsif price_of_course_according_to_date(course).to_i ==0 %>
+        <div class="wrapper">
+       <div class="ribbon-wrapper-green"><div  class="ribbon-blue" >Free</div></div></div>
+           <% end %></div> 
+          <div class="mod_pen_center" >
+            <div class="mod_imag">
+            <table><tr><td>  <%=link_to(course) do %>
+                      <% if course.is_coming_soon %>
+                        <!--   <div class="mod_labal_launching"></div> -->
+                          <% else %>
+                          <!-- <div class="mod_labal"></div> -->
+                          <% end  %>
+                    <% if course.data!=nil %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "150", height: "150",:class=>"img-circle " %>
             <% else %>
-            <%= image_tag "test.png", width: "130", height: "130",:class=>"course-badge img-circle" %>
-            <% end %>
-            <% if course.is_coming_soon %>
-              <div class="coming_soon"><%= image_tag("coming_soon.png") %></div>
-            <% elsif price_of_course_according_to_date(course).to_i ==0 %>
-              <div class="free"><%= image_tag("free.png") %></div>
-            <% end %>
-      
-            <div class="course-content">
-              <em class="label-a label-offset" <%= course.topic.color==nil ? "style=background-color:#2b6341" : "style=background-color:#{course.topic.color}" %> rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>
-            
-              <!-- <em class="label-b">Free Course</em> -->
-
-              <%=link_to(course) do %><h3 class="course-name"><%= course.title.split(' ').map(&:capitalize).join(' ') %></h3>
-              <p class="course-desc"><%= course.short_desc  %></p>
-              <%end%></div>
-
+            <%= image_tag "test.png", width: "150", height: "150",:class=>"img-circle" %>
+            <% end %>     </td><td> <%=link_to(course) do %><h2><%= course.title.split(' ').map(&:capitalize).join(' ') %>   </h2><%end%> <div class="mod_com">
+              <div class="pr_left">Price</div>
+              <div class="pr_right">
+                <%= price_of_course_according_to_date(course)  %>       </div>
             </div>
-          </article>
-        </div>
+            <div class="mod_com">
+              <div class="pr_left gree">Duration</div>
+              <div class="pr_right gree">
+               <%= durationcalculation(course) %> 
+              </div>
+             </div></td></tr></table> 
+              
+              <div style="height:35px;width:auto;float:left;"><h1 <%= course.topic.color==nil ? "style=background-color:#2b6341" : "style=background-color:#{course.topic.color}" %>><%= course.topic.name %></h1></div>
+             </div>
 
-      </div>
-      <%end%>
-      
-    </div>
-  </div>
-  
+            <div class="clr"></div>
+            
+
+            <p>
+              <%= truncate(course.desc, :length => 500)  %> <%=link_to(course) do  %><span style= "color:green;">more</span><% end %>        </p>
+
+          
+           
+            
+   
+            </div>
+          
+        
+          <div class="mod_pen_bottom">
+            
+      <div style="width:100%;float:left;height: 75px;"> 
+      <table style="margin-left: 10px;"><tr><td>  <% course.teaching_staffs.each do |author|%>
+        <% if author.user.image_blob == nil %>
+
+        <% if author.user.omni_image_url == nil %>
+        <table><tr><td>
+        <%= gravatar_for_with_size author, "65x65" %></td>
+        <td><table><tr><%= author.name %></tr><br/>
+       <tr> <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
+        <% else  %>
+        <table><tr><td><%= image_tag(author.omni_image_url,size: "65x65", alt: "",:class=>"img-polaroid")%> </td>
+        <td><table><tr><%= author.name %></tr><br/>
+       <tr> 
+         <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
+        <% end  %>
+        <% else  %>
+        <table><tr><td><%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "65x65",:class=>"img-polaroid" %></td>
+        <td><table><tr><%= author.name %></tr><br/>
+       <tr>
+         <%=  truncate(author.description, :length => 150) %>
+       <%=link_to(course) do %>more <% end %></tr></table></td></tr></table>
+        <% end  %>
+
+        <% end %></td><td></td></tr></table>
+        <table cellpadding="2" style="margin-left: 10px;"><tr><td>
+          <% if !course.course_previews.empty? %><%= image_tag "video.jpg", :width=>"25",:height=>"25"%><% end %></td>
+        <td><% if !course.comments.empty? %><%= image_tag "discussin.png", :width=>"25",:height=>"25"%><% end %></td></tr>
+
+</table></div></div>
+                       <%=link_to(course) do %>
+            <div class="btn btn-large btn-success" style="float:right;margin-right:10px;">View Details</div>
+     <% end %>   
+             
+
+        </div> 
+      </li><%end%>
+      <% end %>
+
+</ul></div>

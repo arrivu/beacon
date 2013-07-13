@@ -1,9 +1,14 @@
 <br>
 <div class="row">
-	<div class="span12 offset4">
+	<div class="span12" style="min-height:550px;margin-top:20px;background: white;border-radius: 5px;padding: 10px;width:1050px;margin-left:155px;">
+					<div style="text-align: center;width: 200px;height: 45px;float: left;
+line-height: 40px;margin-left: -36px;background-image: url('../../assets/ribbonr.jpg');background-size: 200px 100%; color:white;font-weight:bold;">
+Edit Profile
+  </div>
+					<div class = "hero-unit" style="border-radius:5px;margin-top:50px;">
 		<table>
 			<tr><td></td><td>
-		<h2>Edit Profile</h2></td></tr>
+		</td></tr>
 		<%= simple_form_for(resource, :as => resource_name, 
 			:url => registration_path(resource_name), 
 			:html => { :method => :put, 
@@ -48,4 +53,4 @@
 				<!-- <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p> -->
 				<% #end %>
 			</div>
-		</div>
+		</div></div>

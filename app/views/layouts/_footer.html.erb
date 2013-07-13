@@ -3,15 +3,20 @@
 
 
 
+<div style="height: 5px;width: 85%;margin: 0px 260px;">
+<%= image_tag "horizontal.png",width:"900",height:"25" %>
+</div>
 
-
+<div style="width:100%;float:left;background-color: #fff;">
+<div class="span10" style="width:1346px;;margin:10px 0px 0px 25px;">
 <div class="footer">
   <div class="container">
 
     <div class="row">
       <div class="four columns mission">
-        <p class="headinglike" style="font-size: 20px; font-weight:300;">Beacon learning</p>
-       
+        <p class="headinglike" style="font-size: 20px; font-weight:300;">Smart learning</p>
+        <p>Our mission is to provide the high quality professional tertiary education including undergraduate, post graduate, executive and continuing education.
+        </p>
         <ul class="social">
           <li>
             <a href="https://twitter.com/BeaconeLearning" target="_blank" title="Twitter">
@@ -43,7 +48,7 @@
         </ul>
 
         <p class="copyright">
-          © 2013 Beacon Learning.
+          © 2013 Smart Learning.
         </p>
       </div>
       <div class="two columns">
@@ -57,61 +62,25 @@
       </div>
       <div class="two columns">
         <ul class="link-list library-nav right">
-          <li class="heading">Browse full library →</li>            
-               <% topic = Topic.find_by_name("Online program in Finance") rescue nil? %>
-                              <% if !!topic %>
-                                  <li ><%= link_to "Online program in Finance", topic %>
-                                  </li>
-                              <% else %>
-                                  <li ><%= link_to "Online program in Finance", courses_path %>
-                                  </li>
-                             <% end %>
-                                   <% topic = Topic.find_by_name("Online program in Marketing") rescue nil? %>
-                              <% if !!topic %>
-                                  <li ><%= link_to "Online program in Marketing", topic %>
-                                  </li>
-                              <% else %>
-                                  <li ><%= link_to "Online program in Marketing", courses_path %>
-                                  </li>
-                             <% end %>
-                                   <% topic = Topic.find_by_name("Online program in Analytics") rescue nil? %>
-                              <% if !!topic %>
-                                  <li ><%= link_to "Online program in Analytics", topic %>
-                                  </li>
-                              <% else %>
-                                  <li ><%= link_to "Online program in Analytics", courses_path %>
-                                  </li>
-                             <% end %>
-                                   <% topic = Topic.find_by_name("Online certification programs") rescue nil? %>
-                              <% if !!topic %>
-                                  <li ><%= link_to "Online certification programs", topic %>
-                                  </li>
-                              <% else %>
-                                  <li ><%= link_to "Online certification programs", courses_path %>
-                                  </li>
-                             <% end %>
-                                
-       </ul>
+          <li class="heading">Browse full library →</li>
+          <% @topics = Topic.all  %>
+          <% @topics.each do |topic|%>  
+          <% @topicStructure = topic.name %>
+          <li><%= link_to @topicStructure, topic %></li>
+          <%end%>    
+        </ul>
       </div>
-      
-   <!--    <div class="two columns end">
+      <div class="two columns end">
         <ul class="link-list contact-nav right">
           <li class="heading">
             Get in touch →
           </li>
           <li><%= link_to "Write Us", new_contact_path %></li>
-          <li><a href="mailto:support@beaconlearning.in">Email Us</a></li>
+          <li><a href="mailto:info@beaconlearning.in">Email Us</a></li>
         </ul>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>
-<!--Start of Zopim Live Chat Script-->
-<script type="text/javascript">
-window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
-$.src='//cdn.zopim.com/?1JPULCVdUq4EPLVvAt0SZ9QtnrtEk7O3';z.t=+new Date;$.
-type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
-</script>
-<!--End of Zopim Live Chat Script-->
+</div>
+</div>

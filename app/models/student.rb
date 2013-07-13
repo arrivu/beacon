@@ -11,6 +11,7 @@ class Student < ActiveRecord::Base
 
   has_many :courses, :through => :student_courses
   belongs_to :user
+  
 
   def course_enroll
     load_course("enroll")       

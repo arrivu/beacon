@@ -32,7 +32,9 @@ gem 'uglifier', '2.0.1'
 gem 'therubyracer', '0.11.4', :platforms => :ruby
 end
 group :production do
+
 gem 'pg', '0.15.0'
+
 end
 group :development do
 # gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
@@ -41,7 +43,7 @@ group :development do
 # gem "debugger",'1.5.0'
  #gem "mysql2"
 end
-gem 'sqlite3', '1.3.7', :group => :development
+#gem 'sqlite3', '1.3.7', :group => :development
 gem 'quiet_assets', '1.0.2', :group => :development
 gem 'better_errors', '0.8.0', :group => :development
 gem 'binding_of_caller', '0.7.1', :group => :development, :platforms => [:mri_19, :rbx]

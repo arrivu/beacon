@@ -13,13 +13,11 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
   def show_image    
     @course = Course.find(params[:id])
     send_data @course.data, :type => @course.content_type, :disposition => 'inline'
-    http_cache(@course)
   end
 
   def background_image    
     @course = Course.find(params[:id])
     send_data @course.background_image, :type => @course.background_image_type, :disposition => 'inline'
-    http_cache(@course)
   end
 
   def index
@@ -28,11 +26,15 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
 
    if params[:mycourses]=="mycourses"
      @courses = Course.where(user_id: current_user.id, isconcluded: "f").paginate(page: params[:page], per_page: 6)
+    
    else
      @courses = Course.where(ispublished: 1,isconcluded: "f").paginate(page: params[:page], :per_page => 6)
-   end
+   
+ end
+   
    @topics = Topic.all
 
+ 
  end
 
  def new
@@ -72,15 +74,16 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
  end
 
  def show
-   @course = Course.find(params[:id])
+   @course = Course.find(params[:id])   
    @price_detail = CoursePricing.find_by_course_id(@course.id)
    if @price_detail!=nil
       @price=@price_detail.price
    end
-   @authors= @course.teaching_staffs
-   #@course.teaching_staffs.each do |teaching_staff|
-   #  @authors << User.where(id: teaching_staff.user_id).first
-   #end
+   
+   @authors=[]
+   @course.teaching_staffs.each do |teaching_staff|
+     @authors << User.where(id: teaching_staff.user_id).first
+   end
 
    if(current_user!=nil)
     student=Student.where(user_id: current_user.id).first
@@ -102,8 +105,6 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
 
       @rated = Rate.find_by_rater_id(current_user.id)
     end
-
-   @subscribers_count = @course.student_courses.where(status== "enroll").count
   end
 
 
@@ -173,19 +174,11 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
     end
 
     def my_courses
-      @enrolled_courses  = []
-      @completed_courses = []
-      student=Student.where(user_id: current_user.id).first
-      if !!student
-        @enrolled_courses= student.course_enroll
-        @completed_courses=student.course_complete
-      else
-        teaching_staff=TeachingStaff.where(user_id: current_user.id).first
-        if !!teaching_staff
-          teaching_staff_course =  teaching_staff.courses
-          @enrolled_courses = teaching_staff_course.map { |teaching_staff_course| teaching_staff_course.course }
-        end
-      end
+      @student=Student.where(user_id: current_user.id).first
+      @enrolled_courses= @student.course_enroll
+      @completed_courses=@student.course_complete
+      # @not_enrolled_courses=(@student.status!="enroll")
+      @courses=Course.where("ispopular=1")    
     end
     
     def completed_courses

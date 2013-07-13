@@ -1,68 +1,73 @@
 
 <br />
 <br />
-<%= form_tag(payments_confirm_course_payment_path(:id=>@course)) do %>
-<div class="container">
-  <div>
-<div class="span12" style="background:#F2F2F2; height: 24px;line-height: 22px; margin-top: 47px; font-family: arial;font-size: 19px;">
-  <div style="text-align: left;">
- This page will come from Payment gateway
+<div class="span12" style=" border-radius: 10px;background: white;width: 75%;margin: 20px 160px;">
+  <%= form_tag(payments_confirm_course_payment_path(:id=>@course)) do %>
+<div class="span12" style="width:100%;color:white; height: 24px;line-height: 22px; margin-top: 47px; font-family: arial;font-size: 19px;">
+  <div style="text-align: center;width: 200px;height: 45px;float: left;
+line-height: 40px;margin-left: -36px;background-image: url('../assets/ribbonr.jpg');background-size: 200px 100%;">
+ Payment gateway
   </div>
-  <div style="text-align: right;">
-Amount Payable: Rs. <%=  @grand_total  %>
+  <div style="text-align: center;width: 160px;height: 40px;line-height: 35px;float: right;margin-right: 10px;background-image: url('../assets/ribbon.jpg');color: white;">
+Rs. <%=  @grand_total  %>
   </div>
 <br /><br />
-</div><br /><br /><br /><br />
-
 </div>
+<div class="span12" style="margin-left: 12px;margin-top:20px;">
+<div class="span5" style="padding:0px 35px; border-right:0px solid #ddd; ">
 
- <br /><br />
- <div class="span12" style="background:#F0F5F6;border:1px solid;">
-
-    <div class="span4">
-        <div class='span4' style="font-size: 15px; font-family: Arial;  text-align: justify;">
-           <p><b>Course title </b>
-            <br/>
-           <%= @course.title %></p>
-           <p><b>Course description </b>
-            <br />
-           <%= @course.desc%></p>
-        </div>   
-         
-    </div>
-    <div class="span4" style="padding-left: 30px;padding-top:20px;">
-    <%= label_tag "first_name"%>
-    <%= text_field_tag "first_name"%><br/>
-    <%= label_tag "last_name"%>
-    <%= text_field_tag "last_name"%><br/>
-    <%= label_tag "card_no"%>
-    <%= text_field_tag "card_no"%><br/>
-    <%= label_tag "name_on_the_card"%>
-    <%= text_field_tag "name_on_the_card"%><br/>
-    <%= label_tag "expiry_date"%>
-    <%= date_select "expiry_date","date",:start_year => 2012, :end_year => 2020,:discard_day => true,:order => [:month,:year], :use_short_month =>true %>
-    <%= label_tag "cvv"%>
-    <%= text_field_tag "cvv"%><br/>
-  </div>
- <div class="button-place-holder" style="margin-top: 10px; margin-right: 407px;">
-  <%= hidden_field_tag "course_price",@price %>
-  <% tax=tax_rate_for_today %>
-  <%= hidden_field_tag 'tax_rate',@price * (tax.factor/100) %>
-  <%= hidden_field_tag 'tax_description',tax.description %>
-  <%= hidden_field_tag 'coupon_des',@coupon_des %> 
-  <%= hidden_field_tag 'coupon_rate',@coupon_rate %>   
-  <%= hidden_field_tag 'coupon_price', @price-@coupon_price %>
-  <%= hidden_field_tag 'coupon_code', @coupon_code %>
-
-  <%= submit_tag 'submit',:class=>'placeholder' %>
-      </div>
-    </div>
-</div>  
-<br /><br /> <br /><br />
-
-
-
+<table cellpadding="15">
+<tr style="padding: 5px 0px;;font-size: 15px;text-align:center;">
+        <td>
+       
+          <% if @course.data!=nil %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @course.id), width: "180", height: "100",:class=>"img_polaroid " %>
+            <% else %>
+            <%= image_tag "test.png", width: "180", height: "100",:class=>"img_polaroid " %>
+            <% end %>  
+          </td></tr>
+          <tr><td>
+        Title:</td></tr> <tr><td> <%= @course.title %></td></tr>
+       <tr><td>Description:</td></tr>
+       <tr><td>   <p><%= @course.short_desc%></p>
+            </td>
+  </tr>
+  <tr><td><%= image_tag "Credit-Card-3.jpg", :width=>"300",:height=>"165" %></td></tr>
+</table>
+</div>
+<div  style="float:left;height:380px;width:5px;margin-left: 35px;margin-top: 30px;" >
+<%= image_tag "vertical.png", :width=>"5", :height=>"380"%>
+</div>
+<div class="span5" style="padding:0px ;margin-top:20px;float:right;text-align:left;">
+   <table cellpadding="10">
+    <tr><td style="width:100px;"><%= label_tag "first_name"%></td><td>
+    <%= text_field_tag "first_name"%></td></tr>
+    <tr><td><%= label_tag "last_name"%></td><td>
+    <%= text_field_tag "last_name"%></td></tr>
+    <tr><td><%= label_tag "card_no"%></td><td>
+    <%= text_field_tag "card_no"%></td></tr>
+    <tr><td><%= label_tag "name_on_the_card"%></td><td>
+    <%= text_field_tag "name_on_the_card"%></td></tr>
+    <tr><td><%= label_tag "expiry_date"%></td><td>
+    <%= date_select "expiry_date","date",:start_year => 2012, :end_year => 2020,:discard_day => true,:order => [:month,:year], :use_short_month =>true %></td></tr>
+    <tr><td><%= label_tag "cvv"%></td><td>
+    <%= text_field_tag "cvv"%></td></tr>
+    <tr><td></td><td >
+ <%= submit_tag 'submit',:class=>'placeholder' %></td></tr></table>
+</div>
 </div>
 <% end %>
+
+</div>
+</div> 
+
+
+
+          
+  
+    
+ 
+  
+
 
 

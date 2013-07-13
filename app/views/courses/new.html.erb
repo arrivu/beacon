@@ -1,17 +1,20 @@
 
 
-<div style="float:left">
+<div style="float:left;width:100%">
 	<%= render 'shared/side_menu' %>
 </div>
 <br>
 <div class="row">
-	<div class="span10 offset3">
+	<div class="span12" style="margin-top:20px;background: white;border-radius: 5px;padding: 10px;width:1050px;margin-left:155px;">
 		
 		<% provide(:title, 'Create Course') %>
+<div style="text-align: center;width: 200px;height: 45px;float: left;
+line-height: 40px;margin-left: -36px;background-image: url('../assets/ribbonr.jpg');background-size: 200px 100%; color:white;font-weight:bold;">
+ New Course Library
+  </div>
+		<div class = "hero-unit" style="border-radius:5px;margin-top:50px;">
 
-		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
-
-			<h3 align = "center">New Course Library</h3>
+			
 
 			<%= simple_form_for @course do |f| %>
 			<table class="table table-hover ">
