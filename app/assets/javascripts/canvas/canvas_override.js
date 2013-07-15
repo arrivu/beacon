@@ -22,7 +22,7 @@ $(document).ready(function(){
   // Identify the logout link in the top menu
   var logout_button = $('#calendar_menu_item'); 
   // Create the support button html string
-  var support_button = "<li class='menu-item'><a href='https://online.beaconlearning.in/courses' class='menu-item-no-drop'>Course library</a></li>";
+  var support_button = "<li class='menu-item'><a href='https://online.beaconlearning.in/my_courses' class='menu-item-no-drop'>My Courses</a></li>";
   $(support_button).insertAfter($(logout_button));
   
 });
