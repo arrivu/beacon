@@ -86,3 +86,8 @@
 	-o-border-radius: 4px;
 	border-radius: 4px;
 }*/
+
+.knowledge_partners
+{min-height:120px;border-bottom: 1px solid #F1E1BF;margin: 10px 0px;}
+.knowledge_partners p
+{padding:10px 0px;text-align: center; font-weight: 600}

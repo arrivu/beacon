@@ -21,7 +21,7 @@ $(document).ready(function(){
           <ul>
             <% @modules.each do |m| %>
             <li>
-              <h4 style="color:#16A085"><i class="icon-book"></i><%= m.name %></h4>
+              <h4 style="color:#000;font-size:17px;"><i class="icon-star" style="margin-right:5px;"></i><%= m.name %></h4>
             </li>
             <% end %>
           </ul>
@@ -60,7 +60,7 @@ $(document).ready(function(){
 </div>
 <div class="aboutauthor">
   <div class="container ">
-    <h1>About the Author</h1>
+    <h1>About the Faculty</h1>
     <% @authors.each do |author|%>
     <div class="row" style="width:61%; display:inline-block; clear:left; margin:15px">
       <div class="authorimage">

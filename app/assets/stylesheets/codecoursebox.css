@@ -10,7 +10,6 @@
 
 body{
 	color: #34495e;
-  	font: 14px/1.231 "Lato", sans-serif;
 }
 
 a {
@@ -146,7 +145,7 @@ padding-left: 110px;
 position: relative;
 z-index: 1;
 margin-left:20px;
-font:14px/1.231 "Lato",sans-serif;
+font:14px/1.231 "OpenSansLight",Helvetica,Arial,sans-serif;
 }
 
 .label.label-offset, .label-offset.label-a, .path-tags ul a.label-offset, .label-offset.label-b, .label-offset.label-c, .label-offset.label-d {
@@ -173,7 +172,7 @@ padding: 2px;
 em {
 font-style: italic;
 font-weight: normal;
-font:14px/1.231 "Lato",sans-serif;
+font:14px/1.231 "OpenSansLight",Helvetica,Arial,sans-serif;
 
 }
 
@@ -210,13 +209,12 @@ color: #636365;
 
 p {
 font-size: 16px;
-font:"Lato",sans-serif;
+font:"OpenSansLight",Helvetica,Arial,sans-serif;
  margin: 0 0 -1px;
 
 }
 .bannerinfo p{
-  font-size: 21px;
-font:"Lato",sans-serif;
+   font: 20px "OpenSansLight",Helvetica,Arial,sans-serif;
  margin: 0 0 -1px;
 }
 .orange{

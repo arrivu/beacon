@@ -33,6 +33,7 @@
 	text-transform: capitalize;
 }
 
+
 .bannersubtitle{
 	position: relative;
 	top:-10px;
@@ -44,7 +45,8 @@
 }
 
 .bannervideo{
-	margin:20px;
+	margin:20px 0px;
+    float: right;
 }
 
 .bannerinfo{

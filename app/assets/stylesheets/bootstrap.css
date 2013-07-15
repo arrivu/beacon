@@ -2319,6 +2319,8 @@ table th[class*="span"],
 
 .icon-star {
   background-position: -120px 0;
+    margin-right:5px;
+    margin-top:4px;
 }
 
 .icon-star-empty {
