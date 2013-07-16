@@ -35,9 +35,13 @@
   </tr>
 
   <tr style="background:white;padding: 5px 0px;;font-size: 15px;text-align:center;">
-  <td style="font-size: 15px;font-weight:bold;text-align: left;"></td>
-  <td style="text-align: right;"> You can download your invoice <span style='font-size:20px;'><%= link_to "here", invoice_pdf_path(:id=>@course) %></span></td>
+  <td style="font-size: 15px;font-weight:bold;text-align: center;"></td>
+  <td style="text-align: right;"> You can download your invoice <span style='font-size:20px;'><%= link_to "here", invoice_pdf_path(:id=>@course) %></span><br><br><span class="button" style="background:steelblue;color:#fff;float:left;margin-left:80px;font-size: 18px;font-weight: normal;padding: 0px 20px;" aling="center" >
+  <a href="https://classroom.beaconlearning.in/courses" style="color:#fff;">Proceed to Class</a></span></td>
   </tr>
+
+
+
  <div class="span12" style="background:white; height: 24px;line-height: 22px;margin-bottom: 40px; margin-top: 47px;text-align: center; width:1000px;font-family: arial;font-size: 19px;margin-left:0px;">
 Your payment is confirmed and Amount Paid is Rs. <%=  @tax.to_f + @subtotal.to_f  %>
 <br>You have enrolled the course
@@ -45,9 +49,11 @@ Your payment is confirmed and Amount Paid is Rs. <%=  @tax.to_f + @subtotal.to_f
 
 </div>
 
-<div class="button-place-holder" style="float:right; margin-right: 138px;">
+<div class="button-place-holder" style="float:left; margin-right: 138px;">
     
  </div>
+
+ <div style="margin:0px 500px;"></div>
 </table>
   
 
