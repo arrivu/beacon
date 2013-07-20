@@ -1,0 +1,16 @@
+<table>
+
+<% @account_setting.each do |account_setting| %> 
+<tr>
+<td><%= account_setting.knowledgepartners %></td>
+<td><%= account_setting.mediapartners %></td>
+<td><%= account_setting.slideshow %></td>
+<td><%= account_setting.popularspeak %></td>
+<td><%= account_setting.testimonial %></td>
+
+ <td><%= link_to "show",account_setting_path(account_setting) %></td>
+ <td><%= link_to "edit",edit_account_setting_path(account_setting) %></td> 
+ <td><%= link_to "destroy",account_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+</table>
