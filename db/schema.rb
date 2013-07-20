@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(:version => 20130314093035551) do
 
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.string   "organization"
+    t.string   "contactdetails"
+    t.string   "noofcourses"
+    t.string   "noofusers"
+    t.boolean  "active"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -165,6 +176,22 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "order_id"
     t.text     "question"
     t.text     "answer"
+  end
+
+  create_table "footerlinks", :force => true do |t|
+    t.string   "aboutusurl"
+    t.string   "contactusurl"
+    t.string   "privacypolicyurl"
+    t.string   "termsconditionurl"
+    t.string   "twitterurl"
+    t.string   "youtubeurl"
+    t.string   "facebookurl"
+    t.string   "googleurl"
+    t.string   "linkedinurl"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "accountid"
+    t.string   "copywrite"
   end
 
   create_table "groupings", :force => true do |t|

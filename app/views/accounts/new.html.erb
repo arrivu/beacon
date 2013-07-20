@@ -1,0 +1,21 @@
+<%= form_for (@account) do |f| %>
+<table><tr><td><%= f.label :name %></td>
+<td><%= f.text_field :name %></td></tr>
+<tr><td><%= f.label :organization %></td>
+<td>
+<%= f.text_field :organization %></td></tr>
+<tr><td><%= f.label :contactdetails %></td>
+<td>
+<%= f.text_area :contactdetails %></td></tr>
+<tr><td><%= f.label :noofusers %></td>
+<td>
+<%= f.text_field :noofusers %></td></tr>
+<tr><td><%= f.label :noofcourses %></td>
+<td>
+<%= f.text_field :noofcourses %></td></tr>
+<tr><td><%= f.label :activate %></td>
+<td>
+<%= f.check_box :active %></td></tr>
+<tr><td><%= f.submit "Save" %></td></tr></table>
+<% end %>
+

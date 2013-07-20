@@ -1,0 +1,2 @@
+module FooterlinksHelper
+end

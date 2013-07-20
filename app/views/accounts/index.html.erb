@@ -1,0 +1,9 @@
+ <table align="center" > <% @account.each do |account| %>
+    <tr><td><%= account.name %></td>
+      <td><%= account.organization %></td>
+      <td><%= account.contactdetails %></td>
+      <td><%= account.noofcourses %></td>
+      <td><%= account.noofusers %> </td>
+   <td><%= account.active %><td><td><%= link_to "edit",edit_account_path(account) %></td></tr>
+      	<% end %>
+</table>
