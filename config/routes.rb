@@ -1,5 +1,13 @@
 Myapp::Application.routes.draw do
 
+  get "partners/new"
+
+  get "partners/edit"
+
+  get "partners/index"
+
+  get "partners/show"
+
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'  
   resources :course_pricings
   resources :teaching_staffs
@@ -18,7 +26,8 @@ Myapp::Application.routes.draw do
   resources :blogs
   resources :tags
   resources :courses 
-  
+  resources :testimonials
+  resources :partners
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
   match 'payments/course_payment',:to=>'payments#course_payment'
   match 'payments/follow_course',:to=>'payments#follow_course'

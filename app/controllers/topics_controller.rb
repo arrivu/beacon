@@ -13,7 +13,7 @@ def show
 end
 
 def new
-  @topic = Topic.new
+  @topic = Topic.new  
 end
 
 def create
