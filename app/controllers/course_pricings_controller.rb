@@ -9,6 +9,8 @@ class CoursePricingsController < ApplicationController
   end
   def create
     @coursepricing=CoursePricing.new(params[:course_pricing])
+     @account=Account.find_by_name(request.subdomain)
+   @coursepricing.accountid=@account.id
     course_ids=CoursePricing.where("course_id=?",@coursepricing.course_id)
     if nooverlap?(course_ids,@coursepricing.start_date,@coursepricing.end_date)
       if(@coursepricing.start_date>=Date.today)
@@ -63,6 +65,8 @@ def update
 
   @coursepricing=CoursePricing.find(params[:id])
   @coursepricing_params=CoursePricing.new(params[:course_pricing])
+   @account=Account.find_by_name(request.subdomain)
+   @coursepricing.accountid=@account.id
   course_ids=CoursePricing.where("course_id=? AND id!=?",@coursepricing_params.course_id,@coursepricing.id)
   if nooverlap?(course_ids,@coursepricing_params.start_date,@coursepricing_params.end_date)
    

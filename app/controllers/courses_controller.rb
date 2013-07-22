@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
 ActiveMerchant::Billing::Integrations
 #before_filter :initialize, :only => [:create, :edit,:update,:delete]
 before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage_courses,:course_status_search,
-  :completed_courses,:updatecompleted_details,:conclude_course,:concluded_course_update]
+   :completed_courses,:updatecompleted_details,:conclude_course,:concluded_course_update]
   before_filter :signed_in_user, :only=>[:my_courses]
   before_filter :no_admin_user_allow, :only=>[:my_courses]
   caches_page :show_image,:background_image
@@ -44,6 +44,8 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
  def create
    @course = Course.new(params[:course])
    @course.user_id = current_user.id
+   @account=Account.find_by_name(request.subdomain)
+   @course.accountid=@account.id
    @course.isconcluded="f"
    if @course.save
      flash[:success] = "Course added successfully!!!!"
@@ -61,6 +63,8 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
 
  def update
    @course = Course.find(params[:id])
+   @account=Account.find_by_name(request.subdomain)
+   @course.accountid=@account.id
 
    if @course.update_attributes(params[:course])
      lms_update_course(@course)

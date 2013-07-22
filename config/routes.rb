@@ -17,6 +17,7 @@ resources :footerlinks
       get 'redeem'
     end
   end
+  resources :account_settings
   resources :contacts
   resources :faqs
   resources :blogs

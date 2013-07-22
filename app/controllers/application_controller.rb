@@ -70,4 +70,14 @@
   def routing_error
   render_not_found(nil)
   end
+  def account_login
+    @account=Account.find_by_name(request.subdomain)
+      current_user.accountid=@account.id
+     @accountdetails=User.where(:id =>current_user.id)
+     @userdet=current_user.accountid
+     if @userdet.nil?
+      flash["error"]="Invalid blog"
+      redirect_to :root_path
+     end
+  end
 end

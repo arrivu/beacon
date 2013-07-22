@@ -11,6 +11,7 @@
 				<%= f.input :email, :required => true %>
 				<%= f.input :password, :required => true %>
 				<%= f.input :password_confirmation, :required => true %>
+				 <%= f.hidden :accountid, Account.find_by_name(request.subdomain) %>
 				<%= f.button :submit, 'Create my account', :class => 'btn-primary' %>
 				<% end %>
 				<%= render "devise/shared/links" %>

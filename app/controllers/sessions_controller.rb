@@ -1,26 +1,33 @@
 class SessionsController < Devise::SessionsController
   include CasHelper
   include LmsHelper
-
+before_filter :account_login
   
   # POST /resource/sign_in
   def create
-    #self.resource = warden.authenticate!(auth_options)
-    #set_flash_message(:notice, :signed_in) if is_navigational_format?
-    #sign_in(resource_name, resource)
+    self.resource = warden.authenticate!(auth_options)
+     @account=Account.find_by_name(request.subdomain)
+    
+     if resource.accountid == @account.id
+      set_flash_message(:notice, :signed_in) if is_navigational_format?
 
-
-    super
+      sign_in(resource_name, resource)
+      # redirect_to "ibm.lvh.me:3000"
+    # super
     
 
     #call cas sign to create the cas ticket
     if current_user 
       user_cas_sign_in( current_user)
     end     
+
+
+
     
     #respond_with resource, :location => after_sign_in_path_for(resource)
     #self.class.superclass.instance_method(:foo).bind(self).call
   end
+end
 
   # DELETE /resource/sign_out
   def destroy

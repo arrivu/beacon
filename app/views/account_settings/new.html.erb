@@ -1,0 +1,22 @@
+<%= form_for (@account_setting) do |f| %>
+<table>
+	<tr>
+		<td><%= f.label :knowledgepartners %></td>
+		<td><%= f.check_box :knowledgepartners %></td></tr>
+
+	<tr><td><%= f.label :mediapartners %></td>
+		<td><%= f.check_box :mediapartners %></td></tr>
+
+
+		<tr><td><%= f.label :slideshow %></td>
+		<td><%= f.check_box :slideshow %></td></tr>
+
+		
+		<tr><td><%= f.label :popularspeak %></td>
+		<td><%= f.check_box :popularspeak %></td></tr>
+
+		<tr><td><%= f.label :testimonial %></td>
+	    <td><%= f.check_box :testimonial %></td></tr>
+        <tr><td><%= f.submit  "submit" %></td></tr>
+</table>
+<% end %>

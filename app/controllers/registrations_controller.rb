@@ -18,26 +18,35 @@ class RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    #build_resource
-    #
-    #if resource.save
-    #  if resource.active_for_authentication?
-    #    set_flash_message :notice, :signed_up if is_navigational_format?
-    #    sign_up(resource_name, resource)
-    #    #call cas sign to create the cas ticket
-    #    cas_sign_in(current_user) if  cas_enable?
-    #
-    #    respond_with resource, :location => after_sign_up_path_for(resource)
-    #  else
-    #    set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
-    #    expire_session_data_after_sign_in!
-    #    respond_with resource, :location => after_inactive_sign_up_path_for(resource)
-    #  end
-    #else
-    #  clean_up_passwords resource
-    #  respond_with resource
-    #end
-    super   
+
+    @user=User.new(params[:user])
+
+    # build_resource
+    @account=Account.find_by_name(request.subdomain)
+      @user.accountid=@account.id
+
+    
+    if @user.save
+
+     if @user.active_for_authentication?
+       set_flash_message :notice, :signed_up if is_navigational_format?
+       sign_up(resource_name, @user)
+       #call cas sign to create the cas ticket
+       cas_sign_in(current_user) if  cas_enable?
+    
+       respond_with @user, :location => after_sign_up_path_for(resource)
+     else
+       set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
+       expire_session_data_after_sign_in!
+       respond_with @user, :location => after_inactive_sign_up_path_for(@user)
+     end
+    else
+     clean_up_passwords @user
+     respond_with @user
+    end
+
+    
+    # super   
     if current_user  
       student_create     
       lms_create
@@ -47,6 +56,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def update
     @user = User.find(current_user.id)
+    @account=Account.find_by_name(request.subdomain)
+      @user.accountid=@account.id
 
     successfully_updated = if needs_password?(@user, params)
       @user.update_with_password(params[:user])
@@ -102,8 +113,12 @@ class RegistrationsController < Devise::RegistrationsController
 
     def student_create
       if current_user 
-        Student.create(:user_id=>current_user.id) 
+         @account=Account.find_by_name(request.subdomain)
+        current_user.accountid=@account.id
+        Student.create(:user_id=>current_user.id,:accountid=>current_user.accountid) 
+        
         current_user.add_role(:student)
+        # current_user.add_accountid()
       end
     end
 

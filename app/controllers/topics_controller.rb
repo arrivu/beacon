@@ -18,6 +18,8 @@ end
 
 def create
   @topic = Topic.new(params[:topic])
+  @account=Account.find_by_name(request.subdomain)
+      @topic.accountid=@account.id
   if @topic.save
     flash[:success] = "Successfully Created Category."
     redirect_to topics_path
@@ -32,6 +34,8 @@ end
 
 def update
   @topic = Topic.find(params[:id])
+      @account=Account.find_by_name(request.subdomain)
+      @topic.accountid=@account.id
   if @topic.update_attributes(params[:topic])
     flash[:success] ="Successfully Updated Category."
     redirect_to topics_path
