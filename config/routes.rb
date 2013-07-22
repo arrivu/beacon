@@ -1,12 +1,7 @@
 Myapp::Application.routes.draw do
 
-  get "account_settings/new"
+  
 
-  get "account_settings/edit"
-
-  get "account_settings/show"
-
-  get "account_settings/index"
 
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'  
   resources :course_pricings
@@ -21,6 +16,7 @@ Myapp::Application.routes.draw do
       get 'redeem'
     end
   end
+  resources :sliders
   resources :account_settings
   resources :contacts
   resources :faqs

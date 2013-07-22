@@ -296,6 +296,19 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "sliders", :force => true do |t|
+    t.binary   "image"
+    t.binary   "backgroundimage"
+    t.string   "header"
+    t.string   "bodytag"
+    t.string   "accountid"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "imagename"
+    t.string   "imagetype"
+    t.string   "backgroundimagetype"
+  end
+
   create_table "student_courses", :force => true do |t|
     t.integer  "student_id"
     t.integer  "course_id"
