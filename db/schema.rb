@@ -13,6 +13,17 @@
 
 ActiveRecord::Schema.define(:version => 20130314093035551) do
 
+  create_table "account_settings", :force => true do |t|
+    t.boolean  "knowledgepartners"
+    t.boolean  "mediapartners"
+    t.boolean  "slideshow"
+    t.boolean  "popularspeak"
+    t.boolean  "testimonial"
+    t.string   "accountid"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -104,6 +115,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "course_id"
+    t.string   "accountid"
   end
 
   create_table "course_pricings", :force => true do |t|
@@ -113,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.date     "end_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "accountid"
   end
 
   create_table "course_statuses", :force => true do |t|
@@ -121,6 +134,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "accountid"
   end
 
   create_table "courses", :force => true do |t|
@@ -147,6 +161,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.boolean  "is_coming_soon"
     t.binary   "background_image"
     t.string   "background_image_type"
+    t.string   "accountid"
   end
 
   add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"
@@ -298,12 +313,26 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "sliders", :force => true do |t|
+    t.binary   "image"
+    t.binary   "backgroundimage"
+    t.string   "header"
+    t.string   "bodytag"
+    t.string   "accountid"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "imagename"
+    t.string   "imagetype"
+    t.string   "backgroundimagetype"
+  end
+
   create_table "student_courses", :force => true do |t|
     t.integer  "student_id"
     t.integer  "course_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "status"
+    t.string   "accountid"
   end
 
   create_table "students", :force => true do |t|
@@ -313,6 +342,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "accountid"
   end
 
   create_table "taggings", :force => true do |t|
@@ -336,6 +366,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "description"
+    t.string   "accountid"
   end
 
   create_table "teaching_staff_courses", :force => true do |t|
@@ -344,6 +375,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "teaching_staff_type"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "accountid"
   end
 
   create_table "teaching_staffs", :force => true do |t|
@@ -354,6 +386,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "linkedin_profile_url"
+    t.string   "accountid"
   end
 
   create_table "testimonials", :force => true do |t|
@@ -399,6 +432,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "content_type"
     t.binary   "image_blob"
     t.string   "uid"
+    t.string   "accountid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
