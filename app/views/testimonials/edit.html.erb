@@ -1,0 +1,28 @@
+<h3 align = "center">Testimonial</h3>
+<table align="center">
+<%= form_for @testimonial do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <tr>
+  
+    <td><%= f.label :name %><br /></td>
+    <td><%= f.text_field :name %></td>
+   </tr>
+  <tr>
+     <td> <%= f.label :organization %><br /></td>
+     <td><%= f.text_field :organization %></td>
+   </tr>
+  <tr>
+     <td><%= f.label :job %><br /></td>
+     <td> <%= f.text_field :job %></td>
+  </tr>
+  <tr>
+     <td>  <%= f.label :comment %> </td>
+     <td> <%= f.text_field :comment,:size => "300x300" %> </td>
+  </tr>
+  <tr>
+  <td>
+     <%= f.submit "Update" %>
+  </td>   
+  </tr>
+<% end %>
+</table>

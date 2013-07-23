@@ -1,6 +1,6 @@
 class Footerlinksaddaccountid < ActiveRecord::Migration
   def change
-  	add_column :footerlinks, :accountid, :string
-  	add_column  :footerlinks, :copywrite, :string
+  	add_column :footerlinks, :account_id, :string
+  	add_column  :footerlinks, :copy_write, :string
   end
 end

@@ -14,25 +14,34 @@
 ActiveRecord::Schema.define(:version => 20130314093035551) do
 
   create_table "account_settings", :force => true do |t|
-    t.boolean  "knowledgepartners"
-    t.boolean  "mediapartners"
-    t.boolean  "slideshow"
-    t.boolean  "popularspeak"
+    t.boolean  "knowledge_partners"
+    t.boolean  "media_partners"
+    t.boolean  "slide_show"
+    t.boolean  "popular_speak"
     t.boolean  "testimonial"
-    t.string   "accountid"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "account_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "account_users", :force => true do |t|
+    t.string   "account_id"
+    t.string   "user_id"
+    t.string   "membership_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
     t.string   "organization"
-    t.string   "contactdetails"
-    t.string   "noofcourses"
-    t.string   "noofusers"
+    t.string   "no_of_courses"
+    t.string   "no_of_users"
+    t.string   "support_script"
+    t.string   "google_analytics_script"
     t.boolean  "active"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   create_table "authentications", :force => true do |t|
@@ -76,6 +85,14 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
+  create_table "companynames", :force => true do |t|
+    t.string   "string"
+    t.string   "image"
+    t.string   "binary"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "contacts", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -118,7 +135,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "course_id"
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "course_pricings", :force => true do |t|
@@ -128,7 +145,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.date     "end_date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "course_statuses", :force => true do |t|
@@ -137,7 +154,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "courses", :force => true do |t|
@@ -164,7 +181,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.boolean  "is_coming_soon"
     t.binary   "background_image"
     t.string   "background_image_type"
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   add_index "courses", ["title", "author"], :name => "index_courses_on_title_and_author"
@@ -194,19 +211,19 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   end
 
   create_table "footerlinks", :force => true do |t|
-    t.string   "aboutusurl"
-    t.string   "contactusurl"
-    t.string   "privacypolicyurl"
-    t.string   "termsconditionurl"
-    t.string   "twitterurl"
-    t.string   "youtubeurl"
-    t.string   "facebookurl"
-    t.string   "googleurl"
-    t.string   "linkedinurl"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.string   "accountid"
-    t.string   "copywrite"
+    t.string   "aboutus_url"
+    t.string   "contactus_url"
+    t.string   "privacy_policy_url"
+    t.string   "terms_condition_url"
+    t.string   "twitter_url"
+    t.string   "youtube_url"
+    t.string   "facebook_url"
+    t.string   "google_url"
+    t.string   "linkedin_url"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "account_id"
+    t.string   "copy_write"
   end
 
   create_table "groupings", :force => true do |t|
@@ -271,6 +288,15 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "user_id"
   end
 
+  create_table "partners", :force => true do |t|
+    t.string   "company_name"
+    t.binary   "image"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "image_type"
+    t.string   "file_name"
+  end
+
   create_table "rates", :force => true do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
@@ -325,15 +351,16 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
 
   create_table "sliders", :force => true do |t|
     t.binary   "image"
-    t.binary   "backgroundimage"
+    t.binary   "background_image"
     t.string   "header"
-    t.string   "bodytag"
-    t.string   "accountid"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.string   "imagename"
-    t.string   "imagetype"
-    t.string   "backgroundimagetype"
+    t.string   "body_tag"
+    t.string   "account_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "image_name"
+    t.string   "image_type"
+    t.binary   "data"
+    t.string   "background_image_type"
   end
 
   create_table "student_courses", :force => true do |t|
@@ -342,7 +369,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "status"
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "students", :force => true do |t|
@@ -352,7 +379,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.integer  "user_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "taggings", :force => true do |t|
@@ -376,7 +403,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "description"
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "teaching_staff_courses", :force => true do |t|
@@ -385,7 +412,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "teaching_staff_type"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "teaching_staffs", :force => true do |t|
@@ -396,7 +423,16 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "linkedin_profile_url"
-    t.string   "accountid"
+    t.string   "account_id"
+  end
+
+  create_table "testimonials", :force => true do |t|
+    t.string   "name"
+    t.string   "organization"
+    t.string   "job"
+    t.string   "comment"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "topics", :force => true do |t|
@@ -405,7 +441,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.datetime "updated_at", :null => false
     t.string   "desc"
     t.string   "color"
-    t.string   "accountid"
+    t.string   "account_id"
   end
 
   create_table "users", :force => true do |t|
@@ -434,7 +470,6 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "content_type"
     t.binary   "image_blob"
     t.string   "uid"
-    t.string   "accountid"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

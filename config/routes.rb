@@ -1,6 +1,7 @@
 Myapp::Application.routes.draw do
 
 
+
 match '/' => 'blogs#show', :constraints => {:subdomains => /.+/}
 resources :footerlinks
   resources :accounts
@@ -26,7 +27,8 @@ resources :footerlinks
   resources :blogs
   resources :tags
   resources :courses 
-  
+  resources :testimonials
+  resources :partners
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
   match 'payments/course_payment',:to=>'payments#course_payment'
   match 'payments/follow_course',:to=>'payments#follow_course'

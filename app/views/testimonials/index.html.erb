@@ -1,0 +1,14 @@
+<h3 align = "center">Testimonials</h3>
+<table align="center">
+<% @testimonial.each do |testimonials| %>
+<tr>
+ <td><%= testimonials.name %></td>
+ <td><%=testimonials.organization%></td>
+ <td><%=testimonials.job%></td>
+ <td><%=testimonials.comment%></td>
+ <td><%= link_to "show",testimonial_path(testimonials) %></td>
+ <td><%= link_to "edit",edit_testimonial_path(testimonials) %></td> 
+ <td><%= link_to "destroy",testimonials, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+ <%end%>
+</table>

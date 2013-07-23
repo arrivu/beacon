@@ -1,0 +1,10 @@
+<h3 align = "center">Knowledge Partners</h3>
+<table align="center">
+<tr>
+	<td>
+		<%= @partner.companyname %>
+		<%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @partner.id), width: "50", height: "50",:class=>"course-badge img-circle" %>
+	</td>
+</tr>
+
+</table>
