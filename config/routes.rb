@@ -1,8 +1,10 @@
 Myapp::Application.routes.draw do
 
+
 match '/' => 'blogs#show', :constraints => {:subdomains => /.+/}
 resources :footerlinks
   resources :accounts
+
 
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'  
   resources :course_pricings
@@ -17,6 +19,7 @@ resources :footerlinks
       get 'redeem'
     end
   end
+  resources :sliders
   resources :account_settings
   resources :contacts
   resources :faqs

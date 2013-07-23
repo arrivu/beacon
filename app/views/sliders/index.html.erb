@@ -1,0 +1,11 @@
+<table>
+	<% @slider.each do |slider| %>
+<tr>
+
+
+<td><%= link_to "show",slider_path(slider) %></td>
+<td><%= link_to "edit",edit_slider_path(slider) %></td> 
+<td><%= link_to "destroy",slider_path(slider), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+<% end %>
+</table>
