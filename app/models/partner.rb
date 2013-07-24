@@ -1,5 +1,6 @@
 class Partner < ActiveRecord::Base
   attr_accessible :companyname, :image,:uploaded_file,:filename
+  belongs_to :account
   def uploaded_file=(incoming_file)
         self.filename = incoming_file.original_filename
         self.image_type = incoming_file.content_type

@@ -23,13 +23,25 @@ class PartnersController < ApplicationController
 
   def index
   	 @partner=Partner.paginate(page: params[:page], :per_page => 10)
+
      
+
+  end
+  def showimage
+     @partner = Partner.find(params[:id])
+      send_data @partner.image, :type => @partner.image_type, :disposition => 'inline'
+  end
+
 
   end
   
   def show
     @partner = Partner.find(params[:id])
+
       send_data @partner.image, :type => @partner.image_type, :disposition => 'inline' 
+
+   # 
+
   end
   def update
     @partner = Partner.find(params[:id])

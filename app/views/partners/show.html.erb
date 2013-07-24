@@ -3,6 +3,7 @@
 <tr>
 	<td>
 		<%= @partner.companyname %>
+		<%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @partner.id), width: "50", height: "50",:class=>"course-badge img-circle" %>
 	</td>
 </tr>
 <tr>

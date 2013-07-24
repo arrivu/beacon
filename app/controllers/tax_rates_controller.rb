@@ -6,6 +6,8 @@ class TaxRatesController < ApplicationController
 	end
 	def create
 		@tax_rate=TaxRate.new(params[:tax_rate])
+		@account=Account.find_by_name(request.subdomain)
+   		@tax_rate.accountid=@account.id
 		tax_all=TaxRate.all
 		if nooverlap?(tax_all,@tax_rate.valid_from,@tax_rate.valid_until)
 			if  (@tax_rate.valid_from >= Date.today )
@@ -37,6 +39,8 @@ class TaxRatesController < ApplicationController
 	def update
 		@tax_rate=TaxRate.find(params[:id])
 		@tax_rate_params=TaxRate.new(params[:tax_rate])
+		@account=Account.find_by_name(request.subdomain)
+   		@tax_rate.accountid=@account.id
 		tax_all= TaxRate.where("id!=?",@tax_rate.id)
 		if nooverlap?(tax_all,@tax_rate_params.valid_from,@tax_rate_params.valid_until)
 			if @tax_rate_params.valid_until >= @tax_rate_params.valid_from

@@ -1,15 +1,22 @@
 Myapp::Application.routes.draw do
 
 
+
   
 
   get "partners/new"
 
-  get "partners/edit"
 
-  get "partners/index"
+
+
+match '/' => 'blogs#show', :constraints => {:subdomains => /.+/}
+resources :footerlinks
+  resources :accounts
+
 
   get "partners/show"
+
+
 
  
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'  

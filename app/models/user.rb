@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_one :student
   has_many :invoices
-
+  has_many :account_users
   has_one :teaching_staff , dependent: :destroy 
   accepts_nested_attributes_for :teaching_staff
 
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
 
   def teachingdetails
    self.teaching_staff_courses.where(:teaching_staff_type => "teacher_assitant")
- end
+  end
 
 
  letsrate_rater

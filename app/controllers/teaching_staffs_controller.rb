@@ -15,6 +15,8 @@ class TeachingStaffsController < ApplicationController
 
 	def create
 		@teachingstaff = TeachingStaff.new
+		@account=Account.find_by_name(request.subdomain)
+   		@teachingstaff.accountid=@account.id
 		@teachingstaff.name =  params[:teaching_staff][:teaching_staff_user][:name]
 		@teachingstaff.description =  params[:teaching_staff][:description]
 		@teachingstaff.qualification =  params[:teaching_staff][:qualification]
@@ -59,6 +61,8 @@ class TeachingStaffsController < ApplicationController
 
 	def update
 		@teachingstaff=TeachingStaff.find(params[:id])
+		@account=Account.find_by_name(request.subdomain)
+   		@teachingstaff.accountid=@account.id
 		if params[:teaching_staff][:user][:attachment]!=nil
 	  								
 									
