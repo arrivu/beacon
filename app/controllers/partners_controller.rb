@@ -27,13 +27,13 @@ class PartnersController < ApplicationController
      
 
   end
-  def showimage
-     @partner = Partner.find(params[:id])
-      send_data @partner.image, :type => @partner.image_type, :disposition => 'inline'
-  end
+  # def showimage
+  #    @partner = Partner.find(params[:id])
+  #     send_data @partner.image, :type => @partner.image_type, :disposition => 'inline'
+  # end
 
 
-  end
+ 
   
   def show
     @partner = Partner.find(params[:id])
