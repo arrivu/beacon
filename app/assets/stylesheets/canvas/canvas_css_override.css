@@ -8,7 +8,7 @@
 /*replace the canvas logo with your logo*/
 #header-logo, #header.no-user #header-logo {
 
- background: url("../canvas/header_beacon_logo1.png?v1") no-repeat scroll 0 0 transparent;
+ background: url("../canvas/header_beacon_logo.png?v1") no-repeat scroll 0 0 transparent;
   bottom: 11px;
   height: 40px;
   left: 12px;
@@ -82,9 +82,9 @@ body.modal #modal-box.login-box
 {
 }
 body.modal #modal-box
-{background-color: #f2e1ac !important;}
+{background-color: #e44530 !important;}
 
-#modal-box.login-box { background-color: #f2e1ac !important;}
+#modal-box.login-box { background-color: #e44530 !important;}
 /*this will remove the extra canvas logo*/
 /*body.modal #modal-box.login-box h1 {
 background: none;
@@ -95,18 +95,18 @@ body.modal #modal-box.login-box {
 height: 435px;
 width: 610px;
 color: #2784A0;
-background: #f2e1ac !important;
+background: #e44530 !important;
 }
 /*change the color of 'don't know your password'*/
-body.modal #modal-box.login-box a { color: #2784A0 !important; }
+body.modal #modal-box.login-box a { color: #e44530 !important; }
 /*change the color of the login button*/
 body.modal #modal-box .button, body.modal #login-box .button {
-background-color: #2a488e !important;
+background-color: #e44530 !important;
 background-image: none !important;
 border-color: #2a488e;
 }
 #login_form .btn-primary, #login_form .btn-primary:hover {
-background-color: #4183c4;
+background-color: #e44530;
 background-image: none;
 border: none !important;
 }
