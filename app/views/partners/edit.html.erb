@@ -9,7 +9,7 @@
 
 <tr>
 	<td><%=f.label 'Logo' %></td>
-	<td><%= image_tag url_for(:controller => 'partners',:action => 'show', :id => @partner.id), :size => "50x50" %>
+	<td><%= image_tag url_for(:controller => 'partners',:action => 'show', :id => @partner.id), :width => "100",:height => "100"%>
 	<%= f.file_field :uploaded_file %></td> 
 </tr>
 <tr >

@@ -1,6 +1,8 @@
 Myapp::Application.routes.draw do
 
-<<<<<<< HEAD
+
+  
+
   get "partners/new"
 
   get "partners/edit"
@@ -8,11 +10,8 @@ Myapp::Application.routes.draw do
   get "partners/index"
 
   get "partners/show"
-=======
-  
 
->>>>>>> 6a1f9729ce68acd1055bbed263e7ed7fd8f1a11c
-
+ 
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'  
   resources :course_pricings
   resources :teaching_staffs

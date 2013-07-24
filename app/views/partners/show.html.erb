@@ -5,5 +5,8 @@
 		<%= @partner.companyname %>
 	</td>
 </tr>
+<tr>
+<td><%= image_tag url_for(:controller => 'partners',:action => 'show', :id => @partner.id), :size => "50x50"%>
+</tr>
 
 </table>
