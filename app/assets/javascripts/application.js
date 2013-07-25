@@ -20,6 +20,7 @@
 //= require jquery-minicolors
 //= require jquery-minicolors-simple_form
 
+
 $(function() {
   $(".pagination").on("click", function() {
     $(".pagination").html("Page is loading...");

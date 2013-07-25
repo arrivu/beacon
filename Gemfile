@@ -6,6 +6,7 @@ gem 'figaro', '0.6.4'
 gem 'bootstrap-sass', '2.3.1.0'
 gem 'devise', '2.2.3'
 gem 'cancan', '1.6.9'
+
 #gem 'devise_cas_authenticatable',">=1.2.1"
 gem 'rolify', '3.2.0'
 gem 'simple_form', '2.1.0'

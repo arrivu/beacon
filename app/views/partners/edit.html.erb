@@ -1,3 +1,6 @@
+
+</script>
+</head>
 <h3 align = "center">Knowledge Partners</h3>
 <table align="center">
 <%= form_for @partner do |f| %>
@@ -9,11 +12,12 @@
 
 <tr>
 	<td><%=f.label 'Logo' %></td>
-	<td><%= image_tag url_for(:controller => 'partners',:action => 'show', :id => @partner.id), :size => "50x50" %>
+	<td><%= image_tag url_for(:controller => 'partners',:action => 'show', :id => @partner.id), :width => "100",:height => "100"%>
 	<%= f.file_field :uploaded_file %></td> 
 </tr>
 <tr >
    <td><%= f.submit "Update" %> </td>
 </tr>
+
 <% end %>
 </table>

@@ -6,5 +6,8 @@
 		<%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => @partner.id), width: "50", height: "50",:class=>"course-badge img-circle" %>
 	</td>
 </tr>
+<tr>
+<td><%= image_tag url_for(:controller => 'partners',:action => 'show', :id => @partner.id), :size => "50x50"%>
+</tr>
 
 </table>

@@ -1,5 +1,7 @@
 class PartnersController < ApplicationController
+
     before_filter :check_admin_user,:only => [:new,:create,:edit,:show,:update,:destroy,:index]
+
   def new
   	@partner=Partner.new
 
@@ -18,19 +20,30 @@ class PartnersController < ApplicationController
   end	
   def edit
   	@partner=Partner.find(params[:id])
+
   end
 
   def index
   	 @partner=Partner.paginate(page: params[:page], :per_page => 10)
-  end
-  def showimage
-     @partner = Partner.find(params[:id])
-      send_data @partner.image, :type => @partner.image_type, :disposition => 'inline'
-  end
 
+     
+
+  end
+  # def showimage
+  #    @partner = Partner.find(params[:id])
+  #     send_data @partner.image, :type => @partner.image_type, :disposition => 'inline'
+  # end
+
+
+ 
+  
   def show
     @partner = Partner.find(params[:id])
-    # 
+
+      send_data @partner.image, :type => @partner.image_type, :disposition => 'inline' 
+
+   # 
+
   end
   def update
     @partner = Partner.find(params[:id])

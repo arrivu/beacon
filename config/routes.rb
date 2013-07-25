@@ -2,11 +2,23 @@ Myapp::Application.routes.draw do
 
 
 
+  
+
+  get "partners/new"
+
+
+
+
 match '/' => 'blogs#show', :constraints => {:subdomains => /.+/}
 resources :footerlinks
   resources :accounts
 
 
+  get "partners/show"
+
+
+
+ 
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'  
   resources :course_pricings
   resources :teaching_staffs
