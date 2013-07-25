@@ -4,6 +4,18 @@ Myapp::Application.routes.draw do
 
   
 
+  get "privacypolicies/new"
+
+  get "privacypolicies/show"
+
+  get "privacypolicies/edit"
+
+  get "privacypolicy/new"
+
+  get "privacypolicy/show"
+
+  get "privacypolicy/edit"
+
   get "partners/new"
 
 

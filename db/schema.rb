@@ -289,12 +289,12 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   end
 
   create_table "partners", :force => true do |t|
-    t.string   "companyname"
+    t.string   "company_name"
     t.binary   "image"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "image_type"
-    t.string   "filename"
+    t.string   "file_name"
   end
 
   create_table "rates", :force => true do |t|
