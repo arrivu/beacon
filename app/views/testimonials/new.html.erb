@@ -3,22 +3,14 @@
 <%= form_for @testimonial do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
  <tr>
-    <td><%= f.label :name %></td>
+    <td><%= f.label :title %></td>
     <td><%= f.text_field :name %></td>
   </tr>
   <tr>
-    <td><%= f.label :organization %></td>
-    <td><%= f.text_field :organization %></td>
+    <td><%= f.label :Description %></td>
+    <td><%= f.text_area :desc %></td>
   </tr>
-  <tr>
-    <td><%= f.label :job %></td>
-    <td><%= f.text_field :job %></td>
-  </tr>
-
-  <tr>
-    <td><%= f.label :comment %></td>
-    <td><%= f.text_field :comment,:size => "300x300" %></td>
-  </tr>
+  
  <tr>
    <td><%= f.submit "Save" %> </td>
 </tr>

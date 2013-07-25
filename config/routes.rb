@@ -4,22 +4,24 @@ Myapp::Application.routes.draw do
 
   
 
+  get "terms/new"
+
+  get "terms/edit"
+
+  get "terms/show"
+
+  get "terms/index"
+
   get "privacypolicies/new"
 
   get "privacypolicies/show"
 
   get "privacypolicies/edit"
 
-  get "privacypolicy/new"
-
-  get "privacypolicy/show"
-
-  get "privacypolicy/edit"
-
   get "partners/new"
 
 
-
+ 
 
 match '/' => 'blogs#show', :constraints => {:subdomains => /.+/}
 resources :footerlinks
@@ -53,6 +55,7 @@ resources :footerlinks
   resources :courses 
   resources :testimonials
   resources :partners
+  resources :privacypolicies
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
   match 'payments/course_payment',:to=>'payments#course_payment'
   match 'payments/follow_course',:to=>'payments#follow_course'

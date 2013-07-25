@@ -1,2 +1,15 @@
-<h1>Privacypolicies#show</h1>
-<p>Find me in app/views/privacypolicies/show.html.erb</p>
+<h3 align = "center">Privacy Policies</h3>
+<table align="center">
+<tr>
+	  <td>
+		<%= @privacypolicy.title%>
+	</td> 
+</tr>	
+<tr>
+	<td>
+		<%= @privacypolicy.desc.html_safe %>
+	</td>
+</tr>
+
+
+</table>
