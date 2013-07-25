@@ -2,6 +2,12 @@ class Account < ActiveRecord::Base
   attr_accessible :active, :name, :no_of_courses, :no_of_users, :organization
   has_many :account_users , :dependent => :destroy
   has_many :partners , :dependent => :destroy
+  has_many :courses, :dependent => :destroy
+  has_many :course_previews, :dependent => :destroy
+  has_many :topics,:dependent =>:destroy
+  has_many :tax_rates,:dependent =>:destroy
+  has_many :teaching_staffs, :dependent =>:destroy
+  has_many :testimonials, :dependent => :destroy
 
   def self.default
     Account.first

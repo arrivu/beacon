@@ -4,18 +4,20 @@
 <tr><td><%= f.label :organization %></td>
 <td>
 <%= f.text_field :organization %></td></tr>
-<tr><td><%= f.label :contactdetails %></td>
+
+<tr><td><%= f.label :no_of_users %></td>
 <td>
-<%= f.text_area :contactdetails %></td></tr>
-<tr><td><%= f.label :noofusers %></td>
+<%= f.text_field :no_of_users %></td></tr>
+<tr><td><%= f.label :no_of_courses %></td>
 <td>
-<%= f.text_field :noofusers %></td></tr>
-<tr><td><%= f.label :noofcourses %></td>
-<td>
-<%= f.text_field :noofcourses %></td></tr>
+<%= f.text_field :no_of_courses %></td></tr>
 <tr><td><%= f.label :activate %></td>
 <td>
 <%= f.check_box :active %></td></tr>
 <tr><td><%= f.submit "Save" %></td></tr></table>
+
+<a class="twitter-timeline" href="https://twitter.com/justmaivetrivel" data-widget-id="347299910313447425">Tweets by @justmaivetrivel</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 <% end %>
 

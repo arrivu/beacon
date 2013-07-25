@@ -2,6 +2,7 @@ class CoursePreview < ActiveRecord::Base
 
 	attr_accessible :desc, :enable, :name, :sequence, :video_url, :course_id,:accountid
 	belongs_to :course
+	belongs_to :account
 	
 
 	validates :name, presence: true, length: { maximum: 50 }

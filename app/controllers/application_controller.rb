@@ -50,6 +50,7 @@
 
 
    def load_account
+    @account_id=Account.find_by_name(current_subdomain).id
       unless current_subdomain.nil?
          @domain_root_account= Account.find_by_name current_subdomain
            if (@domain_root_account == nil)
@@ -58,6 +59,17 @@
           else
             @domain_root_account=Account.default
       end
+    end
+    def subdomain_authenticate
+      @coursedet=Course.find(params[:id])
+     
+      if @coursedet.account_id!=@account_id.to_s
+
+        flash[:error]="Invalid domain"
+        redirect_to courses_path
+      end
+
+
     end
 
 

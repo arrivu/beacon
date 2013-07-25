@@ -4,22 +4,22 @@ class SessionsController < Devise::SessionsController
 # POST /resource/sign_in
   def create
     self.resource = warden.authenticate!(auth_options)
-     if  @domain_root_account.account_users.find(resource.id )
+    @account=Account.find_by_name(current_subdomain)
+     if  @domain_root_account.account_users.find_by_user_id(resource.id).account_id
       #set_flash_message(:notice, :signed_in) if is_navigational_format?
       #
       #sign_in(resource_name, resource)
       # redirect_to "ibm.lvh.me:3000"
+     
      super
-    
+     # redirect_to :users_path
 
     #call cas sign to create the cas ticket
     if current_user 
       user_cas_sign_in( current_user)
-    end     
+    end 
+  end
 
-    #respond_with resource, :location => after_sign_in_path_for(resource)
-    #self.class.superclass.instance_method(:foo).bind(self).call
-     end
 
 end
 

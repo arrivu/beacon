@@ -9,8 +9,8 @@ class CoursePricingsController < ApplicationController
   end
   def create
     @coursepricing=CoursePricing.new(params[:course_pricing])
-     @account=Account.find_by_name(request.subdomain)
-   @coursepricing.accountid=@account.id
+    
+   @coursepricing.account_id=@account_id.to_s
     course_ids=CoursePricing.where("course_id=?",@coursepricing.course_id)
     if nooverlap?(course_ids,@coursepricing.start_date,@coursepricing.end_date)
       if(@coursepricing.start_date>=Date.today)
@@ -39,9 +39,9 @@ class CoursePricingsController < ApplicationController
     if(params[:search] != nil && params[:search] != "")
       @coursepricing = CoursePricing.where("course_id=#{params[:search]}").paginate(page: params[:page], :per_page => 15)
     else
-     @coursepricing = CoursePricing.paginate(page: params[:page], :per_page => 15)
+     @coursepricing = CoursePricing.where(:account_id=>@account_id).paginate(page: params[:page], :per_page => 15)
    end
-   @course = Course.all
+   @course = Course.where(:account_id=>@account_id).paginate(page: params[:page], :per_page => 15)
  end
 
  def destroy
@@ -65,8 +65,8 @@ def update
 
   @coursepricing=CoursePricing.find(params[:id])
   @coursepricing_params=CoursePricing.new(params[:course_pricing])
-   @account=Account.find_by_name(request.subdomain)
-   @coursepricing.accountid=@account.id
+  
+   @coursepricing.account_id=current_subdomain.id.to_s
   course_ids=CoursePricing.where("course_id=? AND id!=?",@coursepricing_params.course_id,@coursepricing.id)
   if nooverlap?(course_ids,@coursepricing_params.start_date,@coursepricing_params.end_date)
    

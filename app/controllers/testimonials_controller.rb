@@ -1,5 +1,5 @@
 class TestimonialsController < ApplicationController
-
+  before_filter :check_admin_user,:only => [:new,:create,:edit,:show,:update,:destroy,:index]
 		
 		def new
 	  		@testimonial=Testimonial.new

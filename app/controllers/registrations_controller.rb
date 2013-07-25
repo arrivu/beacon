@@ -23,10 +23,11 @@ class RegistrationsController < Devise::RegistrationsController
 
     # build_resource
     @account=Account.find_by_name(request.subdomain)
-      @user.accountid=@account.id
+      
 
     
     if @user.save
+     # @account_user = account.add_user(user,"student")
 
      if @user.active_for_authentication?
        set_flash_message :notice, :signed_up if is_navigational_format?
@@ -113,12 +114,13 @@ class RegistrationsController < Devise::RegistrationsController
 
     def student_create
       if current_user 
-         @account=Account.find_by_name(request.subdomain)
-        current_user.accountid=@account.id
-        Student.create(:user_id=>current_user.id,:accountid=>current_user.accountid) 
+         # @account=Account.find_by_name(request.subdomain)
+        # current_user.account_id=@account_id
+        Student.create(:user_id=>current_user.id,:account_id=>@account_id.to_s) 
         
         current_user.add_role(:student)
         # current_user.add_accountid()
+        AccountUser.create(:user_id=>current_user.id,:account_id=>@account_id.to_s)
       end
     end
 

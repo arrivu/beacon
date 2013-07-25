@@ -23,7 +23,7 @@
   <tr><th>Course Name</th><td>
 
 <div id='all_course'>
-  <%= f.input :metadata, :as=>:select, :collection =>Course.all.collect{|p| [p.title,p.id]}.push(['All','All']),label:false,:prompt => "Select course" %>
+  <%= f.input :metadata, :as=>:select, :collection =>Course.where(:account_id=>@account_id).collect{|p| [p.title,p.id]}.push(['All','All']),label:false,:prompt => "Select course" %>
 </div>
 
 </div></td></tr>

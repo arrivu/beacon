@@ -14,6 +14,7 @@ class Topic < ActiveRecord::Base
   #has_many :relationships
   #has_one :courses, through: :relationships
   has_many :courses,  :dependent => :delete_all
+  belongs_to :account
   validates :name, presence: true, length: { maximum: 100 }
 
 end

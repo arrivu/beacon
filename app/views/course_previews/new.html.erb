@@ -18,7 +18,7 @@
 						<%= render 'shared/error_messages', object: f.object %>
 						<tr><td><%= f.label :course_id, "Courses" %></td>
 							<td>
-									<% courses_array = Course.all.map { |course| [course.title, course.id] } %>
+									<% courses_array = Course.where(:account_id=>@account_id).map { |course| [course.title, course.id] } %>
 							<%= select_tag(:id,options_for_select(courses_array))%>
 							</td></tr>
 							<tr><td><%= f.label :name, "Title" %></td>

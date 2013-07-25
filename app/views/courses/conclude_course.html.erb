@@ -17,7 +17,7 @@
 				</div>
 				<div class="divright">
 
-					<%= select_tag :search, options_from_collection_for_select(Course.where("isconcluded!=?","t"), "id", "title") , {:prompt => 'ALL'} %>
+					<%= select_tag :search, options_from_collection_for_select(Course.where("isconcluded!=? and account_id=?","t",@account_id), "id", "title") , {:prompt => 'ALL'} %>
 				</div>
 			</div>
 			<div class="divrow">

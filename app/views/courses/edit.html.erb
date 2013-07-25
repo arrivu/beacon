@@ -78,7 +78,7 @@
 										
 
 										<tr><td><%= f.label :topic_id, "Topics" %></td>
-											<td><%= f.collection_select :topic_id, Topic.order(:name), :id, :name, {}, {multiple: false} %></td></tr>
+											<td><%= f.collection_select :topic_id, Topic.where(:account_id=>@account_id).order(:name), :id, :name, {}, {multiple: false} %></td></tr>
 
 											<tr><td></td><td><%= f.submit "Update Course", class: "btn btn-large btn-primary" %>
 												</td></tr>

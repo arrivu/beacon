@@ -12,7 +12,7 @@
    
    <td><%= label_tag(:search,"Courses") %></td>
 
-   <td><%= select_tag :search, options_from_collection_for_select(Course.all, "id", "title",:selected => params[:search]) , {:prompt => 'ALL'} %></td>
+   <td><%= select_tag :search, options_from_collection_for_select(Course.where(account_id: @account_id), "id", "title",:selected => params[:search]) , {:prompt => 'ALL'} %></td>
 
    <td valign="top"><%= submit_tag "Search", :name => nil,class:"btn btn-large btn-primary"  %></td>
    </tr>
