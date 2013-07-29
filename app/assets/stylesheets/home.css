@@ -523,12 +523,12 @@ background-image: url(bgblack.png);
 	float: left;
 	/*margin-left: 10px;*/
 	/*border-right: 1px solid #eee;*/
-    padding:0px 70px;
+    padding:0px 40px;
 }
 
 .listofkp .lastkp{
 	float: left;
-    padding:0px 55px;
+    padding:0px 40px;
 }
 
 .listofkp .firstkp{
@@ -536,7 +536,7 @@ background-image: url(bgblack.png);
 	margin-left: 20px;
 	/*margin-left: 10px;*/
 	/*border-right: 1px solid #eee;*/
-	padding:0px 49px;
+	padding:0px 40px;
 }
 
 .listofkp .firstkp img{width:165px;height:85px;}
