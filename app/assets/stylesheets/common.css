@@ -6,11 +6,11 @@ body {
 }
 
 body, button {
-  font: 13px Helvetica, arial, freesans, clean, sans-serif;
+  font: 13px source-sans-pro, sans-serif;
 line-height: 1.4;
 }
  input, select, textarea{
-font: 13px Helvetica, arial, freesans, clean, sans-serif;
+font: 13px source-sans-pro, sans-serif;
 line-height: 1.4;
 width: 250px;
 }
@@ -32,6 +32,23 @@ img {
 border: 0;
 }
 
+#wrapper{
+  width:100%;
+  margin:0; 
+  padding:0;
+}
+header{-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+-moz-box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+box-shadow: 0 1px 4px rgba(0,0,0,0.065);
+background: white;
+margin: 0;
+padding: 10px 0px;
+height: 85px;
+
+top: 0;
+width: 100%;
+z-index: 100;
+}
 .rightgap{
 	margin-right: 10px;
 }
@@ -142,7 +159,7 @@ user-select: none;
 .btn-logout {
 background-color: #333;
 color: #fff;
-font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+font: 1em source-sans-pro, sans-serif;
 border-radius: 3px;
 border: 0;
 cursor: pointer;
@@ -168,7 +185,7 @@ padding: 5px 12px;
   margin-right: 20px;
 background-color: #2980B9 ;
 color: #fff;
-font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+font: 1em source-sans-pro, sans-serif;
 border-radius: 3px;
 border: 0;
 cursor: pointer;
@@ -205,7 +222,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
   margin-right: 20px;
 background-color: #2980B9 ;
 color: #fff;
-font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+font: 1em source-sans-pro, sans-serif;
 border-radius: 3px;
 border: 0;
 cursor: pointer;
@@ -238,7 +255,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 .btn-profile {
 background-color: #2980B9 ;
 color: #fff;
-font: 1em "OpenSansBold",Helvetica,Arial,sans-serif;
+font: 1em source-sans-pro, sans-serif;
 border-radius: 3px;
 border: 0;
 cursor: pointer;

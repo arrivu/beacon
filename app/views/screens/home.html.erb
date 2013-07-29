@@ -1,8 +1,8 @@
 
 <% provide(:title, 'A Smarter Way to Learn') %>
-<div style="width:1349px;margin:0px auto;">
+<div style="">
 <% provide(:effectingHeader) %>
- <div class="homebanner" style="background-image:url(assets/homebanner1.png);background-repeat:no-repeat;background-size:100% 100%;color:white;">
+ <div class="homebanner" style="background-image:url(assets/banner.png);background-repeat:no-repeat;background-size:100% 100%;color:white;">
     <div class="container">
         <div class="row">
           <div class="span12" id="slider">
@@ -168,7 +168,7 @@
         <!-- <h2 class="ribbon">
           <span class="title">Our Courses</span>
         </h2> -->
-        <h2 style="margin-left:-30px;"> Popular Courses</h2>
+        <h2 style="margin-left:30px;"> Popular Courses</h2>
       </div>
     </div>
   </div>
@@ -182,14 +182,16 @@
             
               <%= render 'shared/courselist' %>
             
-              <div align="center">
+ <div align="center">
          
 
                 <%= link_to "", courses_path, :class => "browsemore" %>
-                <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
+                <h6 style="color:black;margin-left:0px;font-size: 18px;"> Discover More courses</h6>
 
                
               </div>
+
+             
       </div>
     </div>
   </div>
@@ -197,10 +199,10 @@
 
  
 
-  <div class="ourknowledgepartners secondary-content">
+   <div class="ourknowledgepartners secondary-content" style="background-image:url(assets/greyband.png);height:auto;">
     <div class="container" align="center">
       <div class="row testimonial">
-               <h2>Knowledge Partners</h2>
+               <h2 style="margin-left: 30px;">Knowledge Partners</h2>
 
         <div class="listofkp" >
           <div class="firstkp">
@@ -213,28 +215,25 @@
             <a href="<%= knowledge_partners_path %>"> <img src="assets/eduPristineLogo.jpg" />  </a>
           </div>
         </div>
-        <div align="center">
-         
-              <%= link_to "", knowledge_partners_path, :class => "browselist" %>
-                <h6 style="color:steelblue;margin:0px;"> Know more about out Partners</h6>               
-              </div>
+      
       </div>
     </div>
   </div>
 
- <div class="ourcustomers secondary-content">
+   <div class="ourcustomers " >
+    <div class="secondary-content">
     <div class="container" align="center">
       <div class="row testimonial">
-
-        <h2 style="margin-left:-32px;">Learners <span style="color:#ff0000;font-size: 35px;">
-          ♥</span> Beacon</h2>
-        <hr style="margin:5px 0px;">
-        <div class="span4" style="margin-left:25px;width: 30%;">
+       <h2 style="margin-left: 5px;font-size: 35px;">Learners <span style="color:#ff0000;"> Love</span> Beacon</h2>
+        </div>
+    </div>
+  </div>
+         <div class="container" >
+      <div class="row">
+          <div class="span12">
+        <div class="span4" style="margin-left: 115px;margin-top: 30px;width: 30%;">
           <div class="verticalcustomerbox testimonial-one" align="center">
-            <!--<div class="customerimage">-->
-              <!--<img src="assets/learner.jpg" />-->
-            <!--</div>-->
-            <div class="testimonialtext">
+            <div class="testimonialtext" style="background-image: url(assets/review1.png);background-size: 100% 100%;">
               "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." 
             </div>
             <div class="testimonialauthor">
@@ -242,12 +241,9 @@
             </div>
           </div>
         </div>
-        <div class="span4" style="margin-left:25px;width: 30%;">
+        <div class="span4" style="margin-left: -65px;margin-top: -10px;width: 30%;">
           <div class="verticalcustomerbox testimonial-two">
-            <!--<div class="customerimage">-->
-              <!--<img src="assets/learner.jpg" />-->
-            <!--</div>-->
-            <div class="testimonialtext">
+            <div class="testimonialtext" style="background-image: url(assets/review2.png);background-size: 100% 100%;">
               "I love Beacon for the quality of content and the teaching methodology. The video lectures are very interesting and one can learn at their own pace. Learning becomes so much more enjoyable when you can see the results for yourself."
             </div>
             <div class="testimonialauthor">
@@ -255,12 +251,9 @@
             </div>
           </div>
         </div>
-        <div class="span4" style="margin-left:25px;width: 30%;">
+        <div class="span4" style="margin-left: -57px;margin-top: 15px;width: 35%;">
           <div class="verticalcustomerbox testimonial-three">
-            <!--<div class="customerimage">-->
-              <!--<img src="assets/learner.jpg" />-->
-            <!--</div>-->
-            <div class="testimonialtext">
+            <div class="testimonialtext" style="background-image: url(assets/review3.png);background-size: 100% 100%;height: 235px;">
               "Being in sales for five years, I have been negotiating deals for a living. But I must confess, the Negotiations course really blew me off. There was so much to learn - concepts I'd never thought of explained in wonderfully simple and practical ways. I loved the course for it gave me a skill that is so tangible that I use it every day. Thumbs up Beacon ! "
             </div>
             <div class="testimonialauthor">
@@ -269,10 +262,12 @@
           </div>
         </div>
       </div>
+      </div>
       <div align="center">
          
-              <%= link_to "", user_reviews_path, :class => "browselist" %>
-                <h6 style="style="color:steelblue;margin:0px;""> Read More Reviews</h6>               
+              <a href=""><img src="assets/plus1.png" class="browsemore"></a>
+                <h6 style="color:black;margin-left:0px;font-size: 18px;">Read More Reviews</h6>
+             
               </div>
     </div>
   </div>
@@ -281,14 +276,12 @@
     <div class="container">
       <div class="row">
         <div class="span12" align="center" style="width: 95%;">
-          <h3>Step up Your Learning Curve!</h2>
+          <h3 style="font-size: 38px;">Step up Your Learning Curve!</h3>
           
-          <%= link_to "Browse Our Courses", courses_path, :class => "browseourcoursessmall" %>
+          <a href="/courses" class="browseourcoursessmall">Browse Our Courses</a>
 
           &nbsp;&nbsp;&nbsp;&nbsp;
-          <% unless user_signed_in?%>
           <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">Create Account</a>
-          <% end %>
         </div>
        
       </div>

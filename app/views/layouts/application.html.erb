@@ -8,15 +8,13 @@
   <%= render 'layouts/shim' %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= favicon_link_tag 'favicon.png', :size => "16x16"%>
-
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
+<div id="wrapper">
   <% if check_null(yield(:effectingHeader)) %>
-  <div style="margin-bottom:70px;">
+ 
   <%= render 'layouts/header' %>
-
-  </div>
 
   <% else %>
   <!-- Do Nothing -->
@@ -27,9 +25,7 @@
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-<% end %>
-  </br>
-    <hr style="margin: -1px 0;">
+<% end %>  
 
     <%= yield %>
 
@@ -37,6 +33,7 @@
     <%= render 'layouts/signup_popup' %>
 <%= render 'layouts/forgot_password' %>
   <%= render 'layouts/footer' %>
+</div>
 </body>
 <%= debug(params) if Rails.env.development? %>
 </html>

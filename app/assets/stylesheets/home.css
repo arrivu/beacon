@@ -111,14 +111,9 @@
 	padding-bottom: 30px;
 	/*background-color:#f1f1f1;*/
 	color:#333;
+	
 	border-top: 1px solid #eee;
-	background-color: #d14836;
-	background-image: -webkit-linear-gradient(top,#fff,#f1f1f1);
-	background-image: -moz-linear-gradient(top,#fff,#f1f1f1);
-	background-image: -ms-linear-gradient(top,#fff,#f1f1f1);
-	background-image: -o-linear-gradient(top,#fff,#f1f1f1);
-	background-image: linear-gradient(top,#fff,#f1f1f1);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1'); 
+ 
 	border: 1px solid transparent;
 	border: 1px solid transparent;
 }
@@ -128,16 +123,16 @@ width: 65px;
 height:65px;
 /*padding: 18px 3px 18px 20px;*/
 margin-top: 30px;
-margin-right: 14px;
+margin-right: 5px;
 font-weight: bold;
 /*background: #2980B9;*/
 /*background-color:  	#2a488e;*/
-background-image:url('../assets/plus.png');
+background-image:url('../assets/plus1.png');
 background-size: 65px 65px;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 16px !important;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family: source-sans-pro, sans-serif;
 white-space: nowrap;
 border: none;
 cursor: pointer;
@@ -160,7 +155,7 @@ background-size: 45px 45px;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 16px !important;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family: source-sans-pro, sans-serif;
 white-space: nowrap;
 border: none;
 cursor: pointer;
@@ -183,7 +178,7 @@ background-size: 65px 65px;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 16px !important;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family: source-sans-pro, sans-serif;
 white-space: nowrap;
 border: none;
 cursor: pointer;
@@ -202,7 +197,7 @@ background-color:  	#2a488e;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 20px !important;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family: source-sans-pro, sans-serif;
 white-space: nowrap;
 border: none;
 cursor: pointer;
@@ -228,19 +223,13 @@ zoom: 1;
 	background-image: linear-gradient(top,#f1f1f1,#fff);
 	border: 1px solid transparent;
 	border: 1px solid transparent;*/
-	background-color: #d14836;
-	background-image: -webkit-linear-gradient(top,#fff,#f1f1f1);
-	background-image: -moz-linear-gradient(top,#fff,#f1f1f1);
-	background-image: -ms-linear-gradient(top,#fff,#f1f1f1);
-	background-image: -o-linear-gradient(top,#fff,#f1f1f1);
-	background-image: linear-gradient(top,#fff,#f1f1f1);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f1f1f1'); 
+	
 }
 
 .ourknowledgepartners{
 	margin-top: 20px;
 	margin-bottom: 20px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 0px solid #eee;
 }
 
 .verticalcoursebox{
@@ -313,7 +302,7 @@ zoom: 1;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -336,7 +325,7 @@ zoom: 1;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 20px !important;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -356,12 +345,19 @@ zoom: 1;
 }
 
 .ourcustomers{
-	border-bottom: 1px solid #eee;
+	border-bottom: 0px solid #eee;
 }
 .secondary-content h2 {
 font-size: 26px;
 text-align: center;
 }
+.secondary-content{
+	background-image:url(arrow_bg.png);
+	height: 100px;
+width: 100%;
+background-size: 100% 100%;
+}
+
 
 .secondary-content h2.ribbon .title {
 font-size: 19px;
@@ -434,19 +430,20 @@ border: none;
 	color: #6f6f6f;
 	border-left: none;
 	color: rgba(0,0,0,0.6);
-	font-size: 15px;
+	font-size: 14px;
 	margin-bottom: 13px;
 
 	margin: 0 0 17px;
-	padding: 9px 20px 0 19px;
+	padding: 25px 35px 25px 35px;
 	font-family: verdana ;
 }
 
 .testimonialauthor{
-	margin-top: 20px;
-	font-size: 15px;
+	margin-top: -20px;
+font-size: 15px;
+margin-right: 100px;
 	font-weight: 300;
-	text-align: center;
+	text-align: right;
 	color:#333;
 	font-weight: 600;
 }
@@ -454,7 +451,11 @@ border: none;
 .bottomadsection{
 	/*border-top: 2px solid #4090ba ; 
 	border-bottom: 2px solid #4090ba ;*/
-	margin-top: 5px;
+	margin-top: 10px;
+padding: 20px 0px;
+color: white;
+min-height: 100px;
+background-image: url(bgblack.png);
 }
 
 .drawbordertop{
@@ -469,7 +470,7 @@ border: none;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -485,34 +486,37 @@ border: none;
 .browseourcoursessmall{
 	padding: 10px;
 	margin-top: 10px;
-	font-weight: bold;
+	font-weight: normal;
 	/*background: #2980B9 ;*/
-	background-color: #2a488e;
-	color: #fff !important;
+	background: url(button_bg1.png);
+	color: #000 !important;
 	line-height: 1 !important;
-	font-size: 14px !important;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 25px !important;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
+
 	display: -moz-inline-stack;
 	display: inline-block;
 	vertical-align: middle;
 	zoom: 1;
+	text-decoration:none;
 }
 
 .browseourcoursessmall:hover{
-	background: #3498DB ;
+	/*background: #3498DB ;*/
+	background: url(button_bg1.png);
 }
 
 .listofkp{
 	min-height: 100px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-top: 1px solid #eee;
+	
 	position: relative;
 	margin-top: 20px;
-    padding:10px 70px;
+    padding:10px 130px;
 }
 
 .listofkp .kp{
@@ -524,7 +528,7 @@ border: none;
 
 .listofkp .lastkp{
 	float: left;
-    padding:0px 70px;
+    padding:0px 55px;
 }
 
 .listofkp .firstkp{
@@ -532,7 +536,7 @@ border: none;
 	margin-left: 20px;
 	/*margin-left: 10px;*/
 	/*border-right: 1px solid #eee;*/
-	padding:0px 70px;
+	padding:0px 49px;
 }
 
 .listofkp .firstkp img{width:165px;height:85px;}
@@ -549,7 +553,7 @@ background-color:  	#19757f;
 color: #fff !important;
 line-height: 1 !important;
 font-size: 20px !important;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-family: source-sans-pro, sans-serif;
 white-space: nowrap;
 border: none;
 cursor: pointer;

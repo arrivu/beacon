@@ -48,7 +48,7 @@
       </div>
       <div class="two columns">
         <ul class="link-list site-nav right">
-          <li class="heading">Our Company →</li>
+          <li class="heading">Our Company</li>
           <li><%= link_to "About", about_path %></li>
           <li><%= link_to "Contact Us", new_contact_path %></li>
           <li><%= link_to "Privacy Policy", privacy_path %></li>
@@ -57,7 +57,7 @@
       </div>
       <div class="two columns">
         <ul class="link-list library-nav right">
-          <li class="heading">Browse full library →</li>            
+          <li class="heading">Browse full library</li>            
                <% topic = Topic.find_by_name("Finance") rescue nil? %>
                               <% if !!topic %>
                                   <li ><%= link_to "Online program in Finance", topic %>
