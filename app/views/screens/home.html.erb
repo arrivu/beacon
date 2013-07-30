@@ -2,10 +2,10 @@
 <% provide(:title, 'A Smarter Way to Learn') %>
 <div style="">
 <% provide(:effectingHeader) %>
- <div class="homebanner" style="background-image:url(assets/banner.png);background-repeat:no-repeat;background-size:100% 100%;color:white;">
-    <div class="container">
+ <div class="homebanner" >
+    <div class="container" style="width: 100%;">
         <div class="row">
-          <div class="span12" id="slider">
+          <div class="span12" id="slider" style="width: 100%;">
             <!-- Top part of the slider -->
             <div class="row">
               <div class="" id="carousel-bounding-box">
@@ -13,74 +13,86 @@
                   <!-- Carousel items -->
                   <div class="carousel-inner">
                     <div class="active item" data-slide-number="0">      <div class="row">
-                      <div class="span12" align="center" >
-                        <div class="bannertext">
-                          <h3 style="color:white;margin-left: 50px;">Learning for Life</h3>
-                        </div>
-                      </div>
+                              
+                          
+                        
+                     
                       <div class="clearfix"></div>
-                      <div class="span6" align="center" >
-                        <div class="bannervideo" >
-                          <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="350" height="230" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                      <div class="span12" align="center" style="background-image:url(assets/banner.png);background-repeat:no-repeat;background-size:100% 100%;color:white;width:100%;height: 300px;">
+                      <div class="span6" align="center" style="margin-top: 40px;margin-left: 160px;">
+                        <div class="bannertext">
+                        <h3 style="color:white;text-align:left;">Learning for Life</h3>
                         </div>
-                     </div>
-                      <div class="span6" align="justify">
                         <div class="bannerinfo">
-                          <p>Academic courses, certifications and curated wisdom from the finest academicians to make your learning seamless, progressive and impactful.
+                          <p style="font-size:19px;">Academic courses, certifications and curated wisdom from the finest academicians to make your learning seamless, progressive and impactful.
                            </p>
                         </div>
                         <%= render 'show_topics' %>
+                     </div>
+                      <div class="span4" align="justify">
+                        
+
+                        <!-- <div class="bannervideo" >
+                          <iframe class="video-me" src="http://player.vimeo.com/video/27244727?title=1&amp;byline=1&amp;portrait=1&amp;color=ffffff" width="350" height="230" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                        </div> -->
                       </div>
+                       </div>
                       <div class="clearfix"></div>
                     </div></div>
                     <div class="item" data-slide-number="1"><div class="row">
-                      <div class="span12" align="center" >
-                        <div class="bannertext">
-                          <h3 style="color:white;margin-left: 50px;">Learning for Life</h3>
-                        </div>
-                      </div>
+                      
+                        
+                      
                       <div class="clearfix"></div>
-                      <div class="span6" align="center" >
-                        <div class="bannervideo" >
-                          <img src="assets/GREAT LAKES LOGO.jpg" width="250" height="160"/>
-                        </div>
-                      </div>
-                      <div class="span6" align="justify">
-                        <div class="bannerinfo">
-                          <p>Industry relevant and high impact online certifications from Great Lakes to propel your career ahead
+                      <div class="span12" align="center"  style="background-image:url(assets/banner2.png);background-repeat:no-repeat;background-size:100% 100%;color:black;width:100%;height: 300px;">
+
+                      <div class="span5" align="center" style="margin-left: 160px;margin-top: 20px;background:url(assets/transbg.png);padding:25px;" >
+                                  <div class="bannertext">
+                                    <img src="assets/GREAT LAKES LOGO.jpg" width="145" height="90" style="float:left;margin:0px 5px;">
+                                    <h3 style="text-align: left;font-size: 37px;line-height: 35px;font-weight: bolder;">Great Lakes Certification</h3>
+                        </div>         <br>  <br>
+                         <div class="bannerinfo">
+                          <p style="font-size:19px;">Industry relevant and high impact online certifications from Great Lakes to propel your career ahead
                             </p>
                         </div>
 
 
-                        <div class="bannerlearn">
-                          <span class="learnheading" style="color:white;">Explore:</span>
+                        <div class="bannerlearn" style="color:#000;">
+                          <span class="learnheading" ><img src="assets/banner2_label.png"></span><br>
+                              <span class="learnheading"   >
                                <% topic = Topic.find_by_name("Finance") rescue nil? %>
                               <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Finance Programs", topic, class: "badge1" %>
+                                  <span class="badge1 leartopic" style="color:#000;"><%= link_to "Finance Programs", topic, class: "badge1", :style=>"color:#000;" %>
                                    |
                                   </span>
                               <% else %>
-                                  <span class="badge1 leartopic"><%= link_to "Finance Programs", courses_path, class: "badge1" %>
+                                  <span class="badge1 leartopic" style="color:#000;"><%= link_to "Finance Programs", courses_path, class: "badge1", :style=>"color:#000;" %>
                                     |
                                   </span>
                               <% end %>
                                <% topic = Topic.find_by_name("Analytics") rescue nil? %>
                               <% if !!topic %>
-                                  <span class="badge1 leartopic"><%= link_to "Analytics Programs", topic, class: "badge1" %>
+                                  <span class="badge1 leartopic" style="color:#000;"><%= link_to "Analytics Programs", topic, class: "badge1", :style=>"color:#000;" %>
 
                                   </span>
                               <% else %>
-                  about                <span class="badge1 leartopic"><%= link_to "Analytics Programs", courses_path, class: "badge1" %>
+                  about                <span class="badge1 leartopic" style="color:#000;"><%= link_to "Analytics Programs", courses_path, class: "badge1", :style=>"color:#000;" %>
 
                                   </span>
                              <% end %>
 
-                           
+                           </span>
 
 
 
                         </div>
-
+                        </div>
+                      </div>
+                      <div class="span4" align="justify">
+<!--                        
+<div class="bannervideo" >
+                          <img src="assets/GREAT LAKES LOGO.jpg" width="250" height="160"/>
+                        </div> -->
                       </div>
                       <div class="clearfix"></div>
                     </div></div>
@@ -205,29 +217,29 @@
                <h2 style="margin-left: 30px;">Knowledge Partners</h2>
 
         <div class="listofkp" style="padding:10px 0px;" >
-          <div class="span12">
+          <div class="span12" style="min-width:1200px;">
             <div class="span4" style="width: 345px;text-align:center;">
           <div class="firstkp">
            <a href="<%= knowledge_partners_path %>"> <img src="assets/jigsaw.png" /></a>
            <br>
-<p style="text-align: justify;">
-              "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." 
+<p style="text-align: justify;color: #34495e;font-size: 15px;margin-top: 15px;">
+              Jigsaw academy offers analytical training workshops for corporates and professionals and is the Skill Development Partner for Beacon in the area of Analytics and Data Science.
    </p>        
           </div>
         </div>
          <div class="span4" style="width: 345px;text-align:center;">
           <div class="kp">
             <a href="<%= knowledge_partners_path %>"> <img src="assets/GREAT LAKES LOGO.jpg" />   </a><br>
-            <p style="text-align: justify;"> 
-              "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." 
+            <p style="text-align: justify;color: #34495e;font-size: 15px;margin-top: 15px;"> 
+              Consistently ranked amongst the top ten business schools in the country, Great Lakes is well known for its world class faculty, pedagogy and academic prowess. 
    </p>   
           </div>
         </div>
          <div class="span4" style="width: 345px;text-align:center;">
           <div class="lastkp">
             <a href="<%= knowledge_partners_path %>"> <img src="assets/eduPristineLogo.jpg" />  </a>
-         <br> <p style="text-align: justify;">
-              "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." 
+         <br> <p style="text-align: justify;color: #34495e;font-size: 15px;margin-top: 15px;">
+              Having trained over 10,000+ participants, Pristine is a leading training company for financial modeling and project finance is the Skill Development Partner for Beacon in the area of Finance.
    </p>   
           </div>
         </div></div>
@@ -247,14 +259,14 @@
   </div>
          <div class="container" >
       <div class="row">
-          <div class="span12">
-        <div class="span4" style="margin-left: 115px;margin-top: 30px;width: 30%;">
+          <div class="span12" style="min-width:1200px;">
+        <div class="span4" style="margin-left: 65px;margin-top: 30px;width: 30%;">
           <div class="verticalcustomerbox testimonial-one" align="center">
             <div class="testimonialtext" style="background-image: url(assets/review1.png);background-size: 100% 100%;">
               "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." 
             </div>
             <div class="testimonialauthor">
-              - Mayank,<br/>Analytics Professional
+              -<strong> Mayank</strong>,<br/>Analytics Professional
             </div>
           </div>
         </div>
@@ -264,7 +276,7 @@
               "I love Beacon for the quality of content and the teaching methodology. The video lectures are very interesting and one can learn at their own pace. Learning becomes so much more enjoyable when you can see the results for yourself."
             </div>
             <div class="testimonialauthor">
-              -Kate,<br/>Business Manager
+              -<strong> Kate</strong>,<br/>Business Manager
             </div>
           </div>
         </div>
@@ -274,7 +286,7 @@
               "Being in sales for five years, I have been negotiating deals for a living. But I must confess, the Negotiations course really blew me off. There was so much to learn - concepts I'd never thought of explained in wonderfully simple and practical ways. I loved the course for it gave me a skill that is so tangible that I use it every day. Thumbs up Beacon ! "
             </div>
             <div class="testimonialauthor">
-              - Arun,<br/>Sales Executive
+              - <strong> Arun</strong>,<br/>Sales Executive
             </div>
           </div>
         </div>

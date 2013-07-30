@@ -43,8 +43,7 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.065);
 background: white;
 margin: 0;
 padding: 10px 0px;
-height: 85px;
-
+min-height: 75px;
 top: 0;
 width: 100%;
 z-index: 100;

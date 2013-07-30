@@ -28,7 +28,7 @@
 	font-weight: 200;
 	/*color: #ECF0F1 ;*/
 	color: #333;
-	margin-left:115px;
+	
 	z-index: 0;
 	text-transform: capitalize;
 }
@@ -50,7 +50,8 @@
 }
 
 .bannerinfo{
-	margin-top: 20px;
+	text-align: left;
+
 	/*color: #f1f1f1;*/
 	z-index: 0;
 }
@@ -82,7 +83,7 @@
 
 .learnheading{
 	float:left;
-	margin-right: 10px;
+	
 	padding: 7px 0px;
 	text-transform: uppercase;
 	position: relative;
@@ -488,7 +489,7 @@ background-image: url(bgblack.png);
 	margin-top: 10px;
 	font-weight: normal;
 	/*background: #2980B9 ;*/
-	background: url(button_bg1.png);
+	background: #fab619;
 	color: #000 !important;
 	line-height: 1 !important;
 	font-size: 25px !important;
@@ -506,7 +507,7 @@ background-image: url(bgblack.png);
 
 .browseourcoursessmall:hover{
 	/*background: #3498DB ;*/
-	background: url(button_bg1.png);
+	background:#fab619;
 }
 
 .listofkp{

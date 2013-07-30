@@ -34,12 +34,12 @@ myWindow.close();
   <header class="navbar" >
   <div style="width:1275px;margin:0px auto;">
     <div class="logo" >
-    <a href="/" onMouseOver="swapImage('jack','smile')"  onMouseOut="swapImage('jack','nosmile')"><img src="/assets/zbeaconslogo.png" width="222" height="71" border="0" name="jack"></a>
+    <a href="/" onMouseOver="swapImage('jack','smile')"  onMouseOut="swapImage('jack','nosmile')"><img src="/assets/zbeaconslogo.png" width="222" height="71" style="margin-top: -15px;"border="0" name="jack"></a>
       </div>
     <div class="container" style= " padding-top:20px;  padding-bottom:20px;float:right; ">
       <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>
       <nav style="margin-left:30px;">
-        <ul class="nav pull-right">
+        <ul class="nav pull-right" style="margin-top: -20px;">
           <li> <%= link_to "Course Library", courses_path %></li>
           <% if user_signed_in?%>
           <% if current_user.has_role? :admin %>
