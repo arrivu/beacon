@@ -85,7 +85,7 @@ width: 500px;
 }
 
 .card-a, .prereqs, .tabs-container, .team .member .team-controls ul, .team .manager .team-controls ul, .team .seats-edit .team-controls ul, .management .member .team-controls ul, .management .manager .team-controls ul, .management .seats-edit .team-controls ul, ul.prizes .prize { background-image:url(course_bg.png);background-size:100%  100%;
-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+/*box-shadow: 0 1px 2px rgba(0,0,0,0.2);*/
 }
 
 .card, .card-a, .prereqs, .tabs-container, .team .member .team-controls ul, .team .manager .team-controls ul, .team .seats-edit .team-controls ul, .management .member .team-controls ul, .management .manager .team-controls ul, .management .seats-edit .team-controls ul, ul.prizes .prize, .card-b, .callout {
