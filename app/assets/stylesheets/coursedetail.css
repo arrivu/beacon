@@ -25,18 +25,18 @@
 	color:#ffffff;
 }
 .coursedesc{
-padding: 15px 70px 0px 170px;
+padding: 15px 70px 0px 70px;
 width: 100%;
 }
 
 .coursetitle h3{
-	line-height: 34px;
-	font-size: 30px;
-	font-weight: 200;
-	color: #f1f1f1;
-	z-index: 0;
-	margin-left: 30px;
-	text-transform: uppercase;
+line-height: 34px;
+font-size: 36px;
+font-weight: bold;
+color: #fff;
+z-index: 0;
+margin-left: 30px;
+text-transform: uppercase;
 }
 
 .subtitle{
@@ -64,8 +64,8 @@ width: 100%;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-/*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-*/	white-space: nowrap;
+	font-family: source-sans-pro, sans-serif;
+	white-space: nowrap;
 	border: none;
 	cursor: pointer;
 	display: -moz-inline-stack;
@@ -88,8 +88,8 @@ width: 100%;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-/*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-*/	white-space: nowrap;
+	font-family: source-sans-pro, sans-serif;
+	white-space: nowrap;
 	border: none;
 	cursor: pointer;
 	display: -moz-inline-stack;
@@ -123,8 +123,8 @@ width: 100%;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-/*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-*/	white-space: nowrap;
+	font-family: source-sans-pro, sans-serif;
+	white-space: nowrap;
 	border: none;
 	cursor: pointer;
 	display: -moz-inline-stack;
@@ -147,8 +147,8 @@ width: 100%;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-/*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-*/	white-space: nowrap;
+	font-family: source-sans-pro, sans-serif;
+	white-space: nowrap;
 	border-radius: 4px 4px 4px 4px;
 	cursor: pointer;
 	display: -moz-inline-stack;
@@ -182,8 +182,8 @@ width: 100%;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-/*	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-*/	white-space: nowrap;
+	font-family:source-sans-pro, sans-serif;
+	white-space: nowrap;
 	border: none;
 	cursor: pointer;
 	display: -moz-inline-stack;
@@ -205,7 +205,7 @@ width: 100%;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	/*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -249,10 +249,10 @@ width: 100%;
 	line-height: 34px;
 	font-size: 30px;
 	font-weight: 200;
-	color: #4090ba;
+	color: #000;
 	z-index: 0;
-	margin-left: 30px;
-	border-bottom: 1px solid #eee;
+	margin-left: 0px;
+	border-bottom: 0px solid #eee;
 }
 
 .coursesyllabus .underlinetext{
@@ -263,7 +263,7 @@ width: 100%;
 	font-weight: 100;
 	color: #333;
 	z-index: 0;
-	margin-left: 30px;
+	margin-left: 0px;
 }
 
 .previewcourse{
@@ -280,7 +280,8 @@ width: 100%;
 }
 
 .previewcourse .prevbox{
-	background-color: #F8F8F6 ;
+	background-image: url(../assets/preview_bg.png);
+background-size: 100% 100%;
 	margin-bottom: 10px;
 }
 
@@ -291,21 +292,21 @@ width: 100%;
 
 .previewcourse .previnfo{
 	float: left;
-	padding-left: 10px;
+	
 	color: #333 ;
 }
 
 .prevtxt{
-	color: #16A085;
+	color: #000;
 }
 
 .aboutauthor{
 	min-height: 100px;
 
 	/*background-color: #2C3E50 ;*/
-	background-color: #f2e1ac;
+	/*background-color: #f2e1ac;*/
 	margin-top: 20px;
-	color: #2a488e;
+	color: #000;
 
 	padding:20px;
 }
@@ -398,7 +399,7 @@ width: 100%;
 }*/
 
 .starrating{
-	margin-left: 30px;
+	margin-left: 0px;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -441,5 +442,5 @@ width: 100%;
 	list-style: none;
 	color: #333;
 
-	font-family: verdena;
+	font-family: source-sans-pro, sans-serif;
 }

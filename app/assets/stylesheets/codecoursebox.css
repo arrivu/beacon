@@ -41,7 +41,7 @@ h2 {
   margin-bottom: 2px; }
 
 h3 {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: bold;
   margin-bottom: 4px;
   margin-top: 2px; }
@@ -84,8 +84,16 @@ min-height: 95px;
 width: 500px;
 }
 
-.card-a, .prereqs, .tabs-container, .team .member .team-controls ul, .team .manager .team-controls ul, .team .seats-edit .team-controls ul, .management .member .team-controls ul, .management .manager .team-controls ul, .management .seats-edit .team-controls ul, ul.prizes .prize { background-image:url(course_bg.png);background-size:100%  100%;
+.card-a, .prereqs, .tabs-container, .team .member .team-controls ul, .team .manager .team-controls ul, .team .seats-edit .team-controls ul, .management .member .team-controls ul, .management .manager .team-controls ul, .management .seats-edit .team-controls ul, ul.prizes .prize { 
+  background-image:url(course_bg.png);background-size:100%  100%;
 /*box-shadow: 0 1px 2px rgba(0,0,0,0.2);*/
+}
+.card-a1{ 
+  background-image:url(course_bg1.png);background-size:100%  100%;
+/*box-shadow: 0 1px 2px rgba(0,0,0,0.2);*/
+border-radius: 3px;
+display: block;
+padding: 10px;
 }
 
 .card, .card-a, .prereqs, .tabs-container, .team .member .team-controls ul, .team .manager .team-controls ul, .team .seats-edit .team-controls ul, .management .member .team-controls ul, .management .manager .team-controls ul, .management .seats-edit .team-controls ul, ul.prizes .prize, .card-b, .callout {
@@ -198,7 +206,7 @@ color: #b54322;
 
 .course .course-name {
 color: #2a478d;
-font-size: 2em;
+font-size: 21px;
 letter-spacing: -1px;
 margin: 0 10px 0 0;
 }
