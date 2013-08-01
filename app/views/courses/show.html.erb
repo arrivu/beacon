@@ -81,7 +81,7 @@ $(document).ready(function(){
      <div class="span6 authorinfo"> <h4 style="font-size:21px;color:#2a478d;"> <%= author.name %></h4>
         <p style="min-height:65px;"><%= truncate(author.description, :length => 300)%></p>
       <% if !!author.linkedin_profile_url %>
-              <%= link_to image_tag("linkedin.png", :alt => author.name , :class=>"img-circle", :size => "30x30"), "http://" + author.linkedin_profile_url, :target => "_blank" %>
+              <%= link_to image_tag("linkedin_icon.png", :alt => author.name , :class=>"img-circle", :size => "30x30"), "http://" + author.linkedin_profile_url, :target => "_blank" %>
         <% end  %></div>
       
 
