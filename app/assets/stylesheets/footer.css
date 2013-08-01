@@ -1,6 +1,6 @@
 .footer {
 background: #fff;
-padding-top: 10px;
+padding-top: 25px;
 position: relative;
 width: 100%;
 margin-bottom:0px;
@@ -44,14 +44,14 @@ margin-bottom: 15px;
 }
 
 .footer .mission p {
-color: #888;
+color: #333;
 margin-top: 15px;
 }
 
 .footer .mission p {
 display: block;
 clear: left;
-color: #888;
+color: #333;
 line-height: 1.5;
 margin: 0 0 15px;
 }
@@ -67,8 +67,9 @@ font-size: 13px;
 
 .footer .mission ul.social {
 border-top: 0px solid #ddd;
-margin: 15px 0;
-padding: 15px 0 0;
+margin-bottom: 25px;
+margin-top: 0px;
+margin-left: 0px;
 }
 
 .footer .mission ul.social li {
@@ -90,11 +91,11 @@ width: 26px;
 
 .footer .mission ul a {
 font-weight: bold;
-color: #999;
+color: #333;
 }
 
 .footer .mission p.copyright {
-color: #bbb;
+color: #333;
 }
 
 .footer_icon
@@ -109,7 +110,7 @@ width: auto\9;
 .footer .mission p {
 display: block;
 clear: left;
-color: #888;
+color: #333;
 line-height: 1.5;
 margin: 0 0 15px;
 }
@@ -140,18 +141,18 @@ float: right;
 
 .footer ul.link-list li.heading {
 font-weight: bold;
-margin-bottom: 4px;
+
 }
 
 .footer ul.link-list li {
-color: #999;
+color: #333;
 display: block;
 float: none;
 font-size: 13px;
 }
 
 .footer .link-list li, .footer .link-list a {
-color: #999;
+color: #333;
 display: block;
 line-height: 1.8;
 }
@@ -168,21 +169,21 @@ display: block;
 
 
 .footer ul.link-list li.heading a {
-color: #777;
+color: #333;
 }
 
 .footer .link-list .heading a {
 font-weight: bold;
-color: #777;
+color: #333;
 margin-bottom: 5px;
 }
 
 .footer ul.link-list a {
-color: #999;
+color: #333;
 }
 
 .footer .link-list li, .footer .link-list a {
-color: #999;
+color: #333;
 display: block;
 line-height: 1.8;
 }

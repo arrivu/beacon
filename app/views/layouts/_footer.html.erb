@@ -10,7 +10,7 @@
 
     <div class="row">
       <div class="four columns mission" style="margin-left:150px;">
-        <p class="heading" style="font-weight:bold;font-family: source-sans-pro, sans-serif">Connect with Beacon Learning</p>
+        <p class="heading" style="margin-bottom: 4px;font-weight:bold;font-family: source-sans-pro, sans-serif">Connect with Beacon Learning</p>
        
         <ul class="social">
           <li>
@@ -60,26 +60,26 @@
           <li class="heading">Browse full library</li>            
                <% topic = Topic.find_by_name("Finance") rescue nil? %>
                               <% if !!topic %>
-                                  <li ><%= link_to "Online program in Finance", topic %>
+                                  <li ><%= link_to "Finance Courses", topic %>
                                   </li>
                               <% else %>
-                                  <li ><%= link_to "Online program in Finance", courses_path %>
+                                  <li ><%= link_to "Finance Courses", courses_path %>
                                   </li>
                              <% end %>
                                    <% topic = Topic.find_by_name("Marketing") rescue nil? %>
                               <% if !!topic %>
-                                  <li ><%= link_to "Online program in Marketing", topic %>
+                                  <li ><%= link_to "Marketing Courses", topic %>
                                   </li>
                               <% else %>
-                                  <li ><%= link_to "Online program in Marketing", courses_path %>
+                                  <li ><%= link_to "Marketing Courses", courses_path %>
                                   </li>
                              <% end %>
                                    <% topic = Topic.find_by_name("Analytics") rescue nil? %>
                               <% if !!topic %>
-                                  <li ><%= link_to "Online program in Analytics", topic %>
+                                  <li ><%= link_to "Analytics Courses", topic %>
                                   </li>
                               <% else %>
-                                  <li ><%= link_to "Online program in Analytics", courses_path %>
+                                  <li ><%= link_to "Analytics Courses", courses_path %>
                                   </li>
                              <% end %>
                                    <% topic = Topic.find_by_name("Online certification programs") rescue nil? %>
