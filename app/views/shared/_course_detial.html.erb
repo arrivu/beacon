@@ -23,7 +23,7 @@
           <div class="subtitle">
             <h4><%= @course.short_desc %></h4>
           </div>
-          <div class="subtitle" style="color:#fcff00">
+          <div class="subtitle" style="color:#ffed00">
             <% if @course.is_coming_soon %>
             <h4>Date to be announced</h4>
             <% else %>
@@ -51,22 +51,22 @@
             <h4><%= next_session %></h4>
             <% end %>
             <% if @price.to_i != 0 %>
-            <h2 style="color:white">Rs&nbsp;<%= @price.to_i %></h2>
+            <!-- <h2 style="color:white">Rs&nbsp;<%= @price.to_i %></h2> -->
             <% end %>
           </div>
           <div class="container clearfix"></div>
          
-          <div style="margin-left: 80px;">
+          <div style="margin-left: 30px;">
            <a>
             <%#= link_to image_tag("#{@course.image}", border: 0, width: "100", height: "100")%> 
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
             <br align = "center">
             <% end %>
             <%= rating_for @course, "rate"  %>
-            <div id="rating" style="color:#fff;"><%= pluralize(@qty,"Rate") if !!@qty%></div>
+            <div id="rating" style="color:#fff;"><%= pluralize(@qty,"Review") if !!@qty%></div>
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
            </a>
-            <div style="height:40px;"><%= image_tag "group.png" if @subscribers_count >= 1 %><b class="learners_count"><%= pluralize(@subscribers_count, "Learner") if @subscribers_count >= 1%> </b> </div>
+            <div style="height:40px;"><%= image_tag "learner_icon.png" if @subscribers_count >= 1 %><b class="learners_count"><%= pluralize(@subscribers_count, "Learner") if @subscribers_count >= 1%> </b> </div>
 
            <% end %>
           </a>
@@ -90,7 +90,7 @@
 
 <div class="container">
       <div class="row">
-        <div class="span12" align="center" style="width: 95%;">
+        <div class="span12" align="center" style="width: 95%;margin: 20px 0px;">
                 <a href="#previewcourse"><div class="browseourcoursessmall">
               Preview Video
             </div></a>&nbsp;&nbsp;&nbsp;&nbsp;

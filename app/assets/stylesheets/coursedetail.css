@@ -1,3 +1,5 @@
+
+h1,h2,h3,h4,h5,h6 {font-family:source-sans-pro, sans-serif;}
 .coursedetailtop{
 	min-height: 100px;
 	background-size:100% 310px;
@@ -43,7 +45,7 @@ text-transform: uppercase;
 	font-size: 15px;
 	line-height: 20px;
 	font-weight: 100;
-	color: #f1f1f1;
+	color: #fff;
 	z-index: 0;
 	margin-left: 30px;
 }
@@ -256,10 +258,10 @@ text-transform: uppercase;
 }
 
 .coursesyllabus .underlinetext{
-	font-family: verdana;
-	text-align: justify;
+	font-family: source-sans-pro, sans-serif;
+	text-align: left;
 	margin-top: 10px;
-	font-size: 17px;
+	font-size: 16px;
 	font-weight: 100;
 	color: #333;
 	z-index: 0;
@@ -282,7 +284,9 @@ text-transform: uppercase;
 .previewcourse .prevbox{
 	background-image: url(../assets/preview_bg.png);
 background-size: 100% 100%;
-	margin-bottom: 10px;
+margin-top: 30px;
+margin-right: 30px;
+
 }
 
 .previewcourse .previmage{
@@ -324,7 +328,7 @@ background-size: 100% 100%;
 
 .coursereviews{
 	min-height: 100px;
-	background-color: #ECF0F1 ;
+	/*background-color: #ECF0F1 ;*/
 	margin-top: 0px;
 	color: #333;
 	margin-bottom: 20px;
@@ -408,13 +412,13 @@ background-size: 100% 100%;
 .bubble-content {
    position:relative;
    float:left;
-   padding: 10px;
+   padding: 15px;
    margin-left: 12px;
-   border-radius:10px;
-   background-color:#fff;
+   background-image: url('../assets/review_bg.png');
+background-size: 100% 100%;
    color: #333;
    width:350px;
-   box-shadow:1px 1px 5px rgba(0,0,0,.2);
+   
    text-align: justify;
    }
 .bubble {

@@ -246,8 +246,8 @@ font:source-sans-pro, sans-serif;
 }
 
 .learners_count{
-    line-height: 50px;
+    line-height: 30px;
     vertical-align: top;
     padding: 0px 10px;
-    color:#f89406;
+    color:#fff;
 }

@@ -1,7 +1,7 @@
 <% if !@comments.blank?%>
         <% @comments.each do |comment| %>
-      <div class="row" style="float:left;margin:0px auto;">
-        <div class="span6" style="margin-bottom:10px;float:left;">
+      <div class="row" style="float:left;margin:0px 30px;">
+        <div class="span6" style="margin-bottom:10px;float:left;width: 486px;">
           <div class="reviewer">
 
         <% if comment.user.image_blob == nil %>

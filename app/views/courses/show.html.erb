@@ -13,16 +13,18 @@ $(document).ready(function(){
 <div class="coursesyllabus">
   <div class="container">
       <div class="row">
-        
-      <div class="span5" > 
+        <div class="span12" align="center" style="width: 95%;margin: 20px 0px;">
+          <div style="width:100%;margin-bottom: -97px;height:100px;background-image: url('../assets/greyband.png');background-size: 100% 100%;">
+          </div>
+      <div class="span5" style="width: 510px;"> 
         <div class="head">
-          <h3>Course Modules</h3>
+          <h3 style="text-align:left;">Course Modules</h3>
         </div>
         <div class="underlinetext">
           <ul>
             <% @modules.each do |m| %>
-            <li>
-              <h4 style="color:#000;font-size:17px;"><i class="icon-star" style="margin-right:5px;"></i><%= m.name %></h4>
+            <li style="list-style:circle;">
+              <h4 style="color:#000;font-size:17px;"><%= m.name %></h4>
             </li>
             <% end %>
           </ul>
@@ -31,7 +33,7 @@ $(document).ready(function(){
       </div>
       <div class="span6" style="">
         <div class="head">
-          <h3>Course Description</h3>
+          <h3 style="text-align:left;">Course Description</h3>
         </div>
         <div class="underlinetext" >
           
@@ -54,7 +56,7 @@ $(document).ready(function(){
         </tr>
       </table>
     </div>
-
+</div>
 </div>
 </div>
 </div>
@@ -62,28 +64,27 @@ $(document).ready(function(){
 </div>
 <div class="aboutauthor">
   <div class="container ">
-    <h1>About the Faculty</h1>
+    <h1 >About the Faculty</h1>
     <% @authors.each do |author|%>
-    <div class="row" style="width:61%; display:inline-block; clear:left; margin:15px">
-      <div class="authorimage">
+    <div class="row" style="width:81%; display:inline-block; clear:left;">
+      <div class=" span2 authorimage">
         <% if author.user.image_blob == nil %>
         <% if author.user.omni_image_url == nil %>
-        <%= gravatar_for_with_size author.user, "100x100" %>
+        <%= gravatar_for_with_size author.user, "130x130", :style=>"box-shadow: 3px 3px 5px #ccc;" %>
         <% else  %>
-        <%= image_tag(author.user.omni_image_url,size: "100x100", alt: "")%>
+        <%= image_tag(author.user.omni_image_url,size: "130x130", alt: "", :style=>"box-shadow: 3px 3px 5px #ccc;")%>
         <% end  %>
         <% else  %>
-        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "100x100" %>
-        <% end  %>
-        <p ><%= truncate(author.description, :length => 300)%></p>
-      </div>
-      <div class="authorinfo">
-        <h4><%= author.name %></h4>
-        <% if !!author.linkedin_profile_url %>
-              <%= link_to image_tag("linkedin_badge.png", :alt => author.name ), "http://" + author.linkedin_profile_url, :target => "_blank" %>
+        <%= image_tag url_for(:controller => 'registrations',:action => 'user_image', :id => author.user.id), :size => "130x130", :style=>"box-shadow: 3px 3px 5px #ccc;"%>
         <% end  %>
 
       </div>
+     <div class="span6 authorinfo"> <h4 style="font-size:21px;color:#2a478d;"> <%= author.name %></h4>
+        <p style="min-height:65px;"><%= truncate(author.description, :length => 300)%></p>
+      <% if !!author.linkedin_profile_url %>
+              <%= link_to image_tag("linkedin.png", :alt => author.name , :class=>"img-circle", :size => "30x30"), "http://" + author.linkedin_profile_url, :target => "_blank" %>
+        <% end  %></div>
+      
 
       <div class="container clearfix"></div>
     </div>
@@ -100,7 +101,7 @@ $(document).ready(function(){
       <% a=0 %>
       <% @course.course_previews.where(enable: 1).order(:sequence).each do |p| %>
       <% a +=1  %>
-      <div class="span5 prevbox">
+      <div class="span7 prevbox">
        <table> <tr>
          <td>
            <div class="bannervideo">
@@ -144,8 +145,10 @@ $(document).ready(function(){
   <div class="container">
     <div class="row">
       <div align="center">
-        <h3><%=@course.comments.size%> Reviews</h3>
+        <div class="secondary-content" style="background-image: url(../assets/greyband.png);height: 100px;width: 100%;background-size: 100% 100%;">
+        <h3 style="padding: 20px 0px;"> Reviews(<%=@course.comments.size%>)</h3>
         <br/>
+      </div>
       </div>
     </div>
     <%= render "comments" %>
@@ -163,14 +166,23 @@ $(document).ready(function(){
   </div>
 </div>
 
-<div align="center">
-  <a href="<%= courses_path %>"><span class="browsemore" align="center">
-    
-      </span></a>
-      <h6 style="color:steelblue;margin:0px;"> Discover More courses</h6>
 </div>
 </div>
+  <div class="bottomadsection">
+    <div class="container">
+      <div class="row">
+        <div class="span12" align="center" style="width: 95%;">
+          <h3 style="font-size: 32px;font-weight: 300;">Step Up Your Learning Curve Today!</h3>
+          
+          <a href="/courses" class="browseourcoursessmall">Browse Our Courses</a>
 
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">I'm Interested</a>
+        </div>
+       
+      </div>
+    </div>
+  </div>
 <script>
 $(document).ready(function(){
   $(".star").click(function(){
