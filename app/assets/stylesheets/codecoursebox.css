@@ -33,7 +33,7 @@ a {
 h1 {
   font-size: 32px;
   font-weight: 900; 
-font:source-sans-pro, sans-serif;}
+font-family: source sans pro;}
 
 h2 {
   font-size: 26px;
@@ -149,7 +149,7 @@ padding-left: 110px;
 position: relative;
 z-index: 1;
 margin-left:20px;
-font:14px/1.231 source-sans-pro, sans-serif;
+font:14px/1.231 source sans pro;
 }
 
 .label.label-offset, .label-offset.label-a, .path-tags ul a.label-offset, .label-offset.label-b, .label-offset.label-c, .label-offset.label-d {
@@ -180,7 +180,7 @@ padding: 2px;
 em {
 font-style: italic;
 font-weight: normal;
-font:14px/1.231 source-sans-pro, sans-serif;
+font:14px/1.231 source sans pro;
 
 }
 
@@ -217,12 +217,12 @@ color: #333333;
 
 p {
 font-size: 16px;
-font:source-sans-pro, sans-serif;
+font-family:source sans pro;
  margin: 0 0 -1px;
 
 }
 .bannerinfo p{
-   font: 20px source-sans-pro, sans-serif;
+   font: 20px source sans pro;
  margin: 0 0 -1px;
 }
 .orange{
