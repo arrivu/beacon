@@ -176,7 +176,9 @@ $(document).ready(function(){
           <a href="/courses" class="browseourcoursessmall">Browse Our Courses</a>
 
           &nbsp;&nbsp;&nbsp;&nbsp;
+           <% unless user_signed_in?%>
           <a href="#sign_up_Modal" role="button" data-toggle="modal" class="browseourcoursessmall">I'm Interested</a>
+          <%end%>
         </div>
        
       </div>
