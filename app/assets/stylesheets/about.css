@@ -16,6 +16,7 @@ text-align: center;
 .aboutcompany .underlinetext p{
 float: left;
 padding: 20px 0px;
+width:76%;
 }
 .aboutcompany .head{
 	line-height: 34px;
