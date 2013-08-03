@@ -2,7 +2,7 @@
  <div id="sign_up_Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   
 
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"><%=image_tag("close.png", alt: "")%></a></button>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"><%=image_tag("close.png", alt: "", :size=>"35x35")%></a></button>
 
   <div class="modal-header" style = "border-bottom: 0px">
     <h3 id="myModalLabel" align="center"> </h3>
@@ -36,15 +36,15 @@
         <h3 align="left" style="margin: 0px 0px 0px -26px;font-size:19px;">   Login using</h3>
         <div style="margin-left:10px;margin-top:55px;">
 
-         <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: ""), '/auth/facebook/' %>
+         <%= link_to image_tag("loginfacebook.png",:class => "login_img", alt: "", :size=>"48x48"), '/auth/facebook/' %>
          <br>
        Facebook
          <br><br>
-         <%= link_to image_tag("Google_Logo.jpg", :class => "login_img", alt: ""), '/auth/google_oauth2/' %>
+         <%= link_to image_tag("Google_Logo.jpg", :class => "login_img", alt: "", :size=>"48x48"), '/auth/google_oauth2/' %>
          <br>
         Google
          <br><br>
-         <%= link_to image_tag("login-linkedin.png", :class => "login_img", alt: ""), '/auth/linkedin/' %>
+         <%= link_to image_tag("login-linkedin.png", :class => "login_img", alt: "", :size=>"48x48"), '/auth/linkedin/' %>
          <br>
          LinkedIn
          </div>

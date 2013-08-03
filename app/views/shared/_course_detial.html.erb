@@ -67,7 +67,8 @@
             <div id="rating" style="color:#fff;float:left;"><%= pluralize(@qty,"Review") if !!@qty%></div>
             <% unless url_for(:only_path => true, :overwrite_params=> { }) == '/courses?'  %>
            </a>
-            <div style="width: 120px;margin-top: 20px;height:40px;"><%= image_tag "learner_icon.png" if @subscribers_count >= 1 %><b class="learners_count"><%= pluralize(@subscribers_count, "Learner") if @subscribers_count >= 1%> </b> </div>
+            <div style="width: 120px;margin-top: 20px;height:40px;"><%= image_tag "learner_icon.png" if @subscribers_count >= 1 %><b class="learners_count"><%= pluralize(@subscribers_count, "Learner") if @subscribers_count >= 1%> </b> 
+            </div>
 
            <% end %>
           </a>
