@@ -39,8 +39,8 @@ module ApplicationHelper
    end
     end
 
-  def http_cache(instant_variable,scope=true,expires=15)
-    expires_in expires.minutes
+  def http_cache(instant_variable,scope=true,expires="#{Settings.cache.time_out}")
+    expires_in expires.to_i.hours
     fresh_when instant_variable, public: scope
   end
   #  def http_cache(instant_variable,scope=true)

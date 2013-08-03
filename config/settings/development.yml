@@ -39,3 +39,5 @@ omniauth:
   linkedin_secret: "OKd1hmuJoNOg9J2g"
   google_oauth2_key: "928801233183"
   google_oauth2_secret: "-nMQ0dEfcaBITxzwYHZPQ3v-"
+cache:
+  timeout: "8"

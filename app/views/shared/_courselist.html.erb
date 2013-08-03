@@ -13,7 +13,7 @@
             <%= image_tag "test.png", width: "130", height: "130",:class=>"course-badge img-circle" %>
             <% end %>
             <% if course.is_coming_soon %>
-              <div class="coming_soon"><%= image_tag("coming_soon.png"), :size=>"114x116" %></div>
+              <div class="coming_soon"><%= image_tag ("coming_soon.png"), :size => "114x116" %></div>
             <% elsif price_of_course_according_to_date(course).to_i ==0 %>
               <div class="free"><%= image_tag("free.png") %></div>
             <% end %>
