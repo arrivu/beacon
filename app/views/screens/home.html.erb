@@ -117,58 +117,7 @@
     </div>
 
 
-      <script>
-          jQuery(document).ready(function($) {
-
-              $('#myCarousel').carousel({
-                  interval: 5000
-              });
-
-              $('#carousel-text').html($('#slide-content-0').html());
-
-              //Handles the carousel thumbnails
-              $('[id^=carousel-selector-]').click( function(){
-                  var id_selector = $(this).attr("id");
-                  var id = id_selector.substr(id_selector.length -1);
-                  var id = parseInt(id);
-                  $('#myCarousel').carousel(id);
-              });
-
-
-              // When the carousel slides, auto update the text
-              $('#myCarousel').on('slid', function (e) {
-                  var id = $('.item.active').data('slide-number');
-                  $('#carousel-text').html($('#slide-content-'+id).html());
-              });
-
-
-          });
-      </script>
-   <script type="text/javascript">
-       $(window).load(function() {
-           $('#myCarousel').carousel();
-
-           $(".carousel-nav a").click(function(e){
-               e.preventDefault();
-               var index = parseInt($(this).attr('data-to'));
-               $('#myCarousel').carousel(index);
-               var nav = $('.carousel-nav');
-               var item = nav.find('a').get(index);
-               nav.find('a.active').removeClass('active');
-               $(item).addClass('active');
-           });
-
-           $("#myCarousel").bind('slide', function(e) {
-               var elements = 2; // change to the number of elements in your nav
-               var nav = $('.carousel-nav');
-               var index = $('#myCarousel').find('.item.active').index();
-               index = (index == elements - 1) ? 0 : index + 1;
-               var item = nav.find('a').get(index);
-               nav.find('a.active').removeClass('active');
-               $(item).addClass('active');
-           });
-       });
-   </script>
+     
 
     </div>
   </div>
@@ -176,21 +125,14 @@
     <div class="secondary-content" style="margin-bottom: -35px;">
     <div class="container" align="center">
       <div class="row testimonial">
-        <!-- <h2 class="ribbon">
-          <span class="title">Our Courses</span>
-        </h2> -->
+     
         <h2 style="margin-left:30px;"> Popular Courses</h2>
       </div>
     </div>
   </div>
     <div class="container">
       <div class="row">
-        <!-- <div class="span12" align="center">
-          <div class="bannersubtitle">
-              Learn where to start and what to take next with our courses
-          </div> 
-        </div> -->
-            
+                  
               <%= render 'shared/courselist' %>
             
  <div align="center">
@@ -218,23 +160,9 @@
   </div>
     <div class="container">
       <div class="row">
-  <!--       <div class="span12" align="center">
-          <div class="bannersubtitle">
-              Learn where to start and what to take next with our courses
-          </div> 
-        </div> -->
+
             
               <%= render 'shared/courselist1' %>
-            
-<!--  <div align="center">
-         
-
-                <%= link_to "", courses_path, :class => "browsemore" %>
-                <h6 style="color:black;margin-left:0px;font-size: 18px;"> Discover More courses</h6>
-
-               
-              </div> -->
-
              
       </div>
     </div>
@@ -250,7 +178,7 @@
           <div class="span12" style="min-width:1200px;">
             <div class="span4" style="width: 345px;text-align:center;">
           <div class="firstkp">
-           <a href="<%= knowledge_partners_path %>"> <img src="assets/jigsaw.png" /></a>
+           <a href="<%= knowledge_partners_path %>"> <img src="assets/jigsaw.png" width="130" height="130" /></a>
            <br>
 <p style="text-align: left;color: #000;font-size: 16px;font-family: source sans pro;margin-top: 15px;font-weight: 100;">
               Jigsaw academy offers analytical training workshops for corporates and professionals and is the Skill Development Partner for Beacon in the area of Analytics and Data Science.
@@ -259,7 +187,7 @@
         </div>
          <div class="span4" style="width: 345px;text-align:center;">
           <div class="kp">
-            <a href="<%= knowledge_partners_path %>"> <img src="assets/GREAT LAKES LOGO.jpg" />   </a><br>
+            <a href="<%= knowledge_partners_path %>"> <img src="assets/GREAT LAKES LOGO.jpg" width="130" height="130"/>   </a><br>
             <p style="text-align: left;color: #000;font-size: 16px;font-family: source sans pro;margin-top: 15px;font-weight: 100;"> 
               Consistently ranked amongst the top ten business schools in the country, Great Lakes is well known for its world class faculty, pedagogy and academic prowess. 
    </p>   
@@ -267,7 +195,7 @@
         </div>
          <div class="span4" style="width: 345px;text-align:center;">
           <div class="lastkp">
-            <a href="<%= knowledge_partners_path %>"> <img src="assets/eduPristineLogo.jpg" />  </a>
+            <a href="<%= knowledge_partners_path %>"> <img src="assets/eduPristineLogo.jpg" width="130" height="130"/>  </a>
          <br> <p style="text-align: left;color: #000;font-size: 16px;font-family: source sans pro;margin-top: 15px;font-weight: 100;">
               Having trained over 10,000+ participants, Pristine is a leading training company for financial modeling and project finance is the Skill Development Partner for Beacon in the area of Finance.
    </p>   
@@ -293,7 +221,7 @@
         <div class="span4" style="margin-left: 65px;margin-top: 30px;width: 30%;">
           <div class="verticalcustomerbox testimonial-one" align="center">
             <div class="testimonialtext" style="background-image: url(assets/review1.png);background-size: 100% 100%;">
-              "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics." <!-- <br><a href="" style="color:#2a478d;">Read More</a> -->
+              "Taking the Great Lakes Analytics Certification has been one the best career decisions. The content had the perfect blend of theory and hands-on exposure. I would recommend it to all who wish to build a career in analytics."
             </div>
             <div class="testimonialauthor">
               -<strong> Mayank</strong>,<br/>Analytics Professional
@@ -303,7 +231,7 @@
         <div class="span4" style="margin-left: -65px;margin-top: -10px;width: 30%;">
           <div class="verticalcustomerbox testimonial-two">
             <div class="testimonialtext" style="background-image: url(assets/review2.png);background-size: 100% 100%;">
-              "I love Beacon for the quality of content and the teaching methodology. The video lectures are very interesting and one can learn at their own pace. Learning becomes so much more enjoyable when you can see the results for yourself."<!-- <br><a href="" style="color:#2a478d;">Read More</a> -->
+              "I love Beacon for the quality of content and the teaching methodology. The video lectures are very interesting and one can learn at their own pace. Learning becomes so much more enjoyable when you can see the results for yourself."
             </div>
             <div class="testimonialauthor">
               -<strong> Kate</strong>,<br/>Business Manager
@@ -313,7 +241,7 @@
         <div class="span4" style="margin-left: -57px;margin-top: 15px;width: 35%;">
           <div class="verticalcustomerbox testimonial-three">
             <div class="testimonialtext" style="background-image: url(assets/review3.png);background-size: 100% 100%;height: 235px;">
-              "Being in sales for five years, I have been negotiating deals for a living. But I must confess, the Negotiations course really blew me off. There was so much to learn - concepts I'd never thought of explained in wonderfully simple and practical ways. I loved the course for it gave me a skill that is so tangible that I use it every day. Thumbs up Beacon ! "<!-- <br><a href="" style="color:#2a478d;">Read More</a> -->
+              "Being in sales for five years, I have been negotiating deals for a living. But I must confess, the Negotiations course really blew me off. There was so much to learn - concepts I'd never thought of explained in wonderfully simple and practical ways. I loved the course for it gave me a skill that is so tangible that I use it every day. Thumbs up Beacon ! "
             </div>
             <div class="testimonialauthor">
               - <strong> Arun</strong>,<br/>Sales Executive
@@ -324,7 +252,7 @@
       </div>
       <div align="center">
          
-              <a href=""><img src="assets/plus1.png" class="browsemore"></a>
+              <a href=""><img src="assets/plus1.png" width="62" height="62" class="browsemore"></a>
                 <h6 style="color:black;margin-left:0px;font-size: 18px;">Read More Reviews</h6>
              
               </div>

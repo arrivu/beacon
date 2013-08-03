@@ -8,7 +8,6 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
-@import url("http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic");
 @font-face {
   font-family: "Flat-UI-Icons-16";
   src: url("fonts/Flat-UI-Icons-16.eot");
@@ -4037,6 +4036,30 @@ input[type="submit"].btn.btn-mini {
   float: left;
 }
 
+nav-tabs,
+.nav-pills {
+  *zoom: 1;
+}
+
+.nav-tabs:before,
+.nav-pills:before,
+.nav-tabs:after,
+.nav-pills:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.nav-tabs:after,
+.nav-pills:after {
+  clear: both;
+}
+
+.nav-tabs > li,
+.nav-pills > li {
+  float: left;
+}
+
 .nav-tabs > li > a,
 .nav-pills > li > a {
   padding-right: 12px;
@@ -4046,7 +4069,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav-tabs {
-  border-bottom: 0px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .nav-tabs > li {
@@ -4057,12 +4080,14 @@ input[type="submit"].btn.btn-mini {
   padding-top: 8px;
   padding-bottom: 8px;
   line-height: 20px;
-  border: 0px solid transparent;
-
+  border: 1px solid transparent;
+  -webkit-border-radius: 4px 4px 0 0;
+     -moz-border-radius: 4px 4px 0 0;
+          border-radius: 4px 4px 0 0;
 }
 
 .nav-tabs > li > a:hover {
-  
+  border-color: #eeeeee #eeeeee #dddddd;
 }
 
 .nav-tabs > .active > a,
@@ -4070,8 +4095,8 @@ input[type="submit"].btn.btn-mini {
   color: #555555;
   cursor: default;
   background-color: #ffffff;
-  border-left: 2px solid #333;
-  
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
 }
 
 .nav-pills > li > a {
