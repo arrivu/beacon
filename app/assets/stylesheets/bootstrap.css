@@ -16,23 +16,15 @@
   font-style: normal; 
 }
 @font-face {
-  font-family: "source-sans-pro";
-  src: url("fonts/source-sans-pro, sans-serif;.ttf");
-  src: url("fonts/source-sans-pro, sans-serif;.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal; 
+  font-family:"Source Sans Pro";
+  src: url("fonts/SourceSansPro-Regular.eot");
+  src:url("fonts/SourceSansPro-Regular.eot?") format("eot"),url("fonts/SourceSansPro-Regular.woff") format("woff"),url("fonts/SourceSansPro-Regular.ttf") format("truetype"),url("fonts/SourceSansPro-Regular.svg#SourceSansPro-Regular") format("svg");
+  font-weight:normal;
+  font-style:normal;
 }
-@font-face {
-  font-family: "source-sans-bold";
-  src: url("fonts/SourceSansPro-Bold.ttf");
-  src: url("fonts/SourceSansPro-Bold.ttf") format("truetype");
-  font-weight: bold;
-  font-style: bold; 
-}
-
 body{
   color: #34495e;
-  font: 14px/1.231 source-sans-pro, sans-serif;;
+  font: 14px/1.231 source-sans-pro, sans-serif;
 }
 
 
@@ -252,7 +244,7 @@ textarea {
 
 body {
   margin: 0;
-  font-family: source-sans-pro, sans-serif;;
+  font-family: source-sans-pro, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -678,7 +670,7 @@ a:hover {
 
 p {
   margin: 0 0 10px;
-  font-family:source-sans-pro, sans-serif;;
+  font-family:source-sans-pro, sans-serif;
   font-size: 1.6em;
 }
 
@@ -985,7 +977,7 @@ address {
 code,
 pre {
   padding: 0 3px 2px;
-  font-family: source-sans-pro, sans-serif;;
+  font-family: source-sans-pro, sans-serif;
   font-size: 12px;
   color: #333333;
   -webkit-border-radius: 3px;
@@ -1078,7 +1070,7 @@ input,
 button,
 select,
 textarea {
-  font-family: source-sans-pro, sans-serif;;
+  font-family: source-sans-pro, sans-serif;
 }
 
 label {
@@ -4514,7 +4506,7 @@ color:#333;
 .navbar-search .search-query {
   padding: 4px 14px;
   margin-bottom: 0;
-  font-family: source-sans-pro, sans-serif;;
+  font-family: source-sans-pro, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
