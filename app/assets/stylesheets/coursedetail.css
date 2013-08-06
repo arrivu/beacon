@@ -1,5 +1,5 @@
 
-h1,h2,h3,h4,h5,h6 {font-family:source sans pro;}
+h1,h2,h3,h4,h5,h6 {font-family:source-sans-pro, sans-serif;;}
 .coursedetailtop{
 	min-height: 100px;
 	background-size:100% 310px;
@@ -67,7 +67,7 @@ text-transform: uppercase;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -91,7 +91,7 @@ text-transform: uppercase;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -126,7 +126,7 @@ text-transform: uppercase;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -150,7 +150,7 @@ text-transform: uppercase;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;;
 	white-space: nowrap;
 	border-radius: 4px 4px 4px 4px;
 	cursor: pointer;
@@ -185,7 +185,7 @@ text-transform: uppercase;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family:source sans pro;
+	font-family:source-sans-pro, sans-serif;;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -208,7 +208,7 @@ text-transform: uppercase;
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 14px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -259,7 +259,7 @@ text-transform: uppercase;
 }
 
 .coursesyllabus .underlinetext{
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;;
 	text-align: left;
 	margin-top: 10px;
 	font-size: 16px;
@@ -447,5 +447,5 @@ background-size: 100% 100%;
 	list-style: none;
 	color: #333;
 
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;;
 }
