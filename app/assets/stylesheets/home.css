@@ -84,7 +84,7 @@
 	.learnheading{
 		float:left;
 		
-		padding: 7px 0px;
+		padding: 0px 0px;
 		text-transform: uppercase;
 		position: relative;
 		top:-10px;
@@ -133,7 +133,7 @@
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 16px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -156,7 +156,7 @@
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 16px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -179,7 +179,7 @@
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 16px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -198,7 +198,7 @@
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 20px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -303,7 +303,7 @@
 		color: #fff !important;
 		line-height: 1 !important;
 		font-size: 14px !important;
-		font-family: source sans pro;
+		font-family: source-sans-pro, sans-serif;
 		white-space: nowrap;
 		border: none;
 		cursor: pointer;
@@ -326,7 +326,7 @@
 		color: #fff !important;
 		line-height: 1 !important;
 		font-size: 20px !important;
-		font-family: source sans pro;
+		font-family: source-sans-pro, sans-serif;
 		white-space: nowrap;
 		border: none;
 		cursor: pointer;
@@ -352,7 +352,7 @@
 	font-size: 36px;
 	line-height: 72px;
 	text-align: center;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;
 	color: #000;
 	}
 	.secondary-content{
@@ -439,7 +439,7 @@
 	    font-weight: 100;
 		margin: 0 0 17px;
 		padding: 25px 35px 25px 35px;
-		font-family: source sans pro;
+		font-family: source-sans-pro, sans-serif;
 	}
 
 	.testimonialauthor{
@@ -474,7 +474,7 @@
 		color: #fff !important;
 		line-height: 1 !important;
 		font-size: 14px !important;
-		font-family: source sans pro;
+		font-family: source-sans-pro, sans-serif;
 		white-space: nowrap;
 		border: none;
 		cursor: pointer;
@@ -496,7 +496,7 @@
 		color: #000 !important;
 		line-height: 1 !important;
 		font-size: 32px !important;
-		font-family: source sans pro;
+		font-family: source-sans-pro, sans-serif;
 		white-space: nowrap;
 		border: none;
 		cursor: pointer;
@@ -557,7 +557,7 @@
 	color: #fff !important;
 	line-height: 1 !important;
 	font-size: 20px !important;
-	font-family: source sans pro;
+	font-family: source-sans-pro, sans-serif;
 	white-space: nowrap;
 	border: none;
 	cursor: pointer;
@@ -594,3 +594,64 @@
 	 color:orange;
 	  font-weight: bold;
 	}
+.facebook, .linkedin, .or, .twitter, .youtube, .banner2_label, .banner1_label, .close, .googleplus, .plus1{
+	background: url(sprites.png) no-repeat;
+}
+
+.facebook{
+	background-position: 0 0;
+	width: 30px;
+	height: 30px;
+}
+
+.linkedin{
+	background-position: -51px 0;
+	width: 30px;
+	height: 30px;
+}
+
+.or{
+	background-position: -99px 0;
+	width: 50px;
+	height: 50px;
+}
+
+.twitter{
+	background-position: -149px 0;
+	width: 30px;
+	height: 30px;
+}
+
+.youtube{
+	background-position: -201px 0;
+	width: 30px;
+	height: 30px;
+}
+
+.banner2_label{
+	background-position: -249px 0;
+	width: 245px;
+	height: 24px;
+}
+
+.banner1_label{
+	background-position: 0 -51px ;
+	width: 245px;
+	height: 24px;
+}
+
+.close{
+	background-position: -200px -51px ;
+	width: 35px;
+	height: 35px;
+}
+
+.googleplus{
+background-position: -248px -52px;	width: 30px;
+	height: 30px;
+}
+.plus1{
+	background-position: -299px -48px ;
+	width: 62px;
+	height: 62px;
+}
