@@ -90,11 +90,11 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   create_table "course_previews", :force => true do |t|
     t.string   "name"
     t.text     "desc"
-    t.string   "video_url"
+    t.text     "video_url",  :limit => 255
     t.integer  "sequence"
     t.integer  "enable"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
     t.integer  "course_id"
   end
 
