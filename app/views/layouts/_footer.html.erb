@@ -83,12 +83,12 @@
                                   <li ><%= link_to "Analytics Courses", courses_path %>
                                   </li>
                              <% end %>
-                                   <% topic = Topic.find_by_name("Online certification programs") rescue nil? %>
+                                   <% topic = Topic.find_by_name("Online Certificate programs") rescue nil? %>
                               <% if !!topic %>
-                                  <li ><%= link_to "Online certification programs", topic %>
+                                  <li ><%= link_to "Online Certificate programs", topic %>
                                   </li>
                               <% else %>
-                                  <li ><%= link_to "Online certification programs", courses_path %>
+                                  <li ><%= link_to "Online Certificate programs", courses_path %>
                                   </li>
                              <% end %>
                                 

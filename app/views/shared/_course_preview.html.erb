@@ -10,14 +10,15 @@
          <td>
            <div class="bannervideo">
             <% url = p.video_url.split('/')  %>
-            <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
-            <div id="preview_model<%= a %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <a href="#preview_model<%= a %>" data-toggle="modal" data-dismissible="false"> <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" /></a>
+            <div id="preview_model<%= a %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="false" data-dismissible="false" aria-hidden="true">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><%=image_tag("close.png", alt: "")%></a></button>
               <div class="modal-header">
                 <h3 id="myModalLabel">Preview Video</h3>
               </div>
               <div class="modal-body">
                <iframe width="400" height="350" src=<%= p.video_url %> frameborder="0" allowfullscreen class="iframe"></iframe> 
+  
              </div>
            </div>
          </div>

@@ -8,9 +8,12 @@ $(document).ready(function(){
       }
 
 });
+
+$( ".modal1" ).dialog({ dismissible: false });
 </script>
 
-<div class="coursesyllabus">
+  
+ <div class="coursesyllabus">
   <div class="container">
       <div class="row">
         <div class="span12" align="center" style="width: 100%;margin: 20px 0px;padding-top: 20px;background-image: url('../assets/greyband.png');background-size: 100% 100%;">
@@ -107,8 +110,8 @@ $(document).ready(function(){
             <% h = p.video_url %>
             <% url = h[38..h.length-44].split('/')  %>
 
-            <a href="#preview_model<%= a %>" data-toggle="modal" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" style="width: 170px;height: 120px;" /></a>
-      <div id="preview_model<%= a %>" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
+            <a href="#preview_model<%= a %>" data-toggle="modal" data-dismissible="false" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" style="width: 170px;height: 120px;" /></a>
+      <div id="preview_model<%= a %>" data-dismissible="false" data-backdrop="false" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 
                 <%=image_tag("close.png", alt: "")%></a>
@@ -119,8 +122,10 @@ $(document).ready(function(){
               </div>
 
               <div class="modal-body" style="margin-left:0px;">
-
+                                                      
                <%= raw(p.video_url) %>
+             
+
              </div>
            </div>
        </div>
