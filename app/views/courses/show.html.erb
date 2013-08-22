@@ -200,11 +200,11 @@ $(".close").click(function(){
   for (var i = 0; i < frames.length; i++) {
     frames[i].src += "&stop";
   }
-  $("object").remove();
+  $("object").stop();
 });
-$(".startvideo").click(function(){
-   $("object").add();
-});
+// $(".startvideo").click(function(){
+//    $("object").add();
+// });
 });
 </script>
 
