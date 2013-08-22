@@ -12,7 +12,19 @@ $(document).ready(function(){
 $( ".modal1" ).dialog({ dismissible: false });
 
 </script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
   
+  
+<script type="text/javascript">
+        var params = {
+                allowscriptaccess: "always",
+                allownetworking: "all",
+                allowfullscreen: "true",
+                wmode: "opaque"
+        };
+</script>
+
+
  <div class="coursesyllabus">
   <div class="container">
       <div class="row">
@@ -122,10 +134,7 @@ $( ".modal1" ).dialog({ dismissible: false });
               </div>
 
               <div class="modal-body" style="margin-left:0px;">
-                                                      
-               <%= raw(p.video_url) %>
-             
-
+                   <div id="kplayer"> <%= raw(p.video_url) %></div>              
              </div>
            </div>
        </div>
@@ -200,7 +209,7 @@ $(".close").click(function(){
   for (var i = 0; i < frames.length; i++) {
     frames[i].src += "&stop";
   }
-  $("object").stop();
+  // $("object").remove();
 });
 // $(".startvideo").click(function(){
 //    $("object").add();
