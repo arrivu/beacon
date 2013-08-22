@@ -11,7 +11,19 @@ $(document).ready(function(){
 
 $( ".modal1" ).dialog({ dismissible: false });
 </script>
-
+<script>
+  function pauseVideo()
+  {
+    $("object").each
+    (
+      function(index)
+      {
+        obj = $(this).get(0);
+        if (obj.pauseVideo) obj.pauseVideo();
+      }
+    );
+  }
+</script>
   
  <div class="coursesyllabus">
   <div class="container">
@@ -112,7 +124,7 @@ $( ".modal1" ).dialog({ dismissible: false });
 
             <a href="#preview_model<%= a %>" data-toggle="modal" data-dismissible="false" > <img src="http://i.ytimg.com/vi/<%= url[4] %>/default.jpg" style="width: 170px;height: 120px;" /></a>
       <div id="preview_model<%= a %>" data-dismissible="false" data-backdrop="false" class="modal1 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="position:fixed;margin:0px auto;left:28%;" >
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              <button type="button" class="close" onClick="pauseVideo(); data-dismiss="modal" aria-hidden="true">
 
                 <%=image_tag("close.png", alt: "")%></a>
                </a></button>
