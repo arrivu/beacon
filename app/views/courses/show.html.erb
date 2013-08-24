@@ -10,20 +10,12 @@ $(document).ready(function(){
 });
 
 $( ".modal1" ).dialog({ dismissible: false });
-
+$( ".close" ).dialog({
+   close: function(event, ui) {
+       player.sendEvent('STOP');
+   }
+});
 </script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
-  
-  
-<script type="text/javascript">
-        var params = {
-                allowscriptaccess: "always",
-                allownetworking: "all",
-                allowfullscreen: "true",
-                wmode: "opaque"
-        };
-</script>
-
 
  <div class="coursesyllabus">
   <div class="container">
@@ -43,8 +35,7 @@ $( ".modal1" ).dialog({ dismissible: false });
             <% end %>
           </ul>
         </div>
-        
-      </div>
+       </div>
       <div class="span6">
         <div class="head">
           <h3 style="text-align:left;">Course Description</h3>
@@ -209,7 +200,17 @@ $(".close").click(function(){
   for (var i = 0; i < frames.length; i++) {
     frames[i].src += "&stop";
   }
-  // $("object").remove();
+   var playerObj = document.getElementsByTagName("object");
+  if (playerObj) {
+                playerObj.stopVideo();
+                playerObj.clearVideo();
+            }
+  
+  // $("object").stopVideo();
+   // var myAudio = document.getElementsByTagName("object")[0];
+   //  if(myAudio != undefined){
+   //      myAudio.remove();
+   //  }
 });
 // $(".startvideo").click(function(){
 //    $("object").add();
