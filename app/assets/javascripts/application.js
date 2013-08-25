@@ -69,7 +69,7 @@ $(function() {
            });
 
            $("#myCarousel").bind('slide', function(e) {
-               var elements = 2; // change to the number of elements in your nav
+               var elements = 3; // change to the number of elements in your nav
                var nav = $('.carousel-nav');
                var index = $('#myCarousel').find('.item.active').index();
                index = (index == elements - 1) ? 0 : index + 1;

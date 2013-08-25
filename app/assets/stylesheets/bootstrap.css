@@ -4027,8 +4027,7 @@ input[type="submit"].btn.btn-mini {
 .nav-pills > li {
   float: left;
 }
-
-nav-tabs,
+.nav-tabs,
 .nav-pills {
   *zoom: 1;
 }

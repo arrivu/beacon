@@ -1,5 +1,6 @@
 Myapp::Application.routes.draw do
 
+
   match 'teaching_staffs/new',:to=>'teaching_staffs#new'  
   resources :course_pricings
   resources :teaching_staffs
@@ -13,12 +14,13 @@ Myapp::Application.routes.draw do
       get 'redeem'
     end
   end
+  resources :certified_program_users
   resources :contacts
   resources :faqs
   resources :blogs
   resources :tags
   resources :courses 
-  
+    match 'certified_program_users/show', :to => 'certified_program_users#show'
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
   match 'payments/course_payment',:to=>'payments#course_payment'
   match 'payments/follow_course',:to=>'payments#follow_course'

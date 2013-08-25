@@ -1,0 +1,52 @@
+<div style="float:left">
+  <%= render 'shared/side_menu' %>
+</div>
+
+<br>
+<div class="row">
+  <div class="span12 offset3" style="min-height:530px;">
+   <h3 align = "center">Certificate Program Users</h3>
+       <table class="table table-condensed table-hover table table-striped tablesorter" id="myTable">
+    <thead>
+      <tr class="tab_head">
+        <th >Name</th>
+        <th >Email</th>
+           <th >City</th>
+        <th >Age</th>
+           <th >Mobile</th>
+   <th >Course Name</th>
+       </tr>
+    </thead>
+    <tbody>
+      Download:<%= link_to "Excel", certified_program_user_path(format: "xls",:search =>params[:search]) %>
+       <% CertifiedProgramUser.find(:all).each do |user|%>
+       <tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.city %></td>
+  <td><%= user.age %></td>
+  <td><%= user.mobile %></td>
+  <td><%= user.course %></td>
+        
+      </tr>
+<%end%>
+
+    </tbody>
+  </table>
+
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+<script>
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter(); 
+    } 
+); 
+</script>  

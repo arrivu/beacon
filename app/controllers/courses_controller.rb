@@ -106,7 +106,40 @@ before_filter :check_admin_user, :only => [:new,:create, :edit, :destroy,:manage
    @subscribers_count = @course.student_courses.where(status== "enroll").count
   end
 
+def show
+   @course = Course.find(params[:id])
+   @price_detail = CoursePricing.find_by_course_id(@course.id)
+   if @price_detail!=nil
+      @price=@price_detail.price
+   end
+   @authors= @course.teaching_staffs
+   #@course.teaching_staffs.each do |teaching_staff|
+   #  @authors << User.where(id: teaching_staff.user_id).first
+   #end
 
+   if(current_user!=nil)
+    student=Student.where(user_id: current_user.id).first
+    @status_check = StudentCourse.find_by_student_id_and_course_id(student,@course.id)
+    if @status_check!=nil
+      @status=@status_check.status
+
+    end
+  end
+
+  @modules=lms_get_modules(@course)
+    #@countCommentsPerPage = 6
+    @comments = @course.comments.paginate(page: params[:page], per_page: 6)
+    #@count = @course.comments.count
+    if signed_in?
+      unless RatingCache.find_by_cacheable_id(@course.id) == nil
+        @qty = RatingCache.find_by_cacheable_id(@course.id).qty
+      end
+
+      @rated = Rate.find_by_rater_id(current_user.id)
+    end
+
+   @subscribers_count = @course.student_courses.where(status== "enroll").count
+  end
   def upcomming_courses
     @total_course_count = Course.where(ispublished: 0,:isconcluded=>false).all.count
     @countCoursesPerPage = 6
