@@ -21,7 +21,7 @@ class CertifiedProgramUsersController < ApplicationController
 		  flash[:success] = "certificate program user created!"
 		  redirect_to root_url
 		else
-		  flash[:error] = "Mandatory Fields should not be empty"
+		  flash.now[:error] = "Mandatory Fields should not be empty"
 		  render :new
 		end
 	end
