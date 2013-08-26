@@ -18,10 +18,10 @@ class CertifiedProgramUsersController < ApplicationController
 
           
 		if @certificateprogramusers.save
-		  flash[:success] = "certificateprogramuser created!"
+		  flash[:success] = "certificate program user created!"
 		  redirect_to root_url
 		else
-		  flash[:error] = "Error on creating food"
+		  flash[:error] = "Mandatory Fields should not be empty"
 		  render :new
 		end
 	end

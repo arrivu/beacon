@@ -83,6 +83,7 @@ Myapp::Application.configure do
    # :email_prefix => "#{Settings.exception_notifer.email_prefix}",
    # :sender_address => "#{Settings.exception_notifer.sender_address}",
    # :exception_recipients => "#{Settings.exception_notifer.exception_recipients}"
+  config.assets.initialize_on_precompile = false 
 end
 
 
