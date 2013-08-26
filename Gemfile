@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.2'
+ruby '1.9.3'
 gem 'rails', '3.2.12'
 gem 'jquery-rails','2.2.1'
 gem 'figaro', '0.6.4'
