@@ -441,11 +441,18 @@ background-size: 100% 100%;
 
 .underlinetext ul li {
 	padding: 10px;
+	text-align: left;
+list-style-type: disc;
+font-size: 17px;
 }
 
 .underlinetext ul li h4{
 	list-style: none;
 	color: #333;
 
-	 
-}
+	 }
+
+.underlinetext td{vertical-align: top;}
+.underlinetext th{
+background: #efefef;
+border-right: 2px solid #ddd;}
