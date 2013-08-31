@@ -1,0 +1,20 @@
+@media print{
+
+ul, li {
+    display: none;
+    border: 1px solid #fff;
+}
+#side_menu {
+    display: none;
+    border: 1px solid #fff;
+}
+.offset3 {
+	margin-top:-35px;
+margin-left: 160px;
+}
+.print{display: none;}
+
+ .footer{
+    display: none;
+}
+}

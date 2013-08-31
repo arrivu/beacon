@@ -1,0 +1,52 @@
+<div class="side_menu" style="float:left">
+  <%= render 'shared/side_menu' %>
+</div>
+
+<br>
+<div class="row">
+  <div class="span12 offset3" style="min-height:530px;">
+   <h3 align = "center">Certificate Program Users</h3>
+       <table class="table table-condensed table-hover table table-striped tablesorter" id="myTable">
+    <thead>
+      <tr class="tab_head">
+        <th >Name</th>
+        <th >Email</th>
+           <th >City</th>
+        <th >Age</th>
+           <th >Mobile</th>
+   <th >Course Name</th>
+       </tr>
+    </thead>
+    <tbody>
+ 
+       <% @certificateprogramusers.each do |user|%>
+       <tr>
+  <td><a href="<%= certified_program_user_path(user)%>"><%= user.name %></a></td>
+  <td><%= user.email %></td>
+  <td><%= user.date_of_birth %></td>
+  <td><%= user.gender %></td>
+  <td><%= user.mobile %></td>
+  <td>PGPBA</td>
+        
+      </tr>
+<%end%>
+
+    </tbody>
+  </table>
+
+
+</div>
+</div>
+
+</div>
+
+
+</div>
+
+<script>
+$(document).ready(function() 
+    { 
+        $("#myTable").tablesorter(); 
+    } 
+); 
+</script>  

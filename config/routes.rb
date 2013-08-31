@@ -20,8 +20,9 @@ Myapp::Application.routes.draw do
   resources :blogs
   resources :tags
   resources :courses 
-    match 'certified_program_users/show', :to => 'certified_program_users#show'
+
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
+  match 'show_details',:to=>'certified_program_users#show_details'
   match 'payments/course_payment',:to=>'payments#course_payment'
   match 'payments/follow_course',:to=>'payments#follow_course'
   match 'payments/confirm_course_payment',:to=>'payments#confirm_course_payment'
@@ -43,7 +44,7 @@ Myapp::Application.routes.draw do
   match '/terms', :to => 'screens#terms'
   match '/knowledge_partners', :to => 'screens#knowledge_partners'
   match '/user_reviews', :to => 'screens#user_reviews'
-
+ match '/application_form', :to => 'screens#certified_program' 
   #match '/contact', :to => 'screens#contact'
   #match '/faq', :to => 'screens#faq'
   match '/construction', :to => 'screens#construction'  
@@ -74,6 +75,7 @@ Myapp::Application.routes.draw do
   resources :comments, :path_prefix => '/:commentable_type/:commentable_id'
   match '/my_courses', :to => 'courses#my_courses'  
   match '/show_image/:id', :to => 'courses#show_image' 
+  match '/show_applicant_image/:id', :to => 'certified_program_users#show_applicant_image' 
   match '/background_image/:id', :to => 'courses#background_image' 
   
 #  match '*a', :to => 'home#routing_error'

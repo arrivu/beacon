@@ -1,0 +1,70 @@
+<div style="border:#b7b0b0 1px solid; width:1000px; margin:0px auto;">
+<%= simple_form_for @certificateprogramusers do |f| %>
+<table class="table">
+<tr><td><%= f.label :name, "Name" %></td><td><%= f.text_field :name%></td>
+<td><%= f.label :upload, "Upload your photograph*" %></td><td><%= f.file_field :upload%></td></tr>
+<tr><td><%= f.label :gender, "Gender"%></td><td><%= f.radio_button(:gender, "male") %>Male
+<%= f.radio_button(:gender, "female") %>Female
+</td></tr>
+<tr><td><%= f.label :date_of_birth, "Date of Birth" %></td><td><div class="input-append date datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"><%= f.text_field :date_of_birth %><span class="add-on"><i class="icon-th"></i></span>
+  </div></td><td><%= f.label :marital_status, "Marital Status"%></td><td><%= f.radio_button(:marital_status, "Single") %>Single
+<%= f.radio_button(:marital_status, "Married") %>Married
+</td></tr>
+<tr><td><%= f.label :father_name, "Father's Name"%></td><td><%= f.text_field :father_name%></td><td><%= f.label :father_occupation, "Father's Occupation"%></td><td><%= f.text_field :father_occupation%></td></tr>
+<tr><td><%= f.label :mother_name, "Mother's Name"%></td><td><%= f.text_field :mother_name%></td><td><%= f.label :mother_occupation, "Mother's Occupation"%></td><td><%= f.text_field :mother_occupation%></td></tr>
+<tr><td><%= f.label :Nationality, "Nationality"%></td><td><%= f.text_field :Nationality%></td><td></td><td></td></tr>
+<tr><td><%= f.label :mailing_address, "Mailing Address"%></td><td colspan="3"><%= f.text_field :mailing_address%></td><td></td><td></td></tr>
+<tr><td><%= f.label :mobile, "Mobile" %></td>
+      <td><%= f.text_field :mobile%></td><td><%= f.label :landline, "Landline" %></td>
+      <td><%= f.text_field :landline%></td></tr>
+<tr><td><%= f.label :email, "E-mail Id" %></td>
+      <td><%= f.text_field :email%></td><td></td><td></td>
+</table>
+<table class="table"><h4>Academic Qualifications*</h4>
+     <tr><th>  Qualification</th><th>Degree</th><th>Discipline#</th><th>School/ College</th><th>Board/ University</th><th>Passing Year</th><th>%/ CGPA</th></tr>
+<tr><td>Post-Graduation(If any)</td><td><%= f.text_field :pg_degree, :style=>"width:120px;"%></td><td><%= f.text_field :pg_discipline, :style=>"width:120px;"%></td><td><%= f.text_field :pg_college, :style=>"width:120px;"%></td><td><%= f.text_field :pg_university, :style=>"width:120px;"%></td><td><%= f.text_field :pg_year, :style=>"width:120px;"%></td><td><%= f.text_field :pg_cpga, :style=>"width:120px;"%></td></tr>
+<tr><td>Graduation*</td><td><%= f.text_field :gr_degree, :style=>"width:120px;"%></td><td><%= f.text_field :gr_discipline, :style=>"width:120px;"%></td><td><%= f.text_field :gr_college, :style=>"width:120px;"%></td><td><%= f.text_field :gr_university, :style=>"width:120px;"%></td><td><%= f.text_field :gr_year, :style=>"width:120px;"%></td><td><%= f.text_field :gr_cpga, :style=>"width:120px;"%></td></tr>
+<tr><td>Higher Secondary (XII)*</td><td><%= f.text_field :hsc_degree, :style=>"width:120px;"%></td><td><%= f.text_field :hsc_discipline, :style=>"width:120px;"%></td><td><%= f.text_field :hsc_college, :style=>"width:120px;"%></td><td><%= f.text_field :hsc_university, :style=>"width:120px;"%></td><td><%= f.text_field :hsc_year, :style=>"width:120px;"%></td><td><%= f.text_field :hsc_cpga, :style=>"width:120px;"%></td></tr>
+<tr><td>Secondary (X)*</td><td><%= f.text_field :sc_degree, :style=>"width:120px;"%></td><td><%= f.text_field :sc_discipline, :style=>"width:120px;"%></td><td><%= f.text_field :sc_college, :style=>"width:120px;"%></td><td><%= f.text_field :sc_university, :style=>"width:120px;"%></td><td><%= f.text_field :sc_year, :style=>"width:120px;"%></td><td><%= f.text_field :sc_cpga, :style=>"width:120px;"%></td></tr>
+<tr><td colspan="3"># Branch of Engineering/ Science/ Arts/ Commerce/ Other</td></tr>
+
+</table>
+<table>
+</tr>
+<tr><td>Total Work Experience</td><td><%= f.select(:experience, options_for_select([['select', 1], ['0'], ['0-1 year'], ['1-3 year'], ['3-5 years'], ['<5 years']])) %>
+</td></tr>
+<tr><td>Current Annual Salary (CTC)</td><td><%= f.select(:ctc, options_for_select([['select', 1], ['0'], ['0-1 lakh'], ['1-3 lakhs'], ['3-5 lakhs'], ['<5 lakhs']])) %>
+</td></tr>
+</table>
+<table class="table"><h4>Work Experience Details</h4>
+    <tr><td></td><td>Organization</td><td>Designation</td><td>Nature of Work</td><td>From(MM/YYYY)</td><td>To(MM/YYYY)</td></tr>
+    <tr><td>a</td><td><%= f.text_field :organization_a, :style=>"width:150px;"%></td><td><%= f.text_field :designation_a, :style=>"width:150px;"%></td><td><%= f.text_field :nature_of_work_a, :style=>"width:150px;"%></td><td><div class="input-append date datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"><%= f.text_field :from_a , :style=>"width:100px;"%><span class="add-on"><i class="icon-th"></i></span>
+  </div></td><td><div class="input-append date datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"><%= f.text_field :to_a , :style=>"width:100px;"%><span class="add-on"><i class="icon-th"></i></span>
+  </div></td></tr>
+    <tr><td>b</td><td><%= f.text_field :organization_b, :style=>"width:150px;"%></td><td><%= f.text_field :designation_b, :style=>"width:150px;"%></td><td><%= f.text_field :nature_of_work_b, :style=>"width:150px;"%></td><td><div class="input-append date datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"><%= f.text_field :from_b , :style=>"width:100px;"%><span class="add-on"><i class="icon-th"></i></span>
+  </div></td><td><div class="input-append date datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"><%= f.text_field :to_b , :style=>"width:100px;"%><span class="add-on"><i class="icon-th"></i></span>
+  </div></td></tr></table>
+  <table class="table"><h4>Awards and Achievements</h4>
+<tr><td>a</td><td>Academic Honors</td><td><%= f.text_field :academic_honor_a , :style=>"width:600px;"%></td></tr>
+<tr><td></td><td></td><td><%= f.text_field :academic_honor_b , :style=>"width:600px;"%></td></tr>
+<tr><td>b</td><td> Extracurricular</td><td><%= f.text_field :extracuricular_a , :style=>"width:600px;"%></td></tr>
+<tr><td></td><td></td><td><%= f.text_field :extracuricular_b , :style=>"width:600px;"%></td></tr>
+<tr><td>c</td><td>Others (Specify)</td><td><%= f.text_field :others_a , :style=>"width:600px;"%></td></tr>
+<tr><td></td><td></td><td><%= f.text_field :others_b , :style=>"width:600px;"%></td></tr>
+  </table>
+    <table class="table"><h4>Please choose any one payment mode for application fee*</h4>
+      <tr><td colspan="3"><%= f.radio_button(:payment_mode, "Online Transfer") %>Online Transfer
+<%= f.radio_button(:payment_mode, " Demand Draft ") %> Demand Draft <%= f.radio_button(:payment_mode, "Cash") %>Cash</td><td></td><td>Note: Application Fee Rs 500/- only</td></tr>
+</table>
+ <table class="table"><h4>Declaration</h4>
+      <h6>I certify that information provided in this application form is correct.</h6>
+      <tr><td>Current City*</td><td colspan="2"><%= f.text_field :current_city%></td><td>Applicant Name*</td><td><%= f.text_field :applicant_name%></td></tr>
+
+</table>
+<table>
+</tr>
+<tr><td></td><td><%= f.submit "submit", class: "btn btn-large btn-primary" %>
+</td></tr>
+</table>
+      <% end %><script type="text/javascript">
+$('.datepicker').datepicker()</script></div>

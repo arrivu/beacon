@@ -2,14 +2,12 @@
 {
 	width:180px;
 	border: 1px solid silver;
-	display:block;
 	position: absolute;
 	list-style:none;
 	margin:10px;
 	border-radius:5px;
 	z-index:5;
 	padding:5px 0px 0px 0px;
-	display:block;
 }
 /*#side_menu ul
 {

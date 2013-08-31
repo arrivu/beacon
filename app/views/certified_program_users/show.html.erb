@@ -1,3 +1,6 @@
+
+
+
 <div style="float:left">
   <%= render 'shared/side_menu' %>
 </div>
@@ -5,48 +8,84 @@
 <br>
 <div class="row">
   <div class="span12 offset3" style="min-height:530px;">
-   <h3 align = "center">Certificate Program Users</h3>
-       <table class="table table-condensed table-hover table table-striped tablesorter" id="myTable">
-    <thead>
-      <tr class="tab_head">
-        <th >Name</th>
-        <th >Email</th>
-           <th >City</th>
-        <th >Age</th>
-           <th >Mobile</th>
-   <th >Course Name</th>
-       </tr>
-    </thead>
-    <tbody>
-      Download:<%= link_to "Excel", certified_program_user_path(format: "xls",:search =>params[:search]) %>
-       <% CertifiedProgramUser.find(:all).each do |user|%>
-       <tr>
-  <td><%= user.name %></td>
-  <td><%= user.email %></td>
-  <td><%= user.city %></td>
-  <td><%= user.age %></td>
-  <td><%= user.mobile %></td>
-  <td>PGCBA</td>
-        
-      </tr>
-<%end%>
+<div style="border:#b7b0b0 1px solid; width:1000px; margin:0px auto;padding:5px;">
+<%= link_to "PRINT", '#',:class=>"print", onclick: "printpage()" %>
+<table class="table">
+  <tr><td colspan="2"><h2>Application For PGPBA</h2></td><td colspan="2"><%= image_tag url_for(:controller => 'certified_program_users',:action => 'show_applicant_image', :id => @certificateprogramusers.id), width: "150", height: "150", :style=>"float: right;"%></td></tr>
+<tr><td><%= "Name" %></td><td><%= @certificateprogramusers.name%></td></tr>
+<tr><td>Gender</td><td>
+<%= @certificateprogramusers.gender %>
+</td></tr>
+<tr><td><%=  "Date of Birth" %></td><td><%= @certificateprogramusers.date_of_birth %>
+  </td><td><%= "Marital Status"%></td><td><%= @certificateprogramusers.marital_status%>
+</td></tr>
+<tr><td> Father's Name </td><td><%= @certificateprogramusers.father_name%></td><td> Father's Occupation</td><td><%= @certificateprogramusers.father_occupation%></td></tr>
+<tr><td> Mother's Name</td><td><%= @certificateprogramusers.mother_name%></td><td> Mother's Occupation </td><td><%= @certificateprogramusers.mother_occupation%></td></tr>
+<tr><td><%= "Nationality"%></td><td><%= @certificateprogramusers.Nationality%></td><td></td><td></td></tr>
+<tr><td><%= "Mailing Address" %></td><td colspan="3"><%= @certificateprogramusers.mailing_address%></td><td></td><td></td></tr>
+<tr><td><%= "Mobile" %></td>
+      <td><%= @certificateprogramusers.mobile%></td><td><%= "Landline" %></td>
+      <td><%= @certificateprogramusers.landline%></td></tr>
+<tr><td><%= " E-mail" %></td>
+      <td><%= @certificateprogramusers.email%></td><td></td><td></td>
+</table>
+<table class="table"><h4>Academic Qualifications*</h4>
+     <tr><th>  Qualification</th><th>Degree</th><th>Discipline#</th><th>School/ College</th><th>Board/ University</th><th>Passing Year</th><th>%/ CGPA</th></tr>
+<tr><td>Post-Graduation(If any)</td><td><%= @certificateprogramusers.pg_degree%></td><td><%= @certificateprogramusers.pg_discipline %></td><td><%= @certificateprogramusers.pg_college%></td><td><%= @certificateprogramusers.pg_university %></td><td><%= @certificateprogramusers.pg_year%></td><td><%= @certificateprogramusers.pg_cpga %></td></tr>
+<tr><td>Graduation*</td><td><%= @certificateprogramusers.gr_degree%></td><td><%= @certificateprogramusers.gr_discipline%></td><td><%= @certificateprogramusers.gr_college%></td><td><%= @certificateprogramusers.gr_university%></td><td><%= @certificateprogramusers.gr_year%></td><td><%= @certificateprogramusers.gr_cpga%></td></tr>
+<tr><td>Higher Secondary (XII)*</td><td><%= @certificateprogramusers.hsc_degree%></td><td><%= @certificateprogramusers.hsc_discipline%></td><td><%= @certificateprogramusers.hsc_college%></td><td><%= @certificateprogramusers.hsc_university%></td><td><%= @certificateprogramusers.hsc_year%></td><td><%= @certificateprogramusers.hsc_cpga%></td></tr>
+<tr><td>Secondary (X)*</td><td><%= @certificateprogramusers.sc_degree%></td><td><%= @certificateprogramusers.sc_discipline%></td><td><%= @certificateprogramusers.sc_college%></td><td><%= @certificateprogramusers.sc_university%></td><td><%= @certificateprogramusers.sc_year%></td><td><%= @certificateprogramusers.sc_cpga%></td></tr>
+<tr><td colspan="3"># Branch of Engineering/ Science/ Arts/ Commerce/ Other</td></tr>
 
-    </tbody>
+</table>
+<table>
+</tr>
+<tr><td>Total Work Experience</td><td><%= @certificateprogramusers.experience%>
+</td></tr>
+<tr><td>Current Annual Salary (CTC)</td><td><%= @certificateprogramusers.ctc %>
+</td></tr>
+</table>
+<table class="table"><h4>Work Experience Details</h4>
+    <tr><td></td><td>Organization</td><td>Designation</td><td>Nature of Work</td><td>From(MM/YYYY)</td><td>To(MM/YYYY)</td></tr>
+    <tr><td>a</td><td><%= @certificateprogramusers.organization_a%></td><td><%= @certificateprogramusers.designation_a%></td><td><%= @certificateprogramusers.nature_of_work_a%></td><td><%= @certificateprogramusers.from_a %></td><td><%= @certificateprogramusers.to_a %></td></tr>
+    <tr><td>b</td><td><%= @certificateprogramusers.organization_b%></td><td><%= @certificateprogramusers.designation_b%></td><td><%= @certificateprogramusers.nature_of_work_b%></td><td><%= @certificateprogramusers.from_b %></td><td><%= @certificateprogramusers.to_b %></td></tr></table>
+  <table class="table"><h4>Awards and Achievements</h4>
+<tr><td>a</td><td>Academic Honors</td><td><%= @certificateprogramusers.academic_honor_a %></td></tr>
+<tr><td></td><td></td><td><%= @certificateprogramusers.academic_honor_b %></td></tr>
+<tr><td>b</td><td> Extracurricular</td><td><%= @certificateprogramusers.extracuricular_a %></td></tr>
+<tr><td></td><td></td><td><%= @certificateprogramusers.extracuricular_b %></td></tr>
+<tr><td>c</td><td>Others (Specify)</td><td><%= @certificateprogramusers.others_a%></td></tr>
+<tr><td></td><td></td><td><%= @certificateprogramusers.others_b %></td></tr>
   </table>
+    <table class="table"><h4>Please choose any one payment mode for application fee*</h4>
+      <tr><td colspan="3"><%= @certificateprogramusers.payment_mode%>Online Transfer
+</td><td></td><td>Note: Application Fee Rs 500/- only</td></tr>
+</table>
+ <table class="table"><h4>Declaration</h4>
+      <h6>I certify that information provided in this application form is correct.</h6>
+      <tr><td>Current City*</td><td colspan="2"><%= @certificateprogramusers.current_city%></td><td>Applicant Name*</td><td><%= @certificateprogramusers.applicant_name%></td></tr>
+
+</table>
+<table>
+</tr>
+
+</table>
+      </div>
 
 
-</div>
-</div>
 
-</div>
+<SCRIPT TYPE="text/javascript">function printpage()
+  {
+  window.print()
+  }
+</SCRIPT>
 
 
-</div>
 
-<script>
-$(document).ready(function() 
-    { 
-        $("#myTable").tablesorter(); 
-    } 
-); 
-</script>  
+
+
+
+
+
+
+   
