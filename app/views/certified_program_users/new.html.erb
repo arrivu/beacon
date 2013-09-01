@@ -1,6 +1,5 @@
 <div style="border:#b7b0b0 1px solid; width:1000px; margin:0px auto;">
 <%= simple_form_for @certificateprogramusers do |f| %>
-<%= render 'shared/error_messages', object: f.object %>
 <table class="table">
 
 <tr><td><%= f.label :name, "Name*"%></td><td><%= f.text_field :name, :required => true%></td>
