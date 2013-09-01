@@ -1,23 +1,24 @@
 <div style="border:#b7b0b0 1px solid; width:1000px; margin:0px auto;">
 <%= simple_form_for @certificateprogramusers do |f| %>
+<%= render 'shared/error_messages', object: f.object %>
 <table class="table">
-<tr><td><%= f.label :name, "Name" %></td><td><%= f.text_field :name%></td>
+<tr><td><%= f.label :name, "Name*"%></td><td><%= f.text_field :name, :required => true%></td>
 <td><%= f.label :upload, "Upload your photograph*" %></td><td><%= f.file_field :upload%></td></tr>
-<tr><td><%= f.label :gender, "Gender"%></td><td><%= f.radio_button(:gender, "male") %>Male
+<tr><td><%= f.label :gender, "Gender*"%></td><td><%= f.radio_button(:gender, "male") %>Male
 <%= f.radio_button(:gender, "female") %>Female
 </td></tr>
-<tr><td><%= f.label :date_of_birth, "Date of Birth" %></td><td><div class="input-append date datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"><%= f.text_field :date_of_birth %><span class="add-on"><i class="icon-th"></i></span>
-  </div></td><td><%= f.label :marital_status, "Marital Status"%></td><td><%= f.radio_button(:marital_status, "Single") %>Single
+<tr><td><%= f.label :date_of_birth, "Date of Birth*" %></td><td><div class="input-append date datepicker" data-date="12-02-2012" data-date-format="dd-mm-yyyy"><%= f.text_field :date_of_birth %><span class="add-on"><i class="icon-th"></i></span>
+  </div></td><td><%= f.label :marital_status, "Marital Status*"%></td><td><%= f.radio_button(:marital_status, "Single") %>Single
 <%= f.radio_button(:marital_status, "Married") %>Married
 </td></tr>
-<tr><td><%= f.label :father_name, "Father's Name"%></td><td><%= f.text_field :father_name%></td><td><%= f.label :father_occupation, "Father's Occupation"%></td><td><%= f.text_field :father_occupation%></td></tr>
-<tr><td><%= f.label :mother_name, "Mother's Name"%></td><td><%= f.text_field :mother_name%></td><td><%= f.label :mother_occupation, "Mother's Occupation"%></td><td><%= f.text_field :mother_occupation%></td></tr>
-<tr><td><%= f.label :Nationality, "Nationality"%></td><td><%= f.text_field :Nationality%></td><td></td><td></td></tr>
-<tr><td><%= f.label :mailing_address, "Mailing Address"%></td><td colspan="3"><%= f.text_field :mailing_address%></td><td></td><td></td></tr>
-<tr><td><%= f.label :mobile, "Mobile" %></td>
+<tr><td><%= f.label :father_name, "Father's Name*"%></td><td><%= f.text_field :father_name%></td><td><%= f.label :father_occupation, "Father's Occupation*"%></td><td><%= f.text_field :father_occupation%></td></tr>
+<tr><td><%= f.label :mother_name, "Mother's Name*"%></td><td><%= f.text_field :mother_name%></td><td><%= f.label :mother_occupation, "Mother's Occupation*"%></td><td><%= f.text_field :mother_occupation%></td></tr>
+<tr><td><%= f.label :Nationality, "Nationality*"%></td><td><%= f.text_field :Nationality%></td><td></td><td></td></tr>
+<tr><td><%= f.label :mailing_address, "Mailing Address*"%></td><td colspan="3"><%= f.text_field :mailing_address%></td><td></td><td></td></tr>
+<tr><td><%= f.label :mobile, "Mobile*" %></td>
       <td><%= f.text_field :mobile%></td><td><%= f.label :landline, "Landline" %></td>
       <td><%= f.text_field :landline%></td></tr>
-<tr><td><%= f.label :email, "E-mail Id" %></td>
+<tr><td><%= f.label :email, "E-mail Id*" %></td>
       <td><%= f.text_field :email%></td><td></td><td></td>
 </table>
 <table class="table"><h4>Academic Qualifications*</h4>
@@ -65,6 +66,7 @@
 </tr>
 <tr><td></td><td><%= f.submit "submit", class: "btn btn-large btn-primary" %>
 </td></tr>
+<tr><td>  *Mandatory fields</td></tr>
 </table>
       <% end %><script type="text/javascript">
 $('.datepicker').datepicker()</script></div>

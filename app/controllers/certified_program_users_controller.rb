@@ -21,8 +21,7 @@ class CertifiedProgramUsersController < ApplicationController
 		  flash[:success] = "certificateprogramuser created!"
 		  redirect_to root_url
 		else
-		  flash[:error] = "Error on creating food"
-		  render :new
+		 		  render :new
 		end
 	end
 	def show

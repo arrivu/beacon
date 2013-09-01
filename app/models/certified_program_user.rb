@@ -11,7 +11,6 @@ class CertifiedProgramUser < ActiveRecord::Base
      
 
      validates :name, presence: true
-     validates :upload, presence: true
      validates :gender, presence: true
      validates :date_of_birth, presence: true
      validates :marital_status, presence: true
