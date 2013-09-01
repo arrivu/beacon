@@ -715,13 +715,14 @@ background-position: -248px -52px;	width: 30px;
   padding-top: 12px;
   padding-bottom: 13px;
   line-height: 20px;
-font-size: 20px;
+font-size: 21px;
 color: white;
 
 }
-
-.nav-tabs1 > li > a:hover {
- 
+.navbar .nav > .active > a{border-bottom: 2px solid #333;}
+.nav-tabs1 > li:hover {
+ background-color: #fff;
+ color:#000;
 }
 
 .nav-tabs1 > .active > a,
@@ -782,16 +783,16 @@ color: white;
 
 .nav-tabs2 > li > a,
 .nav-pills > li > a {
-  padding-right: 12px;
-  padding-left: 12px;
-  margin-right: 2px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: 0px;
   line-height: 14px;
 }
-
+.nav-tabs2 > li > a{font-size:16px;}
 .nav-tabs2 > li {
 margin-bottom: -1px;
-border-bottom: 1px solid #333;
-width: 80%;
+border-bottom: 1px solid #ddd;
+width: 90%;
 }
 
 .nav-tabs2 > li > a {
@@ -799,11 +800,14 @@ width: 80%;
   padding-bottom: 8px;
   line-height: 20px;
   color: #000;
-
+ border-top: 1px solid #ddd;
 }
 
 .nav-tabs2 > li > a:hover {
-  border-color: #eeeeee #eeeeee #dddddd;
+  color: #4183c4;
+  cursor: default;
+  background-color: #ffffff;
+  font-weight:bold;
 }
 
 .nav-tabs2 > .active > a,
@@ -811,5 +815,5 @@ width: 80%;
   color: #4183c4;
   cursor: default;
   background-color: #ffffff;
-  border-top: 1px solid #333;
+  border-top: 1px solid #ddd;
  }

@@ -2,11 +2,8 @@
 <%= simple_form_for @certificateprogramusers do |f| %>
 <%= render 'shared/error_messages', object: f.object %>
 <table class="table">
-<<<<<<< HEAD
-<tr><td><%= f.label :name, "Name*" %></td><td><%= f.text_field :name ,:required => true%></td>
-=======
+
 <tr><td><%= f.label :name, "Name*"%></td><td><%= f.text_field :name, :required => true%></td>
->>>>>>> cetified_program
 <td><%= f.label :upload, "Upload your photograph*" %></td><td><%= f.file_field :upload%></td></tr>
 <tr><td><%= f.label :gender, "Gender*"%></td><td><%= f.radio_button(:gender, "male") %>Male
 <%= f.radio_button(:gender, "female") %>Female
@@ -15,13 +12,9 @@
   </div></td><td><%= f.label :marital_status, "Marital Status*"%></td><td><%= f.radio_button(:marital_status, "Single") %>Single
 <%= f.radio_button(:marital_status, "Married") %>Married
 </td></tr>
-<<<<<<< HEAD
-<tr><td><%= f.label :father_name, "Father's Name*"%></td><td><%= f.text_field :father_name%></td><td><%= f.label :father_occupation, "Father's Occupation"%></td><td><%= f.text_field :father_occupation%></td></tr>
-<tr><td><%= f.label :mother_name, "Mother's Name*"%></td><td><%= f.text_field :mother_name%></td><td><%= f.label :mother_occupation, "Mother's Occupation"%></td><td><%= f.text_field :mother_occupation%></td></tr>
-=======
+
 <tr><td><%= f.label :father_name, "Father's Name*"%></td><td><%= f.text_field :father_name%></td><td><%= f.label :father_occupation, "Father's Occupation*"%></td><td><%= f.text_field :father_occupation%></td></tr>
 <tr><td><%= f.label :mother_name, "Mother's Name*"%></td><td><%= f.text_field :mother_name%></td><td><%= f.label :mother_occupation, "Mother's Occupation*"%></td><td><%= f.text_field :mother_occupation%></td></tr>
->>>>>>> cetified_program
 <tr><td><%= f.label :Nationality, "Nationality*"%></td><td><%= f.text_field :Nationality%></td><td></td><td></td></tr>
 <tr><td><%= f.label :mailing_address, "Mailing Address*"%></td><td colspan="3"><%= f.text_field :mailing_address%></td><td></td><td></td></tr>
 <tr><td><%= f.label :mobile, "Mobile*" %></td>

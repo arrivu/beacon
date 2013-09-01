@@ -40,7 +40,7 @@ myWindow.close();
       <%= link_to "", root_path, id: "logo" ,:style => "left:-150px; " %>
       <nav style="margin-left:30px;">
         <ul class="nav pull-right" style="margin-top: -20px;">
-          <li> <%= link_to "Catalogue", courses_path %></li>
+          <li > <%= link_to "Catalogue", courses_path %></li>
           <% if user_signed_in?%>
           <% if current_user.has_role? :admin %>
             <li ><%= link_to 'Admin', users_path %></li>

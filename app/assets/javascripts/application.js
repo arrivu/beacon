@@ -80,3 +80,16 @@ $(function() {
        });
 
        
+
+  $(function() {
+
+var url = window.location.href; 
+
+
+$(".navbar .nav a").each(function() {
+
+    if(url == (this.href)) { 
+        $(this).closest("li").addClass("active");
+    }
+});
+});

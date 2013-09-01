@@ -4611,7 +4611,7 @@ color:#333;
 .navbar .nav .dropdown-toggle .caret {
   margin-top: 8px;
 }
-
+.navbar .nav > li.active{ color:blue;}
 .navbar .nav > li > a:focus,
 .navbar .nav > li > a:hover {
   color: #333333;
@@ -4623,8 +4623,6 @@ color:#333;
   font-weight:600;
 }
 
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
   color: #555555;
   text-decoration: none;
