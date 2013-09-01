@@ -23,6 +23,7 @@ class CertifiedProgramUsersController < ApplicationController
 		else
 		  flash.now[:error] = "Mandatory Fields should not be empty"
 		  render :new
+
 		end
 	end
 	def show
