@@ -1,30 +1,10 @@
-<%= simple_form_for :certificateprogramusers do |f| %>
-			<table class="table table-hover ">
-		<tr><td><%= f.label :course, "Course Name" %></td>
-			<td>PGCBA</td></tr>
-			<tr><td><%= f.label :name, "Name" %></td>
-			<td><%= f.text_field :name%></td></tr>
-			<tr><td><%= f.label :email, "Email" %></td>
-			<td><%= f.text_field :email%></td></tr>
-			<tr><td><%= f.label :mobile, "Mobile" %></td>
-			<td><%= f.text_field :mobile%></td></tr>
-			<tr><td><%= f.label :age, "Age" %></td>
-			<td><%= f.text_field :age%></td></tr>
-			<tr><td><%= f.label :city, "City" %></td>
-			<td><%= f.text_field :city%></td></tr>
-			<tr><td><%= f.label :father_name, "father_name" %></td>
-			<td><%= f.text_field :father_name%></td></tr>
-			<tr><td><%= f.label :father_occupation, "father_occupation" %></td>
-			<td><%= f.text_field :father_occupation%></td></tr>
-			<tr><td><%= f.label :mother_name, "mother_name" %></td>
-			<td><%= f.text_field :mother_name%></td></tr>
-			<tr><td><%= f.label :mother_occupation, "mother_occupation" %></td>
-			<td><%= f.text_field :mother_occupation%></td></tr>
-			<tr><td><%= f.label :Nationality, "Nationality" %></td>
-			<td><%= f.text_field :Nationality%></td></tr>
-			
-<tr><td></td><td><%= f.submit "submit", class: "btn btn-large btn-primary" %>
-</td></tr></table>
-<% end %>
 
-			
+ <div id="certifiedpopupmodal" class="modal2 hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" > 
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"><%=image_tag("close.png", alt: "", :size=>"35x35")%></a></button>
+ 
+  <div class="modal2-body">
+   <img src="assets/collated-infographic-web.jpg" style="width:100%;height:600px;">
+</div>
+</div>
+
+
