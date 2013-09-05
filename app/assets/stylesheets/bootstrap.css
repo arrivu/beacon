@@ -5451,11 +5451,11 @@ color:#333;
 .modal2 {
 position: fixed;
 top: 10%;
-left: 21%;
+/*left: 21%;*/
 z-index: 1050;
 min-width: 560px;
 max-width: 100%;
-margin-left: -280px;
+/*margin-left: -280px;*/
 background-color: #ffffff;
 border: 1px solid #999;
 border: 1px solid rgba(0, 0, 0, 0.3);
