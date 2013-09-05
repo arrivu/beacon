@@ -805,7 +805,7 @@ width: 90%;
 
 .nav-tabs2 > li > a:hover {
   color: #4183c4;
-  cursor: default;
+  cursor: pointer;
   background-color: #ffffff;
   font-weight:bold;
 }
@@ -813,7 +813,7 @@ width: 90%;
 .nav-tabs2 > .active > a,
 .nav-tabs2 > .active > a:hover {
   color: #4183c4;
-  cursor: default;
+  cursor: pointer;
   background-color: #ffffff;
   border-top: 1px solid #ddd;
  }
