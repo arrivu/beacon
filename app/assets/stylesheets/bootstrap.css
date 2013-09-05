@@ -5453,8 +5453,10 @@ position: fixed;
 top: 10%;
 /*left: 21%;*/
 z-index: 1050;
-min-width: 560px;
-max-width: 100%;
+/*min-width: 560px;
+max-width: 100%;*/
+width: 100%;
+height: 100%;
 /*margin-left: -280px;*/
 background-color: #ffffff;
 border: 1px solid #999;
@@ -5499,8 +5501,9 @@ background-clip: padding-box;
 
 .modal2-body {
   position: relative;
-  min-height:400px;
+/*  min-height:400px;*/
   padding: 20px;
+  height:100%;
   margin-top:10px;
   margin-bottom: 35px;
 
