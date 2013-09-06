@@ -21,11 +21,11 @@
             <div class="course-content">
               <em class="label-a label-offset" <%= course.topic.color==nil ? "style=background-color:#2b6341" : "style=background-color:#{course.topic.color}" %> rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>
             
-              <!-- <em class="label-b">Free Course</em> -->
+              <!-- <em class="label-b">Free Course</em> <%=link_to(course) do %> <%end%>-->
 
-              <%=link_to(course) do %><h3 class="course-name"><%= course.title.split(' ').map(&:capitalize).join(' ') %></h3>
+             <h3 class="course-name"><%= course.title.split(' ').map(&:capitalize).join(' ') %></h3>
               <p class="course-desc"><%= course.short_desc  %></p>
-              <%end%></div>
+              </div>
 
             </div>
           </article>

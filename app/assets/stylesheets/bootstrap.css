@@ -4304,7 +4304,7 @@ input[type="submit"].btn.btn-mini {
 /*  -webkit-border-radius: 4px 0 0 4px;
      -moz-border-radius: 4px 0 0 4px;
           border-radius: 4px 0 0 4px;*/
-          line-height: 11px;
+          line-height: 20px;
 font-size: 18px;
 color:#333;
 }
