@@ -24,3 +24,6 @@ end
 puts 'User created: ' << user.name
 
 user.add_role :admin
+
+
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><a href="#" onclick="close_popup()"><img alt="" src="/assets/close.png"></a></button>
