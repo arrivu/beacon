@@ -40,6 +40,7 @@ match '/pgpba',:to=>'certified_program_users#index'
     root :to => 'screens#home'
   end
   root :to => 'screens#home'
+   match '/businessanalyticsprogram', :to => 'screens#businessanalyticsprogram'
   match '/about', :to => 'screens#about'
   match '/privacy', :to => 'screens#privacy'
   match '/terms', :to => 'screens#terms'
