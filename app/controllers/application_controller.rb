@@ -69,4 +69,6 @@
   def routing_error
   render_not_found(nil)
   end
+
+  
 end

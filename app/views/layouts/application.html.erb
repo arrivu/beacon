@@ -41,7 +41,9 @@
     <%= render 'layouts/certified_popup' %>
     <%= render 'layouts/knowledge_partner_popup' %>
 <%= render 'layouts/forgot_password' %>
-  <%= render 'layouts/footer' %>
+ <% if !current_page?(businessanalyticsprogram_path) %>
+  <%= render 'layouts/footer'  %>
+  <%end%>
 </div>
 </body>
 <%= debug(params) if Rails.env.development? %>
