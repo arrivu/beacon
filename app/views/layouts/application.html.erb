@@ -35,14 +35,13 @@
 <% end %>  
 
     <%= yield %>
-
     <%= render 'layouts/login_popup' %>
     <%= render 'layouts/signup_popup' %>
     <%= render 'layouts/certified_popup' %>
     <%= render 'layouts/knowledge_partner_popup' %>
-<%= render 'layouts/forgot_password' %>
- <% if !current_page?(businessanalyticsprogram_path) %>
-  <%= render 'layouts/footer'  %>
+    <%= render 'layouts/forgot_password' %>
+     <% if !current_page?(businessanalyticsprogram_path) %>
+      <%= render 'layouts/footer'  %>
   <%end%>
 </div>
 </body>

@@ -5843,7 +5843,8 @@ a.thumbnail:hover {
 .carousel-nav{
 width: 124px;
 float: right;
-margin-top: -50px;  }
+margin-top: -50px; 
+position: relative; }
 .carousel-nav a.active {
     background:#333;
     border:1px solid #fff;
