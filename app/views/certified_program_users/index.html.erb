@@ -633,9 +633,14 @@ $('#myTab1 a').click(function (e) {
   $(this).tab('show');
 })
 </script>
-     <script type="text/javascript">
-$("a[data-tab-destination]").on('click', function() {
-    var tab = $(this).attr('data-tab-destination');
-    $("#"+tab).click();
-});
+
+
+<%if @request_url == "http://beacon-learning.herokuapp.com:3000/businessanalyticsprogram"  %>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        console.log("downloading pdf");
+        window.location.assign("http://beacon-learning.herokuapp.com:3000/download_pdf_pgpba")
+    });
 </script>
+<% end  %>

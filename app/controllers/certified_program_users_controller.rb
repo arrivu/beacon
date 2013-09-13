@@ -8,7 +8,13 @@ class CertifiedProgramUsersController < ApplicationController
     http_cache(@certificateprogramusers)
   end
 	def index
-	end
+     @request_url= request.referer
+
+  end
+  def download_pdf_pgpba
+    path = "#{Rails.root}/public/pdf/test.pdf"
+    send_data File.read(path),:filename => "business_analytics_program.pdf",:type => "application/pdf" ,disposition: "attachment"
+  end
 	def new
 		@certificateprogramusers = CertifiedProgramUser.new
 	end

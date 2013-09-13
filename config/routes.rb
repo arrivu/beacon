@@ -20,8 +20,9 @@ Myapp::Application.routes.draw do
   resources :blogs
   resources :tags
   resources :courses 
-match '/pgpba/application',:to=>'certified_program_users#new' 
-match '/pgpba',:to=>'certified_program_users#index' 
+  match '/pgpba/application',:to=>'certified_program_users#new'
+  match '/pgpba',:to=>'certified_program_users#index'
+  match '/download_pdf_pgpba',:to=>'certified_program_users#download_pdf_pgpba'
   match 'payments/course_payment_gateway',:to=>'payments#course_payment_gateway'
   match 'show_details',:to=>'certified_program_users#show_details'
   match 'payments/course_payment',:to=>'payments#course_payment'
