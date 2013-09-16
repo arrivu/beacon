@@ -12,8 +12,8 @@ class CertifiedProgramUsersController < ApplicationController
 
   end
   def download_pdf_pgpba
-    path = "#{Rails.root}/public/pdf/test.pdf"
-    send_data File.read(path),:filename => "business_analytics_program.pdf",:type => "application/pdf" ,disposition: "attachment"
+    path = "#{Rails.root}/public/pdf/Opportunities_in_Analytics-Great_Lakes.pdf"
+    send_data File.read(path),:filename => "Opportunities in Analytics - Great Lakes.pdf",:type => "application/pdf" ,disposition: "attachment"
   end
 	def new
 		@certificateprogramusers = CertifiedProgramUser.new
