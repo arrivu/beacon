@@ -24,11 +24,21 @@ class CertifiedProgramUsersController < ApplicationController
 
           
 		if @certificateprogramusers.save
-		  flash[:success] = "certificate program user created!"
-		  redirect_to root_url
+		 
+		 flash[:success] = "certificate program user created!"
+		 if @request_url == "http://pgpba.greatlakes.edu.in/"  
+		  redirect_to "http://pgpba.greatlakes.edu.in/"
 		else
-		  flash.now[:error] = "Mandatory Fields should not be empty"
-		  render :new
+			redirect_to root_url
+          end     
+		else
+		  
+		 flash.now[:error] = "Mandatory Fields should not be empty"
+		 if @request_url == "http://pgpba.greatlakes.edu.in/"  
+		  redirect_to "http://pgpba.greatlakes.edu.in/pgpba/application"
+		  else
+			 render :new
+          end   
 
 		end
 	end
