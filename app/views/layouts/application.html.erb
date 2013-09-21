@@ -18,6 +18,7 @@
 </script>
 </head>
 <body>
+
 <div id="wrapper">
   <% if check_null(yield(:effectingHeader)) %>
  
@@ -32,7 +33,7 @@
     <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-<% end %>  
+  <% end %>  
 
     <%= yield %>
     <%= render 'layouts/login_popup' %>
