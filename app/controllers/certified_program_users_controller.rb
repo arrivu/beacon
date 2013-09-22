@@ -1,7 +1,5 @@
 class CertifiedProgramUsersController < ApplicationController
 
-
-
 	def show_applicant_image   
     @certificateprogramusers = CertifiedProgramUser.find(params[:id])
     send_data @certificateprogramusers.applicant_photo, :type => @certificateprogramusers.applicant_photo_type, :disposition => 'inline'
@@ -35,7 +33,7 @@ class CertifiedProgramUsersController < ApplicationController
 		  
 		 flash.now[:error] = "Mandatory Fields should not be empty"
 		 if @request_url == "http://pgpba.greatlakes.edu.in/application"  
-		  redirect_to "http://pgpba.greatlakes.edu.in/pgpba/application"
+		  redirect_to "http://pgpba.greatlakes.edu.in/application"
 		  else
 			 render :new
           end   
