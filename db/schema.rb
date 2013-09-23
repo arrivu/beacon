@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.string   "email"
     t.integer  "age"
     t.string   "city"
-    t.integer  "mobile"
+    t.integer  "mobile",               :limit => 8
     t.string   "course"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.binary   "applicant_photo"
     t.string   "applicant_photo_type"
     t.string   "applicant_photo_name"
@@ -159,11 +159,11 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
   create_table "course_previews", :force => true do |t|
     t.string   "name"
     t.text     "desc"
-    t.text     "video_url",  :limit => 255
+    t.text     "video_url"
     t.integer  "sequence"
     t.integer  "enable"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer  "course_id"
   end
 
@@ -400,11 +400,11 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
 
   create_table "teaching_staffs", :force => true do |t|
     t.string   "name"
-    t.text     "description",          :limit => 255
+    t.text     "description"
     t.string   "qualification"
     t.integer  "user_id"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "linkedin_profile_url"
   end
 

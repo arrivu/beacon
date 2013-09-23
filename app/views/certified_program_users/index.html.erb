@@ -14,7 +14,7 @@
                     <div class="active item" data-slide-number="0">      <div class="row">
                     
                       <div class="clearfix"></div>
-                      <div class="span12" align="center" style="background-image:url(../assets/slider-1.png);background-repeat:no-repeat;background-size:100% 100%;color:white;width:100%;height: 300px;">
+                      <div class="span12" align="center" style="background-image:url(../assets/slider-11.png);background-repeat:no-repeat;background-size:100% 100%;color:white;width:100%;height: 300px;">
                       <div class="span12" style="width: 70%;margin: 0px 10%;">
                       <div class="span4" align="center" style="margin-top: 40px;margin-left: 160px;">
                                        <div class="bannervideo" >
@@ -27,7 +27,7 @@
                         <div class="bannerinfo">
                           <p style="font-size:21px;color:#000;">Designed with an innovative pedagogy and delivered by illustrious faculty, PGP-BA is tailored for working professionals who wish to build managerial careers in the growing Analytics industry. <br>
                             
-                           </p><br><br><a href="" style="font-size:16px;text-decoration:underline;color:#000;">Explore More</a>
+                           </p><br><br> <%= link_to "Explore More", root_path(:format => :js),:remote => true,'data-toggle' => 'tab', 'data-target' => '#profile1',:style=>"font-size:16px;text-decoration:underline;color:#000;" %>
                         </div></div>
                      </div>
                        </div>
@@ -222,8 +222,9 @@ Great Lakes faculty have authored several books and research articles on analyti
 height: 760px;
 background: url('assets/greybandcopy.png');background-position-x: 185px;">
 <ul class="nav nav-tabs2" id="myTab1" style="">
-  <li class="active"><a href="#Details">Programme Details</a></li>
-  <li class="tab-pane"><a href="#Benefits">Programme Benefits</a></li>
+  <li class="active"><a href="#Benefits">Programme Benefits</a></li>
+  <li class="tab-pane"><a href="#Details">Programme Details</a></li>
+  
   <li class="tab-pane"><a href="#Curriculum">Curriculum</a></li>
   <li class="tab-pane"><a href="#Faculty"> Faculty</a></li>
   <li class="tab-pane"><a href="#Calendar">Calendar</a></li>
@@ -232,7 +233,13 @@ background: url('assets/greybandcopy.png');background-position-x: 185px;">
 </ul></div>
 
 <div class="tab-content" style="width: 75%;float: left;padding-top: 30px;">
-  <div class="tab-pane active" id="Details">
+  <div class="tab-pane active" id="Benefits" style="padding:0px;">
+<div class="underlinetext">
+   <img src="assets/Program Benefits-Infographic.jpg">
+</div>
+</div>
+
+  <div class="tab-pane " id="Details">
 <div class="aboutcompany">
     <div class="underlinetext" style="text-align:center;">
      <div class="underlinetext">
@@ -251,12 +258,7 @@ background: url('assets/greybandcopy.png');background-position-x: 185px;">
 
    </div>
 </div></div>
-  <div class="tab-pane" id="Benefits" style="padding:20px;">
-<div class="underlinetext">
-    <h2>Programme Benefits</h2>
-   <img src="assets/Program Benefits-Infographic.jpg">
-</div>
-</div>
+
  <div class="tab-pane" id="Curriculum" style="padding:20px;">
 <div class="underlinetext">
     <h4>Curriculum</h4>
@@ -646,7 +648,7 @@ d. Payment of Rs 100,000 before Jan 31st 2014</span>
         <div class="" style="width:14%;float:right;">
   <div class="left" style="margin-top: 40px;margin-left: 10px;padding-left: 10px;float: left;
 height: 760px;
-background: url('assets/greyband1.png');"><table cellpadding="5" style="margin-bottom:20px;"><tr><td><img src="../assets/apply.png"></td><td><h4><a href="/pgpba/application" class="hover" >Apply Now</a></h4></td></tr></table>
+background: url('assets/greyband1.png');"><table cellpadding="5" style="margin-bottom:20px;"><tr><td><img src="../assets/apply.png"></td><td><h4><a href="http://pgpba.greatlakes.edu.in/application" class="hover" >Apply Now</a></h4></td></tr></table>
     <!-- <table cellpadding="5" style="margin-bottom:20px;"><tr><td><img src="../assets/dwnld.png"></td><td><h4><a href="" class="hover">Download<br> Brochure</a></h4></td></tr></table> -->
 <table cellpadding="5" style="margin-bottom:20px;" ><thead><a href="#certifiedpopupmodal" role="button" data-toggle="modal"><h4>Programme Overview</h4></a></thead><tr><td><img src="../assets/benifits.png"></td><td> <a href="#certifiedpopupmodal" role="button" data-toggle="modal">Learn more about the PGPBA Programme through an INFOGRAPHIC</a></td></tr></table>
 <table cellpadding="5" style="margin-bottom:20px;"><thead><h4>Contact Us</h4></thead><tr><td><img src="../assets/contact.png"></td><td><b>E:</b><a href="mailto:info@beaconlearning.in" target="_top">info@beaconlearning.in</a><br><b>T:</b>0124-4934024</td></tr></table>
