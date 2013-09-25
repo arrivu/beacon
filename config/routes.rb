@@ -36,7 +36,7 @@ Myapp::Application.routes.draw do
   resources :under_constructions
   resources :o_classes
   resources :course_previews
-  
+  resources :accounts
   authenticated :user do
     root :to => 'screens#home'
   end

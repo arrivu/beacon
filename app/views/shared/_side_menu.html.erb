@@ -35,7 +35,10 @@
       <li><%= link_to "Course Status Search",course_status_search_path %></li>  
       <li><%= link_to "Conclude Course", conclude_course_path %></li>
       <li><%= link_to "Certified Program Users", show_details_path %></li>
-      
+
+      <% if account= Account.first %>
+        <li><%= link_to "Zopium Enable", edit_account_path(account) %></li>
+      <% end %>
    	</ul>   	
    </div>
 

@@ -108,4 +108,6 @@ class TeachingStaffsController < ApplicationController
 		redirect_to teaching_staffs_path
 		flash[:notice] = "Deleted teaching staff details successfully"
 	end
+
+	
 end

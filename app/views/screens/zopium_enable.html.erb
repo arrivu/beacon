@@ -1,0 +1,29 @@
+<div style="float:left">
+<%= render 'shared/side_menu' %>
+</div>
+
+<br>
+
+<div class="row">
+	<div class="span12 offset3">
+<br>
+<div class="row">
+	<div class="span10" style="min-height:600px;">
+		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
+			<table class="table table-hover ">
+				
+ <%= form_for :zopium, :url => url_for(:controller => 'account', :action => 'zopium')  do |f| %>
+								
+								 <tr>
+		<td><%= f.label :zopium_enable %></td>
+		<td><%= f.check_box :zopium_enable, :checked => @account.zopium_enable[:zopium_enable] %></td>
+	  </tr>		
+	  <tr><td>	<%= f.submit  "Submit", :class=>"btn btn-primary btn-large"%></td></tr>
+											<% end %>
+
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						</div>
