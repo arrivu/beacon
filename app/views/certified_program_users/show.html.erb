@@ -1,6 +1,3 @@
-
-
-
 <div style="float:left">
   <%= render 'shared/side_menu' %>
 </div>
@@ -12,6 +9,7 @@
 <%= link_to "PRINT", '#',:class=>"print", onclick: "printpage()" %>
 <table class="table">
   <tr><td colspan="2"><h2>Application For PGPBA</h2></td><td colspan="2"><%= image_tag url_for(:controller => 'certified_program_users',:action => 'show_applicant_image', :id => @certificateprogramusers.id), width: "150", height: "150", :style=>"float: right;"%></td></tr>
+<tr><td>Created at:</td><td><%= @certificateprogramusers.created_at %></td><td></td><td></td></tr>
 <tr><td><%= "Name" %></td><td><%= @certificateprogramusers.name%></td></tr>
 <tr><td>Gender</td><td>
 <%= @certificateprogramusers.gender %>
@@ -57,11 +55,7 @@
 <tr><td>c</td><td>Others (Specify)</td><td><%= @certificateprogramusers.others_a%></td></tr>
 <tr><td></td><td></td><td><%= @certificateprogramusers.others_b %></td></tr>
   </table>
-    <table class="table"><h4>Please choose any one payment mode for application fee*</h4>
-      <tr><td colspan="3"><%= @certificateprogramusers.payment_mode%>Online Transfer
-</td><td></td><td>Note: Application Fee Rs 500/- only</td></tr>
-</table>
- <table class="table"><h4>Declaration</h4>
+    <table class="table"><h4>Declaration</h4>
       <h6>I certify that information provided in this application form is correct.</h6>
       <tr><td>Current City*</td><td colspan="2"><%= @certificateprogramusers.current_city%></td><td>Applicant Name*</td><td><%= @certificateprogramusers.applicant_name%></td></tr>
 
