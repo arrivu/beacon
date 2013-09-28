@@ -1,3 +1,6 @@
+<% unless Account.first.nil?%>
+ <% if Account.first.zopium_enable == false %>
+
 <div class="container courseclub" style="padding:0px 25px;" >
   <div class="row">
     
@@ -36,4 +39,50 @@
       
     </div>
   </div>
+
+
+<%else%>
+
+  <div class="container courseclub" style="padding:0px 25px;" >
+  <div class="row">
+    
+    <% @courses.each do |course|%>
+    <div class="span7">
+      <div class="courses">
+                 <article class="course path-100" data-connection="18 20" data-tag="ruby-basics" id="course-6">
+          <div class="card-a course-inner">
+            <div class="course-progress" data-width="0%" style="width: 0%;"></div>
+            <% if course.data!=nil %>
+            <%= image_tag url_for(:controller => 'courses',:action => 'show_image', :id => course.id), width: "130", height: "130",:class=>"course-badge img-circle" %>
+            <% else %>
+            <%= image_tag "test.png", width: "130", height: "130",:class=>"course-badge img-circle" %>
+            <% end %>
+            <% if course.is_coming_soon %>
+              <div class="coming_soon"><%= image_tag("coming_soon.png",:size=>"80x80" ) %></div>
+            <% elsif price_of_course_according_to_date(course).to_i ==0 %>
+              <div class="free"><%= image_tag("free.png") %></div>
+            <% end %>
+      <%=link_to(course) do %>
+            <div class="course-content">
+              <em class="label-a label-offset" <%= course.topic.color==nil ? "style=background-color:#2b6341" : "style=background-color:#{course.topic.color}" %> rel="tooltip" data-original-title="Orientation courses are entry-level courses in each of our Paths."> <b><%=course.topic.name.split(' ').map(&:capitalize).join(' ') if !course.topic.nil? %></b></em>
+            
+              <!-- <em class="label-b">Free Course</em>  -->
+
+             <h3 class="course-name"><%= course.title.split(' ').map(&:capitalize).join(' ') %></h3>
+              <p class="course-desc"><%= course.short_desc  %></p>
+              </div>
+<%end%>
+            </div>
+          </article>
+        </div>
+
+      </div>
+      <%end%>
+      
+    </div>
+  </div>
   
+
+  
+  <% end %>
+  <% end %>
