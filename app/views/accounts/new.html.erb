@@ -12,9 +12,9 @@
 		<div class = "hero-unit" style="border:1px solid #0088cc;border-radius:5px;">
 			<table class="table table-hover ">
 			<%= simple_form_for @account do |f| %>
-			<tr><td><%= f.label :zopium_enable, "zopium_enable" %></td>
+			<tr><td><%= f.label :zopium_enable, "Enable Zopim" %></td>
 					<td><%= f.check_box :zopium_enable %></td></tr>
-					<tr><td><%= f.label :clickable_courses, "zopium_enable" %></td>
+					<tr><td><%= f.label :clickable_courses, "Enable Course details" %></td>
 					<td><%= f.check_box :clickable_courses %></td></tr>
 	<tr><td></td><td><%= f.submit "Submit", class: "btn btn-large btn-primary" %>
 												</td></tr>
