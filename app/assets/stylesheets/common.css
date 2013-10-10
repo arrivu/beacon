@@ -19,7 +19,7 @@ a {
 color: #000;
 text-decoration: none;
 }
-
+.course-inner img{width:130px;height:130px;}
 .hover:hover{
 	text-decoration: none;
   color:#005580;

@@ -28,7 +28,7 @@ class AccountsController < ApplicationController
 	   @account = Account.find(params[:id])
 
 	   if @account.update_attributes(params[:account])
-	     flash[:success] ="Zopium Enable/Disable Updated"  
+	     flash[:success] ="Account Settings Updated"  
 	     redirect_to users_path
 	   else
 	     render :edit

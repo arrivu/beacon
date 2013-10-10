@@ -177,7 +177,7 @@ def show
     end
 
     def manage_courses
-      @courses = Course.paginate(page: params[:page], :per_page => 10).order(:id)
+      @courses = Course.where(isconcluded: "f").paginate(page: params[:page], :per_page => 10).order(:id)
       @topic = Topic.all
     end
 
