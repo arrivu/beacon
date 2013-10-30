@@ -1,0 +1,49 @@
+class ChnageTypeToCertifiedPrrogramUsers < ActiveRecord::Migration
+  def change
+
+  		change_column :certified_program_users, :name, :text
+        change_column :certified_program_users, :email, :text
+        change_column :certified_program_users, :city, :text
+        change_column :certified_program_users, :course, :text
+        change_column :certified_program_users,  :applicant_photo_type, :text
+    	change_column :certified_program_users,  :applicant_photo_name, :text
+   	   	change_column :certified_program_users,  :marital_status, :text
+    	change_column :certified_program_users,  :father_name, :text
+    	change_column :certified_program_users,  :father_occupation, :text
+   		change_column :certified_program_users,  :mother_name, :text
+   		change_column :certified_program_users,  :mother_occupation, :text
+    	change_column :certified_program_users,  :Nationality, :text
+     	change_column :certified_program_users,  :pg_degree, :text
+    	change_column :certified_program_users,  :pg_discipline, :text
+    	change_column :certified_program_users,  :pg_college, :text
+    	change_column :certified_program_users,  :pg_university, :text
+    	change_column :certified_program_users,  :gr_degree, :text
+    	change_column :certified_program_users,  :gr_discipline, :text
+    	change_column :certified_program_users,  :gr_college, :text
+    	change_column :certified_program_users,  :gr_university, :text
+       	change_column :certified_program_users,  :hsc_degree, :text
+    	change_column :certified_program_users,  :hsc_discipline, :text
+    	change_column :certified_program_users, :hsc_college, :text
+    	change_column :certified_program_users,  :hsc_university, :text
+      	change_column :certified_program_users,  :sc_degree, :text
+    	change_column :certified_program_users,  :sc_discipline, :text
+    	change_column :certified_program_users,  :sc_college, :text
+    	change_column :certified_program_users,  :sc_university, :text
+   		change_column :certified_program_users,  :experience, :text
+    	change_column :certified_program_users,  :ctc, :text
+    	change_column :certified_program_users,  :organization_a, :text
+    	change_column :certified_program_users, :designation_a, :text
+    	change_column :certified_program_users,  :nature_of_work_a, :text
+      	change_column :certified_program_users,  :organization_b, :text
+    	change_column :certified_program_users,  :designation_b, :text
+   	 	change_column :certified_program_users,  :nature_of_work_b, :text
+    	change_column :certified_program_users,  :extracuricular_a, :text
+    	change_column :certified_program_users,  :extracuricular_b, :text
+   	 	change_column :certified_program_users,  :others_a, :text
+    	change_column :certified_program_users,  :others_b, :text
+    	change_column :certified_program_users,  :payment_mode, :text
+    	change_column :certified_program_users,  :current_city, :text
+    	change_column :certified_program_users,  :applicant_name, :text
+    	change_column :certified_program_users,  :gender, :text
+  end
+end

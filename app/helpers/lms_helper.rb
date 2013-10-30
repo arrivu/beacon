@@ -81,7 +81,7 @@ module LmsHelper
 		if lms_enable? 
 			lmscourse=CanvasREST::Course.new
 			lmscourse.set_token(Settings.lms.oauth_token,Settings.lms.api_root_url)
-			course=lmscourse.get_course(course.lms_id)
+			course=lmscourse.get_course(course.lms_id.to_i)
 			modules=course.modules
 		else
 			modules
