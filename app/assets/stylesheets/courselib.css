@@ -33,6 +33,7 @@ border-radius:10px;
 
 .coming_soon img{
 	width:80px;
+	height: 80px;
 }
 
 .free{
@@ -41,6 +42,7 @@ border-radius:10px;
 
 .free img{
 	width:80px;
+	height: 80px;
 }
 img{
 	border:none;
