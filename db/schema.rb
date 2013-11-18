@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.text     "email"
     t.integer  "age"
     t.text     "city"
-    t.integer  "mobile",               :limit => 8
+
+    t.text     "mobile"
     t.text     "course"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.binary   "applicant_photo"
     t.text     "applicant_photo_type"
     t.text     "applicant_photo_name"
@@ -67,7 +68,7 @@ ActiveRecord::Schema.define(:version => 20130314093035551) do
     t.text     "mother_occupation"
     t.text     "Nationality"
     t.text     "mailing_address"
-    t.integer  "landline"
+    t.text     "landline"
     t.text     "pg_degree"
     t.text     "pg_discipline"
     t.text     "pg_college"
